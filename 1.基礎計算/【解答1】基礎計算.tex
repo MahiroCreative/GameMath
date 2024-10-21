@@ -1,0 +1,89 @@
+%【紙面設定】
+%b4,横書き,2段
+\documentclass[paper=b4j,landscape,twocolumn,fleqn]{jlreq}
+%横書き用の調整
+\special{papersize=\the\paperwidth,\the\paperheight}
+%間に線をいれる
+\setlength{\columnseprule}{0.4pt}
+%ページ番号消す
+\pagestyle{empty}
+%ページ余白の調整
+\usepackage[margin=10truemm]{geometry}
+%画像挿入用のパッケージ
+\usepackage[dvipdfmx]{graphicx}
+%数学用のパッケージ
+\usepackage{amsmath}
+%見出しによる行取りの数を減らす
+\ModifyHeading{section}{lines=1}
+
+%【本文】
+\begin{document}
+%1段落目
+\section{五則演算}
+\begin{align*}
+  4+8&=12 & 12+88&=100 & 128+256&=384\\
+  4-8&=-4 & 32-12&=20 & 512-256&=256\\
+  2*8&=16 & 16*24&=384 & 128*256&=32768\\
+  8/2&=4 & 24*8&=3 & 512*128&=4\\
+  7\%2&=1 & 25\%11&=3 & 512\%100&=12\\
+\end{align*}
+\section{累乗計算}
+\begin{align*}
+  2^0&=1 & 2^2&=4 & 2^3&=8\\
+  3^0&=1 & 3^2&=9 & 3^3&=27\\
+  4^0&=1 & 4^2&=16 & 4^3&=64\\
+  5^0&=1 & 5^2&=25 & 5^3&=125\\
+  6^0&=1 & 6^2&=36 & 6^3&=216\\
+  7^0&=1 & 7^2&=49 & 7^3&=343\\
+  8^0&=1 & 8^2&=64 & 8^3&=512\\
+  9^0&=1 & 9^2&=81 & 9^3&=729\\
+\end{align*}
+\section{平方根}
+\begin{align*}
+  \sqrt{4}&=2 & \sqrt{8}&=2\sqrt{2} & \sqrt{18}&=3\sqrt{2}\\
+  \sqrt{9}&=3 & \sqrt{12}&=2\sqrt{3} & \sqrt{27}&=3\sqrt{3}\\
+  \sqrt{16}&=4 & \sqrt{32}&=4\sqrt{2} & \sqrt{64}&=8 \\
+  \sqrt{25}&=5 & \sqrt{20}&=2\sqrt{5} & \sqrt{45}&=3\sqrt{5}\\
+  \sqrt{36}&=6 & \sqrt{24}&=2\sqrt{6} & \sqrt{54}&=3\sqrt{6}\\
+  \sqrt{49}&=7 & \sqrt{28}&=2\sqrt{7} & \sqrt{48}&=4\sqrt{3}\\
+  \sqrt{64}&=8 & \sqrt{128}&=8\sqrt{2} & \sqrt{256}&=16\\
+  \sqrt{81}&=9 & \sqrt{36}&=6 & \sqrt{72}&=6\sqrt{2}\\
+\end{align*}
+
+%2段落目
+\newpage
+\section{指数計算1}
+\begin{align*}
+  2^{-1}&=\frac{1}{2} & 2^{-2}&=\frac{1}{4} & 2^{\frac{1}{2}}&=\sqrt{2}\\
+  3^{-1}&=\frac{1}{3} & 3^{-2}&=\frac{1}{9} & 3^{\frac{1}{2}}&=\sqrt{3}\\
+  4^{-1}&=\frac{1}{4} & 4^{-2}&=\frac{1}{16} & 4^{\frac{1}{2}}&=\sqrt{4}\\
+  5^{-1}&=\frac{1}{5} & 5^{-2}&=\frac{1}{25} & 5^{\frac{1}{2}}&=\sqrt{2}\\
+  6^{-1}&=\frac{1}{6} & 6^{-2}&=\frac{1}{36} & 6^{\frac{1}{2}}&=\sqrt{2}\\
+  7^{-1}&=\frac{1}{7} & 7^{-2}&=\frac{1}{49} & 7^{\frac{1}{2}}&=\sqrt{2}\\
+  8^{-1}&=\frac{1}{8} & 8^{-2}&=\frac{1}{64} & 8^{\frac{1}{2}}&=\sqrt{2}\\
+  9^{-1}&=\frac{1}{9} & 9^{-2}&=\frac{1}{81} & 9^{\frac{1}{2}}&=\sqrt{2}\\
+\end{align*}
+\section{指数計算2(※計算出来ない場合は$n^m$の形にせよ)}
+\begin{align*}
+  (2)^n&=2^n & (4)^n&=(2^2)^n=2^{2n} & (8)^n&=(2^3)^n=2^{3n}\\
+  2^{-n}&=\frac{1}{2^n} & 2^n*2^{-m}&=2^{n-m} & 2^n * 2^{\frac{1}{2}}&=2^{\frac{2n-1}{2}}\\
+  2^2*2^3&=2^5=32 & 2^2*2^{-3}&=2^{-1}=\frac{1}{2} & 2^2*2^{\frac{1}{2}}&=4\sqrt{2}\\
+  3^2*3^4&=729 & 3^2*3^{-4}&=\frac{1}{9} & 3^2*3^{\frac{1}{2}}&=9\sqrt{3}\\
+  4^3*2^5&=2^6*2^5=2^{11}=2048 & 4^3*4^{-5}&=4^{-2}=\frac{1}{16} & 4^2*4^{\frac{1}{2}}&=16*2=32\\
+\end{align*}
+\section{指数計算3※計算出来ない場合は$n^m$の形にせよ)}
+\begin{align*}
+  2^n*8*\sqrt{2} &=2^n*2^3*2^{\frac{1}{2}}=2^{\frac{2n+7}{2}}
+  & 2^{n}*16*2^{\frac{1}{2}}&= 2^n*2^4*2^{\frac{1}{2}}=2^{\frac{2n+9}{2}}\\
+  \sqrt{8}*2^{\frac{1}{2}}*2^{-\frac{1}{2}} &= 2\sqrt{2}*\sqrt{2}*\frac{1}{\sqrt{2}} =  2\sqrt{2}
+  & \sqrt{16}*4^{\frac{1}{2}}*4^{-\frac{1}{2}}&=4*\sqrt{4}*\frac{1}{\sqrt{4}} = 4\\
+  \sqrt{12}*3^{\frac{1}{2}}*4^{-\frac{1}{2}} &= 2\sqrt{3} *\sqrt{3}*\frac{1}{2}=3
+  & \sqrt{18}*3^{-\frac{1}{2}}*8^{-\frac{1}{2}}&= 3\sqrt{2}*\frac{1}{\sqrt{3}}*\frac{1}{2\sqrt{2}}=\frac{\sqrt{2}}{\sqrt{3}}=\frac{\sqrt{6}}{3}\\
+  \sqrt{18}*2^{\frac{1}{2}}*8^{-\frac{1}{2}} &= 3\sqrt{2}*\sqrt{2}*\frac{1}{2\sqrt{2}}=2
+  & \sqrt{36}*9^{\frac{1}{2}}*9^{-\frac{1}{2}}&= 6*3*\frac{1}{3}=6\\
+  \sqrt{81}*9^{\frac{1}{2}}*9^{-\frac{1}{2}} &= 9*3*\frac{1}{3}= 9
+  & \sqrt{32}*3^{\frac{1}{2}}*5^{-\frac{1}{2}}&= 4\sqrt{2}*\sqrt{3}*\frac{1}{\sqrt{5}}=\frac{4\sqrt{6}}{\sqrt{5}}=\frac{4\sqrt{30}}{5}\\
+\end{align*}
+\end{document}
+
+
