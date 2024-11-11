@@ -1,31 +1,31 @@
-#include "DxLib.h"
+ï»¿#include "DxLib.h"
 #include "Quaternion.h"
 
-// ƒXƒNƒŠ[ƒ“ƒTƒCƒY
+// ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã‚µã‚¤ã‚º
 #define SCREEN_W 1280
 #define SCREEN_H 720
 
 
-// ƒvƒƒOƒ‰ƒ€‚Í WinMain ‚©‚çn‚Ü‚è‚Ü‚·
+// ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã¯ WinMain ã‹ã‚‰å§‹ã¾ã‚Šã¾ã™
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-	// ‰æ–Êƒ‚[ƒh‚Ìİ’è
-	SetGraphMode(SCREEN_W, SCREEN_H, 32);		// ‰ğ‘œ“x‚ğSCREEN_W*SCREEN_HAcolor‚ğ16bit‚Éİ’è.
+	// ç”»é¢ãƒ¢ãƒ¼ãƒ‰ã®è¨­å®š
+	SetGraphMode(SCREEN_W, SCREEN_H, 32);		// è§£åƒåº¦ã‚’SCREEN_W*SCREEN_Hã€colorã‚’16bitã«è¨­å®š.
 
-	// ƒEƒCƒ“ƒhƒEƒ‚[ƒh
+	// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ¢ãƒ¼ãƒ‰
 	ChangeWindowMode(true);
 
-	if (DxLib_Init() == -1)		// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
+	if (DxLib_Init() == -1)		// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªåˆæœŸåŒ–å‡¦ç†
 	{
-		return -1;			// ƒGƒ‰[‚ª‹N‚«‚½‚ç’¼‚¿‚ÉI—¹
+		return -1;			// ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸã‚‰ç›´ã¡ã«çµ‚äº†
 	}
 
-	// — ‰æ–Ê‚É•`‰æ‚ğs‚¤
+	// è£ç”»é¢ã«æç”»ã‚’è¡Œã†
 	SetDrawScreen(DX_SCREEN_BACK);
 
-	// SceneŠJn
+	// Sceneé–‹å§‹
 
-	//‰œs0.1`10000‚Ü‚Å‚ğƒJƒƒ‰‚Ì•`‰æ”ÍˆÍ‚Æ‚·‚é
+	//å¥¥è¡Œ0.1ï½10000ã¾ã§ã‚’ã‚«ãƒ¡ãƒ©ã®æç”»ç¯„å›²ã¨ã™ã‚‹
 	SetCameraNearFar(1.0f, 10000.0f);
 
 	VECTOR pos = VGet(0,0,0);
@@ -34,7 +34,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	VECTOR cRight = VGet(cPos.x + 1, cPos.y, cPos.z);
 	Quaternion cQ;
 
-	float angle = - 2 * DX_PI_F * 0.002f;//0.72“x;
+	float angle = - 2 * DX_PI_F * 0.002f;//0.72åº¦;
 	float Range = 2000.0f;
 	float Atten0 = 1.0f;
 	float Atten1 = 0.0006f;
@@ -44,23 +44,23 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	MV1SetPosition(pHandle, pos);
 	MV1SetScale(pHandle, VGet(0.02f, 0.02f, 0.02f));
 
-	// ƒQ[ƒ€ƒ‹[ƒv
+	// ã‚²ãƒ¼ãƒ ãƒ«ãƒ¼ãƒ—
 	while (ProcessMessage() != -1)
 	{
-		// ƒtƒŒ[ƒ€ŠJn‚ğŠo‚¦‚Ä‚¨‚­
+		// ãƒ•ãƒ¬ãƒ¼ãƒ é–‹å§‹æ™‚åˆ»ã‚’è¦šãˆã¦ãŠã
 		LONGLONG start = GetNowHiPerformanceCount();
 
-		// •`‰æ‚ğs‚¤‘O‚É‰æ–Ê‚ğƒNƒŠƒA‚É‚·‚é
+		// æç”»ã‚’è¡Œã†å‰ã«ç”»é¢ã‚’ã‚¯ãƒªã‚¢ã«ã™ã‚‹
 		ClearDrawScreen();
 
-		// ƒQ[ƒ€‚Ìˆ—
+		// ã‚²ãƒ¼ãƒ ã®å‡¦ç†
 		VECTOR axis = VGet(0,0,0);
 		VECTOR vec = VGet(0, 0, 0);
 		VECTOR up = VSub(cUp, cPos);
 		VECTOR right = VSub(cRight, cPos);
 		VECTOR center = VSub(pos, cPos);
 
-		// cü‚è‰ñ“]
+		// ç¸¦å‘¨ã‚Šå›è»¢
 		if (CheckHitKey(KEY_INPUT_UP))
 		{
 			axis = VAdd(axis, VSub(VGet(0, 0, 0), right));
@@ -72,7 +72,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			axis = VNorm(axis);
 		}
 
-		// ‰¡ü‚è‰ñ“]
+		// æ¨ªå‘¨ã‚Šå›è»¢
 		if (CheckHitKey(KEY_INPUT_RIGHT))
 		{
 			axis = VAdd(axis, up);
@@ -84,7 +84,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			axis = VNorm(axis);
 		}
 
-		// ù‰ñ‰ñ“]
+		// æ—‹å›å›è»¢
 		if (CheckHitKey(KEY_INPUT_Z))
 		{
 			axis = VAdd(axis, center);
@@ -96,7 +96,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			axis = VNorm(axis);
 		}
 
-		// ˆÚ“®
+		// ç§»å‹•
 		if (CheckHitKey(KEY_INPUT_D))
 		{
 			vec = VAdd(vec,right);
@@ -108,7 +108,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			vec = VScale(VNorm(vec), 0.3f);
 		}
 		
-		// ù‰ñ‰ñ“]
+		// æ—‹å›å›è»¢
 		if (CheckHitKey(KEY_INPUT_W))
 		{
 			vec = VAdd(vec, center);
@@ -143,23 +143,23 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		MV1DrawModel(pHandle);
 		// DrawCone3D(VGet(pos.x + 20, pos.y + 20, pos.z), VGet(pos.x - 20, pos.y - 20, pos.z), 10, 32, 0xffffff, 0xffffff, true);
 
-		// ‰æ–Ê‚ªØ‚è‘Ö‚í‚é‚Ì‚ğ‘Ò‚Â
+		// ç”»é¢ãŒåˆ‡ã‚Šæ›¿ã‚ã‚‹ã®ã‚’å¾…ã¤
 		ScreenFlip();
 
-		// endˆ—
+		// endå‡¦ç†
 		if (CheckHitKey(KEY_INPUT_ESCAPE))
 		{
 			break;
 		}
 
 
-		// FPS‚ğ60‚ÉŒÅ’è
+		// FPSã‚’60ã«å›ºå®š
 		while (GetNowHiPerformanceCount() - start < 16667)
 		{
-			// 16,66ƒ~ƒŠ•b(16667ƒ}ƒCƒNƒ•b)Œo‰ß‚Ü‚Å‘Ò‚Â
+			// 16,66ãƒŸãƒªç§’(16667ãƒã‚¤ã‚¯ãƒ­ç§’)çµŒéã¾ã§å¾…ã¤
 		}
 	}
-	DxLib_End();				// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠg—p‚ÌI—¹ˆ—
+	DxLib_End();				// ï¼¤ï¼¸ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä½¿ç”¨ã®çµ‚äº†å‡¦ç†
 
-	return 0;				// ƒ\ƒtƒg‚ÌI—¹ 
+	return 0;				// ã‚½ãƒ•ãƒˆã®çµ‚äº† 
 }
