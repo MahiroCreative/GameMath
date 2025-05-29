@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckHit2_2 : MonoBehaviour {
+public class CheckHit2_2 : MonoBehaviour
+{
     public Renderer rend;
     public Color colorNoHit = Color.cyan;
     public Color colorHit = Color.red;
@@ -32,10 +33,10 @@ public class CheckHit2_2 : MonoBehaviour {
         //相対ベクトル
         Vector3 v3DeltaPos = transform.position - RefTarget.transform.position;
 
-        //衝突する物体の正面ベクトルと相対ベクトルの内積
+        //カプセルの「中点から端の円の中点」までのベクトルと相対ベクトルの内積
         float dot = Vector3.Dot(RefTarget.v3Direction, v3DeltaPos);
 
-        //衝突物体の正面ベクトルのマグニチュード
+        //カプセルの「中点から端の円の中点」のマグニチュード
         float mag = Vector3.SqrMagnitude(RefTarget.v3Direction);
 
         //tは点に向かう法線ベクトルを求めるための係数。
@@ -43,7 +44,7 @@ public class CheckHit2_2 : MonoBehaviour {
 
         //線分と点の距離を求めるためのtの制限
         if (t < -1.0f) t = -1.0f;                     // tの下限
-        if (t >  1.0f) t =  1.0f;                     // tの上限
+        if (t > 1.0f) t = 1.0f;                     // tの上限
 
         //p=at+cで点との最短距離になる線分上の点の位置を求める
         //(※p=at+cは単に求めたい点Pが、図形の中心cからどれだけ離れた点かを表しているだけ)
@@ -53,12 +54,12 @@ public class CheckHit2_2 : MonoBehaviour {
         float fDistSqr = Vector3.SqrMagnitude(v3MinPos - transform.position);
 
         //衝突距離の計算
-        float ar = RefTarget.fRadius + fRadius;       
+        float ar = RefTarget.fRadius + fRadius;
 
 
         // 当たり判定(２乗のまま比較)
         if (fDistSqr < ar * ar)
-        {                      
+        {
             rend.material.color = colorHit;
         }
         else
