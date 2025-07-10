@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.euc) (TeX Live 2024) (preloaded format=platex 2025.6.27)  9 JUL 2025 16:16
+This is e-upTeX, Version 3.141592653-p4.1.1-u1.30-230214-2.6 (utf8.euc) (TeX Live 2024) (preloaded format=platex 2025.6.27)  10 JUL 2025 13:54
 entering extended mode
  restricted \write18 enabled.
 **main.tex
@@ -382,13 +382,13 @@ L3 programming layer <2025-01-18>
 Here is how much of TeX's memory you used:
  5330 strings out of 473863
  108919 string characters out of 5731558
- 549933 words of memory out of 5000000
+ 568933 words of memory out of 5000000
  28546 multiletter control sequences out of 15000+600000
  588123 words of font info for 80 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  81i,9n,103p,902b,235s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.dvi (1 page, 5280 bytes).
+Output written on main.dvi (1 page, 8332 bytes).
 
 main.dvi -> main.pdf
 [1
@@ -396,4 +396,4 @@ dvipdfmx:warning: Unparsed material at end of special ignored.
 
 Current input buffer is -->! /landplus90 true store<--
 ]
-25330 bytes written
+41057 bytes written
