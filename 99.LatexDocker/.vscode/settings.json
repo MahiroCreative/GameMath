@@ -1,0 +1,27 @@
+{
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "Docker-CleanBuild-Extract",
+            "tools": ["docker-clean-build"]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "docker-clean-build",
+            "command": "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe",
+            "args": [
+                "run",
+                "--rm",
+                "-v", "%DIR%:/workdir",
+                "--workdir", "/workdir",
+                "my-latex-physics",
+                "sh", "-c",
+                "rm -rf out && mkdir -p out && latexmk -r config/.latexmkrc -outdir=out -pdfdvi %DOCFILE% && cp out/%DOCFILE%.pdf ."
+            ]
+        }
+    ],
+    "latex-workshop.latex.outDir": ".",
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.docker.enabled": false
+}

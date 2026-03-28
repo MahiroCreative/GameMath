@@ -1,0 +1,10 @@
+services:
+  texlive:
+    build: .
+    image: my-latex-physics
+    container_name: latex-env
+    volumes:
+      - .:/workdir
+    working_dir: /workdir
+    tty: true
+    stdin_open: true
