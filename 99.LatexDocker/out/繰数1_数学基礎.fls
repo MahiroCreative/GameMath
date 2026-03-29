@@ -4,8 +4,8 @@ INPUT /usr/local/texlive/2026/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2026/texmf.cnf
 INPUT /usr/local/texlive/2026/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2026/texmf-var/web2c/euptex/uplatex.fmt
-INPUT 繰数2_点と座標.tex
-OUTPUT out/繰数2_点と座標.log
+INPUT 繰数1_数学基礎.tex
+OUTPUT out/繰数1_数学基礎.log
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/jlreq/jlreq.cls
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/jlreq/jlreq.cls
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/jlreq/jlreq-helpers.sty
@@ -71,10 +71,10 @@ INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/lm/ot1lmr.fd
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
-INPUT out/繰数2_点と座標.aux
-INPUT out/繰数2_点と座標.aux
-INPUT out/繰数2_点と座標.aux
-OUTPUT out/繰数2_点と座標.aux
+INPUT out/繰数1_数学基礎.aux
+INPUT out/繰数1_数学基礎.aux
+INPUT out/繰数1_数学基礎.aux
+OUTPUT out/繰数1_数学基礎.aux
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/jlreq/ujlreq-v.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/jlreq/ujlreq.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/rm-lmr12.tfm
@@ -105,5 +105,7 @@ INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/lm/omxlmex.fd
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/lm/lmex10.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/jlreq/ujlreq.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/jlreq/ujlreq.tfm
-OUTPUT out/繰数2_点と座標.dvi
-INPUT out/繰数2_点と座標.aux
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/jlreq/ujlreq-v.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/jlreq/ujlreq-v.tfm
+OUTPUT out/繰数1_数学基礎.dvi
+INPUT out/繰数1_数学基礎.aux
