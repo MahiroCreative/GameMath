@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1774788521.91672 "out/繰数1_数学基礎.dvi" "out/繰数1_数学基礎.pdf" "out/繰数1_数学基礎" 1774788522.04134 0
-  "out/繰数1_数学基礎.dvi" 1774788521.18785 11056 fd8c318a297b48c335e90ba4663a7902 "latex"
+["dvipdf"] 1774788923.15124 "out/繰数2_点と座標.dvi" "out/繰数2_点と座標.pdf" "out/繰数2_点と座標" 1774788923.28479 0
+  "out/繰数2_点と座標.dvi" 1774788920.21916 5124 af20cf7faf1530ab2af053af7087978d "latex"
   (generated)
-  "out/繰数1_数学基礎.pdf"
+  "out/繰数2_点と座標.pdf"
   (rewritten before read)
-["latex"] 1774788521.40976 "繰数1_数学基礎.tex" "out/繰数1_数学基礎.dvi" "繰数1_数学基礎" 1774788522.03477 0
+["latex"] 1774788922.6152 "繰数2_点と座標.tex" "out/繰数2_点と座標.dvi" "繰数2_点と座標" 1774788923.28105 0
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1136768653 1292 21c1c5bfeaebccffdb478fd231a0997d ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1136768653 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/jlreq/ujlreq-v.tfm" 1707868109 2640 0acdedaeb9526b53015e577788c90ac5 ""
@@ -57,10 +57,10 @@
   "/usr/local/texlive/2026/texmf-dist/web2c/texmf.cnf" 1770478701 43630 e9fa012910491fe5ae08a72c3c2997a7 ""
   "/usr/local/texlive/2026/texmf-var/web2c/euptex/uplatex.fmt" 1772817256 2372071 83768763dffcaa2ce198a5c9c52783e1 ""
   "/usr/local/texlive/2026/texmf.cnf" 1772816622 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "out/繰数1_数学基礎.aux" 1774788521.18406 880 3c19134c3eccbe7515cbcdc5089382af "latex"
-  "繰数1_数学基礎.tex" 1774788519.77526 4940 062e51b1b181070ff21a76687f0a0156 ""
+  "out/繰数2_点と座標.aux" 1774788920.21658 564 ee6ffe375481c46c259e686e939af189 "latex"
+  "繰数2_点と座標.tex" 1774774851.40959 3641 9388bc05ae157b14707b2f9b31fe8783 ""
   (generated)
-  "out/繰数1_数学基礎.aux"
-  "out/繰数1_数学基礎.dvi"
-  "out/繰数1_数学基礎.log"
+  "out/繰数2_点と座標.aux"
+  "out/繰数2_点と座標.dvi"
+  "out/繰数2_点と座標.log"
   (rewritten before read)
