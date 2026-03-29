@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1774700200.88392 "out/繰数0_数学力確認問題.dvi" "out/繰数0_数学力確認問題.pdf" "out/繰数0_数学力確認問題" 1774700200.99334 0
-  "out/繰数0_数学力確認問題.dvi" 1774700200.55025 8548 dc9c115bb5f784758fae0564f7212778 "latex"
+["dvipdf"] 1774774854.73249 "out/繰数2_点と座標.dvi" "out/繰数2_点と座標.pdf" "out/繰数2_点と座標" 1774774854.8282 0
+  "out/繰数2_点と座標.dvi" 1774774852.70323 5124 c004b71625919e3836a6a7e2ef10e72f "latex"
   (generated)
-  "out/繰数0_数学力確認問題.pdf"
+  "out/繰数2_点と座標.pdf"
   (rewritten before read)
-["latex"] 1774700200.41228 "繰数0_数学力確認問題.tex" "out/繰数0_数学力確認問題.dvi" "繰数0_数学力確認問題" 1774700200.98888 0
+["latex"] 1774774854.30564 "繰数2_点と座標.tex" "out/繰数2_点と座標.dvi" "繰数2_点と座標" 1774774854.82369 0
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1136768653 1292 21c1c5bfeaebccffdb478fd231a0997d ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1136768653 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/jlreq/ujlreq-v.tfm" 1707868109 2640 0acdedaeb9526b53015e577788c90ac5 ""
@@ -47,23 +47,20 @@
   "/usr/local/texlive/2026/texmf-dist/tex/latex/jlreq/jlreq-helpers.sty" 1707868109 21198 4561cb0e83239e0adc8e4f204ae00bdf ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/jlreq/jlreq.cls" 1742155061 299244 b6ba9ada3c45791ccb98df8a2e331dbe ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-dvips.def" 1761248321 36609 211a83707a10296382938594c6db8f7c ""
-  "/usr/local/texlive/2026/texmf-dist/tex/latex/l3kernel/expl3.sty" 1769028462 6558 45786cbbf5684a09ee65aa45a7b367e0 ""
-  "/usr/local/texlive/2026/texmf-dist/tex/latex/l3packages/xparse/xparse.sty" 1761248321 10176 c2fc1c663b3f3899ddac6e6ed3fb1d7e ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/lm/lmodern.sty" 1616454256 1608 b00724785a9e9c599e5181bb8729160b ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/lm/omllmm.fd" 1616454256 890 57f5adccd504fb5c98bdf99ed7e7f195 ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/lm/omslmsy.fd" 1616454256 807 3de192f3efa968913bd2f096a7b430d8 ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/lm/omxlmex.fd" 1616454256 568 a5494d810f2680caf10205cd1226c76c ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/lm/ot1lmr.fd" 1616454256 1882 28c08db1407ebff35a658fd141753d16 ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/lm/ot1lmss.fd" 1616454256 1657 338c306198616f83902603448cf66d97 ""
-  "/usr/local/texlive/2026/texmf-dist/tex/latex/physics/physics.sty" 1356048875 29610 a9597219b282d9c78b02393dcd7d4322 ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/svn-prov/svn-prov.sty" 1272330018 6852 44ea8d7e58290cde708a34ebf3953571 ""
   "/usr/local/texlive/2026/texmf-dist/web2c/texmf.cnf" 1770478701 43630 e9fa012910491fe5ae08a72c3c2997a7 ""
   "/usr/local/texlive/2026/texmf-var/web2c/euptex/uplatex.fmt" 1772817256 2372071 83768763dffcaa2ce198a5c9c52783e1 ""
   "/usr/local/texlive/2026/texmf.cnf" 1772816622 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "out/繰数0_数学力確認問題.aux" 1774700200.54664 690 ea8b55703e32f56a130ff717fa4725ef "latex"
-  "繰数0_数学力確認問題.tex" 1774700199.14137 4786 9c3b9ce2fe3c5b860dfcf8b402ce9de4 ""
+  "out/繰数2_点と座標.aux" 1774774852.69974 564 ee6ffe375481c46c259e686e939af189 "latex"
+  "繰数2_点と座標.tex" 1774774851.40959 3641 9388bc05ae157b14707b2f9b31fe8783 ""
   (generated)
-  "out/繰数0_数学力確認問題.aux"
-  "out/繰数0_数学力確認問題.dvi"
-  "out/繰数0_数学力確認問題.log"
+  "out/繰数2_点と座標.aux"
+  "out/繰数2_点と座標.dvi"
+  "out/繰数2_点と座標.log"
   (rewritten before read)
