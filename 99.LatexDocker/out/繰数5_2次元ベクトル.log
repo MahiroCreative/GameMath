@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.02-251130-2.6 (utf8.uptex) (TeX Live 2026) (preloaded format=uplatex 2026.3.6)  14 MAY 2026 13:07
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.02-251130-2.6 (utf8.uptex) (TeX Live 2026) (preloaded format=uplatex 2026.5.2)  15 MAY 2026 05:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6,7 +6,7 @@ entering extended mode
 (./繰数5_2次元ベクトル.tex
 pLaTeX2e <2023-02-14u04>+1, based on
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-01-19>
+L3 programming layer <2026-03-20>
 (/usr/local/texlive/2026/texmf-dist/tex/latex/jlreq/jlreq.cls
 Document Class: jlreq 2025/3/16 jlreq
 (/usr/local/texlive/2026/texmf-dist/tex/latex/jlreq/jlreq-helpers.sty
@@ -14,16 +14,16 @@ Package: jlreq-helpers 2024/02/13 jlreq-helpers
 \jlreq@tempcnta=\count274
 \jlreq@tempcntb=\count275
 \jlreq@tempcntc=\count276
-\jlreq@tempdima=\dimen164
-\jlreq@tempdimb=\dimen165
-\jlreq@tempdimc=\dimen166
+\jlreq@tempdima=\dimen166
+\jlreq@tempdimb=\dimen167
+\jlreq@tempdimc=\dimen168
 \jlreq@tempskipa=\skip49
 \jlreq@tempskipb=\skip50
 \jlreq@tempskipc=\skip51
 \jlreq@tempboxa=\box70
 \jlreq@tempboxb=\box71
 \jlreq@tempboxc=\box72
-\jlreq@resultdimen=\dimen167
+\jlreq@resultdimen=\dimen169
 \jlreq@resultskip=\skip52
 \jlreq@resultbox=\box73
 \jlreq@resultcnt=\count277
@@ -33,9 +33,9 @@ Package: jlreq-helpers 2024/02/13 jlreq-helpers
 \l__jlreq_tmpa_int=\count280
 \l__jlreq_tmpb_int=\count281
 \l__jlreq_tmpc_int=\count282
-\l__jlreq_tmpa_dim=\dimen168
-\l__jlreq_tmpb_dim=\dimen169
-\l__jlreq_tmpc_dim=\dimen170
+\l__jlreq_tmpa_dim=\dimen170
+\l__jlreq_tmpb_dim=\dimen171
+\l__jlreq_tmpc_dim=\dimen172
 \l__jlreq_tmpa_skip=\skip53
 \l__jlreq_tmpb_skip=\skip54
 \l__jlreq_tmpc_skip=\skip55
@@ -72,11 +72,11 @@ Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
 \everyvbox=\toks22
 \everycr=\toks23
 )
-\jlreq@current@linewidth=\dimen171
-\jlreq@rest@linewidth=\dimen172
+\jlreq@current@linewidth=\dimen173
+\jlreq@rest@linewidth=\dimen174
 \jlreq@lastnodechar=\count284
-\jlreq@fontsize=\dimen173
-\jlreq@jafontsize=\dimen174
+\jlreq@fontsize=\dimen175
+\jlreq@jafontsize=\dimen176
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/lm/lmodern.sty
 Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
@@ -120,11 +120,11 @@ LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 10.0pt on input line 1207.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 (Font)              scaled to size 10.0pt on input line 1207.
-\jlreq@omotekeiwidth=\dimen175
-\jlreq@chuubusokeiwidth=\dimen176
-\jlreq@urakeiwidth=\dimen177
-\jlreq@sidenote@length=\dimen178
-\jlreq@sidenote@sep=\dimen179
+\jlreq@omotekeiwidth=\dimen177
+\jlreq@chuubusokeiwidth=\dimen178
+\jlreq@urakeiwidth=\dimen179
+\jlreq@sidenote@length=\dimen180
+\jlreq@sidenote@sep=\dimen181
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 8.00003pt on input line 1464.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
@@ -138,8 +138,8 @@ LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 \c@paragraph=\count290
 \c@subparagraph=\count291
 \c@__jlreq_footnotetemporary=\count292
-\jlreq@endnote@prepostspace=\dimen180
-\jlreq@endnote@indent=\dimen181
+\jlreq@endnote@prepostspace=\dimen182
+\jlreq@endnote@indent=\dimen183
 \jlreq@PageStyle@box=\box78
 \abovecaptionskip=\skip57
 \belowcaptionskip=\skip58
@@ -147,7 +147,7 @@ LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 \c@table=\count294
 \jlreq@abstractbox=\box79
 \toclineskip=\skip59
-\@lnumwidth=\dimen182
+\@lnumwidth=\dimen184
 \jlreq@top@contents=\count295
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 8.99994pt on input line 6602.
@@ -164,7 +164,7 @@ Package: filehook 2022/10/25 v0.8b Hooks for input files
 Package: filehook-2020 2022/10/25 v0.8b Hooks for input files
 ))))
 (/usr/local/texlive/2026/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2020/01/02 v5.9 Page Geometry
+Package: geometry 2026/03/07 v6.0 Page Geometry
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
@@ -179,14 +179,14 @@ Package: iftex 2024/12/12 v1.0g TeX engine tests
 \Gm@cnth=\count296
 \Gm@cntv=\count297
 \c@Gm@tempcnt=\count298
-\Gm@bindingoffset=\dimen183
-\Gm@wd@mp=\dimen184
-\Gm@odd@mp=\dimen185
-\Gm@even@mp=\dimen186
-\Gm@layoutwidth=\dimen187
-\Gm@layoutheight=\dimen188
-\Gm@layouthoffset=\dimen189
-\Gm@layoutvoffset=\dimen190
+\Gm@bindingoffset=\dimen185
+\Gm@wd@mp=\dimen186
+\Gm@odd@mp=\dimen187
+\Gm@even@mp=\dimen188
+\Gm@layoutwidth=\dimen189
+\Gm@layoutheight=\dimen190
+\Gm@layouthoffset=\dimen191
+\Gm@layoutvoffset=\dimen192
 \Gm@dimlist=\toks25
 )
 (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphicx.sty
@@ -206,8 +206,8 @@ Package graphics Info: Driver file: dvipdfmx.def on input line 106.
 (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
 File: dvipdfmx.def 2025/09/29 v5.0n Graphics/color driver for dvipdfmx
 ))
-\Gin@req@height=\dimen191
-\Gin@req@width=\dimen192
+\Gin@req@height=\dimen193
+\Gin@req@width=\dimen194
 )
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2025/07/09 v2.17z AMS math features
@@ -220,11 +220,11 @@ Package: amstext 2024/11/17 v2.01 AMS text
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks26
-\ex@=\dimen193
+\ex@=\dimen195
 ))
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen194
+\pmbraise@=\dimen196
 )
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
@@ -246,7 +246,7 @@ LaTeX Info: Redefining \big on input line 721.
 LaTeX Info: Redefining \Big on input line 722.
 LaTeX Info: Redefining \bigg on input line 723.
 LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen195
+\big@size=\dimen197
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
 \macc@depth=\count304
@@ -264,12 +264,12 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \column@=\count309
 \maxfields@=\count310
 \andhelp@=\toks28
-\eqnshift@=\dimen196
-\alignsep@=\dimen197
-\tagshift@=\dimen198
-\tagwidth@=\dimen199
-\totwidth@=\dimen256
-\lineht@=\dimen257
+\eqnshift@=\dimen198
+\alignsep@=\dimen199
+\tagshift@=\dimen256
+\tagwidth@=\dimen257
+\totwidth@=\dimen258
+\lineht@=\dimen259
 \@envbody=\toks29
 \multlinegap=\skip61
 \multlinetaggap=\skip62
@@ -284,7 +284,7 @@ LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 (/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
-File: l3backend-dvips.def 2025-10-09 L3 backend support: dvips
+File: l3backend-dvips.def 2026-02-18 L3 backend support: dvips
 \l__pdfannot_backend_content_box=\box82
 \l__pdfannot_backend_model_box=\box83
 \g__pdfannot_backend_int=\count311
@@ -407,16 +407,16 @@ LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
  ***********
 pLaTeX2e <2023-02-14u04>+1, based on
 LaTeX2e <2025-11-01>
-L3 programming layer <2026-01-19>
+L3 programming layer <2026-03-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4802 strings out of 469643
- 102963 string characters out of 5471223
- 573178 words of memory out of 5000000
- 33562 multiletter control sequences out of 15000+600000
+ 4800 strings out of 469467
+ 102903 string characters out of 5467876
+ 576552 words of memory out of 5000000
+ 33736 multiletter control sequences out of 15000+600000
  659255 words of font info for 87 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  78i,20n,103p,925b,243s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/繰数5_2次元ベクトル.dvi (1 page, 9848 bytes).
+Output written on out/繰数5_2次元ベクトル.dvi (1 page, 9852 bytes).
