@@ -1,0 +1,98 @@
+%【紙面設定】
+%b4,横書き,2段
+\documentclass[paper=b4j,landscape,twocolumn,fleqn]{jlreq}
+%横書き用の調整
+\special{papersize=\the\paperwidth,\the\paperheight}
+%間に線をいれる
+\setlength{\columnseprule}{0.4pt}
+%ページ番号消す
+\pagestyle{empty}
+%ページ余白の調整
+\usepackage[margin=8truemm]{geometry}
+%画像挿入用のパッケージ
+\usepackage[dvipdfmx]{graphicx}
+%数学用のパッケージ
+\usepackage{amsmath}
+%見出しによる行取りの数を減らす
+\ModifyHeading{section}{
+	lines=1,
+	before_space=6pt,
+	after_space=0pt
+}
+% 段落・数式まわりの余白を詰める
+\setlength{\parskip}{0pt}
+\setlength{\jot}{3pt}
+
+%【本文】
+\begin{document}
+\normalsize
+%1段落目
+\section{成分表示と大きさ}
+次のベクトルについて、成分表示・大きさ・単位ベクトルを求めよ。
+\begin{align*}
+　&1.　\vec{a}=\begin{pmatrix}3 & 4\end{pmatrix}\text{ の大きさ }|\vec{a}|\text{ を求めよ。}\\[0.45em]
+　&2.　\vec{b}=\begin{pmatrix}-5 & 12\end{pmatrix}\text{ の大きさ }|\vec{b}|\text{ を求めよ。}\\[0.45em]
+　&3.　\vec{c}=\begin{pmatrix}6 & 8\end{pmatrix}\text{ の単位ベクトル }\hat{c}\text{ を求めよ。}\\[0.45em]
+　&4.　\vec{d}=\begin{pmatrix}-4 & 3\end{pmatrix}\text{ の単位ベクトル }\hat{d}\text{ を求めよ。}\\[0.45em]
+　&5.　長さが5で、方向が \begin{pmatrix}3 & 4\end{pmatrix} と同じベクトルを求めよ。\\[0.45em]
+　&6.　\vec{v}=\begin{pmatrix}x & y\end{pmatrix}\text{ の大きさが10のとき、成り立つ式を立てよ。}\\[0.45em]
+\end{align*}
+
+\section{点と点を結ぶベクトル}
+点A, Bから、\(\overrightarrow{AB}\) と距離 \(\left|\overrightarrow{AB}\right|\) を求めよ。
+\begin{align*}
+　&1.　A(1,2),\ B(5,7)\\[0.45em]
+　&2.　A(-3,4),\ B(2,-2)\\[0.45em]
+　&3.　A(0,0),\ B(-6,8)\\[0.45em]
+　&4.　A(4,-1),\ B(-2,5)\\[0.45em]
+　&5.　A(2,3),\ B(2,-5)\\[0.45em]
+　&6.　A(a,b),\ B(c,d)\text{ のとき、}\overrightarrow{AB}\text{ と }|\overrightarrow{AB}|\text{ を一般式で表せ。}\\[0.45em]
+\end{align*}
+
+\section{ベクトルの足し算・引き算・スカラー倍}
+各問で計算し、結果を成分で答えよ。
+\begin{align*}
+　&1.　\begin{pmatrix}2 & -1\end{pmatrix}+\begin{pmatrix}5 & 3\end{pmatrix}\\[0.45em]
+　&2.　\begin{pmatrix}-4 & 7\end{pmatrix}-\begin{pmatrix}1 & -2\end{pmatrix}\\[0.45em]
+　&3.　2\begin{pmatrix}3 & -5\end{pmatrix}\\[0.45em]
+　&4.　-3\begin{pmatrix}-2 & 4\end{pmatrix}\\[0.45em]
+　&5.　\begin{pmatrix}1 & 2\end{pmatrix}+\begin{pmatrix}-3 & 5\end{pmatrix}-\begin{pmatrix}4 & -1\end{pmatrix}\\[0.45em]
+　&6.　2\vec{a}-3\vec{b}\text{ を、}\vec{a}=\begin{pmatrix}1 & -4\end{pmatrix},\ \vec{b}=\begin{pmatrix}-2 & 3\end{pmatrix}\text{ のとき求めよ。}\\[0.45em]
+\end{align*}
+
+\newpage
+
+\section{成分表示と大きさ}
+次のベクトルについて、成分表示・大きさ・単位ベクトルを求めよ。
+\begin{align*}
+　&1.　\vec{a}=\begin{pmatrix}3 & 4\end{pmatrix}\text{ の大きさ }|\vec{a}|\text{ を求めよ。}\\[0.45em]
+　&2.　\vec{b}=\begin{pmatrix}-5 & 12\end{pmatrix}\text{ の大きさ }|\vec{b}|\text{ を求めよ。}\\[0.45em]
+　&3.　\vec{c}=\begin{pmatrix}6 & 8\end{pmatrix}\text{ の単位ベクトル }\hat{c}\text{ を求めよ。}\\[0.45em]
+　&4.　\vec{d}=\begin{pmatrix}-4 & 3\end{pmatrix}\text{ の単位ベクトル }\hat{d}\text{ を求めよ。}\\[0.45em]
+　&5.　長さが5で、方向が \begin{pmatrix}3 & 4\end{pmatrix} と同じベクトルを求めよ。\\[0.45em]
+　&6.　\vec{v}=\begin{pmatrix}x & y\end{pmatrix}\text{ の大きさが10のとき、成り立つ式を立てよ。}\\[0.45em]
+\end{align*}
+
+\section{点と点を結ぶベクトル}
+点A, Bから、\(\overrightarrow{AB}\) と距離 \(\left|\overrightarrow{AB}\right|\) を求めよ。
+\begin{align*}
+　&1.　A(1,2),\ B(5,7)\\[0.45em]
+　&2.　A(-3,4),\ B(2,-2)\\[0.45em]
+　&3.　A(0,0),\ B(-6,8)\\[0.45em]
+　&4.　A(4,-1),\ B(-2,5)\\[0.45em]
+　&5.　A(2,3),\ B(2,-5)\\[0.45em]
+　&6.　A(a,b),\ B(c,d)\text{ のとき、}\overrightarrow{AB}\text{ と }|\overrightarrow{AB}|\text{ を一般式で表せ。}\\[0.45em]
+\end{align*}
+
+\section{ベクトルの足し算・引き算・スカラー倍}
+各問で計算し、結果を成分で答えよ。
+\begin{align*}
+　&1.　\begin{pmatrix}2 & -1\end{pmatrix}+\begin{pmatrix}5 & 3\end{pmatrix}\\[0.45em]
+　&2.　\begin{pmatrix}-4 & 7\end{pmatrix}-\begin{pmatrix}1 & -2\end{pmatrix}\\[0.45em]
+　&3.　2\begin{pmatrix}3 & -5\end{pmatrix}\\[0.45em]
+　&4.　-3\begin{pmatrix}-2 & 4\end{pmatrix}\\[0.45em]
+　&5.　\begin{pmatrix}1 & 2\end{pmatrix}+\begin{pmatrix}-3 & 5\end{pmatrix}-\begin{pmatrix}4 & -1\end{pmatrix}\\[0.45em]
+　&6.　2\vec{a}-3\vec{b}\text{ を、}\vec{a}=\begin{pmatrix}1 & -4\end{pmatrix},\ \vec{b}=\begin{pmatrix}-2 & 3\end{pmatrix}\text{ のとき求めよ。}\\[0.45em]
+\end{align*}
+
+\end{document}

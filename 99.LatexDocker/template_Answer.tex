@@ -1,0 +1,85 @@
+% B4横・2段組の演習プリント解説テンプレート
+% 対応する演習プリント: 繰数N_単元名.tex
+\documentclass[paper=b4j,landscape,twocolumn,fleqn]{jlreq}
+\special{papersize=\the\paperwidth,\the\paperheight}
+\setlength{\columnseprule}{0.4pt}
+\pagestyle{empty}
+
+\usepackage[margin=8truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+
+\ModifyHeading{section}{lines=1,before_space=6pt,after_space=0pt}
+\setlength{\parskip}{0pt}
+\setlength{\jot}{3pt}
+
+%==========================================================
+% 解説ブロック用コマンド
+%   \kangaekata{考え方の説明}
+%   \tochushiki{途中式の align* 環境の中身}
+%==========================================================
+\newcommand{\kangaekata}[1]{\vspace{2pt}\noindent\textbf{考え方}\quad #1\par\vspace{2pt}}
+\newcommand{\tochushiki}[1]{%
+  \noindent\textbf{途中式（代表例）}
+  \begin{align*}
+    #1
+  \end{align*}
+}
+
+\begin{document}
+\normalsize
+
+%==========================================================
+\section{大問1のタイトル \quad 解答}
+%==========================================================
+\begin{align*}
+&1.\  \text{答え}\\[0.45em]
+&2.\  \text{答え}\\[0.45em]
+&3.\  \text{答え}
+\end{align*}
+
+\kangaekata{この問題を解くための着目点・方針を書く。}
+
+\tochushiki{
+  &1.\ \text{式変形の手順}\\
+  &\quad = \text{途中} = \text{答え}
+}
+
+% 図説が必要な場合は以下のブロックを使う
+%\noindent\textbf{図説}
+%\begin{center}
+%\begin{tikzpicture}[scale=0.9]
+%  % tikz コードをここに記述
+%\end{tikzpicture}
+%\end{center}
+
+\newpage
+
+%==========================================================
+\section{大問2のタイトル \quad 解答}
+%==========================================================
+\begin{align*}
+&1.\  \text{答え}\\[0.45em]
+&2.\  \text{答え}\\[0.45em]
+&3.\  \text{答え}
+\end{align*}
+
+\kangaekata{この問題を解くための着目点・方針を書く。}
+
+\tochushiki{
+  &1.\ \text{式変形の手順}\\
+  &\quad = \text{途中} = \text{答え}
+}
+
+%\noindent\textbf{図説}
+%\begin{center}
+%\begin{tikzpicture}[scale=0.9]
+%  % tikz コードをここに記述
+%\end{tikzpicture}
+%\end{center}
+
+\end{document}

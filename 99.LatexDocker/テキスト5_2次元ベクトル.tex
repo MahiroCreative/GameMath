@@ -1,0 +1,985 @@
+% A4縦・1段組の学習用（教科書風）
+\documentclass[paper=a4,fleqn,11pt]{jlreq}
+\special{papersize=\the\paperwidth,\the\paperheight}
+
+\usepackage[margin=20truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{multicol}
+\usepackage{etoolbox}
+\usepackage{needspace}
+\usepackage{bm}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta,calc,angles,quotes}
+
+% 画面閲覧向けに少し行間を広げる
+\linespread{1.08}
+
+% 図説と本文の間を少し広げる
+\AtBeginEnvironment{tikzpicture}{\vspace{3pt}}
+\AfterEndEnvironment{tikzpicture}{\vspace{3pt}}
+
+\preto{\section}{\needspace{0.35\textheight}}
+\preto{\subsection}{\needspace{0.25\textheight}}
+
+\ModifyHeading{section}{
+  lines=1,
+  before_space=14pt,
+  after_space=6pt
+}
+
+\ModifyHeading{subsection}{
+  lines=1,
+  before_space=16pt,
+  after_space=8pt
+}
+
+\title{2次元ベクトル}
+\author{}
+\date{}
+
+\makeatletter
+\renewcommand{\maketitle}{%
+  \vspace*{-50pt}
+  \begin{center}
+    {\LARGE\bfseries \@title\par}
+  \end{center}
+  \vspace{4pt}
+}
+\makeatother
+
+\newcommand{\formula}[1]{%
+  \vspace{10pt}%
+  \begin{center}{\large\bfseries\boldmath\(\displaystyle #1\)}\end{center}%
+  \vspace{4pt}%
+}
+
+\begin{document}
+\maketitle
+
+\section{ベクトルとは何か}
+
+\subsection{スカラーとベクトル}
+
+量だけを表すものを\textbf{スカラー}という。量と向きをまとめて表すものを\textbf{ベクトル}という。
+
+\textbf{Point：} スカラーは量だけ。ベクトルなら「方向」も分かる。
+
+\vspace{4pt}
+\begin{center}
+\begin{minipage}[t]{0.45\linewidth}
+\vspace{0pt}
+\centering
+\textbf{スカラーの例}\par
+\vspace{2pt}
+\begin{tikzpicture}[scale=0.9,>=Stealth]
+  \node[draw,rounded corners,fill=gray!10,minimum width=2.0cm,minimum height=0.9cm] at (0,0) {8, -3, 5.4};
+  \node[align=center] at (0,-0.9) {数値だけを表す};
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{0pt}
+\centering
+\textbf{ベクトルの例}\par
+\vspace{2pt}
+\begin{tikzpicture}[scale=0.85,>=Stealth]
+  \draw[->,gray!60] (-0.4,0) -- (4.8,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.4) -- (0,3.0) node[above] {$y$};
+  \draw[very thick,blue,->] (0,0) -- (3.2,2.0) node[midway,above left] {$\vec{v}$};
+  \draw[dashed,gray!65] (3.2,0) -- (3.2,2.0);
+  \draw[dashed,gray!65] (0,2.0) -- (3.2,2.0);
+  \node[below] at (3.2,0) {右へ};
+  \node[left] at (0,2.0) {上へ};
+\end{tikzpicture}
+\end{minipage}
+\end{center}
+
+\subsection{なぜ必要か}
+
+1本の矢印として見ることで、速度のような「どちらへ」「どれだけ」動くかを1つで表せる。
+\begin{itemize}
+  \item 例：右に 2、上に 3 の移動 \(\rightarrow\) \(\vec{v}=\begin{pmatrix}2 & 3\end{pmatrix}\)
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.95,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (5.8,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,4.2) node[above] {$y$};
+  \draw[very thick,blue,->] (0,0) -- (3.5,2.4) node[midway,above left] {$\vec{v}$};
+  \draw[dashed,gray!70] (3.5,0) -- (3.5,2.4);
+  \draw[dashed,gray!70] (0,2.4) -- (3.5,2.4);
+  \node at (3.6,0.2) {2};
+  \node at (0.2,2.5) {3};
+\end{tikzpicture}
+
+1本の矢印で「移動の様子」が分かる
+\end{center}
+
+
+\subsection{ベクトルの等しさ}
+2つのベクトルが等しいとは、\textbf{大きさが同じ}で\textbf{向きも同じ}ことである。始点は関係ない。
+
+\textbf{Point：} ベクトルに始点(どこから始まるか)の情報は含まれていない。
+
+\begin{center}
+\begin{tikzpicture}[scale=0.95,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (7,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,4.2) node[above] {$y$};
+  \draw[very thick,blue,->] (0.7,0.8) -- (3.2,2.4);
+  \draw[very thick,red,->] (3.8,0.9) -- (6.3,2.5);
+  \node[blue] at (1.9,2.65) {$\vec{a}$};
+  \node[red] at (5.0,2.7) {$\vec{b}$};
+  \node[align=center] at (3.5,0.3) {大きさと向きが同じなら\ $\vec{a}=\vec{b}$};
+\end{tikzpicture}
+\end{center}
+
+\newpage
+
+\section{成分表示と大きさ}
+
+\subsection{成分表示}
+
+2次元では、ベクトルをx成分とy成分で表す。
+
+\textbf{読み方：} 「右にいくつ、上にいくつ」を並べて書いたものが成分表示である。
+\formula{\vec{a}=\begin{pmatrix}a_x & a_y\end{pmatrix}}
+
+\begin{center}
+\begin{minipage}[t]{0.48\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.92,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (5.6,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,4.4) node[above] {$y$};
+  \draw[dashed,gray!60] (0,3) -- (4,3);
+  \draw[dashed,gray!60] (4,0) -- (4,3);
+  \draw[very thick,blue,->] (0,0) -- (4,3);
+  \node[below] at (4,0) {$a_x$};
+  \node[left] at (0,3) {$a_y$};
+  \node[above right] at (4,3) {$\vec{a}$};
+\end{tikzpicture}
+
+右に $a_x$、上に $a_y$
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.85,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (5.8,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,4.4) node[above] {$y$};
+  \draw[very thick,blue,->] (0,0) -- (2,1);
+  \draw[very thick,red,->] (0,0) -- (4,3);
+  \node[blue] at (2.65,0.6) {$\begin{pmatrix}2 & 1\end{pmatrix}$};
+  \node[red] at (4.75,3.35) {$\begin{pmatrix}4 & 3\end{pmatrix}$};
+\end{tikzpicture}
+
+成分が増えると矢印が長くなる
+\end{minipage}
+\end{center}
+
+\subsection{大きさ}
+
+横と縦を直角三角形の2辺だと思えば、長さはピタゴラスの定理で求められる。
+
+\textbf{手順：} まず x成分 と y成分 で直角三角形をつくり、その斜辺をベクトルの長さと考える。
+
+\vspace{6pt}
+
+\formula{|\vec{a}|=\sqrt{a_x^2+a_y^2}}
+
+\textbf{例：} \(\vec{a}=\begin{pmatrix}3 & 4\end{pmatrix}\) なら、\(|\vec{a}|=5\) である。
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (5.8,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,4.8) node[above] {$y$};
+  \draw[very thick,blue,->] (0,0) -- (3,4);
+  \draw[dashed,gray!70] (3,0) -- (3,4);
+  \draw[dashed,gray!70] (0,4) -- (3,4);
+  \draw[thick,black] (2.75,0) rectangle (3,0.25);
+  \node at (1.5,-0.25) {3};
+  \node[left] at (4,2) {4};
+  \node at (1.5,2.5) {$5$};
+\end{tikzpicture}
+\end{center}
+
+\newpage
+\subsection{単位ベクトル}
+
+長さを1にしたベクトルを\textbf{単位ベクトル}という。向きだけを見たいときに使う。
+
+\textbf{Point：} その方向の単位(1)を出すために使う。\textbf{正規化する}ともいう。
+
+\formula{\hat{a}=\frac{\vec{a}}{|\vec{a}|}}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.95,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (5.8,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,4.2) node[above] {$y$};
+  \draw[very thick,blue,->] (0,0) -- (4.2,2.5) node[midway,above left] {$\vec{a}$};
+  \draw[very thick,red,->] (0,0) -- (1.5,0.9) node[midway,above left] {$\hat{a}$};
+  \node[blue] at (4.4,2.7) {$|\vec{a}|$};
+  \node[red] at (1.8,0.5) {$|\hat{a}|=1$};
+\end{tikzpicture}
+
+向きは同じで、長さだけを 1 にそろえる
+\end{center}
+
+\subsection{点と点を結ぶベクトル}
+
+点 \(A(x_1,y_1)\) から点 \(B(x_2,y_2)\) へのベクトルは、差をとればよい。
+
+\textbf{手順：} 「終点 - 始点」で考える。x も y も、到着した座標から出発した座標を引く。
+
+\formula{\overrightarrow{AB}=\begin{pmatrix}x_2-x_1 & y_2-y_1\end{pmatrix}}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.95,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (6.4,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,4.8) node[above] {$y$};
+  \coordinate (A) at (1.1,1.0);
+  \coordinate (B) at (5.1,4.0);
+  \fill (A) circle (2pt) node[below left] {$A$};
+  \fill (B) circle (2pt) node[above right] {$B$};
+  \draw[dashed,gray!60] (A) -- (5.1,1.0) -- (B);
+  \draw[very thick,blue,->] (A) -- (B);
+  \node at (3.35,2.0) {$\overrightarrow{AB}$};
+  \draw[red!85!black,very thick]
+    (A) .. controls (1.25,0.72) and (1.75,0.72) .. (2.05,0.72)
+    -- (4.45,0.72)
+    .. controls (4.75,0.72) and (5.00,0.80) .. (5.10,1.00);
+  \node[red!85!black,below] at (3.1,0.66) {$x_2-x_1$};
+  \draw[red!85!black,very thick]
+    (B) .. controls (5.55,3.45) and (5.65,2.85) .. (5.65,2.45)
+    -- (5.65,1.75)
+    .. controls (5.65,1.35) and (5.52,1.12) .. (5.20,1.00);
+  \node[red!85!black,right] at (5.70,2.55) {$y_2-y_1$};
+\end{tikzpicture}
+\end{center}
+
+\subsection{確認問題}
+\begin{multicols}{2}
+\begin{enumerate}
+  \item スカラーとベクトルの違いを1文で説明せよ。
+  \item 「等しいベクトル」の条件を答えよ。
+  \item \(\vec{a}=\begin{pmatrix}3 & -2\end{pmatrix}\) の x成分 と y成分 を答えよ。
+  \item \(\vec{a}=\begin{pmatrix}6 & 8\end{pmatrix}\) の大きさを求めよ。
+  \item \(\vec{b}=\begin{pmatrix}-2 & 0\end{pmatrix}\) の大きさを求めよ。
+  \item \(\vec{c}=\begin{pmatrix}3 & 4\end{pmatrix}\) の単位ベクトル \(\hat{c}\) を求めよ。
+  \item 点 \(A(1,2)\)、点 \(B(4,7)\) のとき、\(\overrightarrow{AB}\) を求めよ。
+  \item 点 \(P(-2,1)\)、点 \(Q(3,-1)\) のとき、\(\overrightarrow{PQ}\) とその大きさを求めよ。
+\end{enumerate}
+\end{multicols}
+
+\newpage
+\section{ベクトルの足し算と引き算}
+
+\subsection{足し算}
+
+ベクトルの足し算は、成分ごとに足すだけでよい。
+
+\textbf{見方：} x 同士を足し、y 同士を足す。図では「矢印をつないだ結果」を表す。
+
+\formula{\vec{a}+\vec{b}=\begin{pmatrix}a_x+b_x & a_y+b_y\end{pmatrix}}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (6.5,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,4.6) node[above] {$y$};
+  \draw[very thick,blue,->] (0,0) -- (2.4,1.2) node[midway,below right] {$\vec{a}$};
+  \draw[very thick,red,->] (2.4,1.2) -- (4.8,3.4) node[midway,right] {$\vec{b}$};
+  \draw[very thick,teal!70!black,->] (0,0) -- (4.8,3.4) node[midway,above left] {$\vec{a}+\vec{b}$};
+  \draw[dashed,gray!60] (0,0) -- (2.4,1.2) -- (4.8,3.4);
+  \node[align=center] at (5.5,0.4) {矢印をつなぐと足し算になる};
+\end{tikzpicture}
+\end{center}
+
+\subsection{引き算}
+
+引き算は「逆向きのベクトルを足す」と考えると分かりやすい。
+
+\textbf{見方：} \(\vec{b}\) を反対向きにして足すと、引き算を図で追いやすい。
+
+\formula{\vec{a}-\vec{b}=\vec{a}+(-\vec{b})=\begin{pmatrix}a_x-b_x & a_y-b_y\end{pmatrix}}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (6.0,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,4.5) node[above] {$y$};
+  \draw[very thick,blue,->] (0,0) -- (4.3,2.4) node[midway,above left] {$\vec{a}$};
+  \draw[very thick,red,->] (0,0) -- (1.5,3.1) node[midway,left] {$\vec{b}$};
+  \draw[very thick,teal!70!black,->] (1.5,3.1) -- (4.3,2.4) node[midway,above] {$\vec{a}-\vec{b}$};
+  \node[align=center] at (5.5,0.5) {引き算は「$\vec{a}$ から $\vec{b}$ を引く」};
+\end{tikzpicture}
+\end{center}
+
+\textbf{例：} \(\begin{pmatrix}5 & 2\end{pmatrix}-\begin{pmatrix}2 & 3\end{pmatrix}=\begin{pmatrix}3 & -1\end{pmatrix}\)
+
+\newpage
+\subsection{スカラー倍}
+
+数 \(k\) をかけると、ベクトルの長さが \(|k|\) 倍になる。\(k<0\) なら向きも反対になる。
+
+\textbf{見方：} 大きく引き伸ばす、縮める、反対へ向ける、の3つをまとめた操作だと考えるとよい。
+
+\formula{k\vec{a}=\begin{pmatrix}ka_x & ka_y\end{pmatrix}}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (6.5,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,4.7) node[above] {$y$};
+  \draw[very thick,blue,->] (0,0) -- (2,1.2) node[midway,above left] {$\vec{a}$};
+  \draw[very thick,red,->] (0,0) -- (4,2.4) node[midway,above left] {$2\vec{a}$};
+  \draw[very thick,purple,->] (0,0) -- (-2,-1.2) node[midway,above left] {$-\vec{a}$};
+\end{tikzpicture}
+\end{center}
+
+\subsection{確認問題}
+\begin{enumerate}
+  \item \(\vec{a}=\begin{pmatrix}1 & 2\end{pmatrix}\)、\(\vec{b}=\begin{pmatrix}3 & -1\end{pmatrix}\) のとき、\(\vec{a}+\vec{b}\) を求めよ。
+  \item 同じく \(\vec{a}-\vec{b}\) を求めよ。
+  \item 同じく \(2\vec{a}\) を求めよ。
+  \item 同じく \(-3\vec{b}\) を求めよ。
+  \item \(\vec{u}=\begin{pmatrix}4 & 1\end{pmatrix}\)、\(\vec{v}=\begin{pmatrix}-2 & 5\end{pmatrix}\) のとき、\(\vec{u}+\vec{v}\) を求めよ。
+  \item 同じく \(\vec{u}-\vec{v}\) を求めよ。
+  \item \(\vec{p}=\begin{pmatrix}2 & -3\end{pmatrix}\) のとき、\(-\vec{p}\) を求めよ。
+  \item \(3\vec{a}\) と \(-2\vec{a}\) の意味を言葉で説明せよ。
+\end{enumerate}
+
+\newpage
+\section{内積}
+
+\subsection{内積とは}
+
+\textbf{内積とは、「ベクトルがどれだけ同じ向きを向いているか」を1つの数で表したものである。}
+
+ベクトルの足し算や引き算は「矢印の操作」だったが、内積は2本の矢印の関係を数値として取り出す。結果は\textbf{スカラー（数）}になる。
+
+\textbf{なぜ使うのか：} 2本の矢印の「向きのそろい具合」が数値で分かると、角度の計算や、ある方向への影響度を調べるのに直接使える。ゲームでは「敵がプレイヤーの前方にいるか」「壁に対してどれだけ垂直に当たっているか」などの判定に使う。
+
+\vspace{6pt}
+
+\textbf{直感的なイメージ：} 向きが同じほど大きい正の数になり、直角なら0、逆向きなら負の数。
+
+\vspace{10pt}
+\begin{center}
+\begin{tikzpicture}[scale=0.88,>=Stealth]
+  % 同じ向き
+  \begin{scope}[xshift=-3cm]
+    \draw[->,gray!60] (-0.3,0) -- (3.0,0) node[right,gray!60] {};
+    \draw[very thick,blue,->] (0,0) -- (2.2,0.5);
+    \draw[very thick,red,->]  (0,0) -- (2.0,0.2);
+    \node[align=center] at (1.1,-1) {向きが近い\\$\Rightarrow$ 大きい正};
+  \end{scope}
+  % 直角
+  \begin{scope}[xshift=4cm]
+    \draw[->,gray!60] (-0.3,0) -- (3.0,0) node[right,gray!60] {};
+    \draw[very thick,blue,->] (0,0) -- (2.2,0);
+    \draw[very thick,red,->]  (0,0) -- (0,1.8);
+    \node[align=center] at (1.1,-1) {直角\\$\Rightarrow$ 0};
+  \end{scope}
+  % 逆向き
+  \begin{scope}[xshift=11cm]
+    \draw[->,gray!60] (-0.3,0) -- (3.0,0) node[right,gray!60] {};
+    \draw[very thick,blue,->] (0,0) -- (2.2,0.3);
+    \draw[very thick,red,->]  (0,0) -- (-1.8,-0.2);
+    \node[align=center] at (1.1,-1) {逆向き\\$\Rightarrow$ 負};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\subsection{内積の計算1(成分計算)}
+x成分同士・y成分同士をそれぞれかけて足す。
+
+\formula{\vec{a}\cdot\vec{b}=a_xb_x+a_yb_y}
+
+\textbf{例：} \(\begin{pmatrix}2 & 3\end{pmatrix}\cdot\begin{pmatrix}1 & 4\end{pmatrix}=2\times1+3\times4=2+12=14\)
+
+\begin{center}
+\begin{tikzpicture}[scale=1.0,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (5.8,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,4.5) node[above] {$y$};
+  \draw[very thick,blue,->] (0,0) -- (4.2,1.3) node[midway,below right] {$\vec{a}$};
+  \draw[very thick,red,->] (0,0) -- (2.8,3.2) node[midway,above left] {$\vec{b}$};
+\end{tikzpicture}
+
+向きが近いほど内積は大きくなる
+\end{center}
+
+\newpage
+\subsection{内積の計算2}
+
+成分計算のほかに、\textbf{大きさと角度を使った計算方法}もある。
+
+\formula{\vec{a}\cdot\vec{b}=|\vec{a}||\vec{b}|\cos\theta}
+
+ここで $\theta$ は2つのベクトルのなす角である。
+
+\begin{center}
+\begin{tikzpicture}[scale=0.95,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (5.8,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,4.5) node[above] {$y$};
+  \draw[very thick,blue,->] (0,0) -- (4.3,1.3) node[midway,below right] {$\vec{a}$};
+  \draw[very thick,red,->] (0,0) -- (3.0,3.4) node[midway,above left] {$\vec{b}$};
+  \draw (1.0,0.35) arc[start angle=0,end angle=35,radius=1.0];
+  \node at (1.25,0.8) {$\theta$};
+\end{tikzpicture}
+
+2つのベクトルのなす角 $\theta$
+\end{center}
+
+\subsection{何故どちらでも計算できるのか}
+
+内積は、\textbf{成分の掛け算で見ても}、\textbf{大きさと角度で見ても}、同じ1つの値を表している。
+
+\textbf{成分計算：} 「x成分同士とｙ成分同士を別々に掛けてから足す」
+
+\textbf{角度計算：} 「大きさにしてからどちらかを相手の方向に変換して掛ける」
+
+やり方は違っても、実は同じことをしている。
+
+\vspace{6pt}
+\begin{center}
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\textbf{成分で見る}
+
+\begin{tikzpicture}[scale=0.88,>=Stealth]
+  \draw[->,gray!60] (-0.4,0) -- (4.8,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.4) -- (0,3.8) node[above] {$y$};
+  \coordinate (A) at (3.5,1.1);
+  \coordinate (B) at (2.2,2.8);
+  \draw[very thick,blue,->] (0,0) -- (A) node[midway,below right] {$\vec{a}$};
+  \draw[very thick,red,->] (0,0) -- (B) node[midway,above left] {$\vec{b}$};
+  \draw[dashed,gray!70] (A) -- (3.5,0);
+  \draw[dashed,gray!70] (A) -- (0,1.1);
+  \draw[dashed,gray!70] (B) -- (2.2,0);
+  \draw[dashed,gray!70] (B) -- (0,2.8);
+  \node at (3.5,-0.25) {$a_x$};
+  \node at (-0.25,1.1) {$a_y$};
+  \node at (2.55,-0.25) {$b_x$};
+  \node at (-0.25,2.5) {$b_y$};
+  \node[align=center] at (2.35,3.25) {「x成分の積」と「y成分の積」を足す};
+\end{tikzpicture}
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\textbf{角度で見る}
+
+\begin{tikzpicture}[scale=0.88,>=Stealth]
+  \draw[->,gray!60] (-0.4,0) -- (4.8,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.4) -- (0,3.8) node[above] {$y$};
+  \draw[very thick,blue,->] (0,0) -- (3.8,0.9) node[midway,below right] {$\vec{a}$};
+  \draw[very thick,red,->] (0,0) -- (2.5,2.8) node[midway,above left] {$\vec{b}$};
+  \draw[dashed,gray!70] (2.5,2.8) -- (3.0,0.7);
+  \draw[very thick,green!60!black,->] (0,0) -- (3.0,0.7);
+  \draw (1.0,0.23) arc[start angle=0,end angle=33,radius=1.0];
+  \node at (1.25,0.55) {$\theta$};
+  \node[align=center] at (2.4,3.25) {$\vec{b}$ の\"影\"を見る};
+\end{tikzpicture}
+
+\end{minipage}
+\end{center}
+
+詳細な証明等は省略する(調べれば出ます)が、結論として以下になる。
+
+\vspace{6pt}
+\formula{\vec{a}\cdot\vec{b}=a_xb_x+a_yb_y=|\vec{a}||\vec{b}|\cos\theta}
+\vspace{6pt}
+
+方向を一致させてから掛けるか、掛けてから合成するか、の違いだと捉えるとよい。
+
+(※方向を一致させるのは、足して合成するのと意義的には同じである）
+
+\newpage
+\subsection{なす角の求め方}
+
+内積の定義 \(\vec{a}\cdot\vec{b}=|\vec{a}||\vec{b}|\cos\theta\) から、逆にして\textbf{なす角 \(\theta\) を求める}ことができる。
+
+\formula{\cos\theta = \frac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}}
+
+\textbf{意味：} 内積を「両方のベクトルの大きさ」で割ると、2つのベクトルのなす角の余弦が出てくる。
+
+\vspace{6pt}
+
+\textbf{例：} \(\vec{a}=\begin{pmatrix}2 & 0\end{pmatrix}\)、\(\vec{b}=\begin{pmatrix}1 & 1\end{pmatrix}\) のとき、
+
+\vspace{6pt}
+\begin{itemize}
+  \item 内積：\(\vec{a}\cdot\vec{b}=2 \cdot 1 + 0 \cdot 1 = 2\)
+  \item 大きさ：\(|\vec{a}|=2\)、\(|\vec{b}|=\sqrt{1^2+1^2}=\sqrt{2}\)
+  \item \(\cos\theta = \frac{2}{2\sqrt{2}} = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2}\)
+  \item したがって \(\theta = 45°\)（ラジアンなら \(\theta = \frac{\pi}{4}\)）
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (5.0,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,3.5) node[above] {$y$};
+  \draw[very thick,blue,->] (0,0) -- (3.0,0) node[midway,below] {$\vec{a}$};
+  \draw[very thick,red,->] (0,0) -- (1.5,1.5) node[midway,above left] {$\vec{b}$};
+  \draw (1.0,0) arc[start angle=0,end angle=45,radius=1.0];
+  \node at (1.55,0.45) {$45°$};
+\end{tikzpicture}
+\end{center}
+
+\subsection{垂直判定}
+
+\textbf{内積が0なら直角である。}
+
+\formula{\vec{a}\cdot\vec{b}=0 \iff \vec{a}\perp\vec{b}}
+
+\textbf{理由：} \(\vec{a}\cdot\vec{b}=|\vec{a}||\vec{b}|\cos\theta\) なので、\(\theta=90°\) のとき \(\cos90°=0\) となり、内積も0になる。
+
+\begin{center}
+\begin{tikzpicture}[scale=0.95,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (5.8,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,4.5) node[above] {$y$};
+  \draw[very thick,blue,->] (0,0) -- (5.0,0) node[midway,below] {$\vec{a}$};
+  \draw[very thick,red,->] (0,0) -- (0,4.0) node[midway,left] {$\vec{b}$};
+  \draw (0.8,0) arc[start angle=0,end angle=90,radius=0.8];
+  \node at (1.0,0.8) {$90°$};
+  \node[align=center] at (2.5,-1.0) {垂直なら内積は 0};
+\end{tikzpicture}
+\end{center}
+
+\textbf{例：} \(\vec{a}=\begin{pmatrix}1 & 2\end{pmatrix}\)、\(\vec{b}=\begin{pmatrix}2 & -1\end{pmatrix}\) のとき、
+
+\(\vec{a}\cdot\vec{b}=1 \cdot 2 + 2 \cdot (-1) = 2-2=0\)
+
+なので、\(\vec{a}\) と \(\vec{b}\) は垂直である。
+
+\subsection{確認問題}
+\begin{enumerate}
+  \item 内積とは何を表す量か、一言で答えよ。また、結果はスカラーかベクトルか。
+  \item \(\vec{a}=\begin{pmatrix}3 & 2\end{pmatrix}\)、\(\vec{b}=\begin{pmatrix}1 & 4\end{pmatrix}\) の内積 \(\vec{a}\cdot\vec{b}\) を成分計算で求めよ。
+  \item \(\vec{a}=\begin{pmatrix}-2 & 3\end{pmatrix}\)、\(\vec{b}=\begin{pmatrix}4 & 1\end{pmatrix}\) の内積を求めよ。
+  \item \(|\vec{a}|=3\)、\(|\vec{b}|=4\)、なす角 \(\theta=60°\) のとき、\(\vec{a}\cdot\vec{b}\) を求めよ。（\(\cos60°=\tfrac{1}{2}\)）
+  \item \(\vec{a}=\begin{pmatrix}1 & 0\end{pmatrix}\)、\(\vec{b}=\begin{pmatrix}0 & 1\end{pmatrix}\) の内積を求めよ。また、なす角は何度か。
+  \item \(\vec{a}=\begin{pmatrix}3 & 0\end{pmatrix}\)、\(\vec{b}=\begin{pmatrix}2 & 2\end{pmatrix}\) のなす角 \(\theta\) を求めよ。（\(\cos\theta=\frac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}\) を使うこと）
+  \item \(\vec{a}=\begin{pmatrix}2 & 1\end{pmatrix}\)、\(\vec{b}=\begin{pmatrix}-1 & 2\end{pmatrix}\) は垂直かどうか、内積を使って確かめよ。
+  \item \(\vec{a}=\begin{pmatrix}3 & k\end{pmatrix}\)、\(\vec{b}=\begin{pmatrix}2 & -3\end{pmatrix}\) が垂直になるような \(k\) の値を求めよ。
+\end{enumerate}
+
+\newpage
+
+\section{2次元の外積}
+
+\subsection{2次元の外積はスカラー}
+
+本来、ベクトルの外積は3次元ベクトルから垂直なベクトルが得るために使う。
+が、2次元では作成されるベクトルのz成分のみを考え、外積を\textbf{数(スカラー)}として扱う(詳しくは3次元で話すので「そうなんだ」くらいでよい)。
+向きの判定や面積に使えて、便利である(ゲームだと三角形の当たり判定などに使える)。
+
+\vspace{6pt}
+\formula{\vec{a}\times\vec{b}=a_xb_y-a_yb_x}
+
+かける順番により結果が変わる。
+
+\vspace{6pt}
+\begin{center}
+\begin{minipage}[t]{0.47\linewidth}
+\centering
+\textbf{\(\vec{a}\times\vec{b}\) を計算（左手側に掛ける）}
+
+\begin{tikzpicture}[scale=0.88,>=Stealth]
+  \draw[->,gray!60] (-0.4,0) -- (4.6,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.4) -- (0,4.0) node[above] {$y$};
+  \draw[very thick,blue,->] (0,0) -- (3.5,0.5) node[midway,below right] {$\vec{a}$};
+  \draw[very thick,red,->] (0,0) -- (0.8,3.2) node[midway,above left] {$\vec{b}$};
+  \draw[red!85!black,very thick,->]
+    (1.75,0.42) arc[start angle=-22,delta angle=140,radius=0.88];
+  \node[draw,rounded corners,fill=orange!10,inner sep=3pt] at (2.5,-1.0)
+    {$\vec{a}\times\vec{b} > 0$};
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\centering
+\textbf{\(\vec{b}\times\vec{a}\) を計算(右手側に掛ける)}
+
+\begin{tikzpicture}[scale=0.88,>=Stealth]
+  \draw[->,gray!60] (-0.4,0) -- (4.6,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.4) -- (0,4.0) node[above] {$y$};
+  \draw[very thick,blue,->] (0,0) -- (3.5,0.5) node[midway,below right] {$\vec{a}$};
+  \draw[very thick,red,->] (0,0) -- (0.8,3.2) node[midway,above left] {$\vec{b}$};
+  \draw[red!85!black,very thick,->]
+    (0.40,1.30) arc[start angle=125,delta angle=-155,radius=0.83];
+  \node[draw,rounded corners,fill=orange!10,inner sep=3pt] at (0.5,-1.0)
+    {$\vec{b}\times\vec{a} < 0$};
+\end{tikzpicture}
+\end{minipage}
+\end{center}
+
+\vspace{4pt}
+\textbf{ポイント：} ベクトルの位置は同じでも、\textbf{掛ける順番}を入れ替えると符号が反転する。
+
+\vspace{4pt}
+\begin{center}
+\(\vec{a}\times\vec{b} = -(\vec{b}\times\vec{a})\)
+\end{center}
+
+これにより、ベクトルが自分の右側にあるか左側にあるかを判定できる。
+
+\subsection{面積との関係}
+
+原点を共有する2本のベクトルがつくる平行四辺形の面積は、外積の絶対値で表せる。
+
+\formula{|\vec{a}\times\vec{b}|=\text{平行四辺形の面積}}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.95,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (6.2,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,4.8) node[above] {$y$};
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (4.0,1.0);
+  \coordinate (B) at (1.4,3.0);
+  \coordinate (C) at ($(A)+(B)$);
+  \coordinate (H) at ($(B)!(A)!(O)$);
+  \coordinate (M) at ($(B)!0.5!(H)$);
+  \filldraw[fill=teal!10,draw=teal!65!black] (O) -- (A) -- (C) -- (B) -- cycle;
+  \draw[very thick,blue,->] (O) -- (A) node[midway,below right] {$\vec{a}$};
+  \draw[very thick,red,->] (O) -- (B) node[midway,left] {$\vec{b}$};
+  \draw[dashed,gray!70] (B) -- (H);
+  \draw[thick,orange!85!black] (H) -- (B);
+  \node[align=center] at (2.7,1.85) {平行四辺形};
+\end{tikzpicture}
+\end{center}
+
+
+\newpage
+\subsection{確認問題}
+\begin{enumerate}
+  \item 2次元の外積 \(\vec{a}\times\vec{b}\) は、何（スカラーかベクトルか）として扱うか。また、主に何の判定に使えるかを答えよ。
+  \item \(\vec{a}=\begin{pmatrix}2 & 1\end{pmatrix}\)、\(\vec{b}=\begin{pmatrix}1 & 3\end{pmatrix}\) の外積を求めよ。
+  \item \(\vec{a}=\begin{pmatrix}1 & 2\end{pmatrix}\)、\(\vec{b}=\begin{pmatrix}4 & 1\end{pmatrix}\) の外積を求め、正か負かを答えよ。
+  \item \(\vec{a}=\begin{pmatrix}-2 & 3\end{pmatrix}\)、\(\vec{b}=\begin{pmatrix}1 & -4\end{pmatrix}\) の外積を求め、正か負かを答えよ。
+  \item \(\vec{a}\times\vec{b}\) と \(\vec{b}\times\vec{a}\) の関係を式で書け。
+  \item \(\vec{a}=\begin{pmatrix}3 & 0\end{pmatrix}\)、\(\vec{b}=\begin{pmatrix}0 & 2\end{pmatrix}\) のとき、\(|\vec{a}\times\vec{b}|\) を求めよ。
+  \item \(\vec{a}=\begin{pmatrix}4 & 1\end{pmatrix}\)、\(\vec{b}=\begin{pmatrix}1 & 3\end{pmatrix}\) がある。\(\vec{a}\times\vec{b}\) を使って、\(\vec{b}\) が \(\vec{a}\) の右側・左側のどちらにあるかを判定せよ。
+  \item \(\vec{a}=\begin{pmatrix}2 & 1\end{pmatrix}\)、\(\vec{b}=\begin{pmatrix}k & 3\end{pmatrix}\) とする。\(\vec{a}\times\vec{b}>0\) となる \(k\) の範囲を求めよ。
+\end{enumerate}
+
+\newpage
+\section{射影}
+
+\subsection{射影の考え方}
+
+ベクトルをある方向へ「どれだけ乗っているか」で見るのが\textbf{射影}である。
+
+\textbf{見方：} 斜めの矢印を、基準にしたいベクトルへ真っすぐ落とした「影」を考える。
+
+\vspace{6pt}
+\textbf{ここでは、\(\vec{a}\) の \(\vec{b}\) 方向への射影ベクトルを \(\vec{A}\) とおく。}
+
+\vspace{6pt}
+\textbf{覚える式：}
+\formula{\vec{A}=\hat{b}(\vec{a}\cdot\hat{b})}
+
+\vspace{6pt}
+\textbf{手順1：} \(\vec{b}\) の単位ベクトル \(\hat{b}\) を作る
+\begin{center}
+\begin{minipage}[c]{0.56\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.78,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (5.8,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,3.8) node[above] {$y$};
+  \draw[very thick,blue,->] (0,0) -- (2.8,3.0) node[midway,below right] {$\vec{a}$};
+  \draw[very thick,red,->] (0,0) -- (4.0,1.2) node[midway,below right] {$\vec{b}$};
+  \draw[very thick,orange!85!black,->] (0,0) -- (0.95,0.285) node[midway,below right] {$\hat{b}$};
+  \node[align=center] at (4.65,2.0) {\(\vec{b}\) を長さ1にする};
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.40\linewidth}
+\centering
+\[
+\hat{b}=\frac{\vec{b}}{|\vec{b}|}
+\]
+\vspace{4pt}
+\[
+|\hat{b}|=1
+\]
+\end{minipage}
+\end{center}
+
+\textbf{手順2：} \(\vec{a}\cdot\hat{b}\) を計算して、$|\vec{A}|$ を求める。
+\begin{center}
+\begin{minipage}[c]{0.56\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.78,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (5.8,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,4.0) node[above] {$y$};
+  \draw[very thick,blue,->] (0,0) -- (2.8,3.0) node[midway,above left] {$\vec{a}$};
+  \draw[very thick,orange!85!black,->] (0,0) -- (0.95,0.18) node[midway,below right] {$\hat{b}$};
+  \draw[very thick,teal!70!black] (0,0) -- (3.35,0.64);
+  \node[teal!70!black,below] at (1.75,0.10) {$|\vec{A}|$};
+  \draw (1.0,0.18) arc[start angle=10,end angle=47,radius=1.0];
+  \node at (1.45,0.72) {$\theta$};
+  \draw[dashed,gray!70] (2.8,3.0) -- (3.35,0.64);
+  \node[align=center] at (4.55,2.7) {\(\vec{a}\cdot\hat{b}\) は\\\(\vec{a}\) の \(\hat{b}\) 方向成分};
+  \node[align=center,teal!70!black] at (3.95,1.65) {$|\vec{A}|=|\vec{a}|\cos\theta$};
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.40\linewidth}
+\centering
+\[
+\vec{a}\cdot\hat{b}=|\vec{a}|1\cos\theta　であり、
+\]
+\[
+|\vec{A}|=|\vec{a}|\cos\theta　であるので、
+\]
+\[
+\vec{a}\cdot\hat{b}=|\vec{a}|1\cos\theta=|\vec{A}|
+\]
+
+\end{minipage}
+\end{center}
+
+\textbf{手順3：} 手順2の値を \(\hat{b}\) にかける
+\begin{center}
+\begin{minipage}[c]{0.56\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.78,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (6.0,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,4.2) node[above] {$y$};
+  \draw[very thick,blue,->] (0,0) -- (2.8,3.0) node[midway,above left] {$\vec{a}$};
+  \draw[very thick,orange!85!black,->] (0,0) -- (0.95,0.18) node[midway,below right] {$\hat{b}$};
+  \draw[very thick,teal!70!black,->] (0,0) -- (3.35,0.64) node[midway,below] {$\vec{A}$};
+  \draw[dashed,gray!70] (2.8,3.0) -- (3.35,0.64);
+  \node[align=center] at (4.9,3.0) {\(\vec{A}\) が射影ベクトル};
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.40\linewidth}
+\centering
+\[
+\vec{A}=\hat{b}|\vec{A}|　で出せるので、
+\]
+\[
+\vec{A}=\hat{b}(\vec{a}\cdot\hat{b})
+\]
+\end{minipage}
+\end{center}
+
+\textbf{Point：} 「\(\hat{b}\) に \((\vec{a}\cdot\hat{b})\) をかける」と覚える。
+
+\newpage
+\subsection{射影を使う場面}
+様々あるが、壁にあたったときの動きなどでも使う。
+キャラクターが壁にぶつかったとき、プレイヤーの入力をそのまま使うと壁の中へ入り込もうとしてしまう。
+
+そこで、進行方向を「壁にそった向き」に合わせ直して動かす。
+
+\vspace{6pt}
+\begin{center}
+\begin{tikzpicture}[scale=0.95,>=Stealth]
+  \coordinate (O) at (3.1,1.9);
+  \coordinate (Vin) at (7.0,1.9);
+  \coordinate (Vwall) at (4.24,0.13);
+
+  % 壁
+  \draw[very thick] (4.3,4.1) -- (7.9,-1.5);
+  \node at (5.1,4.0) {壁};
+
+  % プレイヤー（円）
+  \draw[very thick] (O) circle (1.15);
+
+  % 入力（黒矢印）
+  \draw[very thick,->] (O) -- (Vin);
+  \node[above] at (6.7,2.2) {プレイヤーの入力};
+
+  % 入力から射影を作ることを示す
+  \draw[dashed,gray!70] (Vin) -- (Vwall);
+  \node[align=center,gray!70] at (5.95,1.05) {射影};
+
+  % 射影後の進行方向（強調）
+  \draw[red!85!black,very thick,->] (O) -- (Vwall);
+  \node[red!85!black,below] at (4.15,0.35) {キャラの進む方向};
+\end{tikzpicture}
+\end{center}
+
+\textbf{Point：} 射影は\textbf{進める向き（壁に沿う向き）だけを取り出す}ために使う。
+
+
+
+\subsection{確認問題}
+\begin{enumerate}
+  \item 壁にぶつかったとき、射影を使うとキャラはどの向きに進むか。
+  \item \(\vec{b}=\begin{pmatrix}3 & 4\end{pmatrix}\) の単位ベクトル \(\hat{b}\) を求めよ。
+  \item \(\vec{a}=\begin{pmatrix}5 & 1\end{pmatrix}\)、\(\hat{b}=\begin{pmatrix}1 & 0\end{pmatrix}\) のとき、\(\vec{a}\cdot\hat{b}\) を求めよ。
+  \item \(\vec{a}=\begin{pmatrix}5 & 1\end{pmatrix}\)、\(\hat{b}=\begin{pmatrix}1 & 0\end{pmatrix}\) のとき、\(\vec{A}=\hat{b}(\vec{a}\cdot\hat{b})\) を求めよ。
+  \item \(\vec{a}=\begin{pmatrix}-2 & 1\end{pmatrix}\)、\(\hat{b}=\begin{pmatrix}1 & 0\end{pmatrix}\) のとき、\(\vec{a}\cdot\hat{b}\) の符号を答え、射影ベクトル \(\vec{A}\) の向きが \(\hat{b}\) と同じか逆かを答えよ。
+  \item 壁方向の単位ベクトルが \(\hat{w}=\begin{pmatrix}\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}\end{pmatrix}\)、入力が \(\vec{v}=\begin{pmatrix}4 & 0\end{pmatrix}\) のとき、\(\vec{v}\cdot\hat{w}\) を求めよ。
+  \item 上の問の条件で、キャラの進む方向 \(\vec{v}_{\parallel}=\hat{w}(\vec{v}\cdot\hat{w})\) を求めよ。
+  \item 壁方向が \(\hat{w}=\begin{pmatrix}0 & 1\end{pmatrix}\) のとき、次のどちらが「壁に沿う移動量」が大きいか答えよ。\(\vec{v}_1=\begin{pmatrix}3 & 1\end{pmatrix}\)、\(\vec{v}_2=\begin{pmatrix}1 & 4\end{pmatrix}\)
+\end{enumerate}
+
+\newpage
+\section{ゲームで使うベクトル}
+
+\subsection{位置と速度}
+
+ゲームでは、位置の更新をベクトルで書くと整理しやすい。
+
+\textbf{考え方：} 今いる場所に、1秒ぶんの移動ベクトルを何回も足していく。
+
+\formula{\vec{p}(t)=\vec{p}_0+t\vec{v}}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.72,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (6.5,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,5.5) node[above] {$y$};
+  \coordinate (P0) at (1,1);
+  \coordinate (P1) at (3,3);
+  \coordinate (P2) at (5,5);
+  \draw[very thick,blue,->] (P0) -- (P1) node[midway,above left] {$\vec{v}$};
+  \draw[very thick,red,->] (P1) -- (P2) node[midway,above right] {$\vec{v}$};
+  \fill (P0) circle (2pt) node[below left] {$\vec{p}_0$};
+  \fill (P1) circle (2pt) node[above left] {$1\text{秒後}$};
+  \fill (P2) circle (2pt) node[above right] {$2\text{秒後}$};
+  \node[align=center] at (4.3,0.8) {毎秒同じだけ進む};
+\end{tikzpicture}
+\end{center}
+
+\textbf{例：} 初期位置が \((2,3)\)、速度が \((1,2)\) なら、3秒後は \((5,9)\) になる。
+
+\subsection{円の衝突判定}
+
+2つの円がぶつかっているかは、中心間の距離で分かる。
+
+\textbf{見方：} 中心どうしが近すぎると重なる。半径の和と比べれば判定できる。
+
+\formula{d<r_a+r_b}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.74,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (7.0,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,5.5) node[above] {$y$};
+  \coordinate (A) at (2,2);
+  \coordinate (B) at (5,3.6);
+  \draw[thick,blue] (A) circle (1.2);
+  \draw[thick,red] (B) circle (1.8);
+  \fill (A) circle (2pt) node[below left] {$A$};
+  \fill (B) circle (2pt) node[above right] {$B$};
+  \draw[very thick,black,->] (A) -- (B) node[midway,above] {$d$};
+  \node[align=center] at (3.6,0.6) {中心どうしが近すぎるとぶつかる};
+\end{tikzpicture}
+\end{center}
+
+\textbf{例：} 図の円で、中心を \(A(2,2)\)、\(B(5,3.6)\)、半径を \(r_a=1.2\)、\(r_b=1.8\) とする。
+
+\textbf{手順1：} 中心間ベクトルを出す。
+\begin{center}
+\(\overrightarrow{AB}=\begin{pmatrix}5-2 & 3.6-2\end{pmatrix}=\begin{pmatrix}3 & 1.6\end{pmatrix}\)
+\end{center}
+
+\textbf{手順2：} その大きさを距離 \(d\) とする。
+\begin{center}
+\(d=|\overrightarrow{AB}|=\sqrt{3^2+1.6^2}=\sqrt{11.56}=3.4\)
+\end{center}
+
+\textbf{手順3：} 半径の和と比較する。
+\begin{center}
+\(r_a+r_b=1.2+1.8=3.0\)
+\end{center}
+
+\(d=3.4 > 3.0=r_a+r_b\) なので、\textbf{この2つの円は衝突していない}。
+
+\newpage
+\subsection{確認問題}
+\begin{enumerate}
+  \item 速度が \((2,-1)\)、初期位置が \((0,0)\) のとき、2秒後の位置を求めよ。
+  \item 初期位置が \((1,3)\)、速度が \((-1,2)\) のとき、3秒後の位置を求めよ。
+  \item 点 \(A(1,2)\)、点 \(B(5,5)\) のとき、中心間ベクトル \(\overrightarrow{AB}\) を求めよ。
+  \item 上の問で、中心間距離 \(d=|\overrightarrow{AB}|\) を求めよ。
+  \item 半径 \(r_a=2\)、\(r_b=3\)、中心間距離 \(d=4\) の2円は衝突しているか。理由も答えよ。
+  \item 円Aの中心 \((0,0)\)、半径1.5、円Bの中心 \((2,1)\)、半径1.0 とする。中心間ベクトルと距離を求め、衝突判定せよ。
+  \item 壁方向の単位ベクトルが \(\hat{w}=\begin{pmatrix}1 & 0\end{pmatrix}\)、入力が \(\vec{v}=\begin{pmatrix}3 & 2\end{pmatrix}\) のとき、壁に沿う進行ベクトル \(\vec{v}_{\parallel}=\hat{w}(\vec{v}\cdot\hat{w})\) を求めよ。
+  \item 壁にぶつかったとき、射影を使うとキャラはどの向きに進むか答えよ。
+\end{enumerate}
+
+\newpage
+\section{内積と外積の証明(オマケ)}
+難しいので、興味がある人だけ読んでください。
+ここでは、次の2つが同じ値になる理由を、図と式を対応させて示す。
+
+\begin{center}
+\(\vec{a}\cdot\vec{b}=a_xb_x+a_yb_y\)
+\qquad と \qquad
+\(\vec{a}\cdot\vec{b}=|\vec{a}||\vec{b}|\cos\theta\)
+\end{center}
+
+\textbf{準備：} \(\vec{a}=(a_x,a_y)\)、\(\vec{b}=(b_x,b_y)\) とする。
+
+\begin{center}
+\begin{tikzpicture}[scale=0.95,>=Stealth]
+  \draw[->,gray!60] (-0.5,0) -- (6.2,0) node[right] {$x$};
+  \draw[->,gray!60] (0,-0.5) -- (0,4.7) node[above] {$y$};
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (4.8,1.2);
+  \coordinate (B) at (2.0,3.6);
+  \draw[very thick,blue,->] (O) -- (A) node[midway,below] {$\vec{a}$};
+  \draw[very thick,red,->] (O) -- (B) node[midway,left] {$\vec{b}$};
+  \draw[very thick,teal!70!black,->] (B) -- (A) node[midway,above,right] {$\vec{a}-\vec{b}$};
+  \pic [draw,->,angle radius=10mm,"$\theta$"] {angle = A--O--B};
+\end{tikzpicture}
+
+図では、三角形の3辺が $|\vec{a}|,|\vec{b}|,|\vec{a}-\vec{b}|$ に対応する。
+\end{center}
+
+\textbf{1. 成分で} $|\vec{a}-\vec{b}|^2$ \textbf{を計算する。}
+\begin{align*}
+|\vec{a}-\vec{b}|^2
+&=(a_x-b_x)^2+(a_y-b_y)^2 \\
+&=a_x^2+a_y^2+b_x^2+b_y^2-2(a_xb_x+a_yb_y) \\
+&=|\vec{a}|^2+|\vec{b}|^2-2(a_xb_x+a_yb_y)
+\end{align*}
+
+\textbf{2. 同じ長さを余弦定理で計算する。}
+\begin{center}
+\begin{tikzpicture}[scale=1.0,>=Stealth]
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (4.6,0.8);
+  \coordinate (B) at (1.4,3.2);
+  \draw[very thick,blue] (O) -- (A) node[midway,below] {$|\vec{a}|$};
+  \draw[very thick,red] (O) -- (B) node[midway,left] {$|\vec{b}|$};
+  \draw[very thick,teal!70!black] (B) -- (A) node[midway,above] {$|\vec{a}-\vec{b}|$};
+  \pic [draw,->,angle radius=8mm,"$\theta$"] {angle = A--O--B};
+
+  \node[align=left] at (7.2,2.2) {
+    余弦定理：\\
+    $c^2=a^2+b^2-2ab\cos\theta$\\
+    ここで\\
+    $c=|\vec{a}-\vec{b}|$\\
+    $a=|\vec{a}|,\ b=|\vec{b}|$
+  };
+\end{tikzpicture}
+
+同じ三角形に余弦定理を当てはめると、向かい側の辺 $|\vec{a}-\vec{b}|$ が
+\( |\vec{a}|,|\vec{b}|,\theta \) で表せる。
+\end{center}
+
+\begin{center}
+\(|\vec{a}-\vec{b}|^2=|\vec{a}|^2+|\vec{b}|^2-2|\vec{a}||\vec{b}|\cos\theta\)
+\end{center}
+
+\textbf{3. 同じ図の同じ辺} $|\vec{a}-\vec{b}|$ \textbf{を表す2式を比較する。}
+\begin{align*}
+|\vec{a}|^2+|\vec{b}|^2-2(a_xb_x+a_yb_y)
+&=|\vec{a}|^2+|\vec{b}|^2-2|\vec{a}||\vec{b}|\cos\theta
+\end{align*}
+
+共通項を消すと
+\formula{a_xb_x+a_yb_y=|\vec{a}||\vec{b}|\cos\theta}
+
+つまり、\textbf{成分どうしを掛けて足す計算}と\textbf{長さと角度で測る計算}は、同じ幾何量を見ているため一致する。
+
+\end{document}

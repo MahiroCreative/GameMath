@@ -1,0 +1,100 @@
+%【紙面設定】
+%b4,横書き,2段
+\documentclass[paper=b4j,landscape,twocolumn,fleqn]{jlreq}
+%横書き用の調整
+\special{papersize=\the\paperwidth,\the\paperheight}
+%間に線をいれる
+\setlength{\columnseprule}{0.4pt}
+%ページ番号消す
+\pagestyle{empty}
+%ページ余白の調整
+\usepackage[margin=8truemm]{geometry}
+%画像挿入用のパッケージ
+\usepackage[dvipdfmx]{graphicx}
+%数学用のパッケージ
+\usepackage{amsmath}
+%見出しによる行取りの数を減らす
+\ModifyHeading{section}{
+	lines=1,
+	before_space=6pt,
+	after_space=0pt
+}
+% 段落・数式まわりの余白を詰める
+\setlength{\parskip}{0pt}
+\setlength{\jot}{3pt}
+
+%【本文】
+\begin{document}
+\normalsize
+%1段落目
+\section{覚えるべき三角形の図示}
+次の各問について、図を描き、辺の長さの比を記入せよ。
+\begin{align*}
+　&1.　30^\circ-60^\circ-90^\circ\text{ の直角三角形を図示し、辺の比を記入せよ。}\\[0.45em]
+　&2.　45^\circ-45^\circ-90^\circ\text{ の直角三角形を図示し、辺の比を記入せよ。}\\[0.45em]
+　&3.　30^\circ-60^\circ-90^\circ\text{ の三角形で、最短辺を1とした図を描き、他の2辺を記入せよ。}\\[0.45em]
+　&4.　45^\circ-45^\circ-90^\circ\text{ の三角形で、斜辺を1とした図を描き、他の2辺を記入せよ。}\\[0.45em]
+　&5.　30^\circ,45^\circ,60^\circ\text{ について、}sin\theta,\ cos\theta\text{ の値を三角形の図から読み取り記入せよ。}\\[0.45em]
+　&6.　30^\circ,45^\circ,60^\circ\text{ について、}tan\theta\text{ の値を三角形の図から読み取り記入せよ。}\\[0.45em]
+\end{align*}
+
+\section{直角三角形の比}
+直角三角形について、以下の問いに答えよ。
+\begin{align*}
+　&1.　30^\circ-60^\circ-90^\circ の直角三角形で、最も短い辺が2のとき、残り2辺の長さを求めよ。\\[0.45em]
+　&2.　30^\circ-60^\circ-90^\circ の直角三角形で、斜辺が8のとき、残り2辺の長さを求めよ。\\[0.45em]
+　&3.　45^\circ-45^\circ-90^\circ の直角三角形で、斜辺が6\sqrt{2}のとき、残り2辺の長さを求めよ。\\[0.45em]
+　&4.　60^\circ に対する向かい側の辺が3\sqrt{3}のとき、30^\circ に対する向かい側の辺と斜辺を求めよ。\\[0.45em]
+　&5.　30^\circ に対する向かい側の辺が5のとき、60^\circ に対する向かい側の辺と斜辺を求めよ。\\[0.45em]
+　&6.　45^\circ-45^\circ-90^\circ の直角三角形で、1辺が4のとき、もう1辺と斜辺を求めよ。\\[0.45em]
+\end{align*}
+
+\section{三角比}
+直角三角形において、角$\theta$に対する三角比を考える。
+\begin{align*}
+　&1.　\cos 30^\circ,\ \cos 45^\circ,\ \cos 60^\circ\text{ の値を求めよ。}\\[0.45em]
+　&2.　\sin 30^\circ,\ \sin 45^\circ,\ \sin 60^\circ\text{ の値を求めよ。}\\[0.45em]
+　&3.　\tan 30^\circ,\ \tan 45^\circ,\ \tan 60^\circ\text{ の値を求めよ。}\\[0.45em]
+　&4.　斜辺が8、\theta=30^\circ のとき、底辺と高さを求めよ。\\[0.45em]
+　&5.　斜辺が10、\theta=60^\circ のとき、底辺と高さを求めよ。\\[0.45em]
+　&6.　底辺が6、\theta=45^\circ のとき、斜辺と高さを求めよ。\\[0.45em]
+\end{align*}
+
+\newpage
+
+\section{覚えるべき三角形の図示}
+次の各問について、図を描き、辺の長さの比を記入せよ。
+\begin{align*}
+　&1.　30^\circ-60^\circ-90^\circ\text{ の直角三角形を図示し、辺の比を記入せよ。}\\[0.45em]
+　&2.　45^\circ-45^\circ-90^\circ\text{ の直角三角形を図示し、辺の比を記入せよ。}\\[0.45em]
+　&3.　30^\circ-60^\circ-90^\circ\text{ の三角形で、最短辺を1とした図を描き、他の2辺を記入せよ。}\\[0.45em]
+　&4.　45^\circ-45^\circ-90^\circ\text{ の三角形で、斜辺を1とした図を描き、他の2辺を記入せよ。}\\[0.45em]
+　&5.　30^\circ,45^\circ,60^\circ\text{ について、}sin\theta,\ cos\theta\text{ の値を三角形の図から読み取り記入せよ。}\\[0.45em]
+　&6.　30^\circ,45^\circ,60^\circ\text{ について、}tan\theta\text{ の値を三角形の図から読み取り記入せよ。}\\[0.45em]
+\end{align*}
+
+\section{直角三角形の比}
+直角三角形について、以下の問いに答えよ。
+\begin{align*}
+　&1.　30^\circ-60^\circ-90^\circ の直角三角形で、最も短い辺が2のとき、残り2辺の長さを求めよ。\\[0.45em]
+　&2.　30^\circ-60^\circ-90^\circ の直角三角形で、斜辺が8のとき、残り2辺の長さを求めよ。\\[0.45em]
+　&3.　45^\circ-45^\circ-90^\circ の直角三角形で、斜辺が6\sqrt{2}のとき、残り2辺の長さを求めよ。\\[0.45em]
+　&4.　60^\circ に対する向かい側の辺が3\sqrt{3}のとき、30^\circ に対する向かい側の辺と斜辺を求めよ。\\[0.45em]
+　&5.　30^\circ に対する向かい側の辺が5のとき、60^\circ に対する向かい側の辺と斜辺を求めよ。\\[0.45em]
+　&6.　45^\circ-45^\circ-90^\circ の直角三角形で、1辺が4のとき、もう1辺と斜辺を求めよ。\\[0.45em]
+\end{align*}
+
+\section{三角比}
+直角三角形において、角$\theta$に対する三角比を考える。
+\begin{align*}
+　&1.　\cos 30^\circ,\ \cos 45^\circ,\ \cos 60^\circ\text{ の値を求めよ。}\\[0.45em]
+　&2.　\sin 30^\circ,\ \sin 45^\circ,\ \sin 60^\circ\text{ の値を求めよ。}\\[0.45em]
+　&3.　\tan 30^\circ,\ \tan 45^\circ,\ \tan 60^\circ\text{ の値を求めよ。}\\[0.45em]
+　&4.　斜辺が8、\theta=30^\circ のとき、底辺と高さを求めよ。\\[0.45em]
+　&5.　斜辺が10、\theta=60^\circ のとき、底辺と高さを求めよ。\\[0.45em]
+　&6.　底辺が6、\theta=45^\circ のとき、斜辺と高さを求めよ。\\[0.45em]
+\end{align*}
+\end{document}
+
+
+
