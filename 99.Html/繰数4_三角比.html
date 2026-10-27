@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>繰数4 三角比</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="print.js"></script>
+<link rel="stylesheet" href="print.css">
+<style>
+/* 解答の途中式（行ごとに並べる。.ind は2行目以降の字下げ） */
+.steps { margin: 0.4em 0 0 2.2em; }
+.steps > p { margin: 0.15em 0; }
+.steps > p.ind { padding-left: 1.2em; }
+/* 番号を1行目のベースラインに揃える（displaystyle の分数で行が高くなっても番号が浮かない） */
+ol.q > li::before { position: static; display: inline-block; width: 2em; margin-left: -2em; }
+</style>
+</head>
+<body>
+
+<!-- ===================== 問題 ===================== -->
+<div class="sheet" data-role="q">
+
+<!-- 左段（基礎）：Left版ではこの段が右段にも複製される -->
+<div class="col">
+
+<section>
+<h2>覚えるべき三角形の図示</h2>
+<p class="lead">次の各問について、図を描き、辺の長さの比を記入せよ。</p>
+<ol class="q">
+<li>$30^\circ-60^\circ-90^\circ$ の直角三角形を図示し、辺の比を記入せよ。</li>
+<li>$45^\circ-45^\circ-90^\circ$ の直角三角形を図示し、辺の比を記入せよ。</li>
+<li>$30^\circ-60^\circ-90^\circ$ の三角形で、最短辺を$1$とした図を描き、他の$2$辺を記入せよ。</li>
+<li>$45^\circ-45^\circ-90^\circ$ の三角形で、斜辺を$1$とした図を描き、他の$2$辺を記入せよ。</li>
+<li>$30^\circ,45^\circ,60^\circ$ について、$sin\theta,\ cos\theta$ の値を三角形の図から読み取り記入せよ。</li>
+<li>$30^\circ,45^\circ,60^\circ$ について、$tan\theta$ の値を三角形の図から読み取り記入せよ。</li>
+</ol>
+</section>
+
+<section>
+<h2>直角三角形の比</h2>
+<p class="lead">直角三角形について、以下の問いに答えよ。</p>
+<ol class="q">
+<li>$30^\circ-60^\circ-90^\circ$ の直角三角形で、最も短い辺が$2$のとき、残り$2$辺の長さを求めよ。</li>
+<li>$30^\circ-60^\circ-90^\circ$ の直角三角形で、斜辺が$8$のとき、残り$2$辺の長さを求めよ。</li>
+<li>$45^\circ-45^\circ-90^\circ$ の直角三角形で、斜辺が$6\sqrt{2}$のとき、残り$2$辺の長さを求めよ。</li>
+<li>$60^\circ$ に対する向かい側の辺が$3\sqrt{3}$のとき、$30^\circ$ に対する向かい側の辺と斜辺を求めよ。</li>
+<li>$30^\circ$ に対する向かい側の辺が$5$のとき、$60^\circ$ に対する向かい側の辺と斜辺を求めよ。</li>
+<li>$45^\circ-45^\circ-90^\circ$ の直角三角形で、$1$辺が$4$のとき、もう$1$辺と斜辺を求めよ。</li>
+</ol>
+</section>
+
+<section>
+<h2>三角比</h2>
+<p class="lead">直角三角形において、角$\theta$に対する三角比を考える。</p>
+<ol class="q">
+<li>$\cos 30^\circ,\ \cos 45^\circ,\ \cos 60^\circ$ の値を求めよ。</li>
+<li>$\sin 30^\circ,\ \sin 45^\circ,\ \sin 60^\circ$ の値を求めよ。</li>
+<li>$\tan 30^\circ,\ \tan 45^\circ,\ \tan 60^\circ$ の値を求めよ。</li>
+<li>斜辺が$8$、$\theta=30^\circ$ のとき、底辺と高さを求めよ。</li>
+<li>斜辺が$10$、$\theta=60^\circ$ のとき、底辺と高さを求めよ。</li>
+<li>底辺が$6$、$\theta=45^\circ$ のとき、斜辺と高さを求めよ。</li>
+</ol>
+</section>
+
+</div>
+
+<!-- 右段（発展） -->
+<div class="col">
+
+<section>
+<h2>ラジアン</h2>
+<p class="lead">度数法と弧度法の変換、およびラジアンを用いた三角比の計算を行え。</p>
+<ol class="q">
+<li>$30^\circ,\ 45^\circ,\ 60^\circ,\ 90^\circ$ をそれぞれ $[\mathrm{rad}]$ で表せ。</li>
+<li>$\displaystyle \frac{\pi}{6},\ \frac{\pi}{4},\ \frac{\pi}{3},\ \frac{\pi}{2}$ をそれぞれ度で表せ。</li>
+<li>$\displaystyle \cos \frac{\pi}{3},\ \sin \frac{\pi}{6},\ \tan \frac{\pi}{4}$ の値を求めよ。</li>
+<li>斜辺が$8$、$\displaystyle \theta=\frac{\pi}{6}$ のとき、底辺と高さを求めよ。</li>
+<li>斜辺が$4$、$\displaystyle \theta=\frac{\pi}{4}$ のとき、底辺と高さを求めよ。</li>
+<li>底辺が$3$、$\displaystyle \theta=\frac{\pi}{3}$ のとき、斜辺と高さを求めよ。</li>
+</ol>
+</section>
+
+<section>
+<h2>単位円の三角比</h2>
+<p class="lead">$0\leq\theta\leq\pi$ とする。以下の問いに答えよ。</p>
+<ol class="q">
+<li>点$\displaystyle P\left(\frac{1}{2},\frac{\sqrt{3}}{2}\right)$ に対する $\sin\theta,\ \cos\theta,\ \tan\theta$ を求めよ。</li>
+<li>点$\displaystyle P\left(\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2}\right)$ に対する $\sin\theta,\ \cos\theta,\ \tan\theta$ を求めよ。</li>
+<li>点$\displaystyle P\left(-\frac{1}{2},\frac{\sqrt{3}}{2}\right)$ に対する $\sin\theta,\ \cos\theta,\ \tan\theta$ を求めよ。</li>
+<li>$\displaystyle \sin\theta=\frac{1}{3}$ のとき、$\cos\theta$ と $\tan\theta$ を求めよ。</li>
+<li>$\displaystyle \cos\theta=\frac{1}{4}$ のとき、$\sin\theta$ と $\tan\theta$ を求めよ。</li>
+<li>$\tan\theta=2$ のとき、$\sin\theta$ と $\cos\theta$ を求めよ。</li>
+</ol>
+</section>
+
+<section>
+<h2>三角比の総合</h2>
+<p class="lead">以下の問いに答えよ。</p>
+<ol class="q">
+<li>$\theta=30^\circ$ のとき、$\sin\theta+\cos\theta$ の値を求めよ。</li>
+<li>$\theta=45^\circ$ のとき、$\sin\theta\cos\theta$ の値を求めよ。</li>
+<li>$\theta=60^\circ$ のとき、$\tan\theta\cos\theta$ の値を求めよ。</li>
+<li>$\displaystyle \theta=\frac{\pi}{6}$ のとき、$2\cos\theta+4\sin\theta$ の値を求めよ。</li>
+<li>$\displaystyle \theta=\frac{\pi}{4}$ のとき、$\displaystyle \frac{\sin\theta}{\cos\theta}$ の値を求めよ。</li>
+<li>$\displaystyle \sin\theta=\frac{3}{5},\ 0\lt\theta\lt\frac{\pi}{2}$ のとき、$\cos\theta$ と $\tan\theta$ を求めよ。</li>
+</ol>
+</section>
+
+</div>
+</div>
+
+<!-- ===================== 解答 1枚目 ===================== -->
+<div class="sheet packed" data-role="ans">
+
+<div class="col">
+<section>
+<h2>覚えるべき三角形の図示 解答</h2>
+<ol class="q tight">
+<li>$30^\circ\text{-}60^\circ\text{-}90^\circ$ の辺比 $1:\sqrt{3}:2$</li>
+<li>$45^\circ\text{-}45^\circ\text{-}90^\circ$ の辺比 $1:1:\sqrt{2}$</li>
+<li>最短辺$=1\Rightarrow (1,\sqrt{3},2)$</li>
+<li>斜辺$\displaystyle =1\Rightarrow \left(\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2},1\right)$</li>
+<li>$\displaystyle \sin30^\circ=\frac12,\ \cos30^\circ=\frac{\sqrt3}{2},\ \sin45^\circ=\cos45^\circ=\frac{\sqrt2}{2},\ \sin60^\circ=\frac{\sqrt3}{2},\ \cos60^\circ=\frac12$</li>
+<li>$\displaystyle \tan30^\circ=\frac{1}{\sqrt3},\ \tan45^\circ=1,\ \tan60^\circ=\sqrt3$</li>
+</ol>
+<p class="label">考え方</p>
+<p>基準三角形の辺比を先に固定する。$30^\circ\text{-}60^\circ\text{-}90^\circ$ は $1:\sqrt3:2$、$45^\circ\text{-}45^\circ\text{-}90^\circ$ は $1:1:\sqrt2$。</p>
+<p class="label">途中式（代表例）</p>
+<div class="steps">
+<p>$\displaystyle \sin30^\circ=\frac{\text{対辺}}{\text{斜辺}}=\frac12,\ \cos30^\circ=\frac{\sqrt3}{2}$</p>
+<p>$\displaystyle \tan60^\circ=\frac{\text{対辺}}{\text{隣辺}}=\frac{\sqrt3}{1}=\sqrt3$</p>
+</div>
+<p class="label">図説（覚えるべき2つの三角形）</p>
+<figure class="fig" style="width:60%">
+  <svg viewBox="0 0 452 164">
+    <g fill="none" stroke="#000">
+      <!-- 30-60-90 -->
+      <polygon points="16,140 184,140 184,44" stroke-width="1.3" stroke-linejoin="round"/>
+      <polyline points="170,140 170,126 184,126" stroke-width="0.7"/>
+      <!-- 45-45-90 -->
+      <polygon points="300,140 428,140 428,12" stroke-width="1.3" stroke-linejoin="round"/>
+      <polyline points="414,140 414,126 428,126" stroke-width="0.7"/>
+    </g>
+  </svg>
+  <span class="lbl" style="left:22.1%;top:93.9%">$\sqrt3$</span>
+  <span class="lbl" style="left:43.4%;top:56.1%">$1$</span>
+  <span class="lbl" style="left:19.9%;top:48.8%">$2$</span>
+  <span class="lbl" style="left:35.8%;top:35.4%">$30^\circ$</span>
+  <span class="lbl" style="left:8.8%;top:79.3%">$60^\circ$</span>
+  <span class="lbl" style="left:80.5%;top:93.9%">$1$</span>
+  <span class="lbl" style="left:96.5%;top:46.3%">$1$</span>
+  <span class="lbl" style="left:78.3%;top:39.0%">$\sqrt2$</span>
+  <span class="lbl" style="left:89.8%;top:18.3%">$45^\circ$</span>
+  <span class="lbl" style="left:72.1%;top:78.7%">$45^\circ$</span>
+</figure>
+</section>
+</div>
+
+<div class="col">
+<section>
+<h2>直角三角形の比 解答</h2>
+<ol class="q tight">
+<li>$2,\ 2\sqrt3,\ 4$</li>
+<li>$4,\ 4\sqrt3,\ 8$</li>
+<li>$6,\ 6,\ 6\sqrt2$</li>
+<li>$30^\circ$側$=3,$ 斜辺$=6$</li>
+<li>$60^\circ$側$=5\sqrt3,$ 斜辺$=10$</li>
+<li>もう$1$辺$=4,$ 斜辺$=4\sqrt2$</li>
+</ol>
+<p class="label">考え方</p>
+<p>与えられた辺を基準比に対応させ、倍率をかける。</p>
+<p class="label">途中式（代表例）</p>
+<div class="steps">
+<p>1. $30\text{-}60\text{-}90$比 $1:\sqrt3:2$ で最短辺 $2\Rightarrow \times2$</p>
+<p class="ind">$(2,2\sqrt3,4)$</p>
+<p>3. $45\text{-}45\text{-}90$比 $1:1:\sqrt2,$ 斜辺 $6\sqrt2\Rightarrow$ 倍率 $6$</p>
+<p class="ind">$(6,6,6\sqrt2)$</p>
+</div>
+</section>
+</div>
+
+</div>
+
+<!-- ===================== 解答 2枚目 ===================== -->
+<div class="sheet packed" data-role="ans">
+
+<div class="col">
+<section>
+<h2>三角比 解答</h2>
+<ol class="q tight">
+<li>$\displaystyle \cos30^\circ=\frac{\sqrt3}{2},\ \cos45^\circ=\frac{\sqrt2}{2},\ \cos60^\circ=\frac12$</li>
+<li>$\displaystyle \sin30^\circ=\frac12,\ \sin45^\circ=\frac{\sqrt2}{2},\ \sin60^\circ=\frac{\sqrt3}{2}$</li>
+<li>$\displaystyle \tan30^\circ=\frac{1}{\sqrt3},\ \tan45^\circ=1,\ \tan60^\circ=\sqrt3$</li>
+<li>底辺$=4\sqrt3,$ 高さ$=4$</li>
+<li>底辺$=5,$ 高さ$=5\sqrt3$</li>
+<li>斜辺$=6\sqrt2,$ 高さ$=6$</li>
+</ol>
+<p class="label">考え方</p>
+<p>$\sin\theta=\frac{\text{高さ}}{\text{斜辺}},\ \cos\theta=\frac{\text{底辺}}{\text{斜辺}},\ \tan\theta=\frac{\text{高さ}}{\text{底辺}}$ を使う。</p>
+<p class="label">途中式（代表例）</p>
+<div class="steps">
+<p>4. $\theta=30^\circ,$ 斜辺 $8\Rightarrow$ 高さ$\displaystyle =8\sin30^\circ=8\cdot\frac12=4$</p>
+<p class="ind">底辺$\displaystyle =8\cos30^\circ=8\cdot\frac{\sqrt3}{2}=4\sqrt3$</p>
+<p>6. $\theta=45^\circ,\ \tan45^\circ=1\Rightarrow$ 高さ$=$底辺$=6$</p>
+<p class="ind">斜辺$=\sqrt{6^2+6^2}=6\sqrt2$</p>
+</div>
+</section>
+</div>
+
+<div class="col">
+<section>
+<h2>ラジアン 解答</h2>
+<ol class="q tight">
+<li>$\displaystyle 30^\circ=\frac\pi6,\ 45^\circ=\frac\pi4,\ 60^\circ=\frac\pi3,\ 90^\circ=\frac\pi2$</li>
+<li>$\displaystyle \frac\pi6=30^\circ,\ \frac\pi4=45^\circ,\ \frac\pi3=60^\circ,\ \frac\pi2=90^\circ$</li>
+<li>$\displaystyle \cos\frac\pi3=\frac12,\ \sin\frac\pi6=\frac12,\ \tan\frac\pi4=1$</li>
+<li>底辺$=4\sqrt3,$ 高さ$=4$</li>
+<li>底辺$=2\sqrt2,$ 高さ$=2\sqrt2$</li>
+<li>斜辺$=6,$ 高さ$=3\sqrt3$</li>
+</ol>
+<p class="label">考え方</p>
+<p>$180^\circ=\pi$ を基準に変換。辺計算は度数法と同じで角度表記だけが違う。</p>
+<p class="label">途中式（代表例）</p>
+<div class="steps">
+<p>1. $\displaystyle 60^\circ=\frac{60}{180}\pi=\frac\pi3$</p>
+<p>2. $\displaystyle \frac\pi4=\frac{180}{4}^\circ=45^\circ$</p>
+<p>6. $\displaystyle \theta=\frac\pi3(=60^\circ),\ \cos\theta=\frac12=\frac{\text{底辺}}{\text{斜辺}}=\frac{3}{\text{斜辺}}$</p>
+<p class="ind">斜辺$=6,$ 高さ$\displaystyle =6\sin\frac\pi3=6\cdot\frac{\sqrt3}{2}=3\sqrt3$</p>
+</div>
+</section>
+</div>
+
+</div>
+
+<!-- ===================== 解答 3枚目 ===================== -->
+<div class="sheet packed" data-role="ans">
+
+<div class="col">
+<section>
+<h2>単位円の三角比 解答</h2>
+<ol class="q tight">
+<li>$\displaystyle \sin\theta=\frac{\sqrt3}{2},\ \cos\theta=\frac12,\ \tan\theta=\sqrt3$</li>
+<li>$\displaystyle \sin\theta=\frac{\sqrt2}{2},\ \cos\theta=\frac{\sqrt2}{2},\ \tan\theta=1$</li>
+<li>$\displaystyle \sin\theta=\frac{\sqrt3}{2},\ \cos\theta=-\frac12,\ \tan\theta=-\sqrt3$</li>
+<li>$\displaystyle \cos\theta=\pm\frac{2\sqrt2}{3},\ \tan\theta=\pm\frac{\sqrt2}{4}$</li>
+<li>$\displaystyle \sin\theta=\frac{\sqrt{15}}{4},\ \tan\theta=\sqrt{15}$</li>
+<li>$\displaystyle \sin\theta=\frac{2\sqrt5}{5},\ \cos\theta=\frac{\sqrt5}{5}$</li>
+</ol>
+<p class="label">考え方</p>
+<p>単位円では $\cos\theta=x,\ \sin\theta=y,\ \tan\theta=\frac{y}{x}$。また $\sin^2\theta+\cos^2\theta=1$ を使う。</p>
+<p class="label">途中式（代表例）</p>
+<div class="steps">
+<p>3. $\displaystyle P\left(-\frac12,\frac{\sqrt3}{2}\right)\Rightarrow \cos\theta=-\frac12,\ \sin\theta=\frac{\sqrt3}{2}$</p>
+<p class="ind">$\displaystyle \tan\theta=\frac{\sin\theta}{\cos\theta}=\frac{\sqrt3/2}{-1/2}=-\sqrt3$</p>
+<p>6. $\tan\theta=2\Rightarrow \sin\theta=2\cos\theta$</p>
+<p class="ind">$(2\cos\theta)^2+\cos^2\theta=1\Rightarrow 5\cos^2\theta=1$</p>
+<p class="ind">$\displaystyle \cos\theta=\frac{\sqrt5}{5},\ \sin\theta=\frac{2\sqrt5}{5}$</p>
+</div>
+<p class="label">図説（単位円と三角比）</p>
+<figure class="fig" style="width:27.2%">
+  <svg viewBox="0 0 276 174">
+    <defs>
+      <marker id="ah4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M1,1.5 L9,5 L1,8.5" fill="none" stroke="#000" stroke-width="1.3"/>
+      </marker>
+    </defs>
+    <g fill="none" stroke="#000" stroke-width="0.8">
+      <line x1="12" y1="99" x2="192" y2="99" marker-end="url(#ah4)"/>
+      <line x1="96" y1="171" x2="96" y2="15" marker-end="url(#ah4)"/>
+      <circle cx="96" cy="99" r="60"/>
+      <line x1="96" y1="99" x2="132" y2="51" stroke-width="1.6"/>
+      <line x1="132" y1="51" x2="132" y2="99" stroke-dasharray="4 3"/>
+      <line x1="132" y1="51" x2="96" y2="51" stroke-dasharray="4 3"/>
+    </g>
+    <circle cx="132" cy="51" r="2.6" fill="#000"/>
+  </svg>
+  <span class="lbl" style="left:70.7%;top:56.9%;transform:translate(0,-50%)">$x$</span>
+  <span class="lbl" style="left:34.8%;top:6.9%;transform:translate(-50%,-100%)">$y$</span>
+  <span class="lbl" style="left:48.9%;top:27.6%;transform:translate(0,-100%)">$P(\cos\theta,\sin\theta)$</span>
+  <span class="lbl" style="left:47.8%;top:59.7%;transform:translate(-50%,0)">$\cos\theta$</span>
+  <span class="lbl" style="left:33.0%;top:29.3%;transform:translate(-100%,-50%)">$\sin\theta$</span>
+  <span class="lbl" style="left:39.6%;top:52.8%">$\theta$</span>
+</figure>
+</section>
+</div>
+
+<div class="col">
+<section>
+<h2>三角比の総合 解答</h2>
+<ol class="q tight">
+<li>$\displaystyle \frac{1+\sqrt3}{2}$</li>
+<li>$\displaystyle \frac12$</li>
+<li>$\displaystyle \frac{\sqrt3}{2}$</li>
+<li>$\sqrt3+2$</li>
+<li>$1$</li>
+<li>$\displaystyle \cos\theta=\frac45,\ \tan\theta=\frac34$</li>
+</ol>
+<p class="label">考え方</p>
+<p>既知角は値を直接代入。未知角は恒等式と象限条件で符号を決める。</p>
+<p class="label">途中式（代表例）</p>
+<div class="steps">
+<p>4. $\displaystyle 2\cos\frac\pi6+4\sin\frac\pi6=2\cdot\frac{\sqrt3}{2}+4\cdot\frac12=\sqrt3+2$</p>
+<p>6. $\displaystyle \sin\theta=\frac35,\ 0\lt\theta\lt\frac\pi2$</p>
+<p class="ind">$\displaystyle \cos\theta=\sqrt{1-\sin^2\theta}=\sqrt{1-\frac{9}{25}}=\frac45$</p>
+<p class="ind">$\displaystyle \tan\theta=\frac{\sin\theta}{\cos\theta}=\frac{3/5}{4/5}=\frac34$</p>
+</div>
+</section>
+</div>
+
+</div>
+
+</body>
+</html>

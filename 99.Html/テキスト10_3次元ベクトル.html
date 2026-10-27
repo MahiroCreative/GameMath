@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3次元ベクトル</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="text.js"></script>
+<link rel="stylesheet" href="text.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <marker id="ah-k" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 z" fill="#000"/></marker>
+    <marker id="ah-b" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 z" fill="#0645ad"/></marker>
+    <marker id="ah-r" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 z" fill="#c00"/></marker>
+    <marker id="ah-t" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 z" fill="#005959"/></marker>
+    <marker id="ah-g" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 z" fill="#999"/></marker>
+  </defs>
+</svg>
+<main>
+<h1>3次元ベクトル</h1>
+
+<h2>3次元ベクトルとは何か</h2>
+
+<h3>2次元との違い</h3>
+<p>2次元は $(x,y)$ で足りるが、3次元では $(x,y,z)$ が必要になる。高さが増えるだけで、考え方は同じである。</p>
+
+<figure class="fig" style="width:47%">
+  <svg viewBox="0 -16 320 280">
+    <g stroke="#999" stroke-width="0.9" marker-end="url(#ah-g)">
+      <line x1="72" y1="200" x2="304" y2="200"/>
+      <line x1="72" y1="200" x2="72" y2="12"/>
+      <line x1="72" y1="200" x2="16" y2="248"/>
+    </g>
+    <line x1="72" y1="200" x2="236" y2="88" stroke="#0645ad" stroke-width="2.4" marker-end="url(#ah-b)"/>
+  </svg>
+  <span class="lbl gray" style="left:97.5%;top:77.2%">$x$</span>
+  <span class="lbl gray" style="left:22.5%;top:4.3%">$y$</span>
+  <span class="lbl gray" style="left:2.5%;top:97.2%">$z$</span>
+  <span class="lbl blue" style="left:75%;top:32.9%">$\vec{a}$</span>
+  <span class="lbl" style="left:60%;top:71.1%">3次元は「横・縦・高さ」</span>
+</figure>
+
+<h3>ゲームでの意味</h3>
+<p>3次元では、キャラやカメラ、弾丸、敵の位置を空間中の点として扱う。上や下が入るので、2次元より現実に近い。</p>
+
+<p><b>大事：</b> 3次元になると、見た目の理解が少し難しくなる。そのぶん図で考える習慣が役に立つ。</p>
+
+<h3>確認問題</h3>
+<ol>
+  <li>3次元で必要になる成分を答えよ。</li>
+  <li>2次元との違いを1つ述べよ。</li>
+  <li>ゲームで3次元を使う例を1つ挙げよ。</li>
+</ol>
+
+<h2>成分表示と大きさ</h2>
+
+<h3>成分表示</h3>
+<p>3次元のベクトルは、3つの成分で表す。</p>
+
+<div class="formula">$\displaystyle \vec{a}=\begin{pmatrix}a_x\\a_y\\a_z\end{pmatrix}$</div>
+
+<h3>大きさ</h3>
+<p>3方向に伸びているので、長さは3つの2乗の和の平方根である。</p>
+
+<div class="formula">$\displaystyle |\vec{a}|=\sqrt{a_x^2+a_y^2+a_z^2}$</div>
+
+<p><b>例：</b> $\vec{a}=\begin{pmatrix}1\\2\\2\end{pmatrix}$ なら、$|\vec{a}|=3$ である。</p>
+
+<figure class="fig" style="width:45%">
+  <svg viewBox="0 -16 320 268">
+    <g stroke="#999" stroke-width="0.9" marker-end="url(#ah-g)">
+      <line x1="64" y1="196" x2="304" y2="196"/>
+      <line x1="64" y1="196" x2="64" y2="12"/>
+      <line x1="64" y1="196" x2="16" y2="236"/>
+    </g>
+    <g stroke="#a6a6a6" stroke-width="0.9" stroke-dasharray="4 3" fill="none">
+      <line x1="232" y1="84" x2="232" y2="196"/>
+      <line x1="232" y1="84" x2="64" y2="84"/>
+    </g>
+    <line x1="64" y1="196" x2="232" y2="84" stroke="#0645ad" stroke-width="2.4" marker-end="url(#ah-b)"/>
+  </svg>
+  <span class="lbl gray" style="left:97.5%;top:79.1%">$x$</span>
+  <span class="lbl gray" style="left:20%;top:4.6%">$y$</span>
+  <span class="lbl gray" style="left:2.5%;top:97%">$z$</span>
+  <span class="lbl" style="left:76.9%;top:32.9%">$\vec{a}$</span>
+  <span class="lbl" style="left:57.5%;top:87.3%">2次元の図を少し立体的に考える</span>
+</figure>
+
+<h3>単位ベクトル</h3>
+<p>向きだけを使いたいときは、長さを1にする。</p>
+
+<div class="formula">$\displaystyle \hat{a}=\frac{\vec{a}}{|\vec{a}|}$</div>
+
+<h3>確認問題</h3>
+<ol>
+  <li>$\vec{a}=\begin{pmatrix}2\\2\\1\end{pmatrix}$ の大きさを求めよ。</li>
+  <li>$\vec{b}=\begin{pmatrix}-1\\0\\0\end{pmatrix}$ の長さは何か。</li>
+  <li>単位ベクトルは何のために使うか。</li>
+</ol>
+
+<h2>足し算・引き算・スカラー倍</h2>
+
+<h3>基本の計算</h3>
+<p>3次元でも、やることは2次元と同じである。成分ごとに計算するだけ。</p>
+
+<div class="formula">$\displaystyle \vec{a}+\vec{b}=\begin{pmatrix}a_x+b_x\\a_y+b_y\\a_z+b_z\end{pmatrix}$</div>
+
+<div class="formula">$\displaystyle \vec{a}-\vec{b}=\begin{pmatrix}a_x-b_x\\a_y-b_y\\a_z-b_z\end{pmatrix}$</div>
+
+<div class="formula">$\displaystyle k\vec{a}=\begin{pmatrix}ka_x\\ka_y\\ka_z\end{pmatrix}$</div>
+
+<figure class="fig" style="width:45%">
+  <svg viewBox="0 -16 320 264">
+    <g stroke="#999" stroke-width="0.9" marker-end="url(#ah-g)">
+      <line x1="44" y1="192" x2="304" y2="192"/>
+      <line x1="64" y1="212" x2="64" y2="16"/>
+      <line x1="64" y1="192" x2="16" y2="232"/>
+    </g>
+    <line x1="64" y1="192" x2="152" y2="152" stroke="#0645ad" stroke-width="2.4" marker-end="url(#ah-b)"/>
+    <line x1="152" y1="152" x2="240" y2="76" stroke="#c00" stroke-width="2.4" marker-end="url(#ah-r)"/>
+    <line x1="64" y1="192" x2="240" y2="76" stroke="#005959" stroke-width="2.4" marker-end="url(#ah-t)"/>
+  </svg>
+  <span class="lbl gray" style="left:97.5%;top:78.8%">$x$</span>
+  <span class="lbl gray" style="left:20%;top:6.1%">$y$</span>
+  <span class="lbl gray" style="left:2.5%;top:97%">$z$</span>
+  <span class="lbl blue" style="left:36.3%;top:74.3%">$\vec{a}$</span>
+  <span class="lbl red" style="left:65.6%;top:50.8%">$\vec{b}$</span>
+  <span class="lbl" style="left:42.5%;top:50.8%;color:#005959">$\vec{a}+\vec{b}$</span>
+</figure>
+
+<h3>ゲームでの見方</h3>
+<p>位置に速度を足す、速度に加速度を足す、力を重ねる。考え方は全部同じである。</p>
+
+<h3>確認問題</h3>
+<ol>
+  <li>$\vec{a}=\begin{pmatrix}1\\2\\3\end{pmatrix}$、$\vec{b}=\begin{pmatrix}3\\-1\\0\end{pmatrix}$ の和を求めよ。</li>
+  <li>同じく差を求めよ。</li>
+  <li>$2\vec{a}$ の意味を言葉で説明せよ。</li>
+</ol>
+
+<h2>内積と直交</h2>
+
+<h3>内積</h3>
+<p>3次元でも内積の形は同じである。</p>
+
+<div class="formula">$\displaystyle \vec{a}\cdot\vec{b}=a_xb_x+a_yb_y+a_zb_z$</div>
+
+<h3>角度との関係</h3>
+
+<div class="formula">$\displaystyle \vec{a}\cdot\vec{b}=|\vec{a}||\vec{b}|\cos\theta$</div>
+
+<div class="formula">$\displaystyle \cos\theta=\frac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}$</div>
+
+<h3>直交判定</h3>
+<p><b>内積が0なら垂直である。</b> これは2次元でも3次元でも同じである。</p>
+
+<div class="formula">$\displaystyle \vec{a}\cdot\vec{b}=0 \iff \vec{a}\perp\vec{b}$</div>
+
+<figure class="fig" style="width:44%">
+  <svg viewBox="0 -16 312 264">
+    <g stroke="#999" stroke-width="0.9" marker-end="url(#ah-g)">
+      <line x1="64" y1="192" x2="296" y2="192"/>
+      <line x1="64" y1="192" x2="64" y2="16"/>
+      <line x1="64" y1="192" x2="16" y2="232"/>
+    </g>
+    <line x1="64" y1="192" x2="224" y2="152" stroke="#0645ad" stroke-width="2.4" marker-end="url(#ah-b)"/>
+    <line x1="64" y1="192" x2="112" y2="56" stroke="#c00" stroke-width="2.4" marker-end="url(#ah-r)"/>
+    <path d="M104,192 A40,40 0 0 0 97.16,169.64" fill="none" stroke="#000" stroke-width="0.9"/>
+  </svg>
+  <span class="lbl gray" style="left:97.4%;top:78.8%">$x$</span>
+  <span class="lbl gray" style="left:20.5%;top:6.1%">$y$</span>
+  <span class="lbl gray" style="left:2.6%;top:97%">$z$</span>
+  <span class="lbl blue" style="left:50.6%;top:75%">$\vec{a}$</span>
+  <span class="lbl red" style="left:24.4%;top:48.5%">$\vec{b}$</span>
+  <span class="lbl" style="left:37.4%;top:69.4%">$\theta$</span>
+</figure>
+
+<h3>確認問題</h3>
+<ol>
+  <li>$\vec{a}=\begin{pmatrix}1\\2\\3\end{pmatrix}$、$\vec{b}=\begin{pmatrix}4\\0\\-1\end{pmatrix}$ の内積を求めよ。</li>
+  <li>$\vec{a}=\begin{pmatrix}2\\1\\0\end{pmatrix}$、$\vec{b}=\begin{pmatrix}-1\\2\\0\end{pmatrix}$ は垂直か。</li>
+  <li>内積が0のとき、角度は何度か。</li>
+</ol>
+
+<h2>外積の再定義</h2>
+
+<h3>まず2次元の外積を思い出す</h3>
+<p>2次元では、外積を<b>数</b>として使った。向きと面積を知るための道具である。</p>
+
+<div class="formula">$\displaystyle \begin{pmatrix}a_x\\a_y\end{pmatrix}\times\begin{pmatrix}b_x\\b_y\end{pmatrix}=a_xb_y-a_yb_x$</div>
+
+<p><b>正なら反時計回り、負なら時計回り</b>である。</p>
+
+<h3>3次元ではベクトルになる</h3>
+<p>3次元では、外積は2本のベクトルの両方に垂直なベクトルになる。</p>
+
+<div class="formula">$\displaystyle \vec{a}\times\vec{b}=\begin{pmatrix}
+ a_yb_z-a_zb_y\\
+ a_zb_x-a_xb_z\\
+ a_xb_y-a_yb_x
+\end{pmatrix}$</div>
+
+<p><b>意味：</b> 面に垂直な向きを作るので、法線ベクトルとして使える。</p>
+
+<figure class="fig" style="width:41%">
+  <svg viewBox="0 -16 296 252">
+    <g stroke="#999" stroke-width="0.9" marker-end="url(#ah-g)">
+      <line x1="60" y1="184" x2="280" y2="184"/>
+      <line x1="60" y1="184" x2="60" y2="16"/>
+      <line x1="60" y1="184" x2="16" y2="220"/>
+    </g>
+    <polyline points="212,144 256,20 108,60" fill="none" stroke="#bfbfbf" stroke-width="0.9" stroke-dasharray="4 3"/>
+    <line x1="60" y1="184" x2="212" y2="144" stroke="#0645ad" stroke-width="2.4" marker-end="url(#ah-b)"/>
+    <line x1="60" y1="184" x2="108" y2="60" stroke="#c00" stroke-width="2.4" marker-end="url(#ah-r)"/>
+    <line x1="60" y1="184" x2="100" y2="132" stroke="#005959" stroke-width="2.4" marker-end="url(#ah-t)"/>
+  </svg>
+  <span class="lbl gray" style="left:97.3%;top:79.4%">$x$</span>
+  <span class="lbl gray" style="left:20.3%;top:6.3%">$y$</span>
+  <span class="lbl gray" style="left:2.7%;top:96.8%">$z$</span>
+  <span class="lbl blue" style="left:50.7%;top:74.9%">$\vec{a}$</span>
+  <span class="lbl red" style="left:24.3%;top:54.8%">$\vec{b}$</span>
+  <span class="lbl" style="left:41.2%;top:65.9%;color:#005959">$\vec{a}\times\vec{b}$</span>
+  <span class="lbl" style="left:60%;top:32.6%">外積は面に垂直</span>
+</figure>
+
+<h3>大きさ</h3>
+<p>外積の大きさは、2つのベクトルが作る平行四辺形の面積である。</p>
+
+<div class="formula">$\displaystyle |\vec{a}\times\vec{b}|=|\vec{a}||\vec{b}|\sin\theta$</div>
+
+<h3>確認問題</h3>
+<ol>
+  <li>2次元の外積は何を表すか。</li>
+  <li>3次元の外積は何に垂直か。</li>
+  <li>外積の大きさは何を表すか。</li>
+</ol>
+
+<h2>面と法線</h2>
+
+<h3>平面の考え方</h3>
+<p>3次元では、1本のベクトルだけでなく、2本の独立なベクトルで面を表せる。</p>
+
+<div class="formula">$\displaystyle \vec{p}=\vec{p}_0+s\vec{u}+t\vec{v}$</div>
+
+<h3>法線ベクトル</h3>
+<p>面に垂直なベクトルを<b>法線ベクトル</b>という。外積で作れる。</p>
+
+<div class="formula">$\displaystyle \vec{n}=\vec{u}\times\vec{v}$</div>
+
+<h3>反射の考え方</h3>
+<p>壁に当たったときの跳ね返りは、法線ベクトルと内積で考えやすい。</p>
+
+<div class="formula">$\displaystyle \vec{r}=\vec{v}-2(\vec{v}\cdot\hat{n})\hat{n}$</div>
+
+<h3>確認問題</h3>
+<ol>
+  <li>平面を表すのに、なぜ2本のベクトルが必要か。</li>
+  <li>法線ベクトルは何で求めるか。</li>
+  <li>反射の式に内積が入る理由を考えよ。</li>
+</ol>
+
+<h2>ゲーム開発への応用</h2>
+
+<h3>3次元の位置更新</h3>
+<p>ゲームでは、位置・速度・加速度をベクトルで持つと分かりやすい。</p>
+
+<div class="formula">$\displaystyle \vec{p}(t)=\vec{p}_0+t\vec{v}$</div>
+
+<div class="formula">$\displaystyle \vec{p}(t)=\vec{p}_0+t\vec{v}_0+\frac12t^2\vec{a}$</div>
+
+<h3>球の衝突判定</h3>
+<p>3次元では円の代わりに球を使う。考え方は2次元と同じである。</p>
+
+<div class="formula">$\displaystyle d\lt r_a+r_b$</div>
+
+<div class="formula">$\displaystyle d^2\lt (r_a+r_b)^2$</div>
+
+<figure class="fig" style="width:45%">
+  <svg viewBox="0 -16 320 260">
+    <g stroke="#999" stroke-width="0.9" marker-end="url(#ah-g)">
+      <line x1="64" y1="192" x2="304" y2="192"/>
+      <line x1="64" y1="192" x2="64" y2="12"/>
+      <line x1="64" y1="192" x2="16" y2="228"/>
+    </g>
+    <circle cx="136" cy="120" r="40" fill="none" stroke="#0645ad" stroke-width="1.2"/>
+    <circle cx="252" cy="68" r="60" fill="none" stroke="#c00" stroke-width="1.2"/>
+    <line x1="136" y1="120" x2="252" y2="68" stroke="#000" stroke-width="2.4" marker-end="url(#ah-k)"/>
+    <circle cx="136" cy="120" r="3" fill="#000"/>
+    <circle cx="252" cy="68" r="3" fill="#000"/>
+  </svg>
+  <span class="lbl gray" style="left:97.5%;top:80%">$x$</span>
+  <span class="lbl gray" style="left:20%;top:4.7%">$y$</span>
+  <span class="lbl gray" style="left:2.5%;top:96.9%">$z$</span>
+  <span class="lbl" style="left:39.4%;top:56.9%">$A$</span>
+  <span class="lbl" style="left:82.3%;top:28%">$B$</span>
+  <span class="lbl" style="left:56.5%;top:40%">$d$</span>
+</figure>
+
+<h3>ここで覚えること</h3>
+
+<ul>
+  <li>2次元の考え方は、3次元でもほぼそのまま使える</li>
+  <li>3次元で新しく大事になるのは外積と法線である</li>
+  <li>ゲームでは、当たり判定、面の向き、反射で役に立つ</li>
+</ul>
+
+<h3>確認問題</h3>
+<ol>
+  <li>初期位置 $(0,0,0)$ 、速度 $(1,2,3)$ のとき、2秒後の位置を求めよ。</li>
+  <li>半径1と半径2の球の中心間距離が2.8なら、衝突しているか。</li>
+  <li>3次元で外積が重要になる理由を1つ挙げよ。</li>
+</ol>
+
+</main>
+</body>
+</html>

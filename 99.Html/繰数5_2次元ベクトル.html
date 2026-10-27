@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>繰数5 2次元ベクトル</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="print.js"></script>
+<link rel="stylesheet" href="print.css">
+<style>
+/* 解答の途中式（行ごとに並べる。.ind は2行目以降の字下げ） */
+.steps { margin: 0.4em 0 0 2.2em; }
+.steps > p { margin: 0.15em 0; }
+.steps > p.ind { padding-left: 1.2em; }
+/* 番号を1行目のベースラインに揃える（displaystyle の分数で行が高くなっても番号が浮かない） */
+.sheet[data-role="ans"] ol.q > li::before { position: static; display: inline-block; width: 2em; margin-left: -2em; }
+</style>
+</head>
+<body>
+<div class="sheet" data-role="q">
+
+<!-- 左段（基礎）：Left版ではこの段が右段にも複製される -->
+<div class="col">
+
+<section>
+<h2>成分表示と大きさ</h2>
+<p class="lead">次のベクトルについて、成分表示・大きさ・単位ベクトルを求めよ。</p>
+<ol class="q">
+<li>$\vec{a}=\begin{pmatrix}3 & 4\end{pmatrix}$ の大きさ $|\vec{a}|$ を求めよ。</li>
+<li>$\vec{b}=\begin{pmatrix}-5 & 12\end{pmatrix}$ の大きさ $|\vec{b}|$ を求めよ。</li>
+<li>$\vec{c}=\begin{pmatrix}6 & 8\end{pmatrix}$ の単位ベクトル $\hat{c}$ を求めよ。</li>
+<li>$\vec{d}=\begin{pmatrix}-4 & 3\end{pmatrix}$ の単位ベクトル $\hat{d}$ を求めよ。</li>
+<li>長さが $5$ で、方向が $\begin{pmatrix}3 & 4\end{pmatrix}$ と同じベクトルを求めよ。</li>
+<li>$\vec{v}=\begin{pmatrix}x & y\end{pmatrix}$ の大きさが $10$ のとき、成り立つ式を立てよ。</li>
+</ol>
+</section>
+
+<section>
+<h2>点と点を結ぶベクトル</h2>
+<p class="lead">点 $A$, $B$ から、$\overrightarrow{AB}$ と距離 $\left|\overrightarrow{AB}\right|$ を求めよ。</p>
+<ol class="q">
+<li>$A(1,2),\ B(5,7)$</li>
+<li>$A(-3,4),\ B(2,-2)$</li>
+<li>$A(0,0),\ B(-6,8)$</li>
+<li>$A(4,-1),\ B(-2,5)$</li>
+<li>$A(2,3),\ B(2,-5)$</li>
+<li>$A(a,b),\ B(c,d)$ のとき、$\overrightarrow{AB}$ と $\left|\overrightarrow{AB}\right|$ を一般式で表せ。</li>
+</ol>
+</section>
+
+<section>
+<h2>ベクトルの足し算・引き算・スカラー倍</h2>
+<p class="lead">各問で計算し、結果を成分で答えよ。</p>
+<ol class="q">
+<li>$\begin{pmatrix}2 & -1\end{pmatrix}+\begin{pmatrix}5 & 3\end{pmatrix}$</li>
+<li>$\begin{pmatrix}-4 & 7\end{pmatrix}-\begin{pmatrix}1 & -2\end{pmatrix}$</li>
+<li>$2\begin{pmatrix}3 & -5\end{pmatrix}$</li>
+<li>$-3\begin{pmatrix}-2 & 4\end{pmatrix}$</li>
+<li>$\begin{pmatrix}1 & 2\end{pmatrix}+\begin{pmatrix}-3 & 5\end{pmatrix}-\begin{pmatrix}4 & -1\end{pmatrix}$</li>
+<li>$\vec{a}=\begin{pmatrix}1 & -4\end{pmatrix},\ \vec{b}=\begin{pmatrix}-2 & 3\end{pmatrix}$ のとき、$2\vec{a}-3\vec{b}$ を求めよ。</li>
+</ol>
+</section>
+
+</div>
+
+<!-- 右段（発展） -->
+<div class="col">
+
+<section>
+<h2>内積と角度</h2>
+<p class="lead">次のベクトルについて、内積となす角を求めよ。</p>
+<ol class="q">
+<li>$\vec{a}=\begin{pmatrix}1 & 2\end{pmatrix},\ \vec{b}=\begin{pmatrix}3 & 4\end{pmatrix}$ の内積 $\vec{a}\cdot\vec{b}$</li>
+<li>$\vec{a}=\begin{pmatrix}2 & -1\end{pmatrix},\ \vec{b}=\begin{pmatrix}1 & 2\end{pmatrix}$ の内積 $\vec{a}\cdot\vec{b}$</li>
+<li>$\vec{a}=\begin{pmatrix}3 & 0\end{pmatrix},\ \vec{b}=\begin{pmatrix}0 & 5\end{pmatrix}$ が垂直か判定せよ。</li>
+<li>$\vec{a}=\begin{pmatrix}2 & 1\end{pmatrix},\ \vec{b}=\begin{pmatrix}1 & 2\end{pmatrix}$ の $\cos\theta$ を求めよ。</li>
+<li>$\vec{a}=\begin{pmatrix}4 & 0\end{pmatrix},\ \vec{b}=\begin{pmatrix}2 & 2\sqrt{3}\end{pmatrix}$ のなす角 $\theta$ を求めよ。</li>
+<li>$\vec{a}=\begin{pmatrix}4 & -1\end{pmatrix},\ \vec{b}=\begin{pmatrix}1 & 4\end{pmatrix}$ について、$\vec{a}\cdot\vec{b}$ を計算し、2本が垂直か判定せよ。</li>
+</ol>
+</section>
+
+<section>
+<h2>2次元の外積と面積</h2>
+<p class="lead">次のベクトルについて、外積（2次元）を計算せよ。</p>
+<ol class="q">
+<li>$\vec{a}=\begin{pmatrix}1 & 2\end{pmatrix},\ \vec{b}=\begin{pmatrix}3 & 1\end{pmatrix}$</li>
+<li>$\vec{a}=\begin{pmatrix}2 & 5\end{pmatrix},\ \vec{b}=\begin{pmatrix}-1 & 4\end{pmatrix}$</li>
+<li>$\vec{a}=\begin{pmatrix}4 & 0\end{pmatrix},\ \vec{b}=\begin{pmatrix}0 & 3\end{pmatrix}$</li>
+<li>問3の2本が作る平行四辺形の面積を求めよ。</li>
+<li>$\vec{a}\times\vec{b}$ と $\vec{b}\times\vec{a}$ の関係を式で書け。</li>
+<li>$\vec{a}=\begin{pmatrix}2 & 1\end{pmatrix},\ \vec{b}=\begin{pmatrix}1 & 3\end{pmatrix},\ \vec{c}=\begin{pmatrix}3 & -1\end{pmatrix}$ について、$\vec{a}\times\vec{b}$ と $\vec{a}\times\vec{c}$ を計算し、符号を答えよ。</li>
+</ol>
+</section>
+
+<section>
+<h2>射影とゲーム計算</h2>
+<p class="lead">ベクトル $\vec{a}$ から $\vec{b}$ 方向への射影を $\vec{A}$ とする。</p>
+<ol class="q">
+<li>$\vec{a}=\begin{pmatrix}3 & 2\end{pmatrix},\ \hat{b}=\begin{pmatrix}1 & 0\end{pmatrix}$ のとき、$\vec{A}$ を求めよ。</li>
+<li>$\vec{a}=\begin{pmatrix}4 & 1\end{pmatrix},\ \hat{b}=\begin{pmatrix}0 & 1\end{pmatrix}$ のとき、$\vec{A}$ を求めよ。</li>
+<li>$\vec{a}=\begin{pmatrix}5 & 0\end{pmatrix},\ \hat{b}=\begin{pmatrix}\frac{3}{5} & \frac{4}{5}\end{pmatrix}$ のとき、$\vec{A}$ を求めよ。</li>
+<li>点 $A(2,2)$、点 $B(5,3.6)$、半径 $r_a=1.2,\ r_b=1.8$ とする。衝突判定せよ。</li>
+<li>壁方向 $\hat{w}=\begin{pmatrix}\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}\end{pmatrix}$、入力 $\vec{v}=\begin{pmatrix}4 & 0\end{pmatrix}$ のとき、壁沿い移動 $\vec{v}_{\parallel}$ を求めよ。</li>
+<li>壁方向 $\hat{w}=\begin{pmatrix}0 & 1\end{pmatrix}$、入力 $\vec{v}=\begin{pmatrix}3 & -2\end{pmatrix}$ のとき、壁沿い移動 $\vec{v}_{\parallel}$ を求めよ。</li>
+</ol>
+</section>
+
+</div>
+</div>
+
+<!-- 図の矢印（全図共通） -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <marker id="ah-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1,1.5 L9,5 L1,8.5" fill="none" stroke="#999" stroke-width="1.3"/></marker>
+    <marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M1,1.5 L9,5 L1,8.5" fill="none" stroke="#0645ad" stroke-width="1.6"/></marker>
+    <marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M1,1.5 L9,5 L1,8.5" fill="none" stroke="#c00" stroke-width="1.6"/></marker>
+    <marker id="ah-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M1,1.5 L9,5 L1,8.5" fill="none" stroke="#1a7f37" stroke-width="1.6"/></marker>
+  </defs>
+</svg>
+
+<!-- ===================== 解答 1枚目 ===================== -->
+<div class="sheet packed" data-role="ans">
+
+<div class="col">
+<section>
+<h2>成分表示と大きさ 解答</h2>
+<ol class="q tight">
+<li>$5$</li>
+<li>$13$</li>
+<li>$\hat{c}=\begin{pmatrix}\frac35 & \frac45\end{pmatrix}$</li>
+<li>$\hat{d}=\begin{pmatrix}-\frac45 & \frac35\end{pmatrix}$</li>
+<li>$\begin{pmatrix}3 & 4\end{pmatrix}$</li>
+<li>$x^2+y^2=100$</li>
+</ol>
+<p class="label">考え方</p>
+<p>大きさは $|\vec{v}|=\sqrt{x^2+y^2}$ を使う。単位ベクトルは元のベクトルをその長さで割ればよい。</p>
+<p class="label">図説（成分と単位ベクトル）</p>
+<figure class="fig" style="width:32.3%">
+  <svg viewBox="0 0 248 218">
+    <g fill="none" stroke-width="0.8">
+      <line x1="8" y1="190" x2="232" y2="190" stroke="#999" marker-end="url(#ah-gray)"/>
+      <line x1="24" y1="206" x2="24" y2="14" stroke="#999" marker-end="url(#ah-gray)"/>
+      <line x1="184" y1="190" x2="184" y2="70" stroke="#aaa" stroke-dasharray="4 3"/>
+      <line x1="24" y1="70" x2="184" y2="70" stroke="#aaa" stroke-dasharray="4 3"/>
+      <rect x="172.8" y="178.8" width="11.2" height="11.2" stroke="#000" stroke-width="1.3"/>
+      <line x1="24" y1="190" x2="184" y2="70" stroke="#0645ad" stroke-width="2" marker-end="url(#ah-blue)"/>
+      <line x1="24" y1="190" x2="84" y2="145" stroke="#c00" stroke-width="2" marker-end="url(#ah-red)"/>
+    </g>
+  </svg>
+  <span class="lbl gray" style="left:94.8%;top:87.2%;transform:translate(0,-50%)">$x$</span>
+  <span class="lbl gray" style="left:9.7%;top:5.0%;transform:translate(-50%,-100%)">$y$</span>
+  <span class="lbl blue" style="left:40.8%;top:58.3%;transform:translate(-100%,-100%)">$\vec{a}$</span>
+  <span class="lbl" style="left:46.8%;top:56.0%">$|\vec{a}|$</span>
+  <span class="lbl" style="left:74.2%;top:88.6%;transform:translate(-50%,0)">$a_x$</span>
+  <span class="lbl" style="left:8.4%;top:32.1%;transform:translate(-100%,-50%)">$a_y$</span>
+  <span class="lbl red" style="left:20.6%;top:75.6%;transform:translate(-100%,-100%)">$\hat{a}$</span>
+  <span class="lbl red" style="left:40.3%;top:74.3%">$|\hat{a}|=1$</span>
+</figure>
+<p class="label">途中式（代表例）</p>
+<div class="steps">
+<p>3. $\displaystyle |\vec{c}|=\sqrt{6^2+8^2}=10,\ \hat{c}=\frac{1}{10}\begin{pmatrix}6 & 8\end{pmatrix}=\begin{pmatrix}\frac35 & \frac45\end{pmatrix}$</p>
+<p>4. $\displaystyle |\vec{d}|=\sqrt{(-4)^2+3^2}=5,\ \hat{d}=\frac{1}{5}\begin{pmatrix}-4 & 3\end{pmatrix}=\begin{pmatrix}-\frac45 & \frac35\end{pmatrix}$</p>
+<p>6. $|\vec{v}|=10\Rightarrow \sqrt{x^2+y^2}=10\Rightarrow x^2+y^2=100$</p>
+</div>
+</section>
+</div>
+
+<div class="col">
+<section>
+<h2>点と点を結ぶベクトル 解答</h2>
+<ol class="q tight">
+<li>$\overrightarrow{AB}=\begin{pmatrix}4 & 5\end{pmatrix},\ |\overrightarrow{AB}|=\sqrt{41}$</li>
+<li>$\overrightarrow{AB}=\begin{pmatrix}5 & -6\end{pmatrix},\ |\overrightarrow{AB}|=\sqrt{61}$</li>
+<li>$\overrightarrow{AB}=\begin{pmatrix}-6 & 8\end{pmatrix},\ |\overrightarrow{AB}|=10$</li>
+<li>$\overrightarrow{AB}=\begin{pmatrix}-6 & 6\end{pmatrix},\ |\overrightarrow{AB}|=6\sqrt{2}$</li>
+<li>$\overrightarrow{AB}=\begin{pmatrix}0 & -8\end{pmatrix},\ |\overrightarrow{AB}|=8$</li>
+<li>$\overrightarrow{AB}=\begin{pmatrix}c-a & d-b\end{pmatrix},\ |\overrightarrow{AB}|=\sqrt{(c-a)^2+(d-b)^2}$</li>
+</ol>
+<p class="label">考え方</p>
+<p>点 $A(x_1,y_1)$ から点 $B(x_2,y_2)$ へのベクトルは「終点−始点」で求める。距離はその大きさ。</p>
+<p class="label">図説（始点から終点へのベクトル）</p>
+<figure class="fig" style="width:34%">
+  <svg viewBox="0 0 280 234">
+    <g fill="none" stroke-width="0.8">
+      <line x1="8" y1="206" x2="264" y2="206" stroke="#999" marker-end="url(#ah-gray)"/>
+      <line x1="24" y1="222" x2="24" y2="14" stroke="#999" marker-end="url(#ah-gray)"/>
+      <polyline points="64,166 224,166 224,46" stroke="#999" stroke-dasharray="4 3"/>
+      <line x1="64" y1="166" x2="224" y2="46" stroke="#0645ad" stroke-width="2" marker-end="url(#ah-blue)"/>
+    </g>
+    <circle cx="64" cy="166" r="3" fill="#000"/>
+    <circle cx="224" cy="46" r="3" fill="#000"/>
+  </svg>
+  <span class="lbl gray" style="left:95.4%;top:88.0%;transform:translate(0,-50%)">$x$</span>
+  <span class="lbl gray" style="left:8.6%;top:4.6%;transform:translate(-50%,-100%)">$y$</span>
+  <span class="lbl" style="left:22.0%;top:72.0%;transform:translate(-100%,0)">$A$</span>
+  <span class="lbl" style="left:80.9%;top:18.6%;transform:translate(0,-100%)">$B$</span>
+  <span class="lbl" style="left:54.3%;top:50.4%">$\overrightarrow{AB}$</span>
+  <span class="lbl" style="left:51.4%;top:75.7%">$x_2-x_1$</span>
+  <span class="lbl" style="left:81.4%;top:45.3%;transform:translate(0,-50%)">$y_2-y_1$</span>
+</figure>
+<p class="label">途中式（代表例）</p>
+<div class="steps">
+<p>1. $\overrightarrow{AB}=(5-1,\ 7-2)=(4,5),\ |\overrightarrow{AB}|=\sqrt{4^2+5^2}=\sqrt{41}$</p>
+<p>6. $\overrightarrow{AB}=(c-a,\ d-b),\ |\overrightarrow{AB}|=\sqrt{(c-a)^2+(d-b)^2}$</p>
+</div>
+</section>
+</div>
+
+</div>
+
+<!-- ===================== 解答 2枚目 ===================== -->
+<div class="sheet packed" data-role="ans">
+
+<div class="col">
+<section>
+<h2>ベクトルの足し算・引き算・スカラー倍 解答</h2>
+<ol class="q tight">
+<li>$\begin{pmatrix}7 & 2\end{pmatrix}$</li>
+<li>$\begin{pmatrix}-5 & 9\end{pmatrix}$</li>
+<li>$\begin{pmatrix}6 & -10\end{pmatrix}$</li>
+<li>$\begin{pmatrix}6 & -12\end{pmatrix}$</li>
+<li>$\begin{pmatrix}-6 & 8\end{pmatrix}$</li>
+<li>$\begin{pmatrix}8 & -17\end{pmatrix}$</li>
+</ol>
+<p class="label">考え方</p>
+<p>足し算・引き算・スカラー倍は、各成分ごとにそのまま計算する。</p>
+<p class="label">途中式（代表例）</p>
+<div class="steps">
+<p>5. $\begin{pmatrix}1 & 2\end{pmatrix}+\begin{pmatrix}-3 & 5\end{pmatrix}-\begin{pmatrix}4 & -1\end{pmatrix}$</p>
+<p class="ind">$=\begin{pmatrix}1-3-4 & 2+5+1\end{pmatrix}=\begin{pmatrix}-6 & 8\end{pmatrix}$</p>
+<p>6. $2\vec{a}-3\vec{b}=2\begin{pmatrix}1 & -4\end{pmatrix}-3\begin{pmatrix}-2 & 3\end{pmatrix}$</p>
+<p class="ind">$=\begin{pmatrix}2 & -8\end{pmatrix}+\begin{pmatrix}6 & -9\end{pmatrix}=\begin{pmatrix}8 & -17\end{pmatrix}$</p>
+</div>
+</section>
+</div>
+
+<div class="col">
+<section>
+<h2>内積と角度 解答</h2>
+<ol class="q tight">
+<li>$11$</li>
+<li>$0$</li>
+<li>垂直</li>
+<li>$\displaystyle \theta=\cos^{-1}\!\left(\frac45\right)$</li>
+<li>$\theta=60^\circ$</li>
+<li>$\vec{a}\cdot\vec{b}=0,$ よって垂直</li>
+</ol>
+<p class="label">考え方</p>
+<p>内積は $\vec{a}\cdot\vec{b}=a_1b_1+a_2b_2$。0 なら垂直、角度は $\cos\theta=\dfrac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}$ を使う。</p>
+<!-- 元の .tex は「	extbf{図説（内積と角度）}」（\t がタブに化けている）で、PDFでも「extbf 図説（内積と角度）」と表示されている。内容は変えない方針のため元のまま。 -->
+<p>extbf 図説（内積と角度）</p>
+<figure class="fig" style="width:30.9%">
+  <svg viewBox="0 0 232 190">
+    <g fill="none" stroke-width="0.8">
+      <line x1="8" y1="166" x2="216" y2="166" stroke="#999" marker-end="url(#ah-gray)"/>
+      <line x1="24" y1="182" x2="24" y2="14" stroke="#999" marker-end="url(#ah-gray)"/>
+      <polyline points="184,134 96,134 96,46" stroke="#999" stroke-dasharray="4 3"/>
+      <line x1="24" y1="166" x2="184" y2="134" stroke="#0645ad" stroke-width="2" marker-end="url(#ah-blue)"/>
+      <line x1="24" y1="166" x2="96" y2="46" stroke="#c00" stroke-width="2" marker-end="url(#ah-red)"/>
+      <path d="M60,166 A36,36 0 0 0 42.54,135.14" stroke="#000" stroke-width="1.3"/>
+    </g>
+  </svg>
+  <span class="lbl gray" style="left:94.5%;top:87.4%;transform:translate(0,-50%)">$x$</span>
+  <span class="lbl gray" style="left:10.3%;top:5.7%;transform:translate(-50%,-100%)">$y$</span>
+  <span class="lbl blue" style="left:45.9%;top:80.2%;transform:translate(0,0)">$\vec{a}$</span>
+  <span class="lbl red" style="left:24.8%;top:54.5%;transform:translate(-100%,-100%)">$\vec{b}$</span>
+  <span class="lbl" style="left:27.6%;top:80.0%">$\theta$</span>
+</figure>
+<p class="label">途中式（代表例）</p>
+<div class="steps">
+<p>4. $\vec{a}\cdot\vec{b}=2\cdot1+1\cdot2=4,\ |\vec{a}|=\sqrt5,\ |\vec{b}|=\sqrt5$</p>
+<p class="ind">$\displaystyle \cos\theta=\frac{4}{\sqrt5\sqrt5}=\frac45\Rightarrow \theta=\cos^{-1}\!\left(\frac45\right)$</p>
+<p>5. $\vec{a}\cdot\vec{b}=4\cdot2+0\cdot2\sqrt3=8,\ |\vec{a}|=4,\ |\vec{b}|=4$</p>
+<p class="ind">$\displaystyle \cos\theta=\frac{8}{4\cdot4}=\frac12\Rightarrow \theta=60^\circ$</p>
+</div>
+</section>
+</div>
+
+</div>
+
+<!-- ===================== 解答 3枚目 ===================== -->
+<div class="sheet packed" data-role="ans">
+
+<div class="col">
+<section>
+<h2>2次元の外積と面積 解答</h2>
+<ol class="q tight">
+<li>$-5$</li>
+<li>$13$</li>
+<li>$12$</li>
+<li>$12$</li>
+<li>$\vec{a}\times\vec{b}=-(\vec{b}\times\vec{a})$</li>
+<li>$\vec{a}\times\vec{b}=5,\ \vec{a}\times\vec{c}=-5$</li>
+</ol>
+<p class="label">考え方</p>
+<p>2次元の外積は $\vec{a}\times\vec{b}=a_xb_y-a_yb_x$ として計算する。平行四辺形の面積はその絶対値。</p>
+<p class="label">途中式（代表例）</p>
+<div class="steps">
+<p>3. $\begin{pmatrix}4 & 0\end{pmatrix}\times\begin{pmatrix}0 & 3\end{pmatrix}=4\cdot3-0\cdot0=12$</p>
+<p>4. 面積$=|12|=12$</p>
+<p>6. $\vec{a}\times\vec{b}=2\cdot3-1\cdot1=5,\ \vec{a}\times\vec{c}=2\cdot(-1)-1\cdot3=-5$</p>
+</div>
+</section>
+</div>
+
+<div class="col">
+<section>
+<h2>射影とゲーム計算 解答</h2>
+<ol class="q tight">
+<li>$\begin{pmatrix}3 & 0\end{pmatrix}$</li>
+<li>$\begin{pmatrix}0 & 1\end{pmatrix}$</li>
+<li>$\begin{pmatrix}\frac95 & \frac{12}{5}\end{pmatrix}$</li>
+<li>当たらない</li>
+<li>$\begin{pmatrix}2 & 2\end{pmatrix}$</li>
+<li>$\begin{pmatrix}0 & -2\end{pmatrix}$</li>
+</ol>
+<p class="label">考え方</p>
+<p>単位ベクトル $\hat{b}$ 方向への射影は $\vec{a}\cdot\hat{b}$ を長さとして、$\left(\vec{a}\cdot\hat{b}\right)\hat{b}$ で求める。衝突判定は中心間距離と半径和を比べる。</p>
+<p class="label">図説（射影）</p>
+<figure class="fig" style="width:35.1%">
+  <svg viewBox="0 0 264 192">
+    <g fill="none" stroke-width="0.8">
+      <line x1="8" y1="166" x2="248" y2="166" stroke="#999" marker-end="url(#ah-gray)"/>
+      <line x1="24" y1="182" x2="24" y2="14" stroke="#999" marker-end="url(#ah-gray)"/>
+      <line x1="24" y1="166" x2="192" y2="86" stroke="#0645ad" stroke-width="2" marker-end="url(#ah-blue)"/>
+      <line x1="24" y1="166" x2="224" y2="166" stroke="#c00" stroke-width="2" marker-end="url(#ah-red)"/>
+      <line x1="192" y1="86" x2="192" y2="166" stroke="#999" stroke-dasharray="4 3"/>
+      <line x1="24" y1="166" x2="192" y2="166" stroke="#1a7f37" stroke-width="2" marker-end="url(#ah-green)"/>
+    </g>
+    <circle cx="192" cy="86" r="3" fill="#000"/>
+    <circle cx="192" cy="166" r="3" fill="#000"/>
+  </svg>
+  <span class="lbl gray" style="left:95.2%;top:86.5%;transform:translate(0,-50%)">$x$</span>
+  <span class="lbl gray" style="left:9.1%;top:5.6%;transform:translate(-50%,-100%)">$y$</span>
+  <span class="lbl blue" style="left:40.0%;top:64.4%;transform:translate(-100%,-100%)">$\vec{a}$</span>
+  <span class="lbl red" style="left:47.0%;top:87.7%;transform:translate(-50%,0)">$\hat{b}$</span>
+  <span class="lbl green" style="left:40.9%;top:87.7%;transform:translate(-50%,0)">$\vec{A}$</span>
+</figure>
+<p class="label">途中式（代表例）</p>
+<div class="steps">
+<p>3. $\vec{a}\cdot\hat{b}=\begin{pmatrix}5 & 0\end{pmatrix}\cdot\begin{pmatrix}\frac35 & \frac45\end{pmatrix}=3$</p>
+<p class="ind">$\vec{A}=3\begin{pmatrix}\frac35 & \frac45\end{pmatrix}=\begin{pmatrix}\frac95 & \frac{12}{5}\end{pmatrix}$</p>
+<p>4. $|AB|=\sqrt{(5-2)^2+(3.6-2)^2}=\sqrt{11.56}=3.4,\ r_a+r_b=3.0$</p>
+<p class="ind">$3.4\gt 3.0\Rightarrow$当たらない</p>
+<p>5. $\vec{v}\cdot\hat{w}=\begin{pmatrix}4 & 0\end{pmatrix}\cdot\begin{pmatrix}\frac1{\sqrt2} & \frac1{\sqrt2}\end{pmatrix}=2\sqrt2$</p>
+<p class="ind">$\vec{v}_{\parallel}=2\sqrt2\begin{pmatrix}\frac1{\sqrt2} & \frac1{\sqrt2}\end{pmatrix}=\begin{pmatrix}2 & 2\end{pmatrix}$</p>
+</div>
+</section>
+</div>
+
+</div>
+</body>
+</html>

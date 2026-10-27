@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>物理基礎（丁寧解説版）</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="text.js"></script>
+<link rel="stylesheet" href="text.css">
+<style>
+/* \bridge（次に進む準備）：元は枠囲み */
+.box.bridge { background: none; border: 1px solid var(--text); border-radius: 0; }
+.box.bridge p { margin: 0.1em 0; }
+/* スカラー量・ベクトル量のイメージ（2つ横並び） */
+.pair { display: flex; gap: 1.5em; align-items: flex-start; }
+.pair > div { flex: 1; text-align: center; }
+.pair .fig { margin-top: 0.4em; }
+@media (max-width: 720px) { .pair { flex-direction: column; } .pair > div { width: 100%; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <marker id="ah-k" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 z" fill="#000"/></marker>
+    <marker id="ah-b" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 z" fill="#0645ad"/></marker>
+    <marker id="ah-r" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 z" fill="#c00"/></marker>
+    <marker id="ah-t" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 z" fill="#005959"/></marker>
+    <marker id="ah-g" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 z" fill="#999"/></marker>
+  </defs>
+</svg>
+<main>
+<h1>物理基礎（丁寧解説版）</h1>
+
+<h2>この教材の使い方（最初に読む）</h2>
+
+<h3>3ステップ学習</h3>
+<p>この単元は次の順で学ぶ。</p>
+<ol>
+  <li><b>テキストで理解</b>: 現象を図で見て、言葉と式をつなぐ。</li>
+  <li><b>穴埋めで整理</b>: キーワードと公式を短く確認する。</li>
+  <li><b>繰数で定着</b>: 計算と説明を何度か繰り返して身につける。</li>
+</ol>
+
+<h3>この単元で大事にすること</h3>
+<ul>
+  <li>ベクトルを「矢印」として毎回イメージする。</li>
+  <li>公式は暗記の前に意味を読む。</li>
+  <li>計算後は必ず単位と次元を確認する。</li>
+</ul>
+
+<figure class="fig" style="width:70%">
+  <svg viewBox="0 0 508 56">
+    <g fill="#f2f2f2" stroke="#000" stroke-width="0.9">
+      <rect x="4" y="4" width="148" height="48" rx="6"/>
+      <rect x="180" y="4" width="148" height="48" rx="6"/>
+      <rect x="356" y="4" width="148" height="48" rx="6"/>
+    </g>
+    <g stroke="#000" stroke-width="2.4" marker-end="url(#ah-k)">
+      <line x1="152" y1="28" x2="178" y2="28"/>
+      <line x1="328" y1="28" x2="354" y2="28"/>
+    </g>
+  </svg>
+  <span class="lbl" style="left:15.4%;top:50%">テキスト</span>
+  <span class="lbl" style="left:50%;top:50%">穴埋め</span>
+  <span class="lbl" style="left:84.6%;top:50%">繰数</span>
+</figure>
+
+<hr class="pagebreak">
+
+<h2>ベクトルで物理量を見る</h2>
+
+<h3>スカラー量とベクトル量を分ける</h3>
+<p><b>スカラー量</b>は大きさだけ、<b>ベクトル量</b>は大きさと向きをもつ。</p>
+
+<div class="pair">
+  <div>
+    <p><b>スカラー量のイメージ</b></p>
+    <figure class="fig" style="width:50%">
+      <svg viewBox="0 0 200 90">
+        <rect x="10" y="5" width="180" height="50" rx="6" fill="#f2f2f2" stroke="#000" stroke-width="0.9"/>
+      </svg>
+      <span class="lbl" style="left:50%;top:33%">$m=2\ \mathrm{kg}$</span>
+      <span class="lbl" style="left:50%;top:83%">数値だけで決まる</span>
+    </figure>
+  </div>
+  <div>
+    <p><b>ベクトル量のイメージ</b></p>
+    <figure class="fig" style="width:62%">
+      <svg viewBox="0 -16 240 208">
+        <g stroke="#999" stroke-width="0.9" marker-end="url(#ah-g)">
+          <line x1="8" y1="144" x2="220" y2="144"/>
+          <line x1="28" y1="164" x2="28" y2="16"/>
+        </g>
+        <line x1="28" y1="144" x2="164" y2="64" stroke="#0645ad" stroke-width="2.4" marker-end="url(#ah-b)"/>
+      </svg>
+      <span class="lbl gray" style="left:95%;top:76.9%">$x$</span>
+      <span class="lbl gray" style="left:11.7%;top:7.7%">$y$</span>
+      <span class="lbl blue" style="left:46.7%;top:46.2%">$\bm{v}$</span>
+      <span class="lbl" style="left:46.7%;top:94.3%">向きと大きさが必要</span>
+    </figure>
+  </div>
+</div>
+
+<h3>2次元ベクトルとの接続</h3>
+<p>すでに学習した</p>
+<div class="formula">$\displaystyle \bm{a}=\begin{pmatrix}a_x & a_y\end{pmatrix}$</div>
+<p>は、物理では「右方向成分」「上方向成分」をそのまま表す。</p>
+
+<p><b>読み方のコツ</b></p>
+<ul>
+  <li>$a_x&gt;0$ なら右向き、$a_x\lt 0$ なら左向き</li>
+  <li>$a_y&gt;0$ なら上向き、$a_y\lt 0$ なら下向き</li>
+</ul>
+
+<figure class="fig" style="width:41%">
+  <svg viewBox="0 -16 292 244">
+    <g stroke="#999" stroke-width="0.9" marker-end="url(#ah-g)">
+      <line x1="8" y1="144" x2="276" y2="144"/>
+      <line x1="56" y1="224" x2="56" y2="16"/>
+    </g>
+    <g stroke="#a6a6a6" stroke-width="0.9" stroke-dasharray="4 3" fill="none">
+      <line x1="196" y1="144" x2="196" y2="64"/>
+      <line x1="56" y1="64" x2="196" y2="64"/>
+    </g>
+    <line x1="56" y1="144" x2="196" y2="64" stroke="#0645ad" stroke-width="2.4" marker-end="url(#ah-b)"/>
+  </svg>
+  <span class="lbl gray" style="left:97.3%;top:65.6%">$x$</span>
+  <span class="lbl gray" style="left:19.2%;top:6.6%">$y$</span>
+  <span class="lbl blue" style="left:39%;top:44.3%">$\bm{a}$</span>
+  <span class="lbl" style="left:67.1%;top:71.3%">$a_x$</span>
+  <span class="lbl" style="left:14.4%;top:32.8%">$a_y$</span>
+</figure>
+
+<h3>単位と次元をていねいに区別する</h3>
+<p>単位は「m/s」などの書き方、次元は「$L/T$」などの量の種類である。</p>
+
+<table>
+  <tr><th>物理量</th><th>単位</th><th>次元</th></tr>
+  <tr><td>速度 $\bm{v}$</td><td>m/s</td><td>$L/T$</td></tr>
+  <tr><td>加速度 $\bm{a}$</td><td>m/s$^2$</td><td>$L/T^2$</td></tr>
+  <tr><td>力 $\bm{F}$</td><td>N</td><td>$ML/T^2$</td></tr>
+  <tr><td>仕事 $W$</td><td>J</td><td>$ML^2/T^2$</td></tr>
+</table>
+
+<p><b>注意</b></p>
+<ul>
+  <li>km/h と m/s は単位が違うだけで、どちらも次元は $L/T$ で同じ。</li>
+</ul>
+
+<h3>章末の理解チェック</h3>
+<ol>
+  <li>速度、質量、力をスカラー量とベクトル量に分類せよ。</li>
+  <li>$\bm{a}=\begin{pmatrix}2 & -1\end{pmatrix}$ の向きを言葉で説明せよ。</li>
+  <li>単位と次元の違いを1文で説明せよ。</li>
+  <li>次元 $ML/T^2$ をもつ物理量を挙げよ。</li>
+</ol>
+
+<div class="box bridge">
+  <p class="box-title">次に進む準備</p>
+  <p>穴埋めで確認する語句: スカラー量、ベクトル量、単位、次元</p>
+  <p>繰数で定着する計算: 分類問題、次元判定の基本問題</p>
+</div>
+
+<hr class="pagebreak">
+
+<h2>速度と加速度を図で理解する</h2>
+
+<h3>速度は「位置の変化」</h3>
+<p>1秒ごとの位置を比べると、速いか遅いかが分かる。</p>
+
+<figure class="fig" style="width:80%">
+  <svg viewBox="0 0 572 44">
+    <line x1="4" y1="22" x2="504" y2="22" stroke="#999" stroke-width="0.9" marker-end="url(#ah-g)"/>
+    <g fill="#000">
+      <circle cx="44" cy="22" r="3.3"/>
+      <circle cx="164" cy="22" r="3.3"/>
+      <circle cx="324" cy="22" r="3.3"/>
+      <circle cx="444" cy="22" r="3.3"/>
+    </g>
+    <g stroke="#000" stroke-width="1.2" marker-end="url(#ah-k)">
+      <line x1="44" y1="8" x2="164" y2="8"/>
+      <line x1="164" y1="8" x2="324" y2="8"/>
+      <line x1="324" y1="8" x2="444" y2="8"/>
+    </g>
+  </svg>
+  <span class="lbl gray" style="left:93.7%;top:50%">位置 $x$</span>
+  <span class="lbl" style="left:7.7%;top:79%">$t=0$ s</span>
+  <span class="lbl" style="left:28.7%;top:79%">$t=1$ s</span>
+  <span class="lbl" style="left:56.6%;top:79%">$t=2$ s</span>
+  <span class="lbl" style="left:77.6%;top:79%">$t=3$ s</span>
+</figure>
+
+<p><b>Point:</b> 時間あたりの位置変化が速度である。</p>
+
+<div class="formula">$\displaystyle \bm{v}=\frac{\Delta \bm{x}}{\Delta t}$</div>
+
+<h3>速さはベクトルの長さ</h3>
+<p>速度ベクトル $\bm{v}=\begin{pmatrix}v_x & v_y\end{pmatrix}$ の速さは</p>
+<div class="formula">$\displaystyle |\bm{v}|=\sqrt{v_x^2+v_y^2}$</div>
+<p>で求める。</p>
+
+<figure class="fig" style="width:38%">
+  <svg viewBox="0 -16 284 236">
+    <g stroke="#999" stroke-width="0.9" marker-end="url(#ah-g)">
+      <line x1="28" y1="196" x2="268" y2="196"/>
+      <line x1="44" y1="212" x2="44" y2="12"/>
+    </g>
+    <g stroke="#a6a6a6" stroke-width="0.9" stroke-dasharray="4 3" fill="none">
+      <line x1="204" y1="196" x2="204" y2="76"/>
+      <line x1="44" y1="76" x2="204" y2="76"/>
+    </g>
+    <line x1="44" y1="196" x2="204" y2="76" stroke="#0645ad" stroke-width="2.4" marker-end="url(#ah-b)"/>
+  </svg>
+  <span class="lbl gray" style="left:97.2%;top:89.8%">$x$</span>
+  <span class="lbl gray" style="left:15.5%;top:5.1%">$y$</span>
+  <span class="lbl blue" style="left:36.6%;top:64.4%">$\bm{v}$</span>
+  <span class="lbl" style="left:43.7%;top:95.8%">$v_x=4$</span>
+  <span class="lbl" style="left:7.7%;top:64.4%">$v_y=3$</span>
+  <span class="lbl" style="left:43.7%;top:48.3%">$|\bm{v}|=5$</span>
+</figure>
+
+<h3>加速度は「速度の変化」</h3>
+<div class="formula">$\displaystyle \bm{a}=\frac{\Delta \bm{v}}{\Delta t}$</div>
+
+<p><b>意味を分解する</b></p>
+<ul>
+  <li>$\Delta \bm{v}$: 速度ベクトルの差（向きも変わる）</li>
+  <li>$\Delta t$: その変化にかかった時間</li>
+</ul>
+
+<figure class="fig" style="width:41%">
+  <svg viewBox="0 -16 296 240">
+    <g stroke="#999" stroke-width="0.9" marker-end="url(#ah-g)">
+      <line x1="8" y1="192" x2="280" y2="192"/>
+      <line x1="32" y1="216" x2="32" y2="16"/>
+    </g>
+    <line x1="32" y1="192" x2="144" y2="152" stroke="#0645ad" stroke-width="2.4" marker-end="url(#ah-b)"/>
+    <line x1="32" y1="192" x2="168" y2="88" stroke="#005959" stroke-width="2.4" marker-end="url(#ah-t)"/>
+    <line x1="144" y1="152" x2="168" y2="88" stroke="#c00" stroke-width="2.4" marker-end="url(#ah-r)"/>
+  </svg>
+  <span class="lbl gray" style="left:97.3%;top:86.7%">$x$</span>
+  <span class="lbl gray" style="left:10.8%;top:6.7%">$y$</span>
+  <span class="lbl blue" style="left:32.4%;top:83%">$\bm{v}_1$</span>
+  <span class="lbl" style="left:29.1%;top:60%;color:#005959">$\bm{v}_2$</span>
+  <span class="lbl red" style="left:58.1%;top:56.7%">$\Delta\bm{v}$</span>
+</figure>
+
+<h3>ディメンションで確認する</h3>
+<div class="formula">$\displaystyle \bm{a}=\frac{\Delta \bm{v}}{\Delta t}$</div>
+<ul>
+  <li>左辺の次元: $L/T^2$</li>
+  <li>右辺の次元: $(L/T)/T=L/T^2$</li>
+  <li>判定: 一致</li>
+</ul>
+
+<h3>ゲーム場面で読み替える</h3>
+<ul>
+  <li>スティックを倒す: 速度の向きが変化する。</li>
+  <li>空中で方向転換: $\Delta\bm{v}$ が生まれ、加速度が発生する。</li>
+</ul>
+
+<h3>章末の理解チェック</h3>
+<ol>
+  <li>$\bm{v}=\begin{pmatrix}6 & 8\end{pmatrix}$ の速さを求めよ。</li>
+  <li>$\Delta\bm{v}=\begin{pmatrix}4 & -2\end{pmatrix}$, $\Delta t=2$ s から $\bm{a}$ を求めよ。</li>
+  <li>$\bm{a}=\Delta\bm{v}/\Delta t$ の左右次元が一致することを示せ。</li>
+  <li>空中で左入力したときの速度変化を言葉で説明せよ。</li>
+</ol>
+
+<div class="box bridge">
+  <p class="box-title">次に進む準備</p>
+  <p>穴埋めで確認する語句: 速度、速さ、加速度、速度差</p>
+  <p>繰数で定着する計算: 速さ計算、加速度計算、次元一致判定</p>
+</div>
+
+<hr class="pagebreak">
+
+<h2>力と運動方程式をていねいに読む</h2>
+
+<h3>力はベクトルとして合成する</h3>
+<p>同時に複数の力があるとき、合力はベクトルの足し算で求める。</p>
+
+<div class="formula">$\displaystyle \bm{F}_{\mathrm{net}}=\bm{F}_1+\bm{F}_2+\cdots$</div>
+
+<figure class="fig" style="width:41%">
+  <svg viewBox="0 -16 292 256">
+    <g stroke="#999" stroke-width="0.9" marker-end="url(#ah-g)">
+      <line x1="12" y1="208" x2="276" y2="208"/>
+      <line x1="36" y1="232" x2="36" y2="16"/>
+    </g>
+    <g stroke="#000" stroke-width="2.4" marker-end="url(#ah-k)">
+      <line x1="36" y1="208" x2="164" y2="208"/>
+      <line x1="36" y1="208" x2="36" y2="104"/>
+    </g>
+    <line x1="36" y1="208" x2="164" y2="104" stroke="#005959" stroke-width="2.4" marker-end="url(#ah-t)"/>
+  </svg>
+  <span class="lbl gray" style="left:97.3%;top:87.5%">$x$</span>
+  <span class="lbl gray" style="left:12.3%;top:6.2%">$y$</span>
+  <span class="lbl" style="left:34.2%;top:92.2%">$\bm{F}_1$</span>
+  <span class="lbl" style="left:7.5%;top:67.2%">$\bm{F}_2$</span>
+  <span class="lbl" style="left:45.2%;top:67.9%;color:#005959">$\bm{F}_{\mathrm{net}}$</span>
+</figure>
+
+<h3>運動方程式を1行ずつ読む</h3>
+<div class="formula">$\displaystyle \bm{F}=m\bm{a}$</div>
+
+<ul>
+  <li>力 $\bm{F}$ が大きいほど、加速度 $\bm{a}$ は大きくなりやすい。</li>
+  <li>質量 $m$ が大きいほど、同じ力でも加速度 $\bm{a}$ は小さくなる。</li>
+</ul>
+
+<figure class="fig" style="width:46%">
+  <svg viewBox="0 0 332 100">
+    <g fill="#f2f2f2" stroke="#000" stroke-width="0.9">
+      <rect x="4" y="12" width="132" height="88" rx="6"/>
+      <rect x="196" y="12" width="132" height="88" rx="6"/>
+    </g>
+    <g stroke="#000" stroke-width="2.4" marker-end="url(#ah-k)">
+      <line x1="24" y1="48" x2="116" y2="48"/>
+      <line x1="216" y1="48" x2="308" y2="48"/>
+    </g>
+    <g stroke="#0645ad" stroke-width="2.4" marker-end="url(#ah-b)">
+      <line x1="48" y1="72" x2="120" y2="72"/>
+      <line x1="236" y1="72" x2="272" y2="72"/>
+    </g>
+  </svg>
+  <span class="lbl" style="left:21.1%;top:23.5%">小さい質量</span>
+  <span class="lbl" style="left:78.9%;top:23.5%">大きい質量</span>
+  <span class="lbl" style="left:21.1%;top:41%">$\bm{F}$</span>
+  <span class="lbl" style="left:78.9%;top:41%">$\bm{F}$</span>
+  <span class="lbl blue" style="left:25.3%;top:84%">$\bm{a}$ 大</span>
+  <span class="lbl blue" style="left:77.7%;top:84%">$\bm{a}$ 小</span>
+</figure>
+
+<h3>次元で式の正しさを検査する</h3>
+<div class="formula">$\displaystyle \bm{F}=m\bm{a}$</div>
+<ul>
+  <li>左辺の次元: $ML/T^2$</li>
+  <li>右辺の次元: $M\cdot L/T^2=ML/T^2$</li>
+  <li>判定: 一致</li>
+</ul>
+
+<p>誤り例</p>
+<div class="formula">$\displaystyle \bm{F}=m\bm{v}$</div>
+<ul>
+  <li>左辺の次元: $ML/T^2$</li>
+  <li>右辺の次元: $M\cdot L/T=ML/T$</li>
+  <li>判定: 不一致</li>
+</ul>
+
+<h3>作用反作用を図で確認する</h3>
+<figure class="fig" style="width:32%">
+  <svg viewBox="0 0 232 92">
+    <rect x="4" y="16" width="88" height="60" fill="#ececec" stroke="#000" stroke-width="0.9"/>
+    <rect x="140" y="16" width="88" height="60" fill="#dfdfdf" stroke="#000" stroke-width="0.9"/>
+    <g stroke="#000" stroke-width="2.4" marker-end="url(#ah-k)">
+      <line x1="92" y1="46" x2="138" y2="46"/>
+      <line x1="140" y1="58" x2="94" y2="58"/>
+    </g>
+  </svg>
+  <span class="lbl" style="left:20.7%;top:50%">A</span>
+  <span class="lbl" style="left:79.3%;top:50%">B</span>
+  <span class="lbl" style="left:50%;top:34%;font-size:0.8em">$\bm{F}_{A\to B}$</span>
+  <span class="lbl" style="left:50%;top:79%;font-size:0.8em">$\bm{F}_{B\to A}$</span>
+</figure>
+
+<p><b>Point:</b> 大きさは同じ、向きは反対。別々の物体にはたらく力なので打ち消し合わない。</p>
+
+<h3>章末の理解チェック</h3>
+<ol>
+  <li>$m=2$ kg, $\bm{a}=\begin{pmatrix}3 & 0\end{pmatrix}$ m/s$^2$ のとき $\bm{F}$ を求めよ。</li>
+  <li>$\bm{F}=\begin{pmatrix}0 & -9.8\end{pmatrix}$ N, $m=1$ kg のとき $\bm{a}$ を求めよ。</li>
+  <li>$\bm{F}=m\bm{a}$ の次元一致を示せ。</li>
+  <li>作用反作用を衝突の例で説明せよ。</li>
+</ol>
+
+<div class="box bridge">
+  <p class="box-title">次に進む準備</p>
+  <p>穴埋めで確認する語句: 合力、運動方程式、作用反作用、次元検査</p>
+  <p>繰数で定着する計算: 合力計算、F=ma計算、誤式判定</p>
+</div>
+
+<hr class="pagebreak">
+
+<h2>仕事とエネルギーを図でつなぐ</h2>
+
+<h3>仕事は「力と移動の重なり」</h3>
+<p>仕事は、力が移動方向にどれだけ効いたかを表す。</p>
+
+<div class="formula">$\displaystyle W=\bm{F}\cdot\bm{d}=|\bm{F}||\bm{d}|\cos\theta$</div>
+
+<figure class="fig" style="width:41%">
+  <svg viewBox="0 -16 292 216">
+    <g stroke="#999" stroke-width="0.9" marker-end="url(#ah-g)">
+      <line x1="12" y1="168" x2="276" y2="168"/>
+      <line x1="36" y1="192" x2="36" y2="16"/>
+    </g>
+    <line x1="36" y1="168" x2="196" y2="168" stroke="#0645ad" stroke-width="2.4" marker-end="url(#ah-b)"/>
+    <line x1="36" y1="168" x2="164" y2="88" stroke="#000" stroke-width="2.4" marker-end="url(#ah-k)"/>
+    <path d="M76,168 A40,40 0 0 0 69.92,146.8" fill="none" stroke="#000" stroke-width="0.9"/>
+  </svg>
+  <span class="lbl gray" style="left:97.3%;top:85.2%">$x$</span>
+  <span class="lbl gray" style="left:12.3%;top:7.4%">$y$</span>
+  <span class="lbl blue" style="left:39.7%;top:90.7%">$\bm{d}$</span>
+  <span class="lbl" style="left:30.1%;top:61.1%">$\bm{F}$</span>
+  <span class="lbl" style="left:30.1%;top:76.9%">$\theta$</span>
+</figure>
+
+<p><b>読み取り</b></p>
+<ul>
+  <li>$\theta=0^\circ$ に近いほど、力は移動に効きやすい。</li>
+  <li>$\theta=90^\circ$ のとき、理想化すると仕事は0。</li>
+</ul>
+
+<h3>運動エネルギーと位置エネルギー</h3>
+<div class="formula">$\displaystyle K=\frac{1}{2}m|\bm{v}|^2$</div>
+<div class="formula">$\displaystyle U=mgh$</div>
+
+<figure class="fig" style="width:41%">
+  <svg viewBox="0 0 308 108">
+    <rect x="4" y="88" width="300" height="16" fill="#ececec" stroke="#000" stroke-width="0.9"/>
+    <line x1="52" y1="88" x2="244" y2="8" stroke="#000" stroke-width="1.2"/>
+    <line x1="156" y1="46" x2="156" y2="88" stroke="#000" stroke-width="0.9" stroke-dasharray="4 3"/>
+    <circle cx="156" cy="46" r="8.8" fill="#d9d9d9" stroke="#000" stroke-width="0.9"/>
+    <line x1="156" y1="46" x2="200" y2="28" stroke="#0645ad" stroke-width="2.4" marker-end="url(#ah-b)"/>
+  </svg>
+  <span class="lbl blue" style="left:68.2%;top:35.2%">$\bm{v}$</span>
+  <span class="lbl" style="left:53.9%;top:61.1%">$h$</span>
+</figure>
+
+<p><b>場面ごとの見方</b></p>
+<ul>
+  <li>上にいるほど $U$ が大きい。</li>
+  <li>速く動くほど $K$ が大きい。</li>
+</ul>
+
+<h3>次元で最終確認</h3>
+<div class="formula">$\displaystyle W=\bm{F}\cdot\bm{d}$</div>
+<ul>
+  <li>左辺の次元: $ML^2/T^2$</li>
+  <li>右辺の次元: $(ML/T^2)\cdot L=ML^2/T^2$</li>
+  <li>判定: 一致</li>
+</ul>
+
+<div class="formula">$\displaystyle K=\frac{1}{2}m|\bm{v}|^2$</div>
+<ul>
+  <li>左辺の次元: $ML^2/T^2$</li>
+  <li>右辺の次元: $M\cdot(L/T)^2=ML^2/T^2$</li>
+  <li>判定: 一致</li>
+</ul>
+
+<h3>章末の理解チェック</h3>
+<ol>
+  <li>$\bm{F}=\begin{pmatrix}10 & 0\end{pmatrix}$ N, $\bm{d}=\begin{pmatrix}4 & 3\end{pmatrix}$ m の仕事を求めよ。</li>
+  <li>$m=2$ kg, $|\bm{v}|=4$ m/s のとき運動エネルギーを求めよ。</li>
+  <li>$m=1$ kg, $g=9.8$ m/s$^2$, $h=2$ m のとき位置エネルギーを求めよ。</li>
+  <li>$E=m|\bm{v}|$ がエネルギー式として不適切な理由を次元で説明せよ。</li>
+</ol>
+
+<div class="box bridge">
+  <p class="box-title">次に進む準備</p>
+  <p>穴埋めで確認する語句: 仕事、内積、運動エネルギー、位置エネルギー</p>
+  <p>繰数で定着する計算: 仕事計算、エネルギー計算、次元検査</p>
+</div>
+
+<hr class="pagebreak">
+
+<h2>総まとめ（穴埋め・繰数へ接続）</h2>
+
+<h3>このテキストで理解したこと</h3>
+<ol>
+  <li>物理量はスカラー量とベクトル量に分かれる。</li>
+  <li>速度と加速度はベクトルで表すと読みやすい。</li>
+  <li>力は合成でき、運動方程式 $\bm{F}=m\bm{a}$ で加速度とつながる。</li>
+  <li>仕事とエネルギーは内積と速さで表せる。</li>
+  <li>公式の正しさは次元で検査できる。</li>
+</ol>
+
+<h3>穴埋めで確認する項目</h3>
+<ul>
+  <li>用語: スカラー量、ベクトル量、次元、合力、仕事</li>
+  <li>公式: $\bm{a}=\Delta\bm{v}/\Delta t$, $\bm{F}=m\bm{a}$, $W=\bm{F}\cdot\bm{d}$</li>
+  <li>単位と次元: m/s と $L/T$ などの対応</li>
+</ul>
+
+<h3>繰数で定着する項目</h3>
+<ul>
+  <li>速さ計算、加速度計算、合力計算</li>
+  <li>運動方程式の逆算（$F,m,a$ の3量）</li>
+  <li>仕事とエネルギー計算</li>
+  <li>誤った式の次元判定</li>
+</ul>
+
+<h3>最後のセルフチェック</h3>
+<ol>
+  <li>自分で図を描いて、ベクトルの向きを説明できるか。</li>
+  <li>計算結果に単位を書けるか。</li>
+  <li>左辺と右辺の次元一致を確認したか。</li>
+</ol>
+
+</main>
+</body>
+</html>

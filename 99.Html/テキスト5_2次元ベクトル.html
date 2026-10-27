@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2次元ベクトル</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="text.js"></script>
+<link rel="stylesheet" href="text.css">
+<style>
+/* このファイル用の追加：ラベルの基準点（TikZ の above / below left など） */
+.fig .lbl.a  { transform: translate(-50%, calc(-100% - .25em)); }
+.fig .lbl.b  { transform: translate(-50%, .25em); }
+.fig .lbl.l  { transform: translate(calc(-100% - .25em), -50%); }
+.fig .lbl.r  { transform: translate(.25em, -50%); }
+.fig .lbl.al { transform: translate(calc(-100% - .15em), calc(-100% - .15em)); }
+.fig .lbl.ar { transform: translate(.15em, calc(-100% - .15em)); }
+.fig .lbl.bl { transform: translate(calc(-100% - .15em), .15em); }
+.fig .lbl.br { transform: translate(.15em, .15em); }
+.fig .lbl.axl { color: #999; }
+.fig .lbl.ml { line-height: 1.5; text-align: center; }
+.fig .lbl.tag { border: 1px solid #333; border-radius: 4px; background: #fdf1e3; padding: 3px 5px; }
+.c { text-align: center; }
+.scalar { display: inline-block; border: 1px solid #333; border-radius: 6px; background: #f0f0f0; padding: .3em 1em; margin: .3em 0 0; }
+.row .fig { margin: .6em auto; }
+@media print { ol.exercise { break-inside: avoid; } main .fig { margin: .4em auto; } hr.pagebreak { display: none; } hr.pagebreak + * { break-before: page; } main p { margin: .35em 0; } main .formula { margin: .6em auto; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="ah-gr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#999999"/></marker><marker id="ah-gr-s" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#999999"/></marker><marker id="ah-ax" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#aaaaaa"/></marker><marker id="ah-ax-s" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#aaaaaa"/></marker><marker id="ah-o" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#d96c00"/></marker><marker id="ah-o-s" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#d96c00"/></marker><marker id="ah-g" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#009900"/></marker><marker id="ah-g-s" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#009900"/></marker><marker id="ah-p" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#bf0040"/></marker><marker id="ah-p-s" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#bf0040"/></marker><marker id="ah-b" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#0645ad"/></marker><marker id="ah-b-s" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#0645ad"/></marker><marker id="ah-t" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#005959"/></marker><marker id="ah-t-s" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#005959"/></marker><marker id="ah-k" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#000000"/></marker><marker id="ah-k-s" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#000000"/></marker><marker id="ah-dr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#b00000"/></marker><marker id="ah-dr-s" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#b00000"/></marker><marker id="ah-r" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#dd0000"/></marker><marker id="ah-r-s" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,1.4 L10,5 L0,8.6 L3,5z" fill="#dd0000"/></marker></defs></svg>
+<main>
+<h1>2次元ベクトル</h1>
+
+<h2>ベクトルとは何か</h2>
+
+<h3>スカラーとベクトル</h3>
+
+<p>量だけを表すものを<strong>スカラー</strong>という。量と向きをまとめて表すものを<strong>ベクトル</strong>という。</p>
+
+<p><strong>Point：</strong> スカラーは量だけ。ベクトルなら「方向」も分かる。</p>
+
+<div class="row" style="align-items:flex-start">
+<div class="c">
+<p><strong>スカラーの例</strong></p>
+<div class="scalar">8, -3, 5.4</div>
+<p style="margin-top:.2em">数値だけを表す</p>
+</div>
+<div class="c">
+<p><strong>ベクトルの例</strong></p>
+<figure class="fig" style="width:64%">
+<svg viewBox="-48 -140 256 176"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.4" y1="0" x2="4.8" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.4" x2="0" y2="3" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 3.2,2" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="3.2,0 3.2,2" stroke="#999999" stroke-width="0.014" stroke-dasharray=".106 .106"/>
+<polyline points="0,2 3.2,2" stroke="#999999" stroke-width="0.014" stroke-dasharray=".106 .106"/>
+</g></svg>
+<span class="lbl al" style="left:43.75%;top:56.818%;color:#0645ad">$\vec{v}$</span>
+<span class="lbl b" style="left:68.75%;top:79.545%">右へ</span>
+<span class="lbl l" style="left:18.75%;top:34.091%">上へ</span>
+<span class="lbl r axl" style="left:93.75%;top:79.545%">$x$</span>
+<span class="lbl a axl" style="left:18.75%;top:11.364%">$y$</span>
+</figure>
+</div>
+</div>
+
+<h3>なぜ必要か</h3>
+
+<p>1本の矢印として見ることで、速度のような「どちらへ」「どれだけ」動くかを1つで表せる。</p>
+<ul>
+<li>例：右に 2、上に 3 の移動 $\rightarrow$ $\vec{v}=\begin{pmatrix}2 & 3\end{pmatrix}$</li>
+</ul>
+
+<figure class="fig" style="width:38.559%">
+<svg viewBox="-28 -184 276 212"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="5.8" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="4.2" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 3.5,2.4" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="3.5,0 3.5,2.4" stroke="#999999" stroke-width="0.014" stroke-dasharray=".106 .106"/>
+<polyline points="0,2.4 3.5,2.4" stroke="#999999" stroke-width="0.014" stroke-dasharray=".106 .106"/>
+</g></svg>
+<span class="lbl al" style="left:35.507%;top:64.151%;color:#0645ad">$\vec{v}$</span>
+<span class="lbl" style="left:62.319%;top:83.019%">2</span>
+<span class="lbl" style="left:13.043%;top:39.623%">3</span>
+<span class="lbl r axl" style="left:94.203%;top:86.792%">$x$</span>
+<span class="lbl a axl" style="left:10.145%;top:7.547%">$y$</span>
+</figure>
+<p class="c">1本の矢印で「移動の様子」が分かる</p>
+
+<h3>ベクトルの等しさ</h3>
+<p>2つのベクトルが等しいとは、<strong>大きさが同じ</strong>で<strong>向きも同じ</strong>ことである。始点は関係ない。</p>
+
+<p><strong>Point：</strong> ベクトルに始点(どこから始まるか)の情報は含まれていない。</p>
+
+<figure class="fig" style="width:45.265%">
+<svg viewBox="-28 -184 324 212"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="7" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="4.2" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0.7,0.8 3.2,2.4" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="3.8,0.9 6.3,2.5" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+</g></svg>
+<span class="lbl" style="left:32.099%;top:36.792%;color:#0645ad">$\vec{a}$</span>
+<span class="lbl" style="left:70.37%;top:35.849%;color:#dd0000">$\vec{b}$</span>
+<span class="lbl" style="left:51.852%;top:81.132%">大きさと向きが同じなら $\vec{a}=\vec{b}$</span>
+<span class="lbl r axl" style="left:95.062%;top:86.792%">$x$</span>
+<span class="lbl a axl" style="left:8.642%;top:7.547%">$y$</span>
+</figure>
+
+<hr class="pagebreak">
+
+<h2>成分表示と大きさ</h2>
+
+<h3>成分表示</h3>
+
+<p>2次元では、ベクトルをx成分とy成分で表す。</p>
+
+<p><strong>読み方：</strong> 「右にいくつ、上にいくつ」を並べて書いたものが成分表示である。</p>
+<div class="formula">$\displaystyle \vec{a}=\begin{pmatrix}a_x & a_y\end{pmatrix}$</div>
+
+<div class="row" style="align-items:flex-start">
+<div class="c">
+<figure class="fig" style="width:74.682%">
+<svg viewBox="-36 -192 276 224"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="5.6" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="4.4" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,3 4,3" stroke="#999999" stroke-width="0.014" stroke-dasharray=".106 .106"/>
+<polyline points="4,0 4,3" stroke="#999999" stroke-width="0.014" stroke-dasharray=".106 .106"/>
+<polyline points="0,0 4,3" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+</g></svg>
+<span class="lbl b" style="left:71.014%;top:85.714%">$a_x$</span>
+<span class="lbl l" style="left:13.043%;top:32.143%">$a_y$</span>
+<span class="lbl ar" style="left:71.014%;top:32.143%">$\vec{a}$</span>
+<span class="lbl r axl" style="left:94.203%;top:85.714%">$x$</span>
+<span class="lbl a axl" style="left:13.043%;top:7.143%">$y$</span>
+</figure>
+<p>右に $a_x$、上に $a_y$</p>
+</div>
+<div class="c">
+<figure class="fig" style="width:69%">
+<svg viewBox="-28 -192 276 220"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="5.8" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="4.4" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 2,1" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="0,0 4,3" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+</g></svg>
+<span class="lbl" style="left:48.551%;top:76.364%;color:#0645ad">$\begin{pmatrix}2 & 1\end{pmatrix}$</span>
+<span class="lbl" style="left:78.986%;top:26.364%;color:#dd0000">$\begin{pmatrix}4 & 3\end{pmatrix}$</span>
+<span class="lbl r axl" style="left:94.203%;top:87.273%">$x$</span>
+<span class="lbl a axl" style="left:10.145%;top:7.273%">$y$</span>
+</figure>
+<p>成分が増えると矢印が長くなる</p>
+</div>
+</div>
+
+<h3>大きさ</h3>
+
+<p>横と縦を直角三角形の2辺だと思えば、長さはピタゴラスの定理で求められる。</p>
+
+<p><strong>手順：</strong> まず x成分 と y成分 で直角三角形をつくり、その斜辺をベクトルの長さと考える。</p>
+
+<div class="formula">$\displaystyle |\vec{a}|=\sqrt{a_x^2+a_y^2}$</div>
+
+<p><strong>例：</strong> $\vec{a}=\begin{pmatrix}3 & 4\end{pmatrix}$ なら、$|\vec{a}|=5$ である。</p>
+
+<figure class="fig" style="width:36.529%">
+<svg viewBox="-28 -208 276 232"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="5.8" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="4.8" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 3,4" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="3,0 3,4" stroke="#999999" stroke-width="0.014" stroke-dasharray=".106 .106"/>
+<polyline points="0,4 3,4" stroke="#999999" stroke-width="0.014" stroke-dasharray=".106 .106"/>
+<polyline points="2.75,0 3,0 3,0.25 2.75,0.25 2.75,0" stroke="#000000" stroke-width="0.028"/>
+</g></svg>
+<span class="lbl" style="left:31.884%;top:93.966%">3</span>
+<span class="lbl l" style="left:68.116%;top:55.172%">4</span>
+<span class="lbl" style="left:31.884%;top:46.552%">$5$</span>
+<span class="lbl r axl" style="left:94.203%;top:89.655%">$x$</span>
+<span class="lbl a axl" style="left:10.145%;top:6.897%">$y$</span>
+</figure>
+
+<hr class="pagebreak">
+<h3>単位ベクトル</h3>
+
+<p>長さを1にしたベクトルを<strong>単位ベクトル</strong>という。向きだけを見たいときに使う。</p>
+
+<p><strong>Point：</strong> その方向の単位(1)を出すために使う。<strong>正規化する</strong>ともいう。</p>
+
+<div class="formula">$\displaystyle \hat{a}=\frac{\vec{a}}{|\vec{a}|}$</div>
+
+<figure class="fig" style="width:38.559%">
+<svg viewBox="-28 -184 276 212"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="5.8" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="4.2" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 4.2,2.5" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="0,0 1.5,0.9" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+</g></svg>
+<span class="lbl al" style="left:40.58%;top:63.208%;color:#0645ad">$\vec{a}$</span>
+<span class="lbl al" style="left:21.014%;top:78.302%;color:#dd0000">$\hat{a}$</span>
+<span class="lbl" style="left:73.913%;top:35.849%;color:#0645ad">$|\vec{a}|$</span>
+<span class="lbl" style="left:36.232%;top:77.358%;color:#dd0000">$|\hat{a}|=1$</span>
+<span class="lbl r axl" style="left:94.203%;top:86.792%">$x$</span>
+<span class="lbl a axl" style="left:10.145%;top:7.547%">$y$</span>
+</figure>
+<p class="c">向きは同じで、長さだけを 1 にそろえる</p>
+
+<h3>点と点を結ぶベクトル</h3>
+
+<p>点 $A(x_1,y_1)$ から点 $B(x_2,y_2)$ へのベクトルは、差をとればよい。</p>
+
+<p><strong>手順：</strong> 「終点 - 始点」で考える。x も y も、到着した座標から出発した座標を引く。</p>
+
+<div class="formula">$\displaystyle \overrightarrow{AB}=\begin{pmatrix}x_2-x_1 & y_2-y_1\end{pmatrix}$</div>
+
+<figure class="fig" style="width:45.265%">
+<svg viewBox="-28 -208 324 236"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="6.4" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="4.8" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="1.1,1 5.1,1 5.1,4" stroke="#999999" stroke-width="0.014" stroke-dasharray=".106 .106"/>
+<polyline points="1.1,1 5.1,4" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<circle cx="1.1" cy="1" r=".07" fill="#000" stroke="none"/>
+<circle cx="5.1" cy="4" r=".07" fill="#000" stroke="none"/>
+<path d="M1.1,1 C1.25,0.72 1.75,0.72 2.05,0.72 L4.45,0.72 C4.75,0.72 5,0.8 5.1,1" stroke="#b00000" stroke-width=".042"/>
+<path d="M5.1,4 C5.55,3.45 5.65,2.85 5.65,2.45 L5.65,1.75 C5.65,1.35 5.52,1.12 5.2,1" stroke="#b00000" stroke-width=".042"/>
+</g></svg>
+<span class="lbl bl" style="left:22.222%;top:71.186%">$A$</span>
+<span class="lbl ar" style="left:71.605%;top:20.339%">$B$</span>
+<span class="lbl" style="left:50%;top:54.237%">$\overrightarrow{AB}$</span>
+<span class="lbl b" style="left:46.914%;top:76.949%;color:#b00000">$x_2-x_1$</span>
+<span class="lbl r" style="left:79.012%;top:44.915%;color:#b00000">$y_2-y_1$</span>
+<span class="lbl r axl" style="left:87.654%;top:88.136%">$x$</span>
+<span class="lbl a axl" style="left:8.642%;top:6.78%">$y$</span>
+</figure>
+
+<h3>確認問題</h3>
+<ol class="exercise">
+<li>スカラーとベクトルの違いを1文で説明せよ。</li>
+<li>「等しいベクトル」の条件を答えよ。</li>
+<li>$\vec{a}=\begin{pmatrix}3 & -2\end{pmatrix}$ の x成分 と y成分 を答えよ。</li>
+<li>$\vec{a}=\begin{pmatrix}6 & 8\end{pmatrix}$ の大きさを求めよ。</li>
+<li>$\vec{b}=\begin{pmatrix}-2 & 0\end{pmatrix}$ の大きさを求めよ。</li>
+<li>$\vec{c}=\begin{pmatrix}3 & 4\end{pmatrix}$ の単位ベクトル $\hat{c}$ を求めよ。</li>
+<li>点 $A(1,2)$、点 $B(4,7)$ のとき、$\overrightarrow{AB}$ を求めよ。</li>
+<li>点 $P(-2,1)$、点 $Q(3,-1)$ のとき、$\overrightarrow{PQ}$ とその大きさを求めよ。</li>
+</ol>
+
+<hr class="pagebreak">
+<h2>ベクトルの足し算と引き算</h2>
+
+<h3>足し算</h3>
+
+<p>ベクトルの足し算は、成分ごとに足すだけでよい。</p>
+
+<p><strong>見方：</strong> x 同士を足し、y 同士を足す。図では「矢印をつないだ結果」を表す。</p>
+
+<div class="formula">$\displaystyle \vec{a}+\vec{b}=\begin{pmatrix}a_x+b_x & a_y+b_y\end{pmatrix}$</div>
+
+<figure class="fig" style="width:47.647%">
+<svg viewBox="-28 -200 360 228"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="6.5" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="4.6" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 2.4,1.2" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="2.4,1.2 4.8,3.4" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+<polyline points="0,0 4.8,3.4" stroke="#005959" stroke-width="0.042" marker-end="url(#ah-t)"/>
+<polyline points="0,0 2.4,1.2 4.8,3.4" stroke="#999999" stroke-width="0.014" stroke-dasharray=".106 .106"/>
+</g></svg>
+<span class="lbl br" style="left:21.111%;top:77.193%;color:#0645ad">$\vec{a}$</span>
+<span class="lbl r" style="left:47.778%;top:47.368%;color:#dd0000">$\vec{b}$</span>
+<span class="lbl al" style="left:34.444%;top:57.895%;color:#005959">$\vec{a}+\vec{b}$</span>
+<span class="lbl" style="left:68.889%;top:80.702%">矢印をつなぐと足し算になる</span>
+<span class="lbl r axl" style="left:80%;top:87.719%">$x$</span>
+<span class="lbl a axl" style="left:7.778%;top:7.018%">$y$</span>
+</figure>
+
+<h3>引き算</h3>
+
+<p>引き算は「逆向きのベクトルを足す」と考えると分かりやすい。</p>
+
+<p><strong>見方：</strong> $\vec{b}$ を反対向きにして足すと、引き算を図で追いやすい。</p>
+
+<div class="formula">$\displaystyle \vec{a}-\vec{b}=\vec{a}+(-\vec{b})=\begin{pmatrix}a_x-b_x & a_y-b_y\end{pmatrix}$</div>
+
+<figure class="fig" style="width:46.588%">
+<svg viewBox="-28 -196 352 224"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="6" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="4.5" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 4.3,2.4" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="0,0 1.5,3.1" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+<polyline points="1.5,3.1 4.3,2.4" stroke="#005959" stroke-width="0.042" marker-end="url(#ah-t)"/>
+</g></svg>
+<span class="lbl al" style="left:32.386%;top:66.071%;color:#0645ad">$\vec{a}$</span>
+<span class="lbl l" style="left:16.477%;top:59.821%;color:#dd0000">$\vec{b}$</span>
+<span class="lbl a" style="left:40.909%;top:38.393%;color:#005959">$\vec{a}-\vec{b}$</span>
+<span class="lbl" style="left:70.455%;top:78.571%">引き算は「$\vec{a}$ から $\vec{b}$ を引く」</span>
+<span class="lbl r axl" style="left:76.136%;top:87.5%">$x$</span>
+<span class="lbl a axl" style="left:7.955%;top:7.143%">$y$</span>
+</figure>
+
+<p><strong>例：</strong> $\begin{pmatrix}5 & 2\end{pmatrix}-\begin{pmatrix}2 & 3\end{pmatrix}=\begin{pmatrix}3 & -1\end{pmatrix}$</p>
+
+<hr class="pagebreak">
+<h3>スカラー倍</h3>
+
+<p>数 $k$ をかけると、ベクトルの長さが $|k|$ 倍になる。$k\lt 0$ なら向きも反対になる。</p>
+
+<p><strong>見方：</strong> 大きく引き伸ばす、縮める、反対へ向ける、の3つをまとめた操作だと考えるとよい。</p>
+
+<div class="formula">$\displaystyle k\vec{a}=\begin{pmatrix}ka_x & ka_y\end{pmatrix}$</div>
+
+<figure class="fig" style="width:50.294%">
+<svg viewBox="-104 -204 380 264"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="6.5" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="4.7" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 2,1.2" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="0,0 4,2.4" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+<polyline points="0,0 -2,-1.2" stroke="#bf0040" stroke-width="0.042" marker-end="url(#ah-p)"/>
+</g></svg>
+<span class="lbl al" style="left:37.895%;top:68.182%;color:#0645ad">$\vec{a}$</span>
+<span class="lbl al" style="left:48.421%;top:59.091%;color:#dd0000">$2\vec{a}$</span>
+<span class="lbl al" style="left:16.842%;top:86.364%;color:#bf0040">$-\vec{a}$</span>
+<span class="lbl r axl" style="left:95.789%;top:77.273%">$x$</span>
+<span class="lbl a axl" style="left:27.368%;top:6.061%">$y$</span>
+</figure>
+
+<h3>確認問題</h3>
+<ol>
+<li>$\vec{a}=\begin{pmatrix}1 & 2\end{pmatrix}$、$\vec{b}=\begin{pmatrix}3 & -1\end{pmatrix}$ のとき、$\vec{a}+\vec{b}$ を求めよ。</li>
+<li>同じく $\vec{a}-\vec{b}$ を求めよ。</li>
+<li>同じく $2\vec{a}$ を求めよ。</li>
+<li>同じく $-3\vec{b}$ を求めよ。</li>
+<li>$\vec{u}=\begin{pmatrix}4 & 1\end{pmatrix}$、$\vec{v}=\begin{pmatrix}-2 & 5\end{pmatrix}$ のとき、$\vec{u}+\vec{v}$ を求めよ。</li>
+<li>同じく $\vec{u}-\vec{v}$ を求めよ。</li>
+<li>$\vec{p}=\begin{pmatrix}2 & -3\end{pmatrix}$ のとき、$-\vec{p}$ を求めよ。</li>
+<li>$3\vec{a}$ と $-2\vec{a}$ の意味を言葉で説明せよ。</li>
+</ol>
+
+<hr class="pagebreak">
+<h2>内積</h2>
+
+<h3>内積とは</h3>
+
+<p><strong>内積とは、「ベクトルがどれだけ同じ向きを向いているか」を1つの数で表したものである。</strong></p>
+
+<p>ベクトルの足し算や引き算は「矢印の操作」だったが、内積は2本の矢印の関係を数値として取り出す。結果は<strong>スカラー（数）</strong>になる。</p>
+
+<p><strong>なぜ使うのか：</strong> 2本の矢印の「向きのそろい具合」が数値で分かると、角度の計算や、ある方向への影響度を調べるのに直接使える。ゲームでは「敵がプレイヤーの前方にいるか」「壁に対してどれだけ垂直に当たっているか」などの判定に使う。</p>
+
+<p><strong>直感的なイメージ：</strong> 向きが同じほど大きい正の数になり、直角なら0、逆向きなら負の数。</p>
+
+<figure class="fig" style="width:91.624%">
+<svg viewBox="-140 -80 708 152"><g transform="scale(40,-40)" fill="none">
+<polyline points="-3.3,0 0,0" stroke="#aaaaaa" stroke-width="0.014" marker-end="url(#ah-ax-s)"/>
+<polyline points="-3,0 -0.8,0.5" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="-3,0 -1,0.2" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+<polyline points="3.7,0 7,0" stroke="#aaaaaa" stroke-width="0.014" marker-end="url(#ah-ax-s)"/>
+<polyline points="4,0 6.2,0" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="4,0 4,1.8" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+<polyline points="10.7,0 14,0" stroke="#aaaaaa" stroke-width="0.014" marker-end="url(#ah-ax-s)"/>
+<polyline points="11,0 13.2,0.3" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="11,0 9.2,-0.2" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+</g></svg>
+<span class="lbl ml" style="left:9.04%;top:78.947%">向きが近い<br>$\Rightarrow$ 大きい正</span>
+<span class="lbl ml" style="left:48.588%;top:78.947%">直角<br>$\Rightarrow$ 0</span>
+<span class="lbl ml" style="left:88.136%;top:78.947%">逆向き<br>$\Rightarrow$ 負</span>
+</figure>
+
+<h3>内積の計算1(成分計算)</h3>
+<p>x成分同士・y成分同士をそれぞれかけて足す。</p>
+
+<div class="formula">$\displaystyle \vec{a}\cdot\vec{b}=a_xb_x+a_yb_y$</div>
+
+<p><strong>例：</strong> $\begin{pmatrix}2 & 3\end{pmatrix}\cdot\begin{pmatrix}1 & 4\end{pmatrix}=2\times1+3\times4=2+12=14$</p>
+
+<figure class="fig" style="width:40.588%">
+<svg viewBox="-28 -196 276 224"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="5.8" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="4.5" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 4.2,1.3" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="0,0 2.8,3.2" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+</g></svg>
+<span class="lbl br" style="left:40.58%;top:75.893%;color:#0645ad">$\vec{a}$</span>
+<span class="lbl al" style="left:30.435%;top:58.929%;color:#dd0000">$\vec{b}$</span>
+<span class="lbl r axl" style="left:94.203%;top:87.5%">$x$</span>
+<span class="lbl a axl" style="left:10.145%;top:7.143%">$y$</span>
+</figure>
+<p class="c">向きが近いほど内積は大きくなる</p>
+
+<hr class="pagebreak">
+<h3>内積の計算2</h3>
+
+<p>成分計算のほかに、<strong>大きさと角度を使った計算方法</strong>もある。</p>
+
+<div class="formula">$\displaystyle \vec{a}\cdot\vec{b}=|\vec{a}||\vec{b}|\cos\theta$</div>
+
+<p>ここで $\theta$ は2つのベクトルのなす角である。</p>
+
+<figure class="fig" style="width:38.559%">
+<svg viewBox="-28 -196 276 224"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="5.8" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="4.5" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 4.3,1.3" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="0,0 3,3.4" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+<path d="M1,0.35 A1,1 0 0 1 0.819,0.924" stroke="#000000" stroke-width="0.014"/>
+</g></svg>
+<span class="lbl br" style="left:41.304%;top:75.893%;color:#0645ad">$\vec{a}$</span>
+<span class="lbl al" style="left:31.884%;top:57.143%;color:#dd0000">$\vec{b}$</span>
+<span class="lbl" style="left:28.261%;top:73.214%">$\theta$</span>
+<span class="lbl r axl" style="left:94.203%;top:87.5%">$x$</span>
+<span class="lbl a axl" style="left:10.145%;top:7.143%">$y$</span>
+</figure>
+<p class="c">2つのベクトルのなす角 $\theta$</p>
+
+<h3>何故どちらでも計算できるのか</h3>
+
+<p>内積は、<strong>成分の掛け算で見ても</strong>、<strong>大きさと角度で見ても</strong>、同じ1つの値を表している。</p>
+
+<p><strong>成分計算：</strong> 「x成分同士とｙ成分同士を別々に掛けてから足す」</p>
+
+<p><strong>角度計算：</strong> 「大きさにしてからどちらかを相手の方向に変換して掛ける」</p>
+
+<p>やり方は違っても、実は同じことをしている。</p>
+
+<div class="row" style="align-items:flex-start">
+<div class="c">
+<p><strong>成分で見る</strong></p>
+<figure class="fig" style="width:84.894%">
+<svg viewBox="-80 -168 328 196"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.4" y1="0" x2="4.8" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.4" x2="0" y2="3.8" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 3.5,1.1" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="0,0 2.2,2.8" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+<polyline points="3.5,1.1 3.5,0" stroke="#999999" stroke-width="0.014" stroke-dasharray=".106 .106"/>
+<polyline points="3.5,1.1 0,1.1" stroke="#999999" stroke-width="0.014" stroke-dasharray=".106 .106"/>
+<polyline points="2.2,2.8 2.2,0" stroke="#999999" stroke-width="0.014" stroke-dasharray=".106 .106"/>
+<polyline points="2.2,2.8 0,2.8" stroke="#999999" stroke-width="0.014" stroke-dasharray=".106 .106"/>
+</g></svg>
+<span class="lbl br" style="left:45.732%;top:74.49%;color:#0645ad">$\vec{a}$</span>
+<span class="lbl al" style="left:37.805%;top:57.143%;color:#dd0000">$\vec{b}$</span>
+<span class="lbl" style="left:67.073%;top:90.816%">$a_x$</span>
+<span class="lbl" style="left:21.341%;top:63.265%">$a_y$</span>
+<span class="lbl" style="left:55.488%;top:90.816%">$b_x$</span>
+<span class="lbl" style="left:21.341%;top:34.694%">$b_y$</span>
+<span class="lbl" style="left:53.049%;top:19.388%">「x成分の積」と「y成分の積」を足す</span>
+<span class="lbl r axl" style="left:82.927%;top:85.714%">$x$</span>
+<span class="lbl a axl" style="left:24.39%;top:8.163%">$y$</span>
+</figure>
+</div>
+<div class="c">
+<p><strong>角度で見る</strong></p>
+<figure class="fig" style="width:65.224%">
+<svg viewBox="-28 -168 252 196"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.4" y1="0" x2="4.8" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.4" x2="0" y2="3.8" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 3.8,0.9" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="0,0 2.5,2.8" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+<polyline points="2.5,2.8 3,0.7" stroke="#999999" stroke-width="0.014" stroke-dasharray=".106 .106"/>
+<polyline points="0,0 3,0.7" stroke="#009900" stroke-width="0.042" marker-end="url(#ah-g)"/>
+<path d="M1,0.23 A1,1 0 0 1 0.839,0.775" stroke="#000000" stroke-width="0.014"/>
+</g></svg>
+<span class="lbl br" style="left:41.27%;top:76.531%;color:#0645ad">$\vec{a}$</span>
+<span class="lbl al" style="left:30.952%;top:57.143%;color:#dd0000">$\vec{b}$</span>
+<span class="lbl" style="left:30.952%;top:74.49%">$\theta$</span>
+<span class="lbl" style="left:49.206%;top:19.388%">$\vec{b}$ の"影"を見る</span>
+<span class="lbl r axl" style="left:87.302%;top:85.714%">$x$</span>
+<span class="lbl a axl" style="left:11.111%;top:8.163%">$y$</span>
+</figure>
+</div>
+</div>
+
+<p>詳細な証明等は省略する(調べれば出ます)が、結論として以下になる。</p>
+
+<div class="formula">$\displaystyle \vec{a}\cdot\vec{b}=a_xb_x+a_yb_y=|\vec{a}||\vec{b}|\cos\theta$</div>
+
+<p>方向を一致させてから掛けるか、掛けてから合成するか、の違いだと捉えるとよい。</p>
+
+<p>(※方向を一致させるのは、足して合成するのと意義的には同じである）</p>
+
+<hr class="pagebreak">
+<h3>なす角の求め方</h3>
+
+<p>内積の定義 $\vec{a}\cdot\vec{b}=|\vec{a}||\vec{b}|\cos\theta$ から、逆にして<strong>なす角 $\theta$ を求める</strong>ことができる。</p>
+
+<div class="formula">$\displaystyle \cos\theta = \frac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}$</div>
+
+<p><strong>意味：</strong> 内積を「両方のベクトルの大きさ」で割ると、2つのベクトルのなす角の余弦が出てくる。</p>
+
+<p><strong>例：</strong> $\vec{a}=\begin{pmatrix}2 & 0\end{pmatrix}$、$\vec{b}=\begin{pmatrix}1 & 1\end{pmatrix}$ のとき、</p>
+
+<ul>
+<li>内積：$\vec{a}\cdot\vec{b}=2 \cdot 1 + 0 \cdot 1 = 2$</li>
+<li>大きさ：$|\vec{a}|=2$、$|\vec{b}|=\sqrt{1^2+1^2}=\sqrt{2}$</li>
+<li>$\cos\theta = \frac{2}{2\sqrt{2}} = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2}$</li>
+<li>したがって $\theta = 45°$（ラジアンなら $\theta = \frac{\pi}{4}$）</li>
+</ul>
+
+<figure class="fig" style="width:32.294%">
+<svg viewBox="-28 -156 244 188"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="5" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="3.5" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 3,0" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="0,0 1.5,1.5" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+<path d="M1,0 A1,1 0 0 1 0.707,0.707" stroke="#000000" stroke-width="0.014"/>
+</g></svg>
+<span class="lbl b" style="left:36.066%;top:82.979%;color:#0645ad">$\vec{a}$</span>
+<span class="lbl al" style="left:23.77%;top:67.021%;color:#dd0000">$\vec{b}$</span>
+<span class="lbl" style="left:36.885%;top:73.404%">$45°$</span>
+<span class="lbl r axl" style="left:93.443%;top:82.979%">$x$</span>
+<span class="lbl a axl" style="left:11.475%;top:8.511%">$y$</span>
+</figure>
+
+<h3>垂直判定</h3>
+
+<p><strong>内積が0なら直角である。</strong></p>
+
+<div class="formula">$\displaystyle \vec{a}\cdot\vec{b}=0 \iff \vec{a}\perp\vec{b}$</div>
+
+<p><strong>理由：</strong> $\vec{a}\cdot\vec{b}=|\vec{a}||\vec{b}|\cos\theta$ なので、$\theta=90°$ のとき $\cos90°=0$ となり、内積も0になる。</p>
+
+<figure class="fig" style="width:38.559%">
+<svg viewBox="-28 -196 276 252"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="5.8" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="4.5" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 5,0" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="0,0 0,4" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+<path d="M0.8,0 A0.8,0.8 0 0 1 0,0.8" stroke="#000000" stroke-width="0.014"/>
+</g></svg>
+<span class="lbl b" style="left:46.377%;top:77.778%;color:#0645ad">$\vec{a}$</span>
+<span class="lbl l" style="left:10.145%;top:46.032%;color:#dd0000">$\vec{b}$</span>
+<span class="lbl" style="left:24.638%;top:65.079%">$90°$</span>
+<span class="lbl" style="left:46.377%;top:93.651%">垂直なら内積は 0</span>
+<span class="lbl r axl" style="left:94.203%;top:77.778%">$x$</span>
+<span class="lbl a axl" style="left:10.145%;top:6.349%">$y$</span>
+</figure>
+
+<p><strong>例：</strong> $\vec{a}=\begin{pmatrix}1 & 2\end{pmatrix}$、$\vec{b}=\begin{pmatrix}2 & -1\end{pmatrix}$ のとき、</p>
+
+<p>$\vec{a}\cdot\vec{b}=1 \cdot 2 + 2 \cdot (-1) = 2-2=0$</p>
+
+<p>なので、$\vec{a}$ と $\vec{b}$ は垂直である。</p>
+
+<h3>確認問題</h3>
+<ol>
+<li>内積とは何を表す量か、一言で答えよ。また、結果はスカラーかベクトルか。</li>
+<li>$\vec{a}=\begin{pmatrix}3 & 2\end{pmatrix}$、$\vec{b}=\begin{pmatrix}1 & 4\end{pmatrix}$ の内積 $\vec{a}\cdot\vec{b}$ を成分計算で求めよ。</li>
+<li>$\vec{a}=\begin{pmatrix}-2 & 3\end{pmatrix}$、$\vec{b}=\begin{pmatrix}4 & 1\end{pmatrix}$ の内積を求めよ。</li>
+<li>$|\vec{a}|=3$、$|\vec{b}|=4$、なす角 $\theta=60°$ のとき、$\vec{a}\cdot\vec{b}$ を求めよ。（$\cos60°=\tfrac{1}{2}$）</li>
+<li>$\vec{a}=\begin{pmatrix}1 & 0\end{pmatrix}$、$\vec{b}=\begin{pmatrix}0 & 1\end{pmatrix}$ の内積を求めよ。また、なす角は何度か。</li>
+<li>$\vec{a}=\begin{pmatrix}3 & 0\end{pmatrix}$、$\vec{b}=\begin{pmatrix}2 & 2\end{pmatrix}$ のなす角 $\theta$ を求めよ。（$\cos\theta=\frac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}$ を使うこと）</li>
+<li>$\vec{a}=\begin{pmatrix}2 & 1\end{pmatrix}$、$\vec{b}=\begin{pmatrix}-1 & 2\end{pmatrix}$ は垂直かどうか、内積を使って確かめよ。</li>
+<li>$\vec{a}=\begin{pmatrix}3 & k\end{pmatrix}$、$\vec{b}=\begin{pmatrix}2 & -3\end{pmatrix}$ が垂直になるような $k$ の値を求めよ。</li>
+</ol>
+
+<hr class="pagebreak">
+
+<h2>2次元の外積</h2>
+
+<h3>2次元の外積はスカラー</h3>
+
+<p>本来、ベクトルの外積は3次元ベクトルから垂直なベクトルが得るために使う。が、2次元では作成されるベクトルのz成分のみを考え、外積を<strong>数(スカラー)</strong>として扱う(詳しくは3次元で話すので「そうなんだ」くらいでよい)。向きの判定や面積に使えて、便利である(ゲームだと三角形の当たり判定などに使える)。</p>
+
+<div class="formula">$\displaystyle \vec{a}\times\vec{b}=a_xb_y-a_yb_x$</div>
+
+<p>かける順番により結果が変わる。</p>
+
+<div class="row" style="align-items:flex-start">
+<div class="c">
+<p><strong>$\vec{a}\times\vec{b}$ を計算（左手側に掛ける）</strong></p>
+<figure class="fig" style="width:59.012%">
+<svg viewBox="-28 -176 228 236"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.4" y1="0" x2="4.6" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.4" x2="0" y2="4" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 3.5,0.5" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="0,0 0.8,3.2" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+<path d="M1.75,0.42 A0.88,0.88 0 0 1 0.521,1.527" stroke="#b00000" stroke-width="0.042" marker-end="url(#ah-dr)"/>
+</g></svg>
+<span class="lbl br" style="left:42.982%;top:70.339%;color:#0645ad">$\vec{a}$</span>
+<span class="lbl al" style="left:19.298%;top:47.458%;color:#dd0000">$\vec{b}$</span>
+<span class="lbl tag" style="left:56.14%;top:91.525%">$\vec{a}\times\vec{b} \gt 0$</span>
+<span class="lbl r axl" style="left:92.982%;top:74.576%">$x$</span>
+<span class="lbl a axl" style="left:12.281%;top:6.78%">$y$</span>
+</figure>
+</div>
+<div class="c">
+<p><strong>$\vec{b}\times\vec{a}$ を計算(右手側に掛ける)</strong></p>
+<figure class="fig" style="width:59.012%">
+<svg viewBox="-28 -176 228 236"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.4" y1="0" x2="4.6" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.4" x2="0" y2="4" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 3.5,0.5" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="0,0 0.8,3.2" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+<path d="M0.4,1.3 A0.83,0.83 0 0 0 1.595,0.205" stroke="#b00000" stroke-width="0.042" marker-end="url(#ah-dr)"/>
+</g></svg>
+<span class="lbl br" style="left:42.982%;top:70.339%;color:#0645ad">$\vec{a}$</span>
+<span class="lbl al" style="left:19.298%;top:47.458%;color:#dd0000">$\vec{b}$</span>
+<span class="lbl tag" style="left:21.053%;top:91.525%">$\vec{b}\times\vec{a} \lt 0$</span>
+<span class="lbl r axl" style="left:92.982%;top:74.576%">$x$</span>
+<span class="lbl a axl" style="left:12.281%;top:6.78%">$y$</span>
+</figure>
+</div>
+</div>
+
+<p><strong>ポイント：</strong> ベクトルの位置は同じでも、<strong>掛ける順番</strong>を入れ替えると符号が反転する。</p>
+
+<p class="c">$\vec{a}\times\vec{b} = -(\vec{b}\times\vec{a})$</p>
+
+<p>これにより、ベクトルが自分の右側にあるか左側にあるかを判定できる。</p>
+
+<h3>面積との関係</h3>
+
+<p>原点を共有する2本のベクトルがつくる平行四辺形の面積は、外積の絶対値で表せる。</p>
+
+<div class="formula">$\displaystyle |\vec{a}\times\vec{b}|=$ 平行四辺形の面積</div>
+
+<figure class="fig" style="width:40.794%">
+<svg viewBox="-28 -208 292 236"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="6.2" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="4.8" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polygon points="0,0 4,1 5.4,4 1.4,3" fill="#e6f2f2" stroke="#0a5c5c" stroke-width=".0141"/>
+<polyline points="0,0 4,1" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="0,0 1.4,3" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+<polyline points="1.4,3 1.098,2.354" stroke="#999999" stroke-width="0.014" stroke-dasharray=".106 .106"/>
+<polyline points="1.098,2.354 1.4,3" stroke="#d96c00" stroke-width="0.028"/>
+</g></svg>
+<span class="lbl br" style="left:36.986%;top:79.661%;color:#0645ad">$\vec{a}$</span>
+<span class="lbl l" style="left:19.178%;top:62.712%;color:#dd0000">$\vec{b}$</span>
+<span class="lbl" style="left:46.575%;top:56.78%">平行四辺形</span>
+<span class="lbl r axl" style="left:94.521%;top:88.136%">$x$</span>
+<span class="lbl a axl" style="left:9.589%;top:6.78%">$y$</span>
+</figure>
+
+<hr class="pagebreak">
+<h3>確認問題</h3>
+<ol>
+<li>2次元の外積 $\vec{a}\times\vec{b}$ は、何（スカラーかベクトルか）として扱うか。また、主に何の判定に使えるかを答えよ。</li>
+<li>$\vec{a}=\begin{pmatrix}2 & 1\end{pmatrix}$、$\vec{b}=\begin{pmatrix}1 & 3\end{pmatrix}$ の外積を求めよ。</li>
+<li>$\vec{a}=\begin{pmatrix}1 & 2\end{pmatrix}$、$\vec{b}=\begin{pmatrix}4 & 1\end{pmatrix}$ の外積を求め、正か負かを答えよ。</li>
+<li>$\vec{a}=\begin{pmatrix}-2 & 3\end{pmatrix}$、$\vec{b}=\begin{pmatrix}1 & -4\end{pmatrix}$ の外積を求め、正か負かを答えよ。</li>
+<li>$\vec{a}\times\vec{b}$ と $\vec{b}\times\vec{a}$ の関係を式で書け。</li>
+<li>$\vec{a}=\begin{pmatrix}3 & 0\end{pmatrix}$、$\vec{b}=\begin{pmatrix}0 & 2\end{pmatrix}$ のとき、$|\vec{a}\times\vec{b}|$ を求めよ。</li>
+<li>$\vec{a}=\begin{pmatrix}4 & 1\end{pmatrix}$、$\vec{b}=\begin{pmatrix}1 & 3\end{pmatrix}$ がある。$\vec{a}\times\vec{b}$ を使って、$\vec{b}$ が $\vec{a}$ の右側・左側のどちらにあるかを判定せよ。</li>
+<li>$\vec{a}=\begin{pmatrix}2 & 1\end{pmatrix}$、$\vec{b}=\begin{pmatrix}k & 3\end{pmatrix}$ とする。$\vec{a}\times\vec{b}\gt 0$ となる $k$ の範囲を求めよ。</li>
+</ol>
+
+<hr class="pagebreak">
+<h2>射影</h2>
+
+<h3>射影の考え方</h3>
+
+<p>ベクトルをある方向へ「どれだけ乗っているか」で見るのが<strong>射影</strong>である。</p>
+
+<p><strong>見方：</strong> 斜めの矢印を、基準にしたいベクトルへ真っすぐ落とした「影」を考える。</p>
+
+<p><strong>ここでは、$\vec{a}$ の $\vec{b}$ 方向への射影ベクトルを $\vec{A}$ とおく。</strong></p>
+
+<p><strong>覚える式：</strong></p>
+<div class="formula">$\displaystyle \vec{A}=\hat{b}(\vec{a}\cdot\hat{b})$</div>
+
+<p><strong>手順1：</strong> $\vec{b}$ の単位ベクトル $\hat{b}$ を作る</p>
+<div class="row">
+<div style="flex:0 0 56%">
+<figure class="fig" style="width:62.4%">
+<svg viewBox="-28 -168 304 200"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="5.8" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="3.8" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 2.8,3" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="0,0 4,1.2" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+<polyline points="0,0 0.95,0.285" stroke="#d96c00" stroke-width="0.042" marker-end="url(#ah-o)"/>
+</g></svg>
+<span class="lbl br" style="left:27.632%;top:54%;color:#0645ad">$\vec{a}$</span>
+<span class="lbl br" style="left:35.526%;top:72%;color:#dd0000">$\vec{b}$</span>
+<span class="lbl br" style="left:15.461%;top:81.15%;color:#d96c00">$\hat{b}$</span>
+<span class="lbl" style="left:70.395%;top:44%">$\vec{b}$ を長さ1にする</span>
+<span class="lbl r axl" style="left:85.526%;top:84%">$x$</span>
+<span class="lbl a axl" style="left:9.211%;top:8%">$y$</span>
+</figure>
+</div>
+<div class="c">
+$$\hat{b}=\frac{\vec{b}}{|\vec{b}|}$$
+$$|\hat{b}|=1$$
+</div>
+</div>
+
+<p><strong>手順2：</strong> $\vec{a}\cdot\hat{b}$ を計算して、$|\vec{A}|$ を求める。</p>
+<div class="row">
+<div style="flex:0 0 56%">
+<figure class="fig" style="width:61.579%">
+<svg viewBox="-28 -176 300 208"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="5.8" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="4" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 2.8,3" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="0,0 0.95,0.18" stroke="#d96c00" stroke-width="0.042" marker-end="url(#ah-o)"/>
+<polyline points="0,0 3.35,0.64" stroke="#005959" stroke-width="0.042"/>
+<path d="M1,0.18 A1,1 0 0 1 0.697,0.738" stroke="#000000" stroke-width="0.014"/>
+<polyline points="2.8,3 3.35,0.64" stroke="#999999" stroke-width="0.014" stroke-dasharray=".106 .106"/>
+</g></svg>
+<span class="lbl al" style="left:28%;top:55.769%;color:#0645ad">$\vec{a}$</span>
+<span class="lbl br" style="left:15.667%;top:82.885%;color:#d96c00">$\hat{b}$</span>
+<span class="lbl b" style="left:32.667%;top:82.692%;color:#005959">$|\vec{A}|$</span>
+<span class="lbl" style="left:28.667%;top:70.769%">$\theta$</span>
+<span class="lbl ml" style="left:70%;top:32.692%">$\vec{a}\cdot\hat{b}$ は<br>$\vec{a}$ の $\hat{b}$ 方向成分</span>
+<span class="lbl" style="left:62%;top:52.885%;color:#005959">$|\vec{A}|=|\vec{a}|\cos\theta$</span>
+<span class="lbl r axl" style="left:86.667%;top:84.615%">$x$</span>
+<span class="lbl a axl" style="left:9.333%;top:7.692%">$y$</span>
+</figure>
+</div>
+<div class="c">
+<p>$\displaystyle \vec{a}\cdot\hat{b}=|\vec{a}|1\cos\theta$　であり、</p>
+<p>$\displaystyle |\vec{A}|=|\vec{a}|\cos\theta$　であるので、</p>
+<p>$\displaystyle \vec{a}\cdot\hat{b}=|\vec{a}|1\cos\theta=|\vec{A}|$</p>
+</div>
+</div>
+
+<p><strong>手順3：</strong> 手順2の値を $\hat{b}$ にかける</p>
+<div class="row">
+<div style="flex:0 0 56%">
+<figure class="fig" style="width:64.863%">
+<svg viewBox="-28 -184 316 216"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="6" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="4.2" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 2.8,3" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="0,0 0.95,0.18" stroke="#d96c00" stroke-width="0.042" marker-end="url(#ah-o)"/>
+<polyline points="0,0 3.35,0.64" stroke="#005959" stroke-width="0.042" marker-end="url(#ah-t)"/>
+<polyline points="2.8,3 3.35,0.64" stroke="#999999" stroke-width="0.014" stroke-dasharray=".106 .106"/>
+</g></svg>
+<span class="lbl al" style="left:26.582%;top:57.407%;color:#0645ad">$\vec{a}$</span>
+<span class="lbl br" style="left:14.873%;top:83.519%;color:#d96c00">$\hat{b}$</span>
+<span class="lbl b" style="left:30.063%;top:79.259%;color:#005959">$\vec{A}$</span>
+<span class="lbl" style="left:70.886%;top:29.63%">$\vec{A}$ が射影ベクトル</span>
+<span class="lbl r axl" style="left:84.81%;top:85.185%">$x$</span>
+<span class="lbl a axl" style="left:8.861%;top:7.407%">$y$</span>
+</figure>
+</div>
+<div class="c">
+<p>$\displaystyle \vec{A}=\hat{b}|\vec{A}|$　で出せるので、</p>
+<p>$\displaystyle \vec{A}=\hat{b}(\vec{a}\cdot\hat{b})$</p>
+</div>
+</div>
+
+<p><strong>Point：</strong> 「$\hat{b}$ に $(\vec{a}\cdot\hat{b})$ をかける」と覚える。</p>
+
+<hr class="pagebreak">
+<h3>射影を使う場面</h3>
+<p>様々あるが、壁にあたったときの動きなどでも使う。キャラクターが壁にぶつかったとき、プレイヤーの入力をそのまま使うと壁の中へ入り込もうとしてしまう。</p>
+
+<p>そこで、進行方向を「壁にそった向き」に合わせ直して動かす。</p>
+
+<figure class="fig" style="width:39.118%">
+<svg viewBox="72 -176 280 244"><g transform="scale(40,-40)" fill="none">
+<polyline points="4.3,4.1 7.9,-1.5" stroke="#000000" stroke-width="0.042"/>
+<circle cx="3.1" cy="1.9" r="1.15" stroke="#000" stroke-width=".042"/>
+<polyline points="3.1,1.9 7,1.9" stroke="#000000" stroke-width="0.042" marker-end="url(#ah-k)"/>
+<polyline points="7,1.9 4.24,0.13" stroke="#999999" stroke-width="0.014" stroke-dasharray=".106 .106"/>
+<polyline points="3.1,1.9 4.24,0.13" stroke="#b00000" stroke-width="0.042" marker-end="url(#ah-dr)"/>
+</g></svg>
+<span class="lbl" style="left:47.143%;top:6.557%">壁</span>
+<span class="lbl a" style="left:70%;top:36.066%">プレイヤーの入力</span>
+<span class="lbl" style="left:59.286%;top:54.918%;color:#999999">射影</span>
+<span class="lbl b" style="left:33.571%;top:66.393%;color:#b00000">キャラの進む方向</span>
+</figure>
+
+<p><strong>Point：</strong> 射影は<strong>進める向き（壁に沿う向き）だけを取り出す</strong>ために使う。</p>
+
+<h3>確認問題</h3>
+<ol>
+<li>壁にぶつかったとき、射影を使うとキャラはどの向きに進むか。</li>
+<li>$\vec{b}=\begin{pmatrix}3 & 4\end{pmatrix}$ の単位ベクトル $\hat{b}$ を求めよ。</li>
+<li>$\vec{a}=\begin{pmatrix}5 & 1\end{pmatrix}$、$\hat{b}=\begin{pmatrix}1 & 0\end{pmatrix}$ のとき、$\vec{a}\cdot\hat{b}$ を求めよ。</li>
+<li>$\vec{a}=\begin{pmatrix}5 & 1\end{pmatrix}$、$\hat{b}=\begin{pmatrix}1 & 0\end{pmatrix}$ のとき、$\vec{A}=\hat{b}(\vec{a}\cdot\hat{b})$ を求めよ。</li>
+<li>$\vec{a}=\begin{pmatrix}-2 & 1\end{pmatrix}$、$\hat{b}=\begin{pmatrix}1 & 0\end{pmatrix}$ のとき、$\vec{a}\cdot\hat{b}$ の符号を答え、射影ベクトル $\vec{A}$ の向きが $\hat{b}$ と同じか逆かを答えよ。</li>
+<li>壁方向の単位ベクトルが $\hat{w}=\begin{pmatrix}\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}\end{pmatrix}$、入力が $\vec{v}=\begin{pmatrix}4 & 0\end{pmatrix}$ のとき、$\vec{v}\cdot\hat{w}$ を求めよ。</li>
+<li>上の問の条件で、キャラの進む方向 $\vec{v}_{\parallel}=\hat{w}(\vec{v}\cdot\hat{w})$ を求めよ。</li>
+<li>壁方向が $\hat{w}=\begin{pmatrix}0 & 1\end{pmatrix}$ のとき、次のどちらが「壁に沿う移動量」が大きいか答えよ。$\vec{v}_1=\begin{pmatrix}3 & 1\end{pmatrix}$、$\vec{v}_2=\begin{pmatrix}1 & 4\end{pmatrix}$</li>
+</ol>
+
+<hr class="pagebreak">
+<h2>ゲームで使うベクトル</h2>
+
+<h3>位置と速度</h3>
+
+<p>ゲームでは、位置の更新をベクトルで書くと整理しやすい。</p>
+
+<p><strong>考え方：</strong> 今いる場所に、1秒ぶんの移動ベクトルを何回も足していく。</p>
+
+<div class="formula">$\displaystyle \vec{p}(t)=\vec{p}_0+t\vec{v}$</div>
+
+<figure class="fig" style="width:33.459%">
+<svg viewBox="-28 -252 316 280"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="6.5" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="5.5" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="1,1 3,3" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="3,3 5,5" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+<circle cx="1" cy="1" r=".07" fill="#000" stroke="none"/>
+<circle cx="3" cy="3" r=".07" fill="#000" stroke="none"/>
+<circle cx="5" cy="5" r=".07" fill="#000" stroke="none"/>
+</g></svg>
+<span class="lbl al" style="left:34.177%;top:61.429%;color:#0645ad">$\vec{v}$</span>
+<span class="lbl ar" style="left:59.494%;top:32.857%;color:#dd0000">$\vec{v}$</span>
+<span class="lbl bl" style="left:21.519%;top:75.714%">$\vec{p}_0$</span>
+<span class="lbl al" style="left:46.835%;top:47.143%">$1$秒後</span>
+<span class="lbl ar" style="left:72.152%;top:18.571%">$2$秒後</span>
+<span class="lbl" style="left:63.291%;top:78.571%">毎秒同じだけ進む</span>
+<span class="lbl r axl" style="left:91.139%;top:90%">$x$</span>
+<span class="lbl a axl" style="left:8.861%;top:11.429%">$y$</span>
+</figure>
+
+<p><strong>例：</strong> 初期位置が $(2,3)$、速度が $(1,2)$ なら、3秒後は $(5,9)$ になる。</p>
+
+<h3>円の衝突判定</h3>
+
+<p>2つの円がぶつかっているかは、中心間の距離で分かる。</p>
+
+<p><strong>見方：</strong> 中心どうしが近すぎると重なる。半径の和と比べれば判定できる。</p>
+
+<div class="formula">$\displaystyle d\lt r_a+r_b$</div>
+
+<figure class="fig" style="width:40.918%">
+<svg viewBox="-48 -236 376 264"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="7" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="5.5" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<circle cx="2" cy="2" r="1.2" stroke="#0645ad" stroke-width=".028"/>
+<circle cx="5" cy="3.6" r="1.8" stroke="#dd0000" stroke-width=".028"/>
+<circle cx="2" cy="2" r=".07" fill="#000" stroke="none"/>
+<circle cx="5" cy="3.6" r=".07" fill="#000" stroke="none"/>
+<polyline points="2,2 5,3.6" stroke="#000000" stroke-width="0.042" marker-end="url(#ah-k)"/>
+</g></svg>
+<span class="lbl bl" style="left:34.043%;top:59.091%">$A$</span>
+<span class="lbl ar" style="left:65.957%;top:34.848%">$B$</span>
+<span class="lbl a" style="left:50%;top:46.97%">$d$</span>
+<span class="lbl" style="left:51.064%;top:80.303%">中心どうしが近すぎるとぶつかる</span>
+<span class="lbl r axl" style="left:87.234%;top:89.394%">$x$</span>
+<span class="lbl a axl" style="left:12.766%;top:6.061%">$y$</span>
+</figure>
+
+<p><strong>例：</strong> 図の円で、中心を $A(2,2)$、$B(5,3.6)$、半径を $r_a=1.2$、$r_b=1.8$ とする。</p>
+
+<p><strong>手順1：</strong> 中心間ベクトルを出す。</p>
+<p class="c">$\overrightarrow{AB}=\begin{pmatrix}5-2 & 3.6-2\end{pmatrix}=\begin{pmatrix}3 & 1.6\end{pmatrix}$</p>
+
+<p><strong>手順2：</strong> その大きさを距離 $d$ とする。</p>
+<p class="c">$d=|\overrightarrow{AB}|=\sqrt{3^2+1.6^2}=\sqrt{11.56}=3.4$</p>
+
+<p><strong>手順3：</strong> 半径の和と比較する。</p>
+<p class="c">$r_a+r_b=1.2+1.8=3.0$</p>
+
+<p>$d=3.4 \gt 3.0=r_a+r_b$ なので、<strong>この2つの円は衝突していない</strong>。</p>
+
+<hr class="pagebreak">
+<h3>確認問題</h3>
+<ol>
+<li>速度が $(2,-1)$、初期位置が $(0,0)$ のとき、2秒後の位置を求めよ。</li>
+<li>初期位置が $(1,3)$、速度が $(-1,2)$ のとき、3秒後の位置を求めよ。</li>
+<li>点 $A(1,2)$、点 $B(5,5)$ のとき、中心間ベクトル $\overrightarrow{AB}$ を求めよ。</li>
+<li>上の問で、中心間距離 $d=|\overrightarrow{AB}|$ を求めよ。</li>
+<li>半径 $r_a=2$、$r_b=3$、中心間距離 $d=4$ の2円は衝突しているか。理由も答えよ。</li>
+<li>円Aの中心 $(0,0)$、半径1.5、円Bの中心 $(2,1)$、半径1.0 とする。中心間ベクトルと距離を求め、衝突判定せよ。</li>
+<li>壁方向の単位ベクトルが $\hat{w}=\begin{pmatrix}1 & 0\end{pmatrix}$、入力が $\vec{v}=\begin{pmatrix}3 & 2\end{pmatrix}$ のとき、壁に沿う進行ベクトル $\vec{v}_{\parallel}=\hat{w}(\vec{v}\cdot\hat{w})$ を求めよ。</li>
+<li>壁にぶつかったとき、射影を使うとキャラはどの向きに進むか答えよ。</li>
+</ol>
+
+<hr class="pagebreak">
+<h2>内積と外積の証明(オマケ)</h2>
+<p>難しいので、興味がある人だけ読んでください。ここでは、次の2つが同じ値になる理由を、図と式を対応させて示す。</p>
+
+<p class="c">$\vec{a}\cdot\vec{b}=a_xb_x+a_yb_y$<span style="margin:0 2em">と</span>$\vec{a}\cdot\vec{b}=|\vec{a}||\vec{b}|\cos\theta$</p>
+
+<p><strong>準備：</strong> $\vec{a}=(a_x,a_y)$、$\vec{b}=(b_x,b_y)$ とする。</p>
+
+<figure class="fig" style="width:41.912%">
+<svg viewBox="-28 -204 300 232"><g transform="scale(40,-40)" fill="none">
+<line x1="-0.5" y1="0" x2="6.2" y2="0" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/><line x1="0" y1="-0.5" x2="0" y2="4.7" stroke="#aaaaaa" stroke-width=".016" marker-end="url(#ah-ax-s)"/>
+<polyline points="0,0 4.8,1.2" stroke="#0645ad" stroke-width="0.042" marker-end="url(#ah-b)"/>
+<polyline points="0,0 2,3.6" stroke="#dd0000" stroke-width="0.042" marker-end="url(#ah-r)"/>
+<polyline points="2,3.6 4.8,1.2" stroke="#005959" stroke-width="0.042" marker-end="url(#ah-t)"/>
+<path d="M0.97,0.243 A1,1 0 0 1 0.486,0.874" stroke="#000000" stroke-width="0.014" marker-end="url(#ah-k-s)"/>
+</g></svg>
+<span class="lbl b" style="left:41.333%;top:77.586%;color:#0645ad">$\vec{a}$</span>
+<span class="lbl l" style="left:22.667%;top:56.897%;color:#dd0000">$\vec{b}$</span>
+<span class="lbl r" style="left:54.667%;top:46.552%;color:#005959">$\vec{a}-\vec{b}$</span>
+<span class="lbl" style="left:15.68%;top:81.638%">$\theta$</span>
+<span class="lbl r axl" style="left:92%;top:87.931%">$x$</span>
+<span class="lbl a axl" style="left:9.333%;top:6.897%">$y$</span>
+</figure>
+<p class="c">図では、三角形の3辺が $|\vec{a}|,|\vec{b}|,|\vec{a}-\vec{b}|$ に対応する。</p>
+
+<p><strong>1. 成分で</strong> $|\vec{a}-\vec{b}|^2$ <strong>を計算する。</strong></p>
+$$\begin{aligned}
+|\vec{a}-\vec{b}|^2
+&=(a_x-b_x)^2+(a_y-b_y)^2 \\
+&=a_x^2+a_y^2+b_x^2+b_y^2-2(a_xb_x+a_yb_y) \\
+&=|\vec{a}|^2+|\vec{b}|^2-2(a_xb_x+a_yb_y)
+\end{aligned}$$
+
+<p><strong>2. 同じ長さを余弦定理で計算する。</strong></p>
+<figure class="fig" style="width:58.824%">
+<svg viewBox="-20 -144 400 168"><g transform="scale(40,-40)" fill="none">
+<polyline points="0,0 4.6,0.8" stroke="#0645ad" stroke-width="0.042"/>
+<polyline points="0,0 1.4,3.2" stroke="#dd0000" stroke-width="0.042"/>
+<polyline points="1.4,3.2 4.6,0.8" stroke="#005959" stroke-width="0.042"/>
+<path d="M0.788,0.137 A0.8,0.8 0 0 1 0.321,0.733" stroke="#000000" stroke-width="0.014" marker-end="url(#ah-k-s)"/>
+</g></svg>
+<span class="lbl b" style="left:28%;top:76.19%;color:#0645ad">$|\vec{a}|$</span>
+<span class="lbl l" style="left:12%;top:47.619%;color:#dd0000">$|\vec{b}|$</span>
+<span class="lbl a" style="left:35%;top:38.095%;color:#005959">$|\vec{a}-\vec{b}|$</span>
+<span class="lbl" style="left:8.777%;top:78.66%">$\theta$</span>
+<span class="lbl ml" style="left:77%;top:33.333%;text-align:left">余弦定理：<br>$c^2=a^2+b^2-2ab\cos\theta$<br>ここで<br>$c=|\vec{a}-\vec{b}|$<br>$a=|\vec{a}|,\ b=|\vec{b}|$</span>
+</figure>
+<p class="c">同じ三角形に余弦定理を当てはめると、向かい側の辺 $|\vec{a}-\vec{b}|$ が
+$|\vec{a}|,|\vec{b}|,\theta$ で表せる。</p>
+
+<p class="c">$|\vec{a}-\vec{b}|^2=|\vec{a}|^2+|\vec{b}|^2-2|\vec{a}||\vec{b}|\cos\theta$</p>
+
+<p><strong>3. 同じ図の同じ辺</strong> $|\vec{a}-\vec{b}|$ <strong>を表す2式を比較する。</strong></p>
+$$\begin{aligned}
+|\vec{a}|^2+|\vec{b}|^2-2(a_xb_x+a_yb_y)
+&=|\vec{a}|^2+|\vec{b}|^2-2|\vec{a}||\vec{b}|\cos\theta
+\end{aligned}$$
+
+<p>共通項を消すと</p>
+<div class="formula">$\displaystyle a_xb_x+a_yb_y=|\vec{a}||\vec{b}|\cos\theta$</div>
+
+<p>つまり、<strong>成分どうしを掛けて足す計算</strong>と<strong>長さと角度で測る計算</strong>は、同じ幾何量を見ているため一致する。</p>
+
+
+
+</main>
+</body>
+</html>

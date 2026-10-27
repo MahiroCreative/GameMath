@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>穴埋め5 2次元ベクトル</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="print.js"></script>
+<link rel="stylesheet" href="print.css">
+<style>
+/* 穴埋めの式の行（LaTeX の align* 相当：左寄せで字下げ） */
+.lines { padding-left: 2.2em; margin-top: 0.5em; }
+.lines > p { margin-top: 0.55em; white-space: nowrap; }
+.lines > p.tall { margin: 0.7em 0; }
+.center { text-align: center; }
+/* 右段は元のPDFと同じく行間を広めにとる */
+.col.airy .lines > p { margin-top: 1.1em; }
+.sheet.packed .col.airy > section { margin-bottom: 2.4em; }
+.sheet.packed .col.airy > section:last-child { margin-bottom: 0; }
+</style>
+</head>
+<body>
+<!-- 矢印（Stealth）の定義：図の中から url(#…) で参照する -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <marker id="ak" viewBox="0 0 10 8" refX="8" refY="4" markerWidth="4" markerHeight="3.2" orient="auto"><path d="M0,0 L10,4 L0,8 L3,4 z" fill="#000"/></marker>
+    <marker id="ab" viewBox="0 0 10 8" refX="8" refY="4" markerWidth="4" markerHeight="3.2" orient="auto"><path d="M0,0 L10,4 L0,8 L3,4 z" fill="#0645ad"/></marker>
+    <marker id="ar" viewBox="0 0 10 8" refX="8" refY="4" markerWidth="4" markerHeight="3.2" orient="auto"><path d="M0,0 L10,4 L0,8 L3,4 z" fill="#c00"/></marker>
+    <marker id="ad" viewBox="0 0 10 8" refX="8" refY="4" markerWidth="4" markerHeight="3.2" orient="auto"><path d="M0,0 L10,4 L0,8 L3,4 z" fill="#8f0000"/></marker>
+    <marker id="ao" viewBox="0 0 10 8" refX="8" refY="4" markerWidth="4" markerHeight="3.2" orient="auto"><path d="M0,0 L10,4 L0,8 L3,4 z" fill="#d96d00"/></marker>
+    <marker id="at" viewBox="0 0 10 8" refX="8" refY="4" markerWidth="4" markerHeight="3.2" orient="auto"><path d="M0,0 L10,4 L0,8 L3,4 z" fill="#005a5a"/></marker>
+    <marker id="ag" viewBox="0 0 10 8" refX="8" refY="4" markerWidth="4" markerHeight="3.2" orient="auto"><path d="M0,0 L10,4 L0,8 L3,4 z" fill="#1a7f37"/></marker>
+    <marker id="ax" viewBox="0 0 10 8" refX="8" refY="4" markerWidth="6" markerHeight="4.8" orient="auto"><path d="M0,0 L10,4 L0,8 L3,4 z" fill="#aaa"/></marker>
+  </defs>
+</svg>
+
+<div class="sheet packed" data-role="q">
+
+<!-- 左段 -->
+<div class="col">
+
+<section>
+<h2>ベクトルとは何か</h2>
+<div class="lines">
+<p>量だけを表すものを <span class="blank" style="--w:2.0cm"></span> という。</p>
+<p>量と向きをあわせて表すものを <span class="blank" style="--w:2.0cm"></span> という。</p>
+<p>等しいベクトルの条件は「<span class="blank" style="--w:2.4cm"></span> と <span class="blank" style="--w:2.4cm"></span> が同じ」ことである。</p>
+</div>
+<p><b>右の図において、次のベクトルと等しいものを $a\sim f$ から選べ。</b></p>
+<div class="row">
+<div class="lines">
+<p>$(1)$ $\vec{a}$ と等しいベクトル</p>
+<p>$(2)$ $\vec{b}$ と等しいベクトル</p>
+<p>$(3)$ $\vec{e}$ と等しいベクトル</p>
+</div>
+<figure class="fig" style="flex:0 0 32%">
+  <svg viewBox="0 0 420 300">
+    <g stroke="#b3b3b3" stroke-width="1.2">
+      <path d="M10 10V290M50 10V290M90 10V290M130 10V290M170 10V290M210 10V290M250 10V290M290 10V290M330 10V290M370 10V290M410 10V290"/>
+      <path d="M10 10H410M10 50H410M10 90H410M10 130H410M10 170H410M10 210H410M10 250H410M10 290H410"/>
+    </g>
+    <g stroke="#000" stroke-width="3.5" marker-end="url(#ak)">
+      <line x1="130" y1="90" x2="50" y2="90"/>
+      <line x1="170" y1="58" x2="170" y2="138"/>
+      <line x1="362" y1="130" x2="362" y2="50"/>
+      <line x1="122" y1="210" x2="42" y2="210"/>
+      <line x1="298" y1="170" x2="178" y2="250"/>
+      <line x1="410" y1="210" x2="290" y2="290"/>
+    </g>
+  </svg>
+  <span class="lbl" style="left:21.4%;top:24%">$a$</span>
+  <span class="lbl" style="left:44%;top:32.7%">$b$</span>
+  <span class="lbl" style="left:89.5%;top:30%">$c$</span>
+  <span class="lbl" style="left:19.5%;top:76%">$d$</span>
+  <span class="lbl" style="left:57%;top:77%">$e$</span>
+  <span class="lbl" style="left:83.3%;top:90%">$f$</span>
+</figure>
+</div>
+</section>
+
+<section>
+<h2>成分表示・大きさ・単位ベクトル</h2>
+<div class="row fill">
+<div class="lines">
+<p>$\vec{a}=\begin{pmatrix}a_x & a_y\end{pmatrix}$ について考える。</p>
+<p>$|\vec{a}|=\sqrt{\underline{\rule[-0.2em]{0pt}{1.4em}\hspace{1.8cm}}+\underline{\rule[-0.2em]{0pt}{1.4em}\hspace{1.8cm}}}$</p>
+<p class="tall">$\hat{a}=\dfrac{\boxed{\rule[-0.6em]{0pt}{1.8em}\hspace{2.2cm}}}{\boxed{\rule[-0.6em]{0pt}{1.8em}\hspace{2.2cm}}}\qquad|\hat{a}|=$ <span class="blank" style="--w:2.0cm"></span></p>
+</div>
+<figure class="fig" style="flex:0 0 44%">
+  <svg viewBox="0 0 430 303">
+    <g stroke="#aaa" stroke-width="1.2">
+      <line x1="60" y1="255" x2="365" y2="255" marker-end="url(#ax)"/>
+      <line x1="75" y1="270" x2="75" y2="15" marker-end="url(#ax)"/>
+    </g>
+    <g stroke="#999" stroke-width="1.2" stroke-dasharray="5 4">
+      <line x1="285" y1="255" x2="285" y2="95"/>
+      <line x1="75" y1="95" x2="285" y2="95"/>
+    </g>
+    <line x1="75" y1="255" x2="285" y2="95" stroke="#0645ad" stroke-width="2.5" marker-end="url(#ab)"/>
+    <g fill="none" stroke="#000" stroke-width="2">
+      <rect x="4.25" y="78.6" width="56.5" height="32.7"/>
+      <rect x="256.75" y="266.1" width="56.5" height="32.7"/>
+    </g>
+  </svg>
+  <span class="lbl gray" style="left:87.5%;top:84.2%">$x$</span>
+  <span class="lbl gray" style="left:17.4%;top:2%">$y$</span>
+  <span class="lbl blue" style="left:45.3%;top:62.7%">$\vec{a}$</span>
+  <span class="lbl" style="left:68%;top:25.6%;transform:translate(0,-50%)">$\left(\underline{\rule[-0.2em]{0pt}{1.4em}\hspace{0.8cm}}\ \underline{\rule[-0.2em]{0pt}{1.4em}\hspace{0.8cm}}\right)$</span>
+</figure>
+</div>
+</section>
+
+<section>
+<h2>足し算・引き算・スカラー倍</h2>
+<div class="row fill">
+<div>
+$$
+\begin{aligned}
+\begin{pmatrix}a_x & a_y\end{pmatrix}+\begin{pmatrix}b_x & b_y\end{pmatrix}
+&=\begin{pmatrix}\underline{\rule[-0.2em]{0pt}{1.4em}\hspace{1.2cm}} & \underline{\rule[-0.2em]{0pt}{1.4em}\hspace{1.2cm}}\end{pmatrix}\\[1.1em]
+\begin{pmatrix}a_x & a_y\end{pmatrix}-\begin{pmatrix}b_x & b_y\end{pmatrix}
+&=\begin{pmatrix}\underline{\rule[-0.2em]{0pt}{1.4em}\hspace{1.2cm}} & \underline{\rule[-0.2em]{0pt}{1.4em}\hspace{1.2cm}}\end{pmatrix}\\[1.1em]
+k\begin{pmatrix}a_x & a_y\end{pmatrix}
+&=\begin{pmatrix}\underline{\rule[-0.2em]{0pt}{1.4em}\hspace{1.2cm}} & \underline{\rule[-0.2em]{0pt}{1.4em}\hspace{1.2cm}}\end{pmatrix}\\[1.1em]
+-k\begin{pmatrix}a_x & a_y\end{pmatrix}
+&=\begin{pmatrix}\underline{\rule[-0.2em]{0pt}{1.4em}\hspace{1.2cm}} & \underline{\rule[-0.2em]{0pt}{1.4em}\hspace{1.2cm}}\end{pmatrix}
+\end{aligned}
+$$
+</div>
+<figure class="fig" style="flex:0 0 44%">
+  <svg viewBox="0 0 380 344">
+    <g stroke="#aaa" stroke-width="1.2">
+      <line x1="8" y1="176" x2="360" y2="176" marker-end="url(#ax)"/>
+      <line x1="184" y1="336" x2="184" y2="16" marker-end="url(#ax)"/>
+    </g>
+    <g stroke-width="2.5">
+      <line x1="184" y1="176" x2="272" y2="132" stroke="#0645ad" marker-end="url(#ab)"/>
+      <line x1="272" y1="132" x2="344" y2="24" stroke="#c00" marker-end="url(#ar)"/>
+      <line x1="272" y1="132" x2="200" y2="240" stroke="#8f0000" marker-end="url(#ad)"/>
+      <line x1="184" y1="176" x2="200" y2="240" stroke="#d96d00" marker-end="url(#ao)"/>
+      <line x1="184" y1="176" x2="344" y2="24" stroke="#005a5a" marker-end="url(#at)"/>
+    </g>
+    <rect x="88" y="208" width="100" height="26" fill="none" stroke="#d96d00" stroke-width="1.2"/>
+    <rect x="160" y="72" width="102" height="26" fill="#fff" stroke="#000" stroke-width="1.5"/>
+  </svg>
+  <span class="lbl gray" style="left:97%;top:51.2%">$x$</span>
+  <span class="lbl gray" style="left:48.4%;top:1.8%">$y$</span>
+  <span class="lbl blue" style="left:63.2%;top:48.3%">$\vec{a}$</span>
+  <span class="lbl red" style="left:84.2%;top:22.7%">$\vec{b}$</span>
+  <span class="lbl" style="left:66.5%;top:57.6%;color:#8f0000">$-\vec{b}$</span>
+</figure>
+</div>
+</section>
+
+</div>
+
+<!-- 右段（元のPDFに合わせて行間を広めに） -->
+<div class="col airy">
+
+<section>
+<h2>内積と角度</h2>
+<div class="row fill">
+<div class="lines">
+<p>$\vec{a}=\begin{pmatrix}a_x & a_y\end{pmatrix},\quad \vec{b}=\begin{pmatrix}b_x & b_y\end{pmatrix}$</p>
+<p>成分計算：$\vec{a}\cdot\vec{b}=$ <span class="blank" style="--w:4.4cm"></span></p>
+<p>なす角計算：$\vec{a}\cdot\vec{b}=$ <span class="blank" style="--w:1.1cm"></span><span class="blank" style="--w:1.1cm"></span><span class="blank" style="--w:1.5cm"></span></p>
+<p class="tall">$\cos\theta=\dfrac{\boxed{\rule[-0.6em]{0pt}{1.8em}\hspace{2.2cm}}}{\boxed{\rule[-0.6em]{0pt}{1.8em}\hspace{2.2cm}}}$</p>
+<p>$\vec{a}\cdot\vec{b}=0\iff\vec{a}$ と $\vec{b}$ は <span class="blank" style="--w:1.4cm"></span></p>
+</div>
+<figure class="fig" style="flex:0 0 34%">
+  <svg viewBox="0 0 335 270">
+    <g stroke="#aaa" stroke-width="1.2">
+      <line x1="10" y1="245" x2="320" y2="245" marker-end="url(#ax)"/>
+      <line x1="30" y1="265" x2="30" y2="15" marker-end="url(#ax)"/>
+    </g>
+    <line x1="30" y1="245" x2="230" y2="195" stroke="#0645ad" stroke-width="2.5" marker-end="url(#ab)"/>
+    <line x1="30" y1="245" x2="130" y2="95" stroke="#c00" stroke-width="2.5" marker-end="url(#ar)"/>
+    <path d="M78.5 232.9 A50 50 0 0 0 58 203.6" fill="none" stroke="#999" stroke-width="1.2"/>
+  </svg>
+  <span class="lbl gray" style="left:98.5%;top:90.7%">$x$</span>
+  <span class="lbl gray" style="left:9%;top:2.8%">$y$</span>
+  <span class="lbl blue" style="left:43.3%;top:87%">$\vec{a}$</span>
+  <span class="lbl red" style="left:19.4%;top:57.4%">$\vec{b}$</span>
+  <span class="lbl" style="left:32.1%;top:73.1%">$\theta$</span>
+</figure>
+</div>
+</section>
+
+<section>
+<h2>2次元の外積と面積</h2>
+<div class="row fill">
+<div class="lines">
+<p>$\vec{a}=\begin{pmatrix}a_x & a_y\end{pmatrix},\quad \vec{b}=\begin{pmatrix}b_x & b_y\end{pmatrix}$</p>
+<p>$\vec{a}\times\vec{b}=$ <span class="blank" style="--w:3.8cm"></span></p>
+<p>$\vec{a}\times\vec{b}=-($<span class="blank" style="--w:2.6cm"></span>$)$</p>
+<p>外積の結果が+：<span class="blank" style="--w:1.4cm"></span></p>
+<p>外積の結果が-：<span class="blank" style="--w:1.4cm"></span></p>
+<p>平行四辺形の面積 $=$ <span class="blank" style="--w:2.2cm"></span></p>
+</div>
+<figure class="fig" style="flex:0 0 34%">
+  <svg viewBox="0 0 335 280">
+    <g stroke="#aaa" stroke-width="1.2">
+      <line x1="10" y1="255" x2="320" y2="255" marker-end="url(#ax)"/>
+      <line x1="30" y1="275" x2="30" y2="15" marker-end="url(#ax)"/>
+    </g>
+    <polygon points="30,255 230,205 300,55 100,105" fill="#e6f2f2" stroke="#004d4d" stroke-width="1.2"/>
+    <rect x="106" y="134.5" width="118" height="41" fill="#fff" stroke="#000" stroke-width="1.2"/>
+    <line x1="30" y1="255" x2="230" y2="205" stroke="#0645ad" stroke-width="2.5" marker-end="url(#ab)"/>
+    <line x1="30" y1="255" x2="100" y2="105" stroke="#c00" stroke-width="2.5" marker-end="url(#ar)"/>
+  </svg>
+  <span class="lbl gray" style="left:98.5%;top:91.1%">$x$</span>
+  <span class="lbl gray" style="left:9%;top:2.7%">$y$</span>
+  <span class="lbl blue" style="left:43.3%;top:87.5%">$\vec{a}$</span>
+  <span class="lbl red" style="left:14.9%;top:64.3%">$\vec{b}$</span>
+</figure>
+</div>
+</section>
+
+<section>
+<h2>射影</h2>
+<div class="row fill">
+<div>
+<div class="lines">
+<p class="tall">手順1：$\hat{b}=\dfrac{\boxed{\rule[-0.6em]{0pt}{1.8em}\hspace{2.2cm}}}{\boxed{\rule[-0.6em]{0pt}{1.8em}\hspace{2.2cm}}}\qquad|\hat{b}|=$ <span class="blank" style="--w:2.0cm"></span></p>
+<p>手順2：$\vec{a}\cdot\hat{b}=|\vec{a}|*|\hat{b}|*\cos\theta=|\vec{a}|*$<span class="blank" style="--w:0.8cm"></span>$*\cos\theta$</p>
+<p style="padding-left:3.9em">$=$ <span class="blank" style="--w:2.2cm"></span> $=|\vec{A}|$</p>
+<p>手順3：$\vec{A}=\hat{b}*$<span class="blank" style="--w:0.8cm"></span>$= \hat{b}*(\vec{a}\cdot\hat{b})$</p>
+</div>
+<p class="center" style="margin-top:0.6em">よって、<span class="blank" style="--w:1.0cm"></span>から<span class="blank" style="--w:1.0cm"></span>への射影ベクトルは</p>
+<p class="center" style="margin-top:8pt;font-size:1.44em">$\vec{A}=\hat{b}*(\vec{a}\cdot\hat{b})$</p>
+</div>
+<figure class="fig" style="flex:0 0 34%">
+  <svg viewBox="0 0 335 233">
+    <g stroke="#aaa" stroke-width="1.2">
+      <line x1="10" y1="205" x2="320" y2="205" marker-end="url(#ax)"/>
+      <line x1="30" y1="225" x2="30" y2="15" marker-end="url(#ax)"/>
+    </g>
+    <line x1="30" y1="205" x2="240" y2="100" stroke="#0645ad" stroke-width="2.5" marker-end="url(#ab)"/>
+    <line x1="30" y1="205" x2="280" y2="205" stroke="#c00" stroke-width="2.5" marker-end="url(#ar)"/>
+    <line x1="240" y1="100" x2="240" y2="205" stroke="#999" stroke-width="1.2" stroke-dasharray="5 4"/>
+    <line x1="30" y1="205" x2="240" y2="205" stroke="#1a7f37" stroke-width="2.5" marker-end="url(#ag)"/>
+  </svg>
+  <span class="lbl gray" style="left:98.5%;top:88%">$x$</span>
+  <span class="lbl gray" style="left:9%;top:3.2%">$y$</span>
+  <span class="lbl blue" style="left:75.4%;top:37.6%">$\vec{a}$</span>
+  <span class="lbl red" style="left:87.3%;top:95%">$\vec{b}$</span>
+  <span class="lbl green" style="left:40.3%;top:95%">$\vec{A}$</span>
+</figure>
+</div>
+</section>
+
+</div>
+</div>
+</body>
+</html>

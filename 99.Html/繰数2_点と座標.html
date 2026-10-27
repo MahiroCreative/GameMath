@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>繰数2 点と座標</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="print.js"></script>
+<link rel="stylesheet" href="print.css">
+</head>
+<body>
+
+<!-- ========== 問題 ========== -->
+<div class="sheet" data-role="q">
+
+<!-- 左段（基礎）：Left版ではこの段が右段にも複製される -->
+<div class="col">
+
+<section>
+<h2>中点</h2>
+<p class="lead">点A(2,3),点B(-2,1),点C(4,-9),点D(-4,-1)とする。</p>
+<ol class="q wide">
+<li>点Aと点Bの中点</li>
+<li>点Aと点Cの中点</li>
+<li>点Aと点Dの中点</li>
+<li>点Bと点Cの中点</li>
+<li>点Cと点Dの中点</li>
+<li>点A,B,Cの中点</li>
+<li>点B,C,Dの中点</li>
+<li>点A,B,C,Dの中点</li>
+</ol>
+</section>
+
+<section>
+<h2>2点間の距離</h2>
+<p class="lead">点A(2,3),点B(-2,1),点C(4,-9),点D(-4,-1)とする。</p>
+<ol class="q wide">
+<li>点Aから点Bの距離</li>
+<li>点Bから点Cの距離</li>
+<li>点Cから点Dの距離</li>
+<li>点A,Bの中点と点C,Dの中点の距離</li>
+<li>点B,Cの中点と点D,Aの中点の距離</li>
+<li>点A,B,Cの中点と点Dの距離</li>
+<li>点B,C,Dの中点と点Aの距離</li>
+<li>点A,B,C,Dの中点と原点の距離</li>
+</ol>
+</section>
+
+</div>
+
+<!-- 右段（発展） -->
+<div class="col">
+
+<section>
+<h2>2点間の移動</h2>
+<p class="lead">点A(2,3),点B(-2,1),点C(4,-9),点D(-4,-1)とする。</p>
+<ol class="q wide">
+<li>点Aから点Bに2秒かけて移動する。1秒ごとのｘ,yそれぞれの移動量を求めよ。</li>
+<li>点Aから点Cに4秒かけて移動する。1秒ごとのｘ,yそれぞれの移動量を求めよ。</li>
+<li>点Aから点Dに2秒かけて移動する。1秒ごとのｘ,yそれぞれの移動量を求めよ。</li>
+<li>点Bから点Cに4秒かけて移動する。1秒ごとのｘ,yそれぞれの移動量を求めよ。</li>
+<li>点Bから点Dに2秒かけて移動する。1秒ごとのｘ,yそれぞれの移動量を求めよ。</li>
+<li>点Cから点Dに4秒かけて移動する。1秒ごとのｘ,yそれぞれの移動量を求めよ。</li>
+<li>点Bから点Aに2秒かけて移動する。1秒ごとのｘ,yそれぞれの移動量を求めよ。</li>
+<li>点Cから点Aに4秒かけて移動する。1秒ごとのｘ,yそれぞれの移動量を求めよ。</li>
+</ol>
+</section>
+
+<section>
+<h2>円の当たり判定1</h2>
+<p class="lead">円A:中点(1,2),半径1。円B:中点(4,8),半径2。円C:中点(0,1),半径3。とする。</p>
+<ol class="q wide">
+<li>円Aと円Bは当たっているか？　当たっていた場合、離れるための移動量を求めよ。</li>
+<li>円Aと円Cは当たっているか？　当たっていた場合、離れるための移動量を求めよ。</li>
+</ol>
+</section>
+
+<section>
+<h2>円の当たり判定2</h2>
+<p class="lead">円A:中点(0,0),半径1。円B:中点(7,0),半径2。円C:中点(16,0),半径3。とする。</p>
+<ol class="q wide">
+<li>円Aが動き、円Bに2秒後に接触するとする。1秒ごとのｘ,yそれぞれの移動量を求めよ。</li>
+<li>円Bが動き、円Cに4秒後に接触するとする。1秒ごとのｘ,yそれぞれの移動量を求めよ。</li>
+</ol>
+</section>
+
+<section>
+<h2>円の当たり判定の一般化</h2>
+<p class="lead">円A:中点(a,b),半径r。円B:中点(c,d),半径R。とする。</p>
+<ol class="q wide">
+<li>根号を用いて円Aと円Bの当たり判定の不等式を立てよ。</li>
+<li>根号を用いず円Aと円Bの当たり判定の不等式を立てよ。</li>
+</ol>
+</section>
+
+</div>
+</div>
+
+<!-- ========== 解答（1節＝1段） ========== -->
+<div class="sheet packed" data-role="ans">
+
+<div class="col">
+<section>
+<h2>中点 解答</h2>
+<p class="lead">点A(2,3),点B(-2,1),点C(4,-9),点D(-4,-1)</p>
+<ol class="q tight">
+<li>$(0,2)$</li>
+<li>$(3,-3)$</li>
+<li>$(-1,1)$</li>
+<li>$(1,-4)$</li>
+<li>$(0,-5)$</li>
+<li>$\left(\dfrac{4}{3},-\dfrac{5}{3}\right)$</li>
+<li>$\left(-\dfrac{2}{3},-3\right)$</li>
+<li>$\left(0,-\dfrac{3}{2}\right)$</li>
+</ol>
+<p class="label">考え方</p>
+<p>中点は「対応成分の平均」。3点以上でも各座標を合計して点の数で割る。</p>
+<p class="label">途中式（代表例）</p>
+$$\begin{aligned}
+&1.\ M_{AB}=\left(\frac{2+(-2)}{2},\frac{3+1}{2}\right)=(0,2)\\
+&6.\ M_{ABC}=\left(\frac{2+(-2)+4}{3},\frac{3+1-9}{3}\right)=\left(\frac43,-\frac53\right)\\
+&8.\ M_{ABCD}=\left(\frac{2-2+4-4}{4},\frac{3+1-9-1}{4}\right)=\left(0,-\frac32\right)
+\end{aligned}$$
+<p class="label">図説（中点のイメージ）</p>
+<!-- TikZ scale=0.45 → 1単位 = 20 / 座標 (x,y) → (20x, -20y) -->
+<figure class="fig" style="width:32%">
+<svg viewBox="-110 -115 240 145">
+<defs><marker id="ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,1 L9,5 L0,9" fill="none" stroke="#000" stroke-width="1.5"/></marker></defs>
+<g stroke="#ccc" stroke-width="0.6">
+<path d="M-100,20 V-100 M-80,20 V-100 M-60,20 V-100 M-40,20 V-100 M-20,20 V-100 M0,20 V-100 M20,20 V-100 M40,20 V-100 M60,20 V-100 M80,20 V-100 M100,20 V-100"/>
+<path d="M-100,20 H100 M-100,0 H100 M-100,-20 H100 M-100,-40 H100 M-100,-60 H100 M-100,-80 H100 M-100,-100 H100"/>
+</g>
+<g stroke="#000" stroke-width="0.8" fill="none">
+<line x1="-100" y1="0" x2="100" y2="0" marker-end="url(#ar1)"/>
+<line x1="0" y1="20" x2="0" y2="-100" marker-end="url(#ar1)"/>
+</g>
+<line x1="-40" y1="-20" x2="40" y2="-60" stroke="#000" stroke-width="1.6"/>
+<line x1="0" y1="-40" x2="0" y2="0" stroke="#000" stroke-width="1.2" stroke-dasharray="4 3"/>
+<circle cx="40" cy="-60" r="2.2"/><circle cx="-40" cy="-20" r="2.2"/><circle cx="0" cy="-40" r="2.2"/>
+</svg>
+<span class="lbl" style="left:93.3%;top:79.3%">$x$</span>
+<span class="lbl" style="left:45.8%;top:4.8%">$y$</span>
+<span class="lbl" style="left:72.5%;top:31%">$A(2,3)$</span>
+<span class="lbl" style="left:16.5%;top:58%">$B(-2,1)$</span>
+<span class="lbl" style="left:60%;top:60%">$M(0,2)$</span>
+</figure>
+</section>
+</div>
+
+<div class="col">
+<section>
+<h2>2点間の距離 解答</h2>
+<ol class="q tight">
+<li>$2\sqrt{5}$</li>
+<li>$2\sqrt{34}$</li>
+<li>$8\sqrt{2}$</li>
+<li>$7$</li>
+<li>$\sqrt{29}$</li>
+<li>$\dfrac{2\sqrt{65}}{3}$</li>
+<li>$\dfrac{2\sqrt{97}}{3}$</li>
+<li>$\dfrac{3}{2}$</li>
+</ol>
+<p class="label">考え方</p>
+<p>距離は $\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$。中点間距離は先に中点を出して同じ式に代入。</p>
+<p class="label">途中式（代表例）</p>
+$$\begin{aligned}
+&1.\ AB=\sqrt{(-2-2)^2+(1-3)^2}=\sqrt{16+4}=2\sqrt5\\
+&4.\ M_{AB}=(0,2),\ M_{CD}=(0,-5)\Rightarrow d=\sqrt{0^2+(-7)^2}=7\\
+&6.\ M_{ABC}=\left(\frac43,-\frac53\right),\ D=(-4,-1)\\
+&\quad d=\sqrt{\left(-4-\frac43\right)^2+\left(-1+\frac53\right)^2}=\sqrt{\frac{260}{9}}=\frac{2\sqrt{65}}{3}
+\end{aligned}$$
+<p class="label">図説（距離公式）</p>
+<!-- TikZ scale=0.6 → 1単位 = 30 / 座標 (x,y) → (30x, -30y) -->
+<figure class="fig" style="width:22%">
+<svg viewBox="-30 -110 190 140">
+<g stroke="#000" stroke-width="1.6" fill="none">
+<line x1="0" y1="0" x2="120" y2="-90"/>
+<line x1="0" y1="0" x2="120" y2="0"/>
+<line x1="120" y1="0" x2="120" y2="-90"/>
+</g>
+<path d="M108,0 V-12 H120" stroke="#000" stroke-width="0.8" fill="none"/>
+<circle cx="0" cy="0" r="2.5"/><circle cx="120" cy="-90" r="2.5"/>
+</svg>
+<span class="lbl" style="left:41%;top:37%">$d$</span>
+<span class="lbl" style="left:47.4%;top:89%">$\Delta x$</span>
+<span class="lbl" style="left:88%;top:46.4%">$\Delta y$</span>
+<span class="lbl" style="left:9%;top:88%">$P_1$</span>
+<span class="lbl" style="left:86%;top:7%">$P_2$</span>
+</figure>
+</section>
+</div>
+
+</div>
+
+<div class="sheet packed" data-role="ans">
+
+<div class="col">
+<section>
+<h2>2点間の移動 解答</h2>
+<p class="lead">(1秒あたりの移動量)</p>
+<ol class="q tight">
+<li>$(-2,-1)$</li>
+<li>$\left(\dfrac{1}{2},-3\right)$</li>
+<li>$(-3,-2)$</li>
+<li>$\left(\dfrac{3}{2},-\dfrac{5}{2}\right)$</li>
+<li>$(-1,-1)$</li>
+<li>$(-2,2)$</li>
+<li>$(2,1)$</li>
+<li>$\left(-\dfrac{1}{2},3\right)$</li>
+</ol>
+<p class="label">考え方</p>
+<p>1秒あたり移動量は「終点−始点」を秒数で割る。</p>
+<p class="label">途中式（代表例）</p>
+$$\begin{aligned}
+&1.\ \Delta=((-2)-2,\ 1-3)=(-4,-2),\ \frac{\Delta}{2}=(-2,-1)\\
+&4.\ \Delta=(4-(-2),\ -9-1)=(6,-10),\ \frac{\Delta}{4}=\left(\frac32,-\frac52\right)\\
+&8.\ \Delta=(2-4,\ 3-(-9))=(-2,12),\ \frac{\Delta}{4}=\left(-\frac12,3\right)
+\end{aligned}$$
+</section>
+</div>
+
+<div class="col">
+<section>
+<h2>円の当たり判定1 解答</h2>
+<ol class="q tight">
+<li>$|AB|=\sqrt{45}=3\sqrt{5}\gt 1+2=3\ \Rightarrow$ 当たらない</li>
+<li>$|AC|=\sqrt{2}\lt 1+3=4\ \Rightarrow$ 当たる。必要移動量 $=4-\sqrt{2}$</li>
+</ol>
+<p class="label">考え方</p>
+<p>中心間距離 $d$ と半径和 $r+R$ を比較し、$d\le r+R$ なら接触。めり込み量は $(r+R)-d$。</p>
+<p class="label">途中式（代表例）</p>
+<ol class="q tight">
+<li>$d_{AB}=\sqrt{(4-1)^2+(8-2)^2}=\sqrt{45}\gt 3\Rightarrow$ 非接触</li>
+<li>$d_{AC}=\sqrt{(0-1)^2+(1-2)^2}=\sqrt2\lt 4\Rightarrow$ 接触, めり込み $=4-\sqrt2$</li>
+</ol>
+<p class="label">図説（円同士の判定）</p>
+<!-- TikZ scale=0.5 → 1単位 = 25 / 座標 (x,y) → (25x, -25y) -->
+<figure class="fig" style="width:22%">
+<svg viewBox="-45 -70 200 135">
+<defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9" fill="none" stroke="#000" stroke-width="1.5"/></marker></defs>
+<g stroke="#000" stroke-width="1" fill="none">
+<circle cx="0" cy="0" r="30"/>
+<circle cx="100" cy="0" r="45"/>
+<line x1="0" y1="-5" x2="100" y2="-5" marker-start="url(#ar2)" marker-end="url(#ar2)"/>
+</g>
+<circle cx="0" cy="0" r="2.2"/><circle cx="100" cy="0" r="2.2"/>
+</svg>
+<span class="lbl" style="left:47.5%;top:40%">$d$</span>
+<span class="lbl" style="left:22.5%;top:65%">$O_1$</span>
+<span class="lbl" style="left:72.5%;top:65%">$O_2$</span>
+<span class="lbl" style="left:22.5%;top:20.7%">$r$</span>
+<span class="lbl" style="left:72.5%;top:9.6%">$R$</span>
+<span class="lbl" style="left:47.5%;top:94%">$d\le r+R\Rightarrow$ 接触</span>
+</figure>
+</section>
+</div>
+
+</div>
+
+<div class="sheet packed" data-role="ans">
+
+<div class="col">
+<section>
+<h2>円の当たり判定2 解答</h2>
+<ol class="q tight">
+<li>Aの必要総移動 $=4\ \Rightarrow$ 1秒あたり $(2,0)$</li>
+<li>Bの必要総移動 $=4\ \Rightarrow$ 1秒あたり $(1,0)$</li>
+</ol>
+<p class="label">考え方</p>
+<p>接触条件は中心間距離が半径和になること。必要総移動量を時間で割る。</p>
+<p class="label">途中式（代表例）</p>
+<ol class="q tight">
+<li>$A(0,0),B(7,0),\ r+R=3\Rightarrow$ 必要距離 $=7-3=4,\ 2$ 秒 $\Rightarrow (2,0)$</li>
+<li>$B(7,0),C(16,0),\ r+R=5\Rightarrow$ 必要距離 $=16-7-5=4,\ 4$ 秒 $\Rightarrow (1,0)$</li>
+</ol>
+</section>
+</div>
+
+<div class="col">
+<section>
+<h2>円の当たり判定の一般化 解答</h2>
+<ol class="q tight">
+<li>$\sqrt{(a-c)^2+(b-d)^2}\le r+R$</li>
+<li>$(a-c)^2+(b-d)^2\le (r+R)^2$</li>
+</ol>
+<p class="label">考え方</p>
+<p>一般点でも同じく中心間距離と半径和を比較する。2乗して根号を外す。</p>
+<p class="label">途中式（代表例）</p>
+<p style="padding-left:2.2em">$d=\sqrt{(a-c)^2+(b-d)^2},$ 接触条件 $d\le r+R$<br>
+$\Rightarrow\ (a-c)^2+(b-d)^2\le (r+R)^2$</p>
+</section>
+</div>
+
+</div>
+
+</body>
+</html>
