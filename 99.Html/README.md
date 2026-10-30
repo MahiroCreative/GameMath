@@ -1,6 +1,6 @@
 # 99.Html の作り方（HTML教材の共通ルール）
 
-2026-10-27 に `99.LatexDocker/*.tex`（2026-10-30 に `old/LatexDocker/` へ移動）をすべてこのフォルダの HTML に変換した。そのとき変換作業用に使ったルールをもとにしている。
+2026-10-27 に `99.LatexDocker/*.tex`（2026-10-30 に `00_old/LatexDocker/` へ移動）をすべてこのフォルダの HTML に変換した。そのとき変換作業用に使ったルールをもとにしている。
 
 - 共通ファイル: `print.css` / `print.js`（プリント）、`text.css` / `text.js`（テキスト）、`build.ps1`（PDF化）
 - 変換時は「内容を1文字も変えない」方針だったため、元教材の誤りもそのまま残っている（リポジトリ直下の HANDOFF.md 参照）。
@@ -83,7 +83,7 @@
 
 ## ビルドと確認（必須）
 - PowerShell で `& "C:\Users\teacherM\Desktop\GitHub\GameMath\99.Html\build.ps1" ファイル名.html` を実行すると `99.Html/pdf/` にPDFができる（繰数は 通常/Left/ans の3つ、それ以外は1つ）。1ファイル十数秒かかる。
-- できたPDFを Read ツールで開き、**元の LaTeX 版 PDF（old/LatexDocker/同名.pdf、解答は ans_….pdf）と見比べて**、次を確認する:
+- できたPDFを Read ツールで開き、**元の LaTeX 版 PDF（00_old/LatexDocker/同名.pdf、解答は ans_….pdf）と見比べて**、次を確認する:
   1. 内容の抜け・重複がない（節数・問題数・数値を突き合わせる）
   2. 数式がすべて正しく描画されている（KaTeX のエラーは赤字で出る）
   3. 図の形・ラベル位置が元と同じで、ラベルが線に重なっていない
