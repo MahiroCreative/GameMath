@@ -20,20 +20,21 @@
 - `16` 〜 `19`（SPI対策）：SPI非言語の単元
 - 各単元フォルダ：完成版のPDFと、元のpptxを置く。古い版は `old/` に入れる。中身が空の単元には `dummy.txt` がある。
 - `00.Demo/`：DXライブラリ＋C++（Visual Studio）の授業用デモ
-- `99.LatexDocker/`：LaTeX教材のソースとビルド環境（**新しい教材はここで作る**）
+- `99.Html/`：HTML教材のソースとPDF（**新しい教材はここで作る**。作り方は `99.Html/README.md`）
+- `old/LatexDocker/`：以前のLaTeX教材のソースとビルド環境。2026-10-30 にHTMLへ正式移行したため、もしもの時用に残しているだけ。編集しない。
 - `temp.*`：他の校舎・他の先生の参考資料。編集しない。
 
-## LaTeXのビルド
-- VS Code の LaTeX Workshop から、Dockerイメージ `my-latex-physics` を使ってビルドする（`99.LatexDocker/.vscode/settings.json`）。保存すると自動でビルドされる。
+## LaTeXのビルド（旧版。`old/LatexDocker/` を使うときだけ）
+- VS Code の LaTeX Workshop から、Dockerイメージ `my-latex-physics` を使ってビルドする（`old/LatexDocker/.vscode/settings.json`）。保存すると自動でビルドされる。
 - 中身は uplatex → dvipdfmx（latexmk、設定は `config/.latexmkrc`）。
 - 中間ファイルは `out/` に出力される（git管理外）。PDFは .tex と同じフォルダにコピーされる。
-- 手動でビルドするとき（`99.LatexDocker` で実行）：
+- 手動でビルドするとき（`old/LatexDocker` で実行）：
   ```
   docker run --rm -v "$PWD:/workdir" --workdir /workdir my-latex-physics sh -c 'latexmk -r config/.latexmkrc -outdir=out -pdfdvi "ファイル名.tex" && cp "out/ファイル名.pdf" .'
   ```
 - 文書クラスはすべて `jlreq`。図は TikZ／pgfplots で描く。
 
-## 教材の種類と命名規則（`99.LatexDocker/`）
+## 教材の種類と命名規則（LaTeX時代の記述。HTMLへの書き直しは HANDOFF.md の課題）
 `{番号}` は単元フォルダの番号（先頭の0は付けない）。
 
 | 種類 | ファイル名 | 紙面 | 内容 |
