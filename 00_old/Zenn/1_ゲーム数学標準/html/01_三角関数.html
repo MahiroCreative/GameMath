@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三角関数</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<style>body{max-width:820px;margin:2em auto;padding:0 16px;font-family:sans-serif;line-height:1.8}
+img{max-width:100%}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:4px 8px}
+.header-anchor-link{display:none}</style>
+</head><body>
+<p><small>1.ゲーム数学標準(開発中) / 1. 三角関数（Zenn から 2026-10-30 に保存。本文の最終更新 2024-06-28T12:03:18.226+09:00）</small></p>
+<h1>三角関数</h1>
+<h2 id="%E6%A6%82%E8%A6%81" data-line="0" class="code-line">
+<a class="header-anchor-link" href="#%E6%A6%82%E8%A6%81" aria-hidden="true"></a> 概要</h2>
+<p data-line="1" class="code-line">三角比の性質もとに三角比の様々な法則を式にまとめたのが三角関数です。<br>
+三角関数の代表例として以下の3つがあります。</p>
+<p data-line="4" class="code-line"><strong>・余弦定理</strong><br>
+<strong>・正弦定理</strong><br>
+<strong>・加法定理</strong></p>
+<p data-line="8" class="code-line">本来なら全部覚えたほうが良いですが、ゲームでは加法定理さえ覚えていればどうにかなります。なので、ここでは加法定理を主に学習します(ただし、加法定理の証明には余弦定理と正弦定理が必要ですので証明が気になる方は別サイトで学んで下さい)。</p>
+<h2 id="%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%AE%E3%82%B0%E3%83%A9%E3%83%95" data-line="10" class="code-line">
+<a class="header-anchor-link" href="#%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%AE%E3%82%B0%E3%83%A9%E3%83%95" aria-hidden="true"></a> 三角比のグラフ</h2>
+<p data-line="11" class="code-line">三角比とは以下のような内容のものでした。</p>
+<p data-line="13" class="code-line"><img src="../images/de5c9dda6afd-20240327.png" alt="" class="md-img" loading="lazy"></p>
+<p data-line="15" class="code-line">上記で導き出す値をグラフで考えてみます。</p>
+<p data-line="17" class="code-line"><strong>・x=cosΘのグラフ</strong><br>
+<img src="../images/c1e5ecbd4607-20240619.jpg" alt="" class="md-img" loading="lazy"><br>
+<strong>・x=sinΘのグラフ</strong><br>
+<img src="../images/bfa877aae3e8-20240619.jpg" alt="" class="md-img" loading="lazy"></p>
+<p data-line="22" class="code-line">どちらも-1~1を動いている事になります。<br>
+これはどういう事かというと、y軸をsinθ,x軸をcosθ　とすると、<br>
+下の単位円のようなグラフを描けます。</p>
+<p data-line="26" class="code-line"><img src="../images/65e4c060099d-20240327.jpg" alt="" class="md-img" loading="lazy"></p>
+<p data-line="28" class="code-line"><strong>円を描く点のx座標　：　cosΘ</strong><br>
+<strong>円を描く点のy座標　：　sinΘ</strong></p>
+<p data-line="31" class="code-line">となるので、xとyの値は-1~1間を増減していく事になります。</p>
+<h2 id="%E4%B8%89%E8%A7%92%E9%96%A2%E6%95%B0" data-line="33" class="code-line">
+<a class="header-anchor-link" href="#%E4%B8%89%E8%A7%92%E9%96%A2%E6%95%B0" aria-hidden="true"></a> 三角関数</h2>
+<h3 id="%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%AF%E5%9B%9E%E8%BB%A2%E3%82%92%E8%A1%A8%E3%81%99" data-line="34" class="code-line">
+<a class="header-anchor-link" href="#%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%AF%E5%9B%9E%E8%BB%A2%E3%82%92%E8%A1%A8%E3%81%99" aria-hidden="true"></a> 三角比は回転を表す</h3>
+<p data-line="35" class="code-line">三角比のグラフと単位円の三角比を見て分かることとして、三角比とは三角形の比率だけでなく回転も表している事が分かります。<br>
+例えば、ある点A(2,0)が原点中心に45度回転した座標を考えると、<br>
+<img src="../images/841e1a26445b-20240619.png" alt="" class="md-img" loading="lazy"></p>
+<section class="zenn-katex code-line" data-line="39"><eqn><embed-katex display-mode="1">
+x = 2cos45° = 2*\frac{1}{\sqrt{2}} = \sqrt{2}\\
+y = 2sin45° = 2*\frac{1}{\sqrt{2}} = \sqrt{2}
+</embed-katex></eqn></section>
+<p data-line="44" class="code-line">となるので、単純な座標の回転なら三角比で表せる事が分かります。</p>
+<h3 id="%E5%8A%A0%E6%B3%95%E5%AE%9A%E7%90%86" data-line="46" class="code-line">
+<a class="header-anchor-link" href="#%E5%8A%A0%E6%B3%95%E5%AE%9A%E7%90%86" aria-hidden="true"></a> 加法定理</h3>
+<p data-line="47" class="code-line">三角比には以下の性質が有り、これを<strong>加法定理</strong>と呼びます。</p>
+<section class="zenn-katex code-line" data-line="49"><eqn><embed-katex display-mode="1">
+\sin(\alpha+\beta)=\sin{\alpha} \cos{\beta} + \cos{\alpha} \sin{\beta}\\
+\sin(\alpha-\beta)=\sin{\alpha} \cos{\beta} - \cos{\alpha} \sin{\beta}\\
+\cos(\alpha+\beta)=\cos{\alpha} \cos{\beta} - \sin{\alpha} \sin{\beta}\\
+\cos(\alpha-\beta)=\cos{\alpha} \cos{\beta} + \sin{\alpha} \sin{\beta}\\
+\tan(\alpha+\beta)= \frac{\tan{\alpha}+\tan{\beta}}{1-\tan{\alpha}\tan{\beta}}\\
+\tan(\alpha-\beta)= \frac{\tan{\alpha}-\tan{\beta}}{1+\tan{\alpha}\tan{\beta}}
+</embed-katex></eqn></section>
+<p data-line="57" class="code-line">上記をまとめると</p>
+<section class="zenn-katex code-line" data-line="59"><eqn><embed-katex display-mode="1">
+\sin(\alpha \pm \beta)=\sin{\alpha} \cos{\beta} \pm \cos{\alpha} \sin{\beta}\\
+\cos(\alpha \pm \beta)=\cos{\alpha} \cos{\beta} \mp \sin{\alpha} \sin{\beta}\\
+\tan(\alpha \pm \beta)= \frac{\tan{\alpha} \pm \tan{\beta}}
+{1 \mp \tan{\alpha}\tan{\beta}}\\
+</embed-katex></eqn></section>
+<p data-line="67" class="code-line">覚えたほうがもちろん良いですが、覚えれないなら覚えなくても良いです。<br>
+これがあることを知っていて、必要な時に調べて使って下さい。</p>
+<h3 id="%E5%8A%A0%E6%B3%95%E5%AE%9A%E7%90%86%E3%81%AF%E4%BD%95%E3%81%AB%E4%BD%BF%E3%81%88%E3%82%8B%E3%81%AE%E3%81%8B%EF%BC%9F" data-line="70" class="code-line">
+<a class="header-anchor-link" href="#%E5%8A%A0%E6%B3%95%E5%AE%9A%E7%90%86%E3%81%AF%E4%BD%95%E3%81%AB%E4%BD%BF%E3%81%88%E3%82%8B%E3%81%AE%E3%81%8B%EF%BC%9F" aria-hidden="true"></a> 加法定理は何に使えるのか？</h3>
+<p data-line="71" class="code-line">加法定理の公式そのものは覚えていなくても良いです。<br>
+しかし、加法定理で何が出来るかは把握しておく必要があります。</p>
+<p data-line="74" class="code-line">公式を見れば分かるのですが、<br>
+加法定理は <strong>三角比の角度を後から加減する</strong> 事に使えます。</p>
+<p data-line="77" class="code-line">具体的にどういうことかと言えば、<br>
+<strong>既に回転している物体をさらに回転させる</strong>のに使えます。</p>
+<p data-line="80" class="code-line">以下を考えてみましょう。<br>
+<img src="../images/5664dc387648-20240626.jpg" alt="" class="md-img" loading="lazy"></p>
+<p data-line="83" class="code-line">既に45度回転している状態で、さらに45度回転させます。<br>
+加法定理の公式を使うと、</p>
+<section class="zenn-katex code-line" data-line="86"><eqn><embed-katex display-mode="1">
+x座標=2 * \cos(45° + 45°)= 2*(\cos{45°} \cos{45°} - \sin{45°} \sin{45°})\\
+y座標=2 * \sin(45° + 45°)= 2*(\sin{45°} \cos{45°} + \cos{45°} \sin{45°})\\
+</embed-katex></eqn></section>
+<p data-line="91" class="code-line">となるので、計算すると</p>
+<section class="zenn-katex code-line" data-line="93"><eqn><embed-katex display-mode="1">
+x座標= 2*(\frac{1}{2} - \frac{1}{2}) = 0\\
+y座標= 2*(\frac{1}{2} + \frac{1}{2}) = 2\\
+</embed-katex></eqn></section>
+<p data-line="98" class="code-line">となり、これは90°回転させた座標と一致するので、<br>
+加法定理を用いると<strong>既に回転している物体をさらに回転させる</strong>のに使えると分かります。</p>
+<h2 id="%E4%B8%89%E8%A7%92%E9%96%A2%E6%95%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%9B%9E%E8%BB%A2" data-line="101" class="code-line">
+<a class="header-anchor-link" href="#%E4%B8%89%E8%A7%92%E9%96%A2%E6%95%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%9B%9E%E8%BB%A2" aria-hidden="true"></a> 三角関数による回転</h2>
+<p data-line="102" class="code-line">では、三角関数による回転を一般化して公式に直していきましょう。<br>
+それぞれ一度だけは証明して公式が求められる事は理解したほうが良いですが、覚える必要はありません。必要な際に調べてそのつど理解できれば大丈夫です。</p>
+<h3 id="%E5%8E%9F%E7%82%B9%E3%82%92%E8%BB%B8%E3%81%AB%E3%81%97%E3%81%9F%E5%9B%9E%E8%BB%A2" data-line="105" class="code-line">
+<a class="header-anchor-link" href="#%E5%8E%9F%E7%82%B9%E3%82%92%E8%BB%B8%E3%81%AB%E3%81%97%E3%81%9F%E5%9B%9E%E8%BB%A2" aria-hidden="true"></a> 原点を軸にした回転</h3>
+<p data-line="106" class="code-line"><img src="../images/f6ce90b07447-20240628.jpg" alt="" class="md-img" loading="lazy"></p>
+<p data-line="108" class="code-line">証明は以上であり、公式は以下となる。</p>
+<p data-line="110" class="code-line"><img src="../images/564c45f31357-20240628.jpg" alt="" class="md-img" loading="lazy"></p>
+<h3 id="%E4%BB%BB%E6%84%8F%E3%81%AE%E7%82%B9%E3%82%92%E8%BB%B8%E3%81%AB%E3%81%97%E3%81%9F%E5%9B%9E%E8%BB%A2" data-line="113" class="code-line">
+<a class="header-anchor-link" href="#%E4%BB%BB%E6%84%8F%E3%81%AE%E7%82%B9%E3%82%92%E8%BB%B8%E3%81%AB%E3%81%97%E3%81%9F%E5%9B%9E%E8%BB%A2" aria-hidden="true"></a> 任意の点を軸にした回転</h3>
+<p data-line="114" class="code-line"><img src="../images/3ef3c009c61d-20240628.jpg" alt="" class="md-img" loading="lazy"></p>
+<p data-line="116" class="code-line">証明は以上であり、公式は以下となる。</p>
+<p data-line="118" class="code-line"><img src="../images/e47ce38183f8-20240628.jpg" alt="" class="md-img" loading="lazy"></p>
+
+<script>
+document.querySelectorAll("embed-katex").forEach(function (el) {
+  var display = el.hasAttribute("display-mode");
+  try { katex.render(el.textContent, el, { displayMode: display, throwOnError: false }); } catch (e) {}
+});
+</script>
+</body></html>

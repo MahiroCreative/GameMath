@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2次元ベクトルを用いた物体の運動</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<style>body{max-width:820px;margin:2em auto;padding:0 16px;font-family:sans-serif;line-height:1.8}
+img{max-width:100%}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:4px 8px}
+.header-anchor-link{display:none}</style>
+</head><body>
+<p><small>0.ゲーム数学入門（α版） / 11. 2次元ベクトルを用いた物体の運動（Zenn から 2026-10-30 に保存。本文の最終更新 2025-07-10T14:46:10.327+09:00）</small></p>
+<h1>2次元ベクトルを用いた物体の運動</h1>
+<h2 id="%E6%A6%82%E8%A6%81" data-line="0" class="code-line">
+<a class="header-anchor-link" href="#%E6%A6%82%E8%A6%81" aria-hidden="true"></a> 概要</h2>
+<p data-line="1" class="code-line">ベクトルを学ぶ目的の大部分は物理計算のためと言っても過言ではありません。元々ベクトルは物理学を容易にするために発展してきたという歴史があります。つまり、今日我々が学んでいる物理はベクトルと共に発展しており、ベクトルを使うこと前提の学問となっているということです。<br>
+高校までの過程の関係上、別々に学んだ物理とベクトルですがここで合流させておきましょう。</p>
+<h2 id="%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%AE%E7%89%A9%E7%90%86%E3%81%B8%E3%81%AE%E6%8B%A1%E5%BC%B5" data-line="4" class="code-line">
+<a class="header-anchor-link" href="#%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%AE%E7%89%A9%E7%90%86%E3%81%B8%E3%81%AE%E6%8B%A1%E5%BC%B5" aria-hidden="true"></a> ベクトルの物理への拡張</h2>
+<p data-line="5" class="code-line">物理において速度や加速度は向きと量がある数値でる。つまり、速度や加速度とはベクトルであると言える。また、それらとの計算を容易にするため、物体の現在地である座標もある種のベクトル(複数の成分を一つの値としてもつもの)として計算する。</p>
+<h3 id="%E9%80%9F%E5%BA%A6%E3%81%A8%E5%8A%A0%E9%80%9F%E5%BA%A6" data-line="7" class="code-line">
+<a class="header-anchor-link" href="#%E9%80%9F%E5%BA%A6%E3%81%A8%E5%8A%A0%E9%80%9F%E5%BA%A6" aria-hidden="true"></a> 速度と加速度</h3>
+<p data-line="8" class="code-line">二次元空間において、1秒間にx方向にa, y方向にb進む物体があるとする。<br>
+これはベクトルを用いて表せる。その物体の速度<embed-katex><eq class="zenn-katex">\vec{v}</eq></embed-katex>は、</p>
+<section class="zenn-katex code-line" data-line="11"><eqn><embed-katex display-mode="1">
+\vec{v} = (a,b)[/s]
+</embed-katex></eqn></section>
+<p data-line="14" class="code-line">と表せる。<br>
+また、1秒間にx方向にc, y方向にd加速する物体があるとすれば、<br>
+その物体の加速度は<embed-katex><eq class="zenn-katex">\vec{a}</eq></embed-katex>は、</p>
+<section class="zenn-katex code-line" data-line="18"><eqn><embed-katex display-mode="1">
+\vec{a} = (c,d)[/s]
+</embed-katex></eqn></section>
+<p data-line="22" class="code-line">これらは、向きと量を持つベクトルである。</p>
+<h3 id="%E4%BD%8D%E7%BD%AE%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB" data-line="24" class="code-line">
+<a class="header-anchor-link" href="#%E4%BD%8D%E7%BD%AE%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB" aria-hidden="true"></a> 位置ベクトル</h3>
+<p data-line="25" class="code-line">位置ベクトルとは、基準となる点からどれだけ離れているかを示すベクトルである。<br>
+(※ここでは特に断りが無い場合は<strong>位置ベクトルの基準点は原点</strong>とする)<br>
+位置ベクトルを用いることで、物体の運動をベクトルで計算できます。<br>
+簡単な例は以下になります。</p>
+<section class="zenn-katex code-line" data-line="30"><eqn><embed-katex display-mode="1">
+\vec{P}(x,y) = \vec{v}(vx,vy) * t  \\
+(\vec{P}:物体の位置ベクトル,\vec{v}:速度,t:経過時間)
+</embed-katex></eqn></section>
+<p data-line="34" class="code-line">物理の公式から上記が求まるので、<embed-katex><eq class="zenn-katex">\vec{v}(2,3)[/s]</eq></embed-katex>とし、経過時間は3[s]とすると、</p>
+<section class="zenn-katex code-line" data-line="36"><eqn><embed-katex display-mode="1">
+\vec{P}(x,y) = (2,3)[/s] * 3[/s] = (6,9)
+</embed-katex></eqn></section>
+<p data-line="40" class="code-line">となる。<br>
+原点基準の位置ベクトルなので、物体の位置はそのまま(6,9)であると言える。</p>
+<h2 id="%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E9%81%8B%E5%8B%95%E3%81%AE%E5%BC%8F" data-line="43" class="code-line">
+<a class="header-anchor-link" href="#%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E9%81%8B%E5%8B%95%E3%81%AE%E5%BC%8F" aria-hidden="true"></a> ベクトルを用いた運動の式</h2>
+<p data-line="44" class="code-line">ここではすでに習った物理の公式をベクトルに置き換えていく。<br>
+(※位置ベクトルは簡単化のため<embed-katex><eq class="zenn-katex">\vec{P}</eq></embed-katex>でなく、Pとして記述する)</p>
+<h3 id="%E7%AD%89%E9%80%9F%E9%81%8B%E5%8B%95" data-line="47" class="code-line">
+<a class="header-anchor-link" href="#%E7%AD%89%E9%80%9F%E9%81%8B%E5%8B%95" aria-hidden="true"></a> 等速運動</h3>
+<p data-line="48" class="code-line">初期位置:<embed-katex><eq class="zenn-katex">P_0</eq></embed-katex>,速度:<embed-katex><eq class="zenn-katex">\vec{v}</eq></embed-katex>[/s]</p>
+<section class="zenn-katex code-line" data-line="50"><eqn><embed-katex display-mode="1">
+P = P_0 + \vec{v}t
+</embed-katex></eqn></section>
+<h3 id="%E7%AD%89%E5%8A%A0%E9%80%9F%E5%BA%A6%E9%81%8B%E5%8B%95" data-line="54" class="code-line">
+<a class="header-anchor-link" href="#%E7%AD%89%E5%8A%A0%E9%80%9F%E5%BA%A6%E9%81%8B%E5%8B%95" aria-hidden="true"></a> 等加速度運動</h3>
+<p data-line="55" class="code-line">初期位置:<embed-katex><eq class="zenn-katex">P_0</eq></embed-katex>,初速度:<embed-katex><eq class="zenn-katex">\vec{v_0}</eq></embed-katex>[/s],加速度:<embed-katex><eq class="zenn-katex">\vec{a}</eq></embed-katex>[/s/s]</p>
+<section class="zenn-katex code-line" data-line="57"><eqn><embed-katex display-mode="1">
+P = P_0 + \vec{v_0}t + \frac{1}{2}\vec{a}t
+</embed-katex></eqn></section>
+<h3 id="%E6%94%BE%E7%89%A9%E7%B7%9A%E3%81%AE%E9%81%8B%E5%8B%95" data-line="61" class="code-line">
+<a class="header-anchor-link" href="#%E6%94%BE%E7%89%A9%E7%B7%9A%E3%81%AE%E9%81%8B%E5%8B%95" aria-hidden="true"></a> 放物線の運動</h3>
+<p data-line="62" class="code-line">基本的に等加速度運動と同じだが、物体の持つ加速度に重力加速度が影響を与える。<br>
+初期位置:<embed-katex><eq class="zenn-katex">P_0</eq></embed-katex>,初速度:<embed-katex><eq class="zenn-katex">\vec{v_0}</eq></embed-katex>[/s],加速度:<embed-katex><eq class="zenn-katex">\vec{a}</eq></embed-katex>[/s/s],重力加速度:<embed-katex><eq class="zenn-katex">\vec{g}</eq></embed-katex>[/s/s]</p>
+<section class="zenn-katex code-line" data-line="65"><eqn><embed-katex display-mode="1">
+P = P_0 + \vec{v_0}t + \frac{1}{2}(\vec{a}-\vec{g})t
+</embed-katex></eqn></section>
+<h3 id="%E5%8A%9B" data-line="69" class="code-line">
+<a class="header-anchor-link" href="#%E5%8A%9B" aria-hidden="true"></a> 力</h3>
+<p data-line="70" class="code-line">力も『どの方向にどれだけの力を加える』と考えるのでベクトルです。<br>
+例えば、ある質量m[kg]の物体に\vec{F}[N]の力を加えるとすると、</p>
+<section class="zenn-katex code-line" data-line="73"><eqn><embed-katex display-mode="1">
+\vec{F} = m\vec{a}
+</embed-katex></eqn></section>
+<p data-line="77" class="code-line">となる。<br>
+つまり、力の分解とは力のベクトル成分を出すために行っていたのである。<br>
+<img src="../images/47e68a5100db-20240702.jpg" alt="" class="md-img" loading="lazy"></p>
+<section class="zenn-katex code-line" data-line="81"><eqn><embed-katex display-mode="1">
+x成分(F_2):F * cosΘ\\
+y成分(F_1):F * sinΘ
+</embed-katex></eqn></section>
+<h3 id="%E5%8A%9B%E3%82%92%E7%94%A8%E3%81%84%E3%81%A6%E8%80%83%E3%81%88%E3%82%8B%E6%94%BE%E7%89%A9%E7%B7%9A%E9%81%8B%E5%8B%95(%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E5%BC%8F)" data-line="86" class="code-line">
+<a class="header-anchor-link" href="#%E5%8A%9B%E3%82%92%E7%94%A8%E3%81%84%E3%81%A6%E8%80%83%E3%81%88%E3%82%8B%E6%94%BE%E7%89%A9%E7%B7%9A%E9%81%8B%E5%8B%95(%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E5%BC%8F)" aria-hidden="true"></a> 力を用いて考える放物線運動(ベクトルを用いた式)</h3>
+<p data-line="87" class="code-line">初期位置：<embed-katex><eq class="zenn-katex">P_0</eq></embed-katex>,加速度:<embed-katex><eq class="zenn-katex">\vec{a}</eq></embed-katex>,初速度:<embed-katex><eq class="zenn-katex">\vec{v_0}</eq></embed-katex></p>
+<section class="zenn-katex code-line" data-line="89"><eqn><embed-katex display-mode="1">
+P = P_0 + \frac{1}{2}\vec{a}t^2 + \vec{v_0}t \\
+</embed-katex></eqn></section>
+<p data-line="92" class="code-line">加速度を用いずに質量m[kg],力<embed-katex><eq class="zenn-katex">\vec{F}</eq></embed-katex>[N]を用いたとすると、</p>
+<section class="zenn-katex code-line" data-line="94"><eqn><embed-katex display-mode="1">
+\vec{a} = \frac{\vec{F}}{m}
+</embed-katex></eqn></section>
+<p data-line="97" class="code-line">であるので、</p>
+<section class="zenn-katex code-line" data-line="99"><eqn><embed-katex display-mode="1">
+P = P_0 + \frac{1}{2}\frac{\vec{F}}{m}t^2 + \vec{v_0}t \\
+(※Pはx,y座標)
+</embed-katex></eqn></section>
+<h2 id="%E6%91%A9%E6%93%A6" data-line="104" class="code-line">
+<a class="header-anchor-link" href="#%E6%91%A9%E6%93%A6" aria-hidden="true"></a> 摩擦</h2>
+<p data-line="105" class="code-line">ゲームの物理の運動を考える上では上記までである程度大丈夫ですが、さらに追加して摩擦というものも考えていきましょう。<br>
+摩擦を考えることで、よりリアルな物体の動きをシュミレートできます。</p>
+<h3 id="%E6%91%A9%E6%93%A6%E3%81%A8%E3%81%AF%EF%BC%9F" data-line="108" class="code-line">
+<a class="header-anchor-link" href="#%E6%91%A9%E6%93%A6%E3%81%A8%E3%81%AF%EF%BC%9F" aria-hidden="true"></a> 摩擦とは？</h3>
+<p data-line="109" class="code-line">物体が何かの上を進んでいるとき、物体の動きに影響を与えるのは重力や物体に加わっている力だけではありません。摩擦と呼ばれるものも存在します。</p>
+<p data-line="111" class="code-line"><img src="../images/dd9f85e1dd49-20240703.jpg" alt="" class="md-img" loading="lazy"></p>
+<p data-line="113" class="code-line">上記のように、摩擦とは物体が動こうとする方向の反対に発生する力です。<br>
+これは物体が何か別の物体に接しているときに発生します。</p>
+<p data-line="116" class="code-line">この摩擦は、物体の質量と摩擦を発生させる表面の性質に応じて変わります。<br>
+摩擦係数(どれだけすべにくいか)をuとし、床に掛かっている重さをWとすると摩擦力F'は以下のようになります。</p>
+<section class="zenn-katex code-line" data-line="119"><eqn><embed-katex display-mode="1">
+F'=uW
+</embed-katex></eqn></section>
+<p data-line="123" class="code-line">ここで、質量そのものではなく床に掛かっている重さWを用いているには理由があります。<br>
+<img src="../images/feed07a85dc3-20240704.jpg" alt="" class="md-img" loading="lazy"></p>
+<p data-line="126" class="code-line">上記のように『床に水平に乗っている物体』と『斜めに乗っている物体』では重力の加わり方が違います。つまり、床に加わっている力が変化するのです。<br>
+床に加わっている力に応じて摩擦力が変化するので、<br>
+上記の図で言えば、<strong>右側より左側のほうが強い摩擦力が発生する</strong>と言えます。</p>
+<h2 id="%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0" data-line="131" class="code-line">
+<a class="header-anchor-link" href="#%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0" aria-hidden="true"></a> 摩擦係数</h2>
+<p data-line="132" class="code-line">では、実際に摩擦による影響を考える際に、どの程度の力が加わるのでしょうか。実のところ、動いている物体と動いていない物体で物体に掛かる摩擦力が変わります。それに影響を与えているのが摩擦係数です。<br>
+それぞれ動いている時に掛かる摩擦係数を<strong>動摩擦係数</strong>、動いていない時に掛かる摩擦係数を<strong>静止摩擦係数</strong>と呼びます。</p>
+<h3 id="%E5%8B%95%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0" data-line="135" class="code-line">
+<a class="header-anchor-link" href="#%E5%8B%95%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0" aria-hidden="true"></a> 動摩擦係数</h3>
+<p data-line="136" class="code-line">動摩擦係数はその名の通り動いてる物体に掛かる摩擦係数です。<br>
+動いている物体に摩擦として一定の力が加わり続けます。</p>
+<p data-line="139" class="code-line">摩擦係数:u,床に掛かっている重さをWとすると、</p>
+<section class="zenn-katex code-line" data-line="141"><eqn><embed-katex display-mode="1">
+F'=uW
+</embed-katex></eqn></section>
+<p data-line="144" class="code-line">現在働いている力に加えて、上記の力が加わり続けるということです。</p>
+<h3 id="%E9%9D%99%E6%AD%A2%E6%93%A6%E4%BF%82%E6%95%B0" data-line="146" class="code-line">
+<a class="header-anchor-link" href="#%E9%9D%99%E6%AD%A2%E6%93%A6%E4%BF%82%E6%95%B0" aria-hidden="true"></a> 静止擦係数</h3>
+<p data-line="147" class="code-line">静止擦係数はその名の通り静止している物体に掛かる摩擦係数です。<br>
+動摩擦係数が動いている物体を止めようと働く力なら、静止摩擦係数は止まっている物体が動き出さないように抵抗する力の事です。</p>
+<p data-line="150" class="code-line">動かないようにする力なので、物体に掛かっている力に応じて増減します。<br>
+(※でないと勝手に動き出すことになってしまいます)<br>
+ですので、<br>
+最大静止摩擦係数:u',床に掛かっている重さ:Wとすると、</p>
+<section class="zenn-katex code-line" data-line="155"><eqn><embed-katex display-mode="1">
+F'\leqq u'W
+</embed-katex></eqn></section>
+<p data-line="158" class="code-line">となります。<br>
+<img src="../images/9439345a6160-20240704.jpg" alt="" class="md-img" loading="lazy"></p>
+<p data-line="161" class="code-line">つまり、物体を動かそうという力を相殺する分だけ摩擦力が発生しています。<br>
+静止摩擦係数で発生する摩擦力を超えると、動摩擦係数に切り替わります。</p>
+<h3 id="%E5%8B%95%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0%E3%81%A8%E5%8B%95%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0%E3%81%AE%E9%96%A2%E4%BF%82" data-line="164" class="code-line">
+<a class="header-anchor-link" href="#%E5%8B%95%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0%E3%81%A8%E5%8B%95%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0%E3%81%AE%E9%96%A2%E4%BF%82" aria-hidden="true"></a> 動摩擦係数と動摩擦係数の関係</h3>
+<p data-line="165" class="code-line">最大の静止摩擦係数と動摩擦係数には以下が成り立ちます。</p>
+<section class="zenn-katex code-line" data-line="167"><eqn><embed-katex display-mode="1">
+u \leqq u'
+</embed-katex></eqn></section>
+<p data-line="170" class="code-line">つまり、物体を押し留めようとする摩擦力が最大になった時に発生する力より、動いている時に発生している力の方が小さいということです。<br>
+(※物を押しているときの方が押し始めより楽なのはこのためです)</p>
+<h3 id="%E4%BE%8B%E9%A1%8C1(%E5%8B%95%E6%91%A9%E6%93%A6%E5%8A%9B)" data-line="173" class="code-line">
+<a class="header-anchor-link" href="#%E4%BE%8B%E9%A1%8C1(%E5%8B%95%E6%91%A9%E6%93%A6%E5%8A%9B)" aria-hidden="true"></a> 例題1(動摩擦力)</h3>
+<p data-line="174" class="code-line">物体Aは斜面を滑り落ちている。<br>
+以下の図のような関係にあるとき、物体Aの加速度を求めよ。<br>
+質量:M[kg],重力加速度g[/s/s],動摩擦係数:u<br>
+<img src="../images/a85bb3a5464c-20240705.jpg" alt="" class="md-img" loading="lazy"></p>
+<p data-line="179" class="code-line">まず、斜面の角度が<embed-katex><eq class="zenn-katex">\frac{1}{6}π</eq></embed-katex>なので、<br>
+<img src="../images/bf83cf8887bc-20240705.jpg" alt="" class="md-img" loading="lazy"><br>
+直角三角形の性質から、斜面に垂直に掛かる力の角度も<embed-katex><eq class="zenn-katex">\frac{1}{6}π</eq></embed-katex><br>
+よって、物体にかかる力の合計F'は</p>
+<section class="zenn-katex code-line" data-line="184"><eqn><embed-katex display-mode="1">
+F' = Mg\cos{\frac{2}{6}π} - uMgcos{\frac{1}{6}π}=Mg(\frac{1}{2} - \frac{\sqrt{3}}{2}u)
+</embed-katex></eqn></section>
+<p data-line="187" class="code-line">aを物体の加速度とすると力の式から、</p>
+<section class="zenn-katex code-line" data-line="189"><eqn><embed-katex display-mode="1">
+F'=Ma　より、\\
+F'=Mg(\frac{1}{2} - \frac{\sqrt{3}}{2}u)\\
+よって、\\
+a = g(\frac{1}{2} - \frac{\sqrt{3}}{2}u)
+</embed-katex></eqn></section>
+<h3 id="%E4%BE%8B%E9%A1%8C2(%E9%9D%99%E6%AD%A2%E6%91%A9%E6%93%A6%E5%8A%9B)" data-line="197" class="code-line">
+<a class="header-anchor-link" href="#%E4%BE%8B%E9%A1%8C2(%E9%9D%99%E6%AD%A2%E6%91%A9%E6%93%A6%E5%8A%9B)" aria-hidden="true"></a> 例題2(静止摩擦力)</h3>
+<p data-line="198" class="code-line">物体Aは斜面に留まっている。以下の図のような関係にあるとき、<br>
+物体Aが動き出すには物体をどの程度の力で押せばよいか求めよ。<br>
+質量:M[kg],重力加速度g[/s/s],最大静止擦係数:u'</p>
+<p data-line="202" class="code-line"><img src="../images/debfb7a5eec7-20240705.jpg" alt="" class="md-img" loading="lazy"></p>
+<p data-line="204" class="code-line">物体は留まっているので、物体に掛かる力の式は</p>
+<section class="zenn-katex code-line" data-line="206"><eqn><embed-katex display-mode="1">
+Mg\sin{\frac{1}{6}π}  \leqq u'Mg\cos{\frac{1}{6}π}\\
+(※\cos{(90 - \theta)}=\sin{\theta})
+</embed-katex></eqn></section>
+<p data-line="211" class="code-line">これを、F'の力で押したとき、</p>
+<section class="zenn-katex code-line" data-line="213"><eqn><embed-katex display-mode="1">
+u'Mg\cos{\frac{1}{6}π} \leqq Mg\sin{\frac{1}{6}π} + F'\\
+</embed-katex></eqn></section>
+<p data-line="216" class="code-line">上記になるような<embed-katex><eq class="zenn-katex">F'</eq></embed-katex>を求めれば、物体は動き出すので。</p>
+<section class="zenn-katex code-line" data-line="218"><eqn><embed-katex display-mode="1">
+F' \geqq u'Mg\cos{\frac{1}{6}π} - Mg\sin{\frac{1}{6}π}\\
+</embed-katex></eqn></section>
+<p data-line="222" class="code-line">上記の力で押せば、物体は動き出す。</p>
+
+<script>
+document.querySelectorAll("embed-katex").forEach(function (el) {
+  var display = el.hasAttribute("display-mode");
+  try { katex.render(el.textContent, el, { displayMode: display, throwOnError: false }); } catch (e) {}
+});
+</script>
+</body></html>

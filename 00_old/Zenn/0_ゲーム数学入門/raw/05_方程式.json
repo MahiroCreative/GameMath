@@ -1,0 +1,48 @@
+﻿{
+    "id":  57345,
+    "post_type":  "Chapter",
+    "is_free":  false,
+    "slug":  "005357",
+    "body_letters_count":  1393,
+    "source_repo_updated_at":  null,
+    "body_updated_at":  "2025-10-28T11:46:12.612+09:00",
+    "filename":  null,
+    "position":  5,
+    "path":  "/mahiro3033/books/e0fd5a3313118a/viewer/005357",
+    "title":  "方程式",
+    "body_html":  "\u003ch2 id=\"%E6%A6%82%E8%A6%81\" data-line=\"0\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%A6%82%E8%A6%81\" aria-hidden=\"true\"\u003e\u003c/a\u003e 概要\u003c/h2\u003e\n\u003cp data-line=\"1\" class=\"code-line\"\u003e方程式とは\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\textcolor{red}{『何らかの数値の変化を表したもの』}\u003c/eq\u003e\u003c/embed-katex\u003eです。\u003cbr\u003e\n数学のみで学ぶと何のために必要なのか分かりにくいですが、ゲームにおいては物体の運動を表すために使用します。\u003cbr\u003e\nここではさまざまな方程式の中から、必須のものだけ紹介します。\u003c/p\u003e\n\u003ch2 id=\"%E7%9B%B4%E7%B7%9A%E3%81%AE%E6%96%B9%E7%A8%8B%E5%BC%8F\" data-line=\"4\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E7%9B%B4%E7%B7%9A%E3%81%AE%E6%96%B9%E7%A8%8B%E5%BC%8F\" aria-hidden=\"true\"\u003e\u003c/a\u003e 直線の方程式\u003c/h2\u003e\n\u003cp data-line=\"5\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/e7b3e1ddb7ba-20231204.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"7\" class=\"code-line\"\u003e\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ey=mx\u003c/eq\u003e\u003c/embed-katex\u003eというような形で表記し、図示としては上記のようになる。\u003cbr\u003e\n一般化すると、以下になる。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"10\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\ny=mx+b　(m:傾き,b：切片)\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"13\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/4b67c9f150d4-20231204.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"15\" class=\"code-line\"\u003e直線の方程式は、一定の速度で動く運動(等速運動)などで使用する。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"17\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\ny= 5x+3:　x=2なら、y=13　,x=3なら、y=18\\\\\ny= -2x+1:　x=2なら、y=-3　,x=3なら、y=-5\\\\\ny= 7x-5:　x=2なら、y=9　,x=3なら、y=16\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch2 id=\"%E6%94%BE%E7%89%A9%E7%B7%9A%E3%81%AE%E6%96%B9%E7%A8%8B%E5%BC%8F\" data-line=\"23\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%94%BE%E7%89%A9%E7%B7%9A%E3%81%AE%E6%96%B9%E7%A8%8B%E5%BC%8F\" aria-hidden=\"true\"\u003e\u003c/a\u003e 放物線の方程式\u003c/h2\u003e\n\u003cp data-line=\"24\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/152722c5a995-20231205.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"26\" class=\"code-line\"\u003e\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ey=x^2,　y=-x^2\u003c/eq\u003e\u003c/embed-katex\u003eというような形で表記し、図示としては上記のようになる。\u003cbr\u003e\n一般化すると、以下になる。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"29\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\ny=\\pm(x-a)^2+b　(a:xの初期値,　b:yの初期値)\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"32\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/edbcff7c7167-20231205.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"34\" class=\"code-line\"\u003e放物線の方程式はその名の通り放物運動で使用する。放物運動とは物を投げた時の運動である。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"36\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\ny= (x-2)^2+3:　x=2なら、y=3　,x=1なら、y=4\\\\\ny= -(x+2)^2+4:　x=2なら、y=-12　,x=1なら、y=-5\\\\\ny= -(x+2)^2-4:　x=2なら、y=-20　,x=3なら、y=-29\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch2 id=\"%E5%86%86%E3%81%AE%E6%96%B9%E7%A8%8B%E5%BC%8F\" data-line=\"42\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%86%86%E3%81%AE%E6%96%B9%E7%A8%8B%E5%BC%8F\" aria-hidden=\"true\"\u003e\u003c/a\u003e 円の方程式\u003c/h2\u003e\n\u003cp data-line=\"43\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/d5c42df0a3ba-20231205.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"45\" class=\"code-line\"\u003e\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ex^2+y^2=r^2\u003c/eq\u003e\u003c/embed-katex\u003eというような形で表記し、図示としては上記のようになる(rは半径)。\u003cbr\u003e\n一般化すると、以下になる。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"48\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n中心(a,b), 半径r\\\\\n(x-a)^2+(y-b)^2 = r^2\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"52\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/36414f213082-20231205.png\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"54\" class=\"code-line\"\u003e円の方程式は円運動でも使用するが、円を用いた当たり判定などでも活用する。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"56\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n中心(1,2),半径2の円：(x-1)^2+(y-2)^2=2^2\\\\\n中心(-1,2),半径4の円：(x+1)^2+(y-2)^2=4^2\\\\\n中心(-3,-6),半径3の円：(x+1)^2+(y+6)^2=3^2\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n",
+    "toc":  [
+                {
+                    "id":  "%E6%A6%82%E8%A6%81",
+                    "text":  "概要",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E7%9B%B4%E7%B7%9A%E3%81%AE%E6%96%B9%E7%A8%8B%E5%BC%8F",
+                    "text":  "直線の方程式",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E6%94%BE%E7%89%A9%E7%B7%9A%E3%81%AE%E6%96%B9%E7%A8%8B%E5%BC%8F",
+                    "text":  "放物線の方程式",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E5%86%86%E3%81%AE%E6%96%B9%E7%A8%8B%E5%BC%8F",
+                    "text":  "円の方程式",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                }
+            ]
+}

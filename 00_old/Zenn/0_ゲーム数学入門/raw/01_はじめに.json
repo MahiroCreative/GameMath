@@ -1,0 +1,78 @@
+﻿{
+    "id":  57555,
+    "post_type":  "Chapter",
+    "is_free":  false,
+    "slug":  "76bf7f",
+    "body_letters_count":  1518,
+    "source_repo_updated_at":  null,
+    "body_updated_at":  "2025-10-28T11:42:01.086+09:00",
+    "filename":  null,
+    "position":  1,
+    "path":  "/mahiro3033/books/e0fd5a3313118a/viewer/76bf7f",
+    "title":  "はじめに",
+    "body_html":  "\u003ch2 id=\"%E6%A6%82%E8%A6%81\" data-line=\"0\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%A6%82%E8%A6%81\" aria-hidden=\"true\"\u003e\u003c/a\u003e 概要\u003c/h2\u003e\n\u003cp data-line=\"1\" class=\"code-line\"\u003eゲームに必要な数学を学び始める上で『必須の必須』レベルの知識をまとめました。\u003cbr\u003e\n特に数学が苦手なまま専門学校に入学してしまった学生向けに作ってあります。\u003cbr\u003e\n現在、新卒プログラマーに求められる数学のレベルは『理系大学初等終了レベル(+ゲーム数学)』程度まで上昇しています。が、入学してくる学生は中３レベルから曖昧な場合も多いです。現実問題としてそのレベルから丁寧にやり直す事は不可能なので、そのギャップを少しでも埋めるためにこれを作成します。\u003c/p\u003e\n\u003ch2 id=\"%E5%AF%BE%E8%B1%A1%E8%AA%AD%E8%80%85\" data-line=\"5\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%AF%BE%E8%B1%A1%E8%AA%AD%E8%80%85\" aria-hidden=\"true\"\u003e\u003c/a\u003e 対象読者\u003c/h2\u003e\n\u003cp data-line=\"6\" class=\"code-line\"\u003e・高校レベルの必須知識をサラッと確認したい人\u003cbr\u003e\n・数学が苦手なまま入学した人\u003c/p\u003e\n\u003ch2 id=\"%E6%95%B0%E5%AD%A6%E3%81%8C%E6%9C%AC%E5%BD%93%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E3%81%AE%E3%81%8B%EF%BC%9F\" data-line=\"9\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%95%B0%E5%AD%A6%E3%81%8C%E6%9C%AC%E5%BD%93%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E3%81%AE%E3%81%8B%EF%BC%9F\" aria-hidden=\"true\"\u003e\u003c/a\u003e 数学が本当に必要なのか？\u003c/h2\u003e\n\u003cp data-line=\"10\" class=\"code-line\"\u003e必要です。入社後どころか、就活の段階で必須です。就活どころかゲームの作り方を学ぶ段階でも必要です。ゲームエンジンを使っても必要です。絶対に逃げられません。\u003c/p\u003e\n\u003ch3 id=\"%E5%BF%85%E8%A6%81%E3%81%AA%E5%A0%B4%E9%9D%A2%E4%B8%80%E8%A6%A7\" data-line=\"12\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%BF%85%E8%A6%81%E3%81%AA%E5%A0%B4%E9%9D%A2%E4%B8%80%E8%A6%A7\" aria-hidden=\"true\"\u003e\u003c/a\u003e 必要な場面一覧\u003c/h3\u003e\n\u003cp data-line=\"13\" class=\"code-line\"\u003e・2Dアクションゲームを作るとき\u003cbr\u003e\n・3Dゲーム全ての基礎を学ぶとき\u003cbr\u003e\n・就活用の作品を作るとき\u003cbr\u003e\n・就活でテストを受けるとき\u003cbr\u003e\n・入社後の研修\u003cbr\u003e\n・入社後の実務\u003cbr\u003e\n・ベテランになった後の後輩教育\u003c/p\u003e\n\u003cp data-line=\"21\" class=\"code-line\"\u003eというようにゲームプログラマーを目指すなら、人生の殆どの場面で必要になります。\u003c/p\u003e\n\u003ch2 id=\"%E5%88%A9%E7%94%A8%E6%96%B9%E6%B3%95\" data-line=\"23\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%88%A9%E7%94%A8%E6%96%B9%E6%B3%95\" aria-hidden=\"true\"\u003e\u003c/a\u003e 利用方法\u003c/h2\u003e\n\u003ch3 id=\"%E5%BF%85%E9%A0%88%E7%9F%A5%E8%AD%98%E3%82%92%E3%82%B5%E3%83%A9%E3%83%83%E3%81%A8%E7%A2%BA%E8%AA%8D%E3%81%97%E3%81%9F%E3%81%84%E4%BA%BA\" data-line=\"24\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%BF%85%E9%A0%88%E7%9F%A5%E8%AD%98%E3%82%92%E3%82%B5%E3%83%A9%E3%83%83%E3%81%A8%E7%A2%BA%E8%AA%8D%E3%81%97%E3%81%9F%E3%81%84%E4%BA%BA\" aria-hidden=\"true\"\u003e\u003c/a\u003e 必須知識をサラッと確認したい人\u003c/h3\u003e\n\u003cp data-line=\"25\" class=\"code-line\"\u003e『高校までの知識にある程度自信がある』という人は、まずは1通りサラッと読み通して漏れがある部分を確認しましょう。その後に漏れの部分だけ埋めて、確認問題を1通り解いたら終わりにしてください。早い人で1~2時間、長くても1日(6時間)程度で終わる筈です。もし1日掛かっても終わらないなら、それは知識が不足している証拠です。『数学が苦手なまま入学した学生』と同様に本腰を入れて学習してください。\u003c/p\u003e\n\u003ch3 id=\"%E6%95%B0%E5%AD%A6%E3%81%8C%E8%8B%A6%E6%89%8B%E3%81%AA%E3%81%BE%E3%81%BE%E5%85%A5%E5%AD%A6%E3%81%97%E3%81%9F%E5%AD%A6%E7%94%9F\" data-line=\"27\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%95%B0%E5%AD%A6%E3%81%8C%E8%8B%A6%E6%89%8B%E3%81%AA%E3%81%BE%E3%81%BE%E5%85%A5%E5%AD%A6%E3%81%97%E3%81%9F%E5%AD%A6%E7%94%9F\" aria-hidden=\"true\"\u003e\u003c/a\u003e 数学が苦手なまま入学した学生\u003c/h3\u003e\n\u003cp data-line=\"28\" class=\"code-line\"\u003e『覚悟を決めて努力する必要がある』という人です。まずは1通りサラッと読み通してください。このレベルの人はそれだけで辛いでしょうが、読むだけなら出来るはずです(内容を理解しろとは言ってませんし、問題も解かなくていいです)。我慢して読んでください(数時間~1日程度)。読み終わったあと『ちゃんと読めば理解できる』のか『ちゃんと読んでも理解出来ない』かを判断してください。\u003cbr\u003e\n『ちゃんと読めば理解できる』となった人は最初から１つずつ理解して確認問題を解いていきましょう。最後までやったあと、全ての確認問題を解き直してください。目安時間で全部解けるのが理想ですが、時間が掛かっても良いので全ての問題が解けるようになってから次に進んでください。\u003cbr\u003e\n『ちゃんと読んでも理解出来ない』となった人、もしくは『そもそも読まなかった(読むことが出来なかった)』人は数学の前に国語が出来ていない可能性が高いです。国語の勉強をやり直すほどの時間は無いと思いますので、友人等を上手く利用して理解できる環境を作る努力をしてください。理解する努力の前に、理解できる環境を作る努力が必要です。\u003c/p\u003e\n\u003ch2 id=\"%E5%85%8D%E8%B2%AC%E4%BA%8B%E9%A0%85\" data-line=\"35\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%85%8D%E8%B2%AC%E4%BA%8B%E9%A0%85\" aria-hidden=\"true\"\u003e\u003c/a\u003e 免責事項\u003c/h2\u003e\n\u003cp data-line=\"36\" class=\"code-line\"\u003e・全体を通して『初学者のために丁寧に……』という記述はしていません。\u003cbr\u003e\n・『一度は習った筈なのでこの程度で十分だろう』という書き方をしています。\u003cbr\u003e\n・ゲームプログラマー教育として使用すること前提なので、単純な復習となっていない部分も存在します(当たり判定のアルゴリズムとかも入ってます)。\u003cbr\u003e\n・理解しやすさを重視しており、数学的に正確ではない記述をしている部分があります。\u003cbr\u003e\n・正しい知識のみを書く努力をしていますが、確認不足により間違っている場合も存在します。\u003cbr\u003e\n・記述内容の間違いにより何らかの損害が発生しても当方は一切の責任を負いません。\u003c/p\u003e\n",
+    "toc":  [
+                {
+                    "id":  "%E6%A6%82%E8%A6%81",
+                    "text":  "概要",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E5%AF%BE%E8%B1%A1%E8%AA%AD%E8%80%85",
+                    "text":  "対象読者",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E6%95%B0%E5%AD%A6%E3%81%8C%E6%9C%AC%E5%BD%93%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E3%81%AE%E3%81%8B%EF%BC%9F",
+                    "text":  "数学が本当に必要なのか？",
+                    "level":  2,
+                    "children":  [
+                                     {
+                                         "id":  "%E5%BF%85%E8%A6%81%E3%81%AA%E5%A0%B4%E9%9D%A2%E4%B8%80%E8%A6%A7",
+                                         "text":  "必要な場面一覧",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     }
+                                 ]
+                },
+                {
+                    "id":  "%E5%88%A9%E7%94%A8%E6%96%B9%E6%B3%95",
+                    "text":  "利用方法",
+                    "level":  2,
+                    "children":  [
+                                     {
+                                         "id":  "%E5%BF%85%E9%A0%88%E7%9F%A5%E8%AD%98%E3%82%92%E3%82%B5%E3%83%A9%E3%83%83%E3%81%A8%E7%A2%BA%E8%AA%8D%E3%81%97%E3%81%9F%E3%81%84%E4%BA%BA",
+                                         "text":  "必須知識をサラッと確認したい人",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E6%95%B0%E5%AD%A6%E3%81%8C%E8%8B%A6%E6%89%8B%E3%81%AA%E3%81%BE%E3%81%BE%E5%85%A5%E5%AD%A6%E3%81%97%E3%81%9F%E5%AD%A6%E7%94%9F",
+                                         "text":  "数学が苦手なまま入学した学生",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     }
+                                 ]
+                },
+                {
+                    "id":  "%E5%85%8D%E8%B2%AC%E4%BA%8B%E9%A0%85",
+                    "text":  "免責事項",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                }
+            ]
+}

@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>bit演算</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<style>body{max-width:820px;margin:2em auto;padding:0 16px;font-family:sans-serif;line-height:1.8}
+img{max-width:100%}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:4px 8px}
+.header-anchor-link{display:none}</style>
+</head><body>
+<p><small>1.ゲーム数学標準(開発中) / 7. bit演算（Zenn から 2026-10-30 に保存。本文の最終更新 2025-10-28T11:35:59.830+09:00）</small></p>
+<h1>bit演算</h1>
+<h2 id="%E6%A6%82%E8%A6%81" data-line="0" class="code-line">
+<a class="header-anchor-link" href="#%E6%A6%82%E8%A6%81" aria-hidden="true"></a> 概要</h2>
+<p data-line="1" class="code-line">本格的にゲーム数学に入っていく前に、まずはコンピュータ上での計算の仕組みについて理解しましょう。人間の計算の考え方と、コンピュータの計算の考え方は大きく違います。効率の良い計算を行うためには、人間の計算の考え方をコンピュータの考え方に置き直して命令を考える必要があります。一般プログラマならあまり深く考えなくてもいいですが、ゲームプログラマは処理速度の限界に常にチャレンジしているような業種です。ある程度はコンピュータの計算の仕組みを知っておく必要があります。</p>
+<h2 id="%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%81%AE%E5%86%85%E9%83%A8%E6%A7%8B%E9%80%A0" data-line="3" class="code-line">
+<a class="header-anchor-link" href="#%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%81%AE%E5%86%85%E9%83%A8%E6%A7%8B%E9%80%A0" aria-hidden="true"></a> コンピュータの内部構造</h2>
+<p data-line="4" class="code-line">昨今、色々と違う仕組みも出てまいりましたが、基本的には以下のような構造になっています。</p>
+<p data-line="6" class="code-line"><img src="../images/7e91546fe673-20240605.png" alt="" class="md-img" loading="lazy"></p>
+<p data-line="8" class="code-line">上記はものすごく単純化してますが、大体こんな構造だと思っておけばいいです。<br>
+(※詳しく知りたい人は画像検索でもしてください)</p>
+<p data-line="11" class="code-line">『マザーボード』と呼ばれるそれぞれの装置を繋げる基盤の上に、『CPU』『GPU』『Memory』『Storage』が載っていてそれぞれの役割を果たすことでコンピュータを形成しています。</p>
+<p data-line="13" class="code-line">それぞれの機能を詳しく見ていくと、</p>
+<p data-line="15" class="code-line"><strong>CPU：通常計算をする(画像計算は遅い)</strong><br>
+<strong>GPU：画像計算をする(通常計算は遅い)</strong><br>
+<strong>Memory:計算をする際の一次保存場所(読み書きが早いが、電源切ると消える)</strong><br>
+<strong>Storage：データの長期保存場所(読み書きが遅いが、電源切っても消えない)</strong></p>
+<p data-line="20" class="code-line">というような構造になっています。<br>
+『CPU・GPU』『Memory』『Storage』の速度差ですが、物や状況にもよりますが、非常に大雑把に表すと以下になります。</p>
+<p data-line="23" class="code-line"><strong>【データアクセス時間】</strong><br>
+<strong>CPU：1</strong><br>
+<strong>Memory:80</strong><br>
+<strong>Storage:100,000</strong></p>
+<p data-line="28" class="code-line">とんでもない速度差があると分かります。長期保存できるかどうかでこれ程の差が出るのです。<br>
+『PCが遅いな』と感じたら、まずはStorage(HDDとかSSDとか)を買い替えるのが無難です。</p>
+<h2 id="cpu%E3%81%AE%E8%A8%88%E7%AE%97%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF" data-line="31" class="code-line">
+<a class="header-anchor-link" href="#cpu%E3%81%AE%E8%A8%88%E7%AE%97%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF" aria-hidden="true"></a> CPUの計算の仕組み</h2>
+<p data-line="32" class="code-line">コンピュータの中でも計算を行っている部分、人間でいうと脳を司る部分がCPUです。<br>
+CPUの計算の仕組みをめちゃくちゃざっくり説明すると以下のような計算の仕組みになっています(※正確さより理解しやすさを優先しています)。</p>
+<p data-line="35" class="code-line"><img src="../images/72274e6d6861-20240611.png" alt="" class="md-img" loading="lazy"></p>
+<p data-line="37" class="code-line">メモリから『データA』と『データB』を取り出して、演算装置で計算し、計算結果を<br>
+再びメモリに返す。という動きだとざっくり考えて良いです。</p>
+<h2 id="%E3%83%A1%E3%83%A2%E3%83%AA%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E4%BF%9D%E5%AD%98%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF" data-line="40" class="code-line">
+<a class="header-anchor-link" href="#%E3%83%A1%E3%83%A2%E3%83%AA%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E4%BF%9D%E5%AD%98%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF" aria-hidden="true"></a> メモリのデータ保存の仕組み</h2>
+<p data-line="41" class="code-line">プログラムを実行するためのデータを一時的に保管しておく場所がメモリです。<br>
+流れとしてはストレージからプログラムに必要なデータをメモリに取り出し、メモリのデータを使ってCPUで計算させながらプログラムを実行するというイメージです(※実際はプログラムの実行中にストレージにアクセスすることもありますが、ここで話を簡単にするためにそういうことにしておきます)。<br>
+メモリのデータ保存の仕組みをざっくりと表すと以下になります。</p>
+<p data-line="45" class="code-line"><img src="../images/8c1e9de559a0-20240611.jpg" alt="" class="md-img" loading="lazy"><br>
+上記のような形で、保存されています。<br>
+つまり、</p>
+<section class="zenn-katex code-line" data-line="49"><eqn><embed-katex display-mode="1">
+\bf命令部:データ部1:データ部2:保存先\\
+</embed-katex></eqn></section>
+<p data-line="52" class="code-line">のような形でメモリの1行が構成されており、それぞれ2進数で書かれています。<br>
+簡単なデータの具体例を考えてみると、</p>
+<section class="zenn-katex code-line" data-line="55"><eqn><embed-katex display-mode="1">
+【ものすごい適当な例】\\
+(※命令部の0001はAddを表すとします)\\
+\bf{0001:0001:0001:0001}
+
+</embed-katex></eqn></section>
+<p data-line="61" class="code-line">上記の様な命令は、『足し算せよ』『1』と『1』を結果はアドレス『0001』に保存。<br>
+という意味になり、</p>
+<section class="zenn-katex code-line" data-line="64"><eqn><embed-katex display-mode="1">
+\bf(保存先アドレス)=1+1
+</embed-katex></eqn></section>
+<p data-line="67" class="code-line">というプログラムと同じ意味になります。<br>
+また、メモリに保存されているデータと命令を並べて考えると、大体以下のような構造になります。</p>
+<p data-line="70" class="code-line"><img src="../images/a782e4f222a0-20240611.png" alt="" class="md-img" loading="lazy"></p>
+<p data-line="72" class="code-line">上記のような形(実際は2進数で書かれている)でメモリ上に命令が並んでおり、上から実行していく形でプログラムの処理は行われます。</p>
+<p data-line="74" class="code-line">ここまで見れば分かると思いますが、コンピュータの計算は内部的には2進数で行われています。我々が通常計算を行っているのは10進数なので、人間の脳みそとは大分違うやり方で計算を行っている事になります。<br>
+昨今ではコンピュータも発達し、人間がわざわざ2進数を直接入力する事は減りました。しかし、内部は2進数で計算されいる事を知らないと最適化は図れませんし、思わぬバグを生みます。<br>
+ですので、2進数での計算、特にコンピュータに関わる計算であるbit演算を学ぶ必要があります。</p>
+<h2 id="2%E9%80%B2%E6%95%B0" data-line="78" class="code-line">
+<a class="header-anchor-link" href="#2%E9%80%B2%E6%95%B0" aria-hidden="true"></a> 2進数</h2>
+<p data-line="79" class="code-line">bit演算を学んでいく前にまずは2進数を学びます。<br>
+2進数とは数字をすべて0と1だけで表現する数の事です。ちなみに、我々が普段使っている数字は10進数と言いますが、0 1 2 3 4 5 6 7 8 9 の合計10個で表現するので10進数と呼びます。<br>
+2進数は、0 1　の2つで表すので2進数です。</p>
+<p data-line="83" class="code-line">では、具体的に2進数でどう数を表すのかをみていきます。</p>
+<section class="zenn-katex code-line" data-line="85"><eqn><embed-katex display-mode="1">
+10進数 : 2進数\\
+0 : 0\\
+1 : 1\\
+2 : 10\\
+3 : 11\\
+4 : 100\\
+5 : 101\\
+6 : 110\\
+7 : 111\\
+8 : 1000\\
+</embed-katex></eqn></section>
+<p data-line="97" class="code-line">上記で大体分かったかと思います。<br>
+つまり、1つの桁では1までしか計算できず、2になったら桁が繰り上がるということです。</p>
+<h3 id="10%E9%80%B2%E6%95%B0%E3%81%8B%E3%82%892%E9%80%B2%E6%95%B0" data-line="100" class="code-line">
+<a class="header-anchor-link" href="#10%E9%80%B2%E6%95%B0%E3%81%8B%E3%82%892%E9%80%B2%E6%95%B0" aria-hidden="true"></a> 10進数から2進数</h3>
+<p data-line="101" class="code-line">10進数から2進数への変換方法について解説します。<br>
+単純に2で割れば良いのですが、試しにやってみましょう。</p>
+<section class="zenn-katex code-line" data-line="104"><eqn><embed-katex display-mode="1">
+・15を2進数に変換\\
+15 / 2 = 7 ...1\\
+7 / 2 = 3...1\\
+3 / 2 = 1...1\\
+1 / 2 = 0 ...1\\
+</embed-katex></eqn></section>
+<p data-line="111" class="code-line">となった場合、1111が変換後と言えます。</p>
+<p data-line="113" class="code-line">最初の余りが1なので、1桁目は1。<br>
+2番目の余りが1なので、2桁目は1。<br>
+3番目の余りが1なので、3桁目は1。<br>
+4番目の余りが1なので、4桁目は1。</p>
+<p data-line="118" class="code-line">という風に考えます。理由を考えていくと、</p>
+<p data-line="120" class="code-line"><strong>・全体を2で割った時の余りは最初の桁の数字になる。</strong></p>
+<p data-line="122" class="code-line">というのは全ての進数で同じです。<br>
+2まで数えたら繰り上げが起こるということは、例えば3を2進数にすると、</p>
+<p data-line="125" class="code-line"><embed-katex><eq class="zenn-katex">3 = 1*2^1 + 1*2^0</eq></embed-katex></p>
+<p data-line="127" class="code-line">という風に考えられるので、3は11となり。<br>
+2で割った際の余りが1桁目になるのは自明です。</p>
+<p data-line="130" class="code-line"><strong>・全体を2で2回割った時の余りは2番目の桁の数字になる</strong></p>
+<p data-line="132" class="code-line">というのも全ての進数で同じです。<br>
+例えば5を2進数にすると、</p>
+<p data-line="135" class="code-line"><embed-katex><eq class="zenn-katex">5 = 1*2^2 + 0*2^1 + 1*2^0</eq></embed-katex></p>
+<p data-line="137" class="code-line">となりますので、5は101となります。<br>
+ですので、2で2回割った際の余りが2桁目になります。<br>
+今回は2で2回割っても余りがないので、0です。</p>
+<p data-line="141" class="code-line">というようにやっていき、最後に割った回数での答えがそれで割り切れる桁数になるので、<br>
+最後の答えが一番左の桁数になります。</p>
+<p data-line="144" class="code-line">これは言葉で説明しても大変分かりにくいので、様々な例をノートに書いて確認してください。</p>
+<h3 id="n%E9%80%B2%E6%95%B0" data-line="147" class="code-line">
+<a class="header-anchor-link" href="#n%E9%80%B2%E6%95%B0" aria-hidden="true"></a> n進数</h3>
+<p data-line="148" class="code-line">ここで進数を一般化しておきます。<br>
+2進数は2で割っていくことで作れました。n進数はnで割ることで作れます。</p>
+<p data-line="151" class="code-line">【例:8進数】</p>
+<section class="zenn-katex code-line" data-line="153"><eqn><embed-katex display-mode="1">
+・30を8進数に変換\\
+30 / 8 = 3 ...6\\
+3 / 8 = 0...3\\
+よって、36
+</embed-katex></eqn></section>
+<p data-line="160" class="code-line">【例:16進数(0~9~A~F)】</p>
+<section class="zenn-katex code-line" data-line="162"><eqn><embed-katex display-mode="1">
+・30を16進数に変換\\
+30 / 16 = 1 ...14\\
+1 / 16 = 0...1\\
+よって、1E
+</embed-katex></eqn></section>
+<p data-line="169" class="code-line">特に8進数と16進数はコンピュータの計算でよく使いますので、<br>
+上記の変換は出来るようになっておいてください。</p>
+<h2 id="bit%E6%BC%94%E7%AE%97" data-line="172" class="code-line">
+<a class="header-anchor-link" href="#bit%E6%BC%94%E7%AE%97" aria-hidden="true"></a> bit演算</h2>
+<p data-line="173" class="code-line">コンピュータは2進数で計算を行っているというのは説明した通りです。<br>
+ですが、紙面の上での計算と違い、様々なハードウェア的な制約があります。<br>
+そこでそのような制約も考慮した計算の方法が考案されました。それがbit演算です。</p>
+<h3 id="bit" data-line="177" class="code-line">
+<a class="header-anchor-link" href="#bit" aria-hidden="true"></a> bit</h3>
+<p data-line="178" class="code-line">そもそもbitとは何でしょうか？<br>
+コンピュータが2進数でデータを保持する際、データはコンデンサに電荷が溜まっているか溜まっていないかで0か1かを判定しています。図で示すと以下のような形になります。</p>
+<p data-line="181" class="code-line"><img src="../images/36656700f1c7-20240614.jpg" alt="" class="md-img" loading="lazy"></p>
+<p data-line="183" class="code-line">このコンデンサ1つで保存できるデータ量を1bitと呼びます。<br>
+例えば、4bitならコンデンサ4つで保存できるデータ量を表現できるので、</p>
+<section class="zenn-katex code-line" data-line="186"><eqn><embed-katex display-mode="1">
+0: 0000　～　15 : 1111
+</embed-katex></eqn></section>
+<p data-line="189" class="code-line">ということになります。</p>
+<h3 id="%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%8D%98%E4%BD%8D" data-line="191" class="code-line">
+<a class="header-anchor-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%8D%98%E4%BD%8D" aria-hidden="true"></a> データの単位</h3>
+<p data-line="192" class="code-line">上記のbitの考え方からデータの単位が生まれています。<br>
+ハードウェア設計の関係上、コンデンサは8つセットで設計されますので単位も8bitが基準にされます。なので、1bitを1Byteとして以下のような表記でデータ量は表されます。</p>
+<section class="zenn-katex code-line" data-line="195"><eqn><embed-katex display-mode="1">
+1Byte　:　8bit\\
+1MB　：　1000Byte\\
+1GB　:　1000MB\\
+1TB　:　1000GB\\
+</embed-katex></eqn></section>
+<p data-line="202" class="code-line">ちなみに何故1Byteは8bitなのかというと、ちょうどアルファベット1文字を表すデータ量が<br>
+8bitだからです。日本語は16bit.2Byteなので、日本語のような文字を2Byte文字というふうに呼びます。</p>
+<h3 id="%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%81%AE%E5%9B%9B%E5%89%87%E6%BC%94%E7%AE%97" data-line="205" class="code-line">
+<a class="header-anchor-link" href="#%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%81%AE%E5%9B%9B%E5%89%87%E6%BC%94%E7%AE%97" aria-hidden="true"></a> コンピュータの四則演算</h3>
+<p data-line="206" class="code-line">さて、ではコンピュータ上で四則演算をする際に、どのような仕組みで行っているかを考えていきます。<br>
+実のところコンピュータは単純な計算しか出来ません。誤解を恐れずに言ってしまえば、足し算しか出来ないと言えます。<br>
+しかし、我々はプログラミング上で引き算も出来れば割り算や掛け算もできます。しかし、ハードウェア的にはそのどの計算も足し算しか行っていません。</p>
+<p data-line="210" class="code-line">どのような仕組みで行っているのでしょうか？<br>
+動作の基本的な考え方としては、以下になります。</p>
+<section class="zenn-katex code-line" data-line="213"><eqn><embed-katex display-mode="1">
+【引き算】\\
+A - B = A + (-B)\\
+【掛け算】\\
+A*B = A + A + A + ...\\
+【割り算】\\
+A/B = A + (-B)+(-B)+(-B)+ ...\\
+</embed-katex></eqn></section>
+<p data-line="221" class="code-line">つまり、<br>
+引き算は『-Bを足す』。<br>
+掛け算は『B回Aを足す』。<br>
+割り算は『Aから-Bを何回足せるか数える』。<br>
+という形で考えられています。</p>
+<p data-line="227" class="code-line">例えば、8に-2を足せば6ですし、8を2回足せば16ですし、8は-2を4回足せるので4となります。</p>
+<h3 id="2%E3%81%AE%E9%80%B2%E6%95%B0%E3%81%AE%E8%B6%B3%E3%81%97%E7%AE%97" data-line="229" class="code-line">
+<a class="header-anchor-link" href="#2%E3%81%AE%E9%80%B2%E6%95%B0%E3%81%AE%E8%B6%B3%E3%81%97%E7%AE%97" aria-hidden="true"></a> 2の進数の足し算</h3>
+<p data-line="230" class="code-line">さて、2進数の足し算を考えるとき、人間の頭用にいちいち10進数に直してから計算するとかえって遅くなります。コンピュータにも応用が効きません。<br>
+そこで、2進数のまま計算する方法を考えます。</p>
+<section class="zenn-katex code-line" data-line="233"><eqn><embed-katex display-mode="1">
+11 : 1011\\
+9 : 1001\\
+</embed-katex></eqn></section>
+<p data-line="237" class="code-line">上記を考える際に、20にしてから2進数に直すよりそれぞれの桁の値を見て足したらどうなるかを考えるほうが簡単に計算がきます。</p>
+<section class="zenn-katex code-line" data-line="239"><eqn><embed-katex display-mode="1">
+11 : 1011\\
+9 : 1001\\
+20 : 10100\\
+</embed-katex></eqn></section>
+<p data-line="245" class="code-line">互いに1が入る桁は繰り上がり、それ以外は素直に足すと考えるとやりやすいです。<br>
+上からではなく、下の桁から繰り上がっていく形で考えましょう。</p>
+<h3 id="2%E3%81%AE%E8%A3%9C%E6%95%B0" data-line="248" class="code-line">
+<a class="header-anchor-link" href="#2%E3%81%AE%E8%A3%9C%E6%95%B0" aria-hidden="true"></a> 2の補数</h3>
+<p data-line="249" class="code-line">2進数の足し算はできるようになりました。コンピュータは足し算しかできないので、これで全ての計算ができるはずです。が、足したら引かれる数、つまり負の数が無ければそれも出来ません。<br>
+そこで作られたのが『2の補数』と呼ばれるものです。</p>
+<p data-line="252" class="code-line">【『2の補数』の作り方】<br>
+・各bitの0と1を反転させる(bit反転)<br>
+・上記に1を足す</p>
+<section class="zenn-katex code-line" data-line="256"><eqn><embed-katex display-mode="1">
+【4bitの『2の補数』の例】\\
+3:0011\\
+-3:1101\\
+5:0101\\
+-5:1011\\
+</embed-katex></eqn></section>
+<p data-line="263" class="code-line">『2の補数』はこのような形で作れます。<br>
+ただし、コンピュータ上のbit演算でしか正常に機能しないことに注意してください。<br>
+理由としてはその計算のさせかたにあります。</p>
+<section class="zenn-katex code-line" data-line="267"><eqn><embed-katex display-mode="1">
+【4bitの演算】\\
+8 : 1000\\
+7 : 0111\\
+-7 : 1001\\
+8 + (-7) : 1000 + 1001\\
+(※10001になるが、4bit計算なので最上位bitは格納できず消える)\\
+1: 0001
+</embed-katex></eqn></section>
+<p data-line="276" class="code-line">というような計算の流れになるので、『最上位bitは格納できず消える』というような構造を持つコンピュータ上のbit演算でないと機能しない事が分かります。</p>
+<h3 id="%E3%82%B7%E3%83%95%E3%83%88%E6%BC%94%E7%AE%97" data-line="278" class="code-line">
+<a class="header-anchor-link" href="#%E3%82%B7%E3%83%95%E3%83%88%E6%BC%94%E7%AE%97" aria-hidden="true"></a> シフト演算</h3>
+<p data-line="279" class="code-line">『2の補数』を用いることによって、全ての計算を行えるようになりました。<br>
+しかし、割り算や掛け算に関しては正攻法でやると随分と手間が掛かる事が分かります。<br>
+そこで用いるのがシフト演算です。</p>
+<p data-line="283" class="code-line">例えば、4bitで表現される数値を2倍することを考えましょう。</p>
+<section class="zenn-katex code-line" data-line="285"><eqn><embed-katex display-mode="1">
+3 : 0011\\
+6 : 0110\\
+</embed-katex></eqn></section>
+<p data-line="289" class="code-line">これをよく見ると、bitを左に一桁ずらしていることが分かります。<br>
+これを『<strong>1bit左シフト</strong>』と言います。<br>
+では、今度は4倍してみましょう。</p>
+<section class="zenn-katex code-line" data-line="293"><eqn><embed-katex display-mode="1">
+3 : 0011\\
+12 : 1100\\
+</embed-katex></eqn></section>
+<p data-line="297" class="code-line">今度は2bitシフトしています。<br>
+つまり、求めたい値が元の値の<embed-katex><eq class="zenn-katex">2^n</eq></embed-katex>倍であれば、左シフトを行えば簡単に計算できることが分かります。</p>
+<p data-line="300" class="code-line">次に、4bitで表現される数値を2で割ることを考えましょう。</p>
+<section class="zenn-katex code-line" data-line="302"><eqn><embed-katex display-mode="1">
+8 : 1000\\
+4 : 0100\\
+</embed-katex></eqn></section>
+<p data-line="306" class="code-line">今度はbitを右に一桁ずらしていることが分かります。<br>
+これを『<strong>1bit右シフト</strong>』と言います。<br>
+では、今後は4で割ってみましょう。</p>
+<section class="zenn-katex code-line" data-line="310"><eqn><embed-katex display-mode="1">
+8 : 1000\\
+2 : 0010\\
+</embed-katex></eqn></section>
+<p data-line="314" class="code-line">つまり、求めたい値が元の値の<embed-katex><eq class="zenn-katex">2^{-n}</eq></embed-katex>倍であれば、右シフトを行えば簡単に計算できることが分かります。</p>
+<h1 id="%E7%A2%BA%E8%AA%8D%E3%81%A8%E6%BC%94%E7%BF%92" data-line="316" class="code-line">
+<a class="header-anchor-link" href="#%E7%A2%BA%E8%AA%8D%E3%81%A8%E6%BC%94%E7%BF%92" aria-hidden="true"></a> 確認と演習</h1>
+<h2 id="%E5%95%8F%E9%A1%8C" data-line="318" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F%E9%A1%8C" aria-hidden="true"></a> 問題</h2>
+<h3 id="%E5%95%8F1" data-line="319" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F1" aria-hidden="true"></a> 問1</h3>
+<p data-line="320" class="code-line">(2)0010 なら、2進数。(n)0010なら、n進数とする。<br>
+以下の値を全て10進数にせよ。</p>
+<p data-line="323" class="code-line">・(2)0100<br>
+・(2)1010<br>
+・(8)1570<br>
+・(8)0041<br>
+・(16)00AB<br>
+・(16)102F</p>
+<h3 id="%E5%95%8F2" data-line="330" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F2" aria-hidden="true"></a> 問2</h3>
+<p data-line="331" class="code-line">2の補数を用いて以下を負の値にせよ。<br>
+なお、4bitでの計算とする。</p>
+<p data-line="334" class="code-line">・0001<br>
+・1001<br>
+・0101<br>
+・0111</p>
+<p data-line="339" class="code-line">上記で求めた値に1100足した値を全て求めよ。</p>
+<h3 id="%E5%95%8F3" data-line="341" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F3" aria-hidden="true"></a> 問3</h3>
+<p data-line="342" class="code-line">以下の計算をして、2進数で表記せよ。<br>
+尚、bit数は無限とする</p>
+<p data-line="345" class="code-line">・1001 の4倍<br>
+・1000 の1/2倍<br>
+・1111 の3倍</p>
+<h2 id="%E8%A7%A3%E7%AD%94" data-line="349" class="code-line">
+<a class="header-anchor-link" href="#%E8%A7%A3%E7%AD%94" aria-hidden="true"></a> 解答</h2>
+<h3 id="%E5%95%8F1-1" data-line="350" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F1-1" aria-hidden="true"></a> 問1</h3>
+<p data-line="351" class="code-line">(2)0010 なら、2進数。(n)0010なら、n進数とする。<br>
+以下の値を全て10進数にせよ。</p>
+<p data-line="354" class="code-line">・(2)0100 = 4<br>
+・(2)1010 = 10<br>
+・(8)1570 = 512 + 320 + 56 = 888<br>
+・(8)0041 = 32 + 1 = 33<br>
+・(16)00AB = 160 + 11 = 171<br>
+・(16)102F = 4096 + 32 + 15 = 4143</p>
+<h3 id="%E5%95%8F2-1" data-line="361" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F2-1" aria-hidden="true"></a> 問2</h3>
+<p data-line="362" class="code-line">2の補数を用いて以下を負の値にせよ。<br>
+なお、4bitでの計算とする。</p>
+<p data-line="365" class="code-line">・0001 = 1111(-1)<br>
+・1001 = 0111(-9)<br>
+・0101 = 1011(-5)<br>
+・0111 = 1001(-7)</p>
+<p data-line="370" class="code-line">上記で求めた値に1100足した値を全て求めよ。</p>
+<p data-line="372" class="code-line">・1111(-1) + 1100(12) = 1011(11)<br>
+・0111(-9) + 1100(12) = 0011(3)<br>
+・1011(-5) + 1100(12) = 0111(7)<br>
+・1001(-7) + 1100(12) = 0101(5)</p>
+<h3 id="%E5%95%8F3-1" data-line="377" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F3-1" aria-hidden="true"></a> 問3</h3>
+<p data-line="378" class="code-line">以下の計算をして、2進数で表記せよ。<br>
+尚、bit数は無限とする<br>
+・1001(9) の4倍 = 100100(100000(32)+100(4))<br>
+・1000(8) の1/2倍 = 0100(4)<br>
+・1111(15) の8倍 = 1111000(1000000(64)+100000(32)+10000(16)+1000(8))</p>
+
+<script>
+document.querySelectorAll("embed-katex").forEach(function (el) {
+  var display = el.hasAttribute("display-mode");
+  try { katex.render(el.textContent, el, { displayMode: display, throwOnError: false }); } catch (e) {}
+});
+</script>
+</body></html>

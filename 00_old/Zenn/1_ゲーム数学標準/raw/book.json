@@ -1,0 +1,138 @@
+﻿{
+    "id":  9880,
+    "post_type":  "Book",
+    "title":  "1.ゲーム数学標準(開発中)",
+    "slug":  "887c58825dce67",
+    "published":  true,
+    "price":  0,
+    "published_at":  "2024-06-19T16:40:40.656+09:00",
+    "body_updated_at":  "2025-10-28T11:35:59.850+09:00",
+    "source_repo_updated_at":  null,
+    "cover_image_small_url":  null,
+    "path":  "/mahiro3033/books/887c58825dce67",
+    "pinned_by_user":  false,
+    "liked_count":  3,
+    "is_suspending_private":  false,
+    "bestseller":  false,
+    "summary":  "1.ゲーム数学入門 …… 専門学校入学前/専門学校1年(前期)\n2.ゲーム数学標準 …… 専門学校1年(後期)/専門学校2年(前期)\n3.ゲーム数学実践 …… 3Dの当たり判定や物理やシェーダなど。\n\nとやっていく想定(願望)です。\n\nbit演算/三角関数/ベクトル\n/さまざまな回転/行列/虚数/クォータニオン",
+    "autolinked_summary":  "1.ゲーム数学入門 …… 専門学校入学前/専門学校1年(前期)\n2.ゲーム数学標準 …… 専門学校1年(後期)/専門学校2年(前期)\n3.ゲーム数学実践 …… 3Dの当たり判定や物理やシェーダなど。\n\nとやっていく想定(願望)です。\n\nbit演算/三角関数/ベクトル\n/さまざまな回転/行列/虚数/クォータニオン",
+    "og_image_url":  null,
+    "toc_enabled":  true,
+    "cover_image_url":  null,
+    "should_noindex":  false,
+    "total_letters_count":  11034,
+    "badges":  [
+
+               ],
+    "toc_depth":  2,
+    "require_additional_settings":  false,
+    "is_mine":  false,
+    "is_preview":  false,
+    "draft_reveal_scope":  "private",
+    "current_user_liked":  false,
+    "authenticated_liked_count":  3,
+    "anonymous_liked_count":  0,
+    "anonymous_like_enabled":  true,
+    "purchase_in_progress":  false,
+    "can_read_all_chapters":  true,
+    "contact":  null,
+    "user":  {
+                 "id":  134395,
+                 "username":  "mahiro3033",
+                 "name":  "マヒロー",
+                 "avatar_small_url":  "https://lh3.googleusercontent.com/a/AAcHTtcGhons21mYXLmVP_ZdNWbl1pljVcrpI7A5urbsUwFd=s96-c",
+                 "avatar_url":  "https://lh3.googleusercontent.com/a/AAcHTtcGhons21mYXLmVP_ZdNWbl1pljVcrpI7A5urbsUwFd=s96-c",
+                 "bio":  "ゲーム専門学校講師/シナリオライター/Unityエンジニア",
+                 "autolinked_bio":  "ゲーム専門学校講師/シナリオライター/Unityエンジニア",
+                 "github_username":  null,
+                 "twitter_username":  null,
+                 "is_support_open":  true,
+                 "tokusyo_contact":  null,
+                 "tokusyo_name":  null,
+                 "website_url":  null,
+                 "website_domain":  null,
+                 "total_liked_count":  10,
+                 "ga_tracking_id":  null,
+                 "hatena_id":  null,
+                 "is_invoice_issuer":  false,
+                 "is_zenn_developer":  false,
+                 "awards":  [
+
+                            ]
+             },
+    "topics":  [
+                   {
+                       "id":  202,
+                       "name":  "ゲーム開発",
+                       "taggings_count":  1056,
+                       "image_url":  "https://zenn.dev/images/topic.png",
+                       "display_name":  "ゲーム開発"
+                   },
+                   {
+                       "id":  437,
+                       "name":  "数学",
+                       "taggings_count":  1353,
+                       "image_url":  "https://static.zenn.studio/user-upload/topics/12265c9dcb.jpeg",
+                       "display_name":  "math"
+                   },
+                   {
+                       "id":  452,
+                       "name":  "ゲーム",
+                       "taggings_count":  290,
+                       "image_url":  "https://static.zenn.studio/user-upload/topics/682633531b.png",
+                       "display_name":  "ゲーム"
+                   },
+                   {
+                       "id":  30594,
+                       "name":  "ゲーム数学",
+                       "taggings_count":  2,
+                       "image_url":  "https://zenn.dev/images/topic.png",
+                       "display_name":  "ゲーム数学"
+                   }
+               ],
+    "chapters":  [
+                     {
+                         "id":  68876,
+                         "post_type":  "Chapter",
+                         "is_free":  false,
+                         "slug":  "859480",
+                         "body_letters_count":  3086,
+                         "source_repo_updated_at":  null,
+                         "body_updated_at":  "2024-06-28T12:03:18.226+09:00",
+                         "filename":  null,
+                         "position":  1,
+                         "path":  "/mahiro3033/books/887c58825dce67/viewer/859480",
+                         "title":  "三角関数"
+                     },
+                     {
+                         "id":  69178,
+                         "post_type":  "Chapter",
+                         "is_free":  false,
+                         "slug":  "6edf00",
+                         "body_letters_count":  7056,
+                         "source_repo_updated_at":  null,
+                         "body_updated_at":  "2025-10-28T11:35:59.830+09:00",
+                         "filename":  null,
+                         "position":  7,
+                         "path":  "/mahiro3033/books/887c58825dce67/viewer/6edf00",
+                         "title":  "bit演算"
+                     },
+                     {
+                         "id":  69939,
+                         "post_type":  "Chapter",
+                         "is_free":  false,
+                         "slug":  "9a62e2",
+                         "body_letters_count":  892,
+                         "source_repo_updated_at":  null,
+                         "body_updated_at":  "2025-06-17T10:49:37.045+09:00",
+                         "filename":  null,
+                         "position":  8,
+                         "path":  "/mahiro3033/books/887c58825dce67/viewer/9a62e2",
+                         "title":  "bit演算_確認問題"
+                     }
+                 ],
+    "github_repository":  null,
+    "cross_references":  [
+
+                         ]
+}

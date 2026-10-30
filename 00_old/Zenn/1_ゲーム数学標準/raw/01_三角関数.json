@@ -1,0 +1,86 @@
+﻿{
+    "id":  68876,
+    "post_type":  "Chapter",
+    "is_free":  false,
+    "slug":  "859480",
+    "body_letters_count":  3086,
+    "source_repo_updated_at":  null,
+    "body_updated_at":  "2024-06-28T12:03:18.226+09:00",
+    "filename":  null,
+    "position":  1,
+    "path":  "/mahiro3033/books/887c58825dce67/viewer/859480",
+    "title":  "三角関数",
+    "body_html":  "\u003ch2 id=\"%E6%A6%82%E8%A6%81\" data-line=\"0\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%A6%82%E8%A6%81\" aria-hidden=\"true\"\u003e\u003c/a\u003e 概要\u003c/h2\u003e\n\u003cp data-line=\"1\" class=\"code-line\"\u003e三角比の性質もとに三角比の様々な法則を式にまとめたのが三角関数です。\u003cbr\u003e\n三角関数の代表例として以下の3つがあります。\u003c/p\u003e\n\u003cp data-line=\"4\" class=\"code-line\"\u003e\u003cstrong\u003e・余弦定理\u003c/strong\u003e\u003cbr\u003e\n\u003cstrong\u003e・正弦定理\u003c/strong\u003e\u003cbr\u003e\n\u003cstrong\u003e・加法定理\u003c/strong\u003e\u003c/p\u003e\n\u003cp data-line=\"8\" class=\"code-line\"\u003e本来なら全部覚えたほうが良いですが、ゲームでは加法定理さえ覚えていればどうにかなります。なので、ここでは加法定理を主に学習します(ただし、加法定理の証明には余弦定理と正弦定理が必要ですので証明が気になる方は別サイトで学んで下さい)。\u003c/p\u003e\n\u003ch2 id=\"%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%AE%E3%82%B0%E3%83%A9%E3%83%95\" data-line=\"10\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%AE%E3%82%B0%E3%83%A9%E3%83%95\" aria-hidden=\"true\"\u003e\u003c/a\u003e 三角比のグラフ\u003c/h2\u003e\n\u003cp data-line=\"11\" class=\"code-line\"\u003e三角比とは以下のような内容のものでした。\u003c/p\u003e\n\u003cp data-line=\"13\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/de5c9dda6afd-20240327.png\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"15\" class=\"code-line\"\u003e上記で導き出す値をグラフで考えてみます。\u003c/p\u003e\n\u003cp data-line=\"17\" class=\"code-line\"\u003e\u003cstrong\u003e・x=cosΘのグラフ\u003c/strong\u003e\u003cbr\u003e\n\u003cimg src=\"https://static.zenn.studio/user-upload/c1e5ecbd4607-20240619.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003cbr\u003e\n\u003cstrong\u003e・x=sinΘのグラフ\u003c/strong\u003e\u003cbr\u003e\n\u003cimg src=\"https://static.zenn.studio/user-upload/bfa877aae3e8-20240619.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"22\" class=\"code-line\"\u003eどちらも-1~1を動いている事になります。\u003cbr\u003e\nこれはどういう事かというと、y軸をsinθ,x軸をcosθ　とすると、\u003cbr\u003e\n下の単位円のようなグラフを描けます。\u003c/p\u003e\n\u003cp data-line=\"26\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/65e4c060099d-20240327.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"28\" class=\"code-line\"\u003e\u003cstrong\u003e円を描く点のx座標　：　cosΘ\u003c/strong\u003e\u003cbr\u003e\n\u003cstrong\u003e円を描く点のy座標　：　sinΘ\u003c/strong\u003e\u003c/p\u003e\n\u003cp data-line=\"31\" class=\"code-line\"\u003eとなるので、xとyの値は-1~1間を増減していく事になります。\u003c/p\u003e\n\u003ch2 id=\"%E4%B8%89%E8%A7%92%E9%96%A2%E6%95%B0\" data-line=\"33\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E4%B8%89%E8%A7%92%E9%96%A2%E6%95%B0\" aria-hidden=\"true\"\u003e\u003c/a\u003e 三角関数\u003c/h2\u003e\n\u003ch3 id=\"%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%AF%E5%9B%9E%E8%BB%A2%E3%82%92%E8%A1%A8%E3%81%99\" data-line=\"34\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%AF%E5%9B%9E%E8%BB%A2%E3%82%92%E8%A1%A8%E3%81%99\" aria-hidden=\"true\"\u003e\u003c/a\u003e 三角比は回転を表す\u003c/h3\u003e\n\u003cp data-line=\"35\" class=\"code-line\"\u003e三角比のグラフと単位円の三角比を見て分かることとして、三角比とは三角形の比率だけでなく回転も表している事が分かります。\u003cbr\u003e\n例えば、ある点A(2,0)が原点中心に45度回転した座標を考えると、\u003cbr\u003e\n\u003cimg src=\"https://static.zenn.studio/user-upload/841e1a26445b-20240619.png\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"39\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nx = 2cos45° = 2*\\frac{1}{\\sqrt{2}} = \\sqrt{2}\\\\\ny = 2sin45° = 2*\\frac{1}{\\sqrt{2}} = \\sqrt{2}\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"44\" class=\"code-line\"\u003eとなるので、単純な座標の回転なら三角比で表せる事が分かります。\u003c/p\u003e\n\u003ch3 id=\"%E5%8A%A0%E6%B3%95%E5%AE%9A%E7%90%86\" data-line=\"46\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%8A%A0%E6%B3%95%E5%AE%9A%E7%90%86\" aria-hidden=\"true\"\u003e\u003c/a\u003e 加法定理\u003c/h3\u003e\n\u003cp data-line=\"47\" class=\"code-line\"\u003e三角比には以下の性質が有り、これを\u003cstrong\u003e加法定理\u003c/strong\u003eと呼びます。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"49\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n\\sin(\\alpha+\\beta)=\\sin{\\alpha} \\cos{\\beta} + \\cos{\\alpha} \\sin{\\beta}\\\\\n\\sin(\\alpha-\\beta)=\\sin{\\alpha} \\cos{\\beta} - \\cos{\\alpha} \\sin{\\beta}\\\\\n\\cos(\\alpha+\\beta)=\\cos{\\alpha} \\cos{\\beta} - \\sin{\\alpha} \\sin{\\beta}\\\\\n\\cos(\\alpha-\\beta)=\\cos{\\alpha} \\cos{\\beta} + \\sin{\\alpha} \\sin{\\beta}\\\\\n\\tan(\\alpha+\\beta)= \\frac{\\tan{\\alpha}+\\tan{\\beta}}{1-\\tan{\\alpha}\\tan{\\beta}}\\\\\n\\tan(\\alpha-\\beta)= \\frac{\\tan{\\alpha}-\\tan{\\beta}}{1+\\tan{\\alpha}\\tan{\\beta}}\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"57\" class=\"code-line\"\u003e上記をまとめると\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"59\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n\\sin(\\alpha \\pm \\beta)=\\sin{\\alpha} \\cos{\\beta} \\pm \\cos{\\alpha} \\sin{\\beta}\\\\\n\\cos(\\alpha \\pm \\beta)=\\cos{\\alpha} \\cos{\\beta} \\mp \\sin{\\alpha} \\sin{\\beta}\\\\\n\\tan(\\alpha \\pm \\beta)= \\frac{\\tan{\\alpha} \\pm \\tan{\\beta}}\n{1 \\mp \\tan{\\alpha}\\tan{\\beta}}\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"67\" class=\"code-line\"\u003e覚えたほうがもちろん良いですが、覚えれないなら覚えなくても良いです。\u003cbr\u003e\nこれがあることを知っていて、必要な時に調べて使って下さい。\u003c/p\u003e\n\u003ch3 id=\"%E5%8A%A0%E6%B3%95%E5%AE%9A%E7%90%86%E3%81%AF%E4%BD%95%E3%81%AB%E4%BD%BF%E3%81%88%E3%82%8B%E3%81%AE%E3%81%8B%EF%BC%9F\" data-line=\"70\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%8A%A0%E6%B3%95%E5%AE%9A%E7%90%86%E3%81%AF%E4%BD%95%E3%81%AB%E4%BD%BF%E3%81%88%E3%82%8B%E3%81%AE%E3%81%8B%EF%BC%9F\" aria-hidden=\"true\"\u003e\u003c/a\u003e 加法定理は何に使えるのか？\u003c/h3\u003e\n\u003cp data-line=\"71\" class=\"code-line\"\u003e加法定理の公式そのものは覚えていなくても良いです。\u003cbr\u003e\nしかし、加法定理で何が出来るかは把握しておく必要があります。\u003c/p\u003e\n\u003cp data-line=\"74\" class=\"code-line\"\u003e公式を見れば分かるのですが、\u003cbr\u003e\n加法定理は \u003cstrong\u003e三角比の角度を後から加減する\u003c/strong\u003e 事に使えます。\u003c/p\u003e\n\u003cp data-line=\"77\" class=\"code-line\"\u003e具体的にどういうことかと言えば、\u003cbr\u003e\n\u003cstrong\u003e既に回転している物体をさらに回転させる\u003c/strong\u003eのに使えます。\u003c/p\u003e\n\u003cp data-line=\"80\" class=\"code-line\"\u003e以下を考えてみましょう。\u003cbr\u003e\n\u003cimg src=\"https://static.zenn.studio/user-upload/5664dc387648-20240626.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"83\" class=\"code-line\"\u003e既に45度回転している状態で、さらに45度回転させます。\u003cbr\u003e\n加法定理の公式を使うと、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"86\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nx座標=2 * \\cos(45° + 45°)= 2*(\\cos{45°} \\cos{45°} - \\sin{45°} \\sin{45°})\\\\\ny座標=2 * \\sin(45° + 45°)= 2*(\\sin{45°} \\cos{45°} + \\cos{45°} \\sin{45°})\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"91\" class=\"code-line\"\u003eとなるので、計算すると\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"93\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nx座標= 2*(\\frac{1}{2} - \\frac{1}{2}) = 0\\\\\ny座標= 2*(\\frac{1}{2} + \\frac{1}{2}) = 2\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"98\" class=\"code-line\"\u003eとなり、これは90°回転させた座標と一致するので、\u003cbr\u003e\n加法定理を用いると\u003cstrong\u003e既に回転している物体をさらに回転させる\u003c/strong\u003eのに使えると分かります。\u003c/p\u003e\n\u003ch2 id=\"%E4%B8%89%E8%A7%92%E9%96%A2%E6%95%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%9B%9E%E8%BB%A2\" data-line=\"101\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E4%B8%89%E8%A7%92%E9%96%A2%E6%95%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%9B%9E%E8%BB%A2\" aria-hidden=\"true\"\u003e\u003c/a\u003e 三角関数による回転\u003c/h2\u003e\n\u003cp data-line=\"102\" class=\"code-line\"\u003eでは、三角関数による回転を一般化して公式に直していきましょう。\u003cbr\u003e\nそれぞれ一度だけは証明して公式が求められる事は理解したほうが良いですが、覚える必要はありません。必要な際に調べてそのつど理解できれば大丈夫です。\u003c/p\u003e\n\u003ch3 id=\"%E5%8E%9F%E7%82%B9%E3%82%92%E8%BB%B8%E3%81%AB%E3%81%97%E3%81%9F%E5%9B%9E%E8%BB%A2\" data-line=\"105\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%8E%9F%E7%82%B9%E3%82%92%E8%BB%B8%E3%81%AB%E3%81%97%E3%81%9F%E5%9B%9E%E8%BB%A2\" aria-hidden=\"true\"\u003e\u003c/a\u003e 原点を軸にした回転\u003c/h3\u003e\n\u003cp data-line=\"106\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/f6ce90b07447-20240628.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"108\" class=\"code-line\"\u003e証明は以上であり、公式は以下となる。\u003c/p\u003e\n\u003cp data-line=\"110\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/564c45f31357-20240628.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003ch3 id=\"%E4%BB%BB%E6%84%8F%E3%81%AE%E7%82%B9%E3%82%92%E8%BB%B8%E3%81%AB%E3%81%97%E3%81%9F%E5%9B%9E%E8%BB%A2\" data-line=\"113\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E4%BB%BB%E6%84%8F%E3%81%AE%E7%82%B9%E3%82%92%E8%BB%B8%E3%81%AB%E3%81%97%E3%81%9F%E5%9B%9E%E8%BB%A2\" aria-hidden=\"true\"\u003e\u003c/a\u003e 任意の点を軸にした回転\u003c/h3\u003e\n\u003cp data-line=\"114\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/3ef3c009c61d-20240628.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"116\" class=\"code-line\"\u003e証明は以上であり、公式は以下となる。\u003c/p\u003e\n\u003cp data-line=\"118\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/e47ce38183f8-20240628.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n",
+    "toc":  [
+                {
+                    "id":  "%E6%A6%82%E8%A6%81",
+                    "text":  "概要",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%AE%E3%82%B0%E3%83%A9%E3%83%95",
+                    "text":  "三角比のグラフ",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E4%B8%89%E8%A7%92%E9%96%A2%E6%95%B0",
+                    "text":  "三角関数",
+                    "level":  2,
+                    "children":  [
+                                     {
+                                         "id":  "%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%AF%E5%9B%9E%E8%BB%A2%E3%82%92%E8%A1%A8%E3%81%99",
+                                         "text":  "三角比は回転を表す",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E5%8A%A0%E6%B3%95%E5%AE%9A%E7%90%86",
+                                         "text":  "加法定理",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E5%8A%A0%E6%B3%95%E5%AE%9A%E7%90%86%E3%81%AF%E4%BD%95%E3%81%AB%E4%BD%BF%E3%81%88%E3%82%8B%E3%81%AE%E3%81%8B%EF%BC%9F",
+                                         "text":  "加法定理は何に使えるのか？",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     }
+                                 ]
+                },
+                {
+                    "id":  "%E4%B8%89%E8%A7%92%E9%96%A2%E6%95%B0%E3%81%AB%E3%82%88%E3%82%8B%E5%9B%9E%E8%BB%A2",
+                    "text":  "三角関数による回転",
+                    "level":  2,
+                    "children":  [
+                                     {
+                                         "id":  "%E5%8E%9F%E7%82%B9%E3%82%92%E8%BB%B8%E3%81%AB%E3%81%97%E3%81%9F%E5%9B%9E%E8%BB%A2",
+                                         "text":  "原点を軸にした回転",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E4%BB%BB%E6%84%8F%E3%81%AE%E7%82%B9%E3%82%92%E8%BB%B8%E3%81%AB%E3%81%97%E3%81%9F%E5%9B%9E%E8%BB%A2",
+                                         "text":  "任意の点を軸にした回転",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     }
+                                 ]
+                }
+            ]
+}

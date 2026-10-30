@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>式の作成</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<style>body{max-width:820px;margin:2em auto;padding:0 16px;font-family:sans-serif;line-height:1.8}
+img{max-width:100%}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:4px 8px}
+.header-anchor-link{display:none}</style>
+</head><body>
+<p><small>0.ゲーム数学入門（α版） / 12. 式の作成（Zenn から 2026-10-30 に保存。本文の最終更新 2024-05-23T16:08:53.919+09:00）</small></p>
+<h1>式の作成</h1>
+<h2 id="%E6%A6%82%E8%A6%81" data-line="0" class="code-line">
+<a class="header-anchor-link" href="#%E6%A6%82%E8%A6%81" aria-hidden="true"></a> 概要</h2>
+<p data-line="1" class="code-line">数式を数式のまま計算できるというだけでは、数学を学ぶ意味がありません。数学を学ぶ最大の目的は<embed-katex><eq class="zenn-katex">\textcolor{red}{現実に実際に存在する事象}</eq></embed-katex>を<embed-katex><eq class="zenn-katex">\textcolor{red}{数式に直して計算する}</eq></embed-katex>ということです。そうすることで現実に起こる出来事を予想したり、ゲームの中で現実の動きを再現したりする事が出来るようになります。<br>
+では、現実の出来事を見てそれをそのまま数式に直せるでしょうか？　直せることもありますが、大抵の場合は一旦<strong>言葉(文章)に直す</strong>という過程を必要とします。文章に直すことで、じっくり考えたり比較検討したりしながら数式に直していきます。<br>
+ですので、<strong>文章から数式を起こす</strong>という能力がゲーム作りでも必須になっています。</p>
+<h2 id="%E5%9F%BA%E6%9C%AC%E3%81%AE%E5%95%8F%E9%A1%8C" data-line="5" class="code-line">
+<a class="header-anchor-link" href="#%E5%9F%BA%E6%9C%AC%E3%81%AE%E5%95%8F%E9%A1%8C" aria-hidden="true"></a> 基本の問題</h2>
+<p data-line="6" class="code-line">では、以下の問を数式にしてみましょう。</p>
+<h3 id="%E5%95%8F" data-line="8" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F" aria-hidden="true"></a> 問</h3>
+<p data-line="9" class="code-line">太郎君はお小遣いを1000円持っており、駄菓子屋にお菓子を買いに行きました。100円のチョコレートを2個。50円のガムを3個買いました。太郎君のお小遣いはいくら残っているでしょうか。</p>
+<p data-line="11" class="code-line">上記の文章の結果を求めるだけなら簡単に出来ると思います。しかし、プログラムに実装できるような式に直すにはひと工夫が必要です。具体的な記号や数字を入れる前に、まずは単語で式を作っていきます。例としては以下です。</p>
+<section class="zenn-katex code-line" data-line="13"><eqn><embed-katex display-mode="1">
+(太郎君の残りのお小遣い) = (太郎君の元々のお小遣い) \\
+- (チョコレートの金額)×(チョコレートの個数)\\
+- (ガムの金額)×(ガムの個数)
+</embed-katex></eqn></section>
+<p data-line="19" class="code-line">ここを飛ばしがちですが、ここが大事です。ここをしっかりしていくことで、一体何が分かっていないのか、何が必要なのかが把握できます。しかし、このままでは式がとにかく長くなってしまうので記号に差し替えていきます。</p>
+<p data-line="21" class="code-line">(太郎君の残りのお小遣い):A<br>
+(太郎君の元々のお小遣い):B<br>
+(チョコレートの金額):C<br>
+(チョコレートの個数):D<br>
+(ガムの金額):E<br>
+(ガムの個数):F</p>
+<p data-line="28" class="code-line">とすると、</p>
+<section class="zenn-katex code-line" data-line="30"><eqn><embed-katex display-mode="1">
+A = B - C×D - E×F 
+</embed-katex></eqn></section>
+<p data-line="33" class="code-line">となります。一気に短くなりましたが、意味は分かりにくくなってしまいました。<br>
+分かりやすく調整してみます。</p>
+<section class="zenn-katex code-line" data-line="36"><eqn><embed-katex display-mode="1">
+\bf{残金 = 元金 - チョコ×チョコ個数 - ガム×ガム個数}
+</embed-katex></eqn></section>
+<p data-line="39" class="code-line">これくらいにしておくのが良いと思います。<br>
+どう表記するかは自由ですので、自分なりの分かりやすい形を模索してください。</p>
+<p data-line="42" class="code-line">一応、具体的な数値を入れて計算してみましょう。</p>
+<section class="zenn-katex code-line" data-line="44"><eqn><embed-katex display-mode="1">
+残金 = 1000 - 100×2 -50×3 = 650
+</embed-katex></eqn></section>
+<p data-line="48" class="code-line">このように考える手順を記述するのが数式です。<br>
+ここまで出来れば後はプログラムに直せば良いだけとなります。</p>
+<h2 id="%E5%89%B2%E5%90%88%E3%82%92%E5%90%AB%E3%82%80%E5%95%8F%E9%A1%8C" data-line="51" class="code-line">
+<a class="header-anchor-link" href="#%E5%89%B2%E5%90%88%E3%82%92%E5%90%AB%E3%82%80%E5%95%8F%E9%A1%8C" aria-hidden="true"></a> 割合を含む問題</h2>
+<p data-line="52" class="code-line">文字から数式を求める物として頻出なのが割合の計算です。<br>
+以下の問を数式にしてみましょう。</p>
+<h3 id="%E5%95%8F-1" data-line="55" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F-1" aria-hidden="true"></a> 問</h3>
+<p data-line="56" class="code-line">飲み会での会計でX円の支払いがあり、8人で割り勘すると一人当たりY円でした。店内での飲食代として、一人当たり定価で6400円ほどかかり、それとは別にお土産を買っており定価で総額12000円かかっています。店内の飲食代には10パーセントの税が、お土産代には8パーセントの税が掛かるとして、XとYを求めなさい。</p>
+<p data-line="58" class="code-line">上記の問題を考える際に注意すべきことは順序立てて式を考える事です。<br>
+一気に考えず、まずは店内飲食代とお土産代を分けて考えます。<br>
+店内飲食代をTen,お土産代をOmiとすると、</p>
+<section class="zenn-katex code-line" data-line="62"><eqn><embed-katex display-mode="1">
+Ten = 8*6400 *1.1\\
+Omi = 12000 * 1.08
+</embed-katex></eqn></section>
+<p data-line="66" class="code-line">XはTenとOmiの合計なので、</p>
+<section class="zenn-katex code-line" data-line="68"><eqn><embed-katex display-mode="1">
+X = Ten + Omi = 8*6400 *1.1 + 12000 * 1.08 = 69280
+</embed-katex></eqn></section>
+<p data-line="71" class="code-line">YはXを8で割ったものなので、</p>
+<section class="zenn-katex code-line" data-line="73"><eqn><embed-katex display-mode="1">
+Y = X / 8 = 69280 / 8 = 8660
+</embed-katex></eqn></section>
+<p data-line="76" class="code-line">となります。</p>
+<h2 id="%E3%82%B0%E3%83%A9%E3%83%95(%E5%9B%B3)%E3%81%8B%E3%82%89%E8%AA%AD%E3%81%BF%E5%8F%96%E3%82%8B%E5%95%8F%E9%A1%8C" data-line="78" class="code-line">
+<a class="header-anchor-link" href="#%E3%82%B0%E3%83%A9%E3%83%95(%E5%9B%B3)%E3%81%8B%E3%82%89%E8%AA%AD%E3%81%BF%E5%8F%96%E3%82%8B%E5%95%8F%E9%A1%8C" aria-hidden="true"></a> グラフ(図)から読み取る問題</h2>
+<p data-line="79" class="code-line">グラフを読み取って式に直す問題も必須です。<br>
+以下の問いを数式にしましょう。</p>
+<h3 id="%E5%95%8F-2" data-line="82" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F-2" aria-hidden="true"></a> 問</h3>
+<p data-line="83" class="code-line">下図はボスのHPと経験値の表である。HPと経験値の式を立てよ。<br>
+<img src="../images/32ec993fb536-20240412.png" alt="" class="md-img" loading="lazy"></p>
+<p data-line="86" class="code-line">まず、HPの方から考える。<br>
+HPは初期値は20であり、stageが上がるごとに4倍されていることが分かる。<br>
+stage数をnとすると、以下の式が立てられる。</p>
+<section class="zenn-katex code-line" data-line="90"><eqn><embed-katex display-mode="1">
+HP_1 = 20\\
+HP_n = 4*HP_{n-1} (n&gt;0)
+</embed-katex></eqn></section>
+<p data-line="94" class="code-line">次に経験値の方を考える。経験値はEXと表記する。<br>
+EXはstage1~stage2で300,stage2~stage3で500,stage3~stage4で700増加している。<br>
+これを見ると、増加量が200ずつ増加しているのが分かるので、<br>
+stage数をnとし、増加量をvolとすると以下の式が立てられる。</p>
+<section class="zenn-katex code-line" data-line="99"><eqn><embed-katex display-mode="1">
+EX_0 =　100\\
+vol_0 = 0\\
+vol_n = 300 + (n-1)*200 (n&gt;0)\\
+EX_n = EX_{n-1} + vol_{n-1}(n&gt;0)\\
+</embed-katex></eqn></section>
+<p data-line="106" class="code-line">上記は数列の考えも用いて出した式であるが、<br>
+プログラミングを考えるうえでは数列を用いた考え方は重要なので理解してほしい。</p>
+<h2 id="%E9%81%8B%E5%8B%95%E3%82%92%E8%A8%88%E7%AE%97%E3%81%99%E3%82%8B%E5%95%8F%E9%A1%8C" data-line="109" class="code-line">
+<a class="header-anchor-link" href="#%E9%81%8B%E5%8B%95%E3%82%92%E8%A8%88%E7%AE%97%E3%81%99%E3%82%8B%E5%95%8F%E9%A1%8C" aria-hidden="true"></a> 運動を計算する問題</h2>
+<p data-line="110" class="code-line">ゲームプログラミングにおいて運動の計算は必須です。<br>
+以下の問を数式にしてみましょう。</p>
+<h2 id="%E5%95%8F-3" data-line="113" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F-3" aria-hidden="true"></a> 問</h2>
+<p data-line="114" class="code-line">A地点からB地点に向かう運動を考える。田中さんはA地点からB地点に時速15kmで向かっている。佐藤さんはAからBに50m進んだ位置から時速8kmで進んでいる。木村さんは田中さんと佐藤さんから2秒遅れて時速30kmで進む。それぞれの運動の式を立てよ。また、木村さんが田中さんに追いつくのは何秒後か。</p>
+<p data-line="116" class="code-line">それぞれの式を立てると以下になる。<br>
+田中の現在地を<embed-katex><eq class="zenn-katex">X_t</eq></embed-katex>,佐藤の現在地を<embed-katex><eq class="zenn-katex">X_s</eq></embed-katex>,木村の現在地を<embed-katex><eq class="zenn-katex">X_k</eq></embed-katex>とする。<br>
+tを時間とする。</p>
+<section class="zenn-katex code-line" data-line="120"><eqn><embed-katex display-mode="1">
+(X_t,X_s,X_k &gt; 0)\\
+田中: X_t = 15t\\
+佐藤: X_s = 8t + 0.05\\
+木村: X_k = 30(t-\frac{2}{3600})
+</embed-katex></eqn></section>
+<p data-line="127" class="code-line">上記から、木村さんが田中さんに追いつく時間は<embed-katex><eq class="zenn-katex">X_t=X_k</eq></embed-katex>が成り立つ時なので、</p>
+<section class="zenn-katex code-line" data-line="129"><eqn><embed-katex display-mode="1">
+15t = 30(t-\frac{2}{3600})\\
+15t = \frac{60}{3600}\\
+15t = \frac{1}{60}\\
+t=\frac{1}{900}\\
+</embed-katex></eqn></section>
+<p data-line="136" class="code-line">tは時間[/h]なので、3600倍すると秒になる。<br>
+<embed-katex><eq class="zenn-katex">\frac{1}{900} *3600 = 4</eq></embed-katex><br>
+以上により、4秒後である。</p>
+
+<script>
+document.querySelectorAll("embed-katex").forEach(function (el) {
+  var display = el.hasAttribute("display-mode");
+  try { katex.render(el.textContent, el, { displayMode: display, throwOnError: false }); } catch (e) {}
+});
+</script>
+</body></html>

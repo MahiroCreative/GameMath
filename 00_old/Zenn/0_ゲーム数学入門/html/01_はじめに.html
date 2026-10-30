@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>はじめに</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<style>body{max-width:820px;margin:2em auto;padding:0 16px;font-family:sans-serif;line-height:1.8}
+img{max-width:100%}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:4px 8px}
+.header-anchor-link{display:none}</style>
+</head><body>
+<p><small>0.ゲーム数学入門（α版） / 1. はじめに（Zenn から 2026-10-30 に保存。本文の最終更新 2025-10-28T11:42:01.086+09:00）</small></p>
+<h1>はじめに</h1>
+<h2 id="%E6%A6%82%E8%A6%81" data-line="0" class="code-line">
+<a class="header-anchor-link" href="#%E6%A6%82%E8%A6%81" aria-hidden="true"></a> 概要</h2>
+<p data-line="1" class="code-line">ゲームに必要な数学を学び始める上で『必須の必須』レベルの知識をまとめました。<br>
+特に数学が苦手なまま専門学校に入学してしまった学生向けに作ってあります。<br>
+現在、新卒プログラマーに求められる数学のレベルは『理系大学初等終了レベル(+ゲーム数学)』程度まで上昇しています。が、入学してくる学生は中３レベルから曖昧な場合も多いです。現実問題としてそのレベルから丁寧にやり直す事は不可能なので、そのギャップを少しでも埋めるためにこれを作成します。</p>
+<h2 id="%E5%AF%BE%E8%B1%A1%E8%AA%AD%E8%80%85" data-line="5" class="code-line">
+<a class="header-anchor-link" href="#%E5%AF%BE%E8%B1%A1%E8%AA%AD%E8%80%85" aria-hidden="true"></a> 対象読者</h2>
+<p data-line="6" class="code-line">・高校レベルの必須知識をサラッと確認したい人<br>
+・数学が苦手なまま入学した人</p>
+<h2 id="%E6%95%B0%E5%AD%A6%E3%81%8C%E6%9C%AC%E5%BD%93%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E3%81%AE%E3%81%8B%EF%BC%9F" data-line="9" class="code-line">
+<a class="header-anchor-link" href="#%E6%95%B0%E5%AD%A6%E3%81%8C%E6%9C%AC%E5%BD%93%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E3%81%AE%E3%81%8B%EF%BC%9F" aria-hidden="true"></a> 数学が本当に必要なのか？</h2>
+<p data-line="10" class="code-line">必要です。入社後どころか、就活の段階で必須です。就活どころかゲームの作り方を学ぶ段階でも必要です。ゲームエンジンを使っても必要です。絶対に逃げられません。</p>
+<h3 id="%E5%BF%85%E8%A6%81%E3%81%AA%E5%A0%B4%E9%9D%A2%E4%B8%80%E8%A6%A7" data-line="12" class="code-line">
+<a class="header-anchor-link" href="#%E5%BF%85%E8%A6%81%E3%81%AA%E5%A0%B4%E9%9D%A2%E4%B8%80%E8%A6%A7" aria-hidden="true"></a> 必要な場面一覧</h3>
+<p data-line="13" class="code-line">・2Dアクションゲームを作るとき<br>
+・3Dゲーム全ての基礎を学ぶとき<br>
+・就活用の作品を作るとき<br>
+・就活でテストを受けるとき<br>
+・入社後の研修<br>
+・入社後の実務<br>
+・ベテランになった後の後輩教育</p>
+<p data-line="21" class="code-line">というようにゲームプログラマーを目指すなら、人生の殆どの場面で必要になります。</p>
+<h2 id="%E5%88%A9%E7%94%A8%E6%96%B9%E6%B3%95" data-line="23" class="code-line">
+<a class="header-anchor-link" href="#%E5%88%A9%E7%94%A8%E6%96%B9%E6%B3%95" aria-hidden="true"></a> 利用方法</h2>
+<h3 id="%E5%BF%85%E9%A0%88%E7%9F%A5%E8%AD%98%E3%82%92%E3%82%B5%E3%83%A9%E3%83%83%E3%81%A8%E7%A2%BA%E8%AA%8D%E3%81%97%E3%81%9F%E3%81%84%E4%BA%BA" data-line="24" class="code-line">
+<a class="header-anchor-link" href="#%E5%BF%85%E9%A0%88%E7%9F%A5%E8%AD%98%E3%82%92%E3%82%B5%E3%83%A9%E3%83%83%E3%81%A8%E7%A2%BA%E8%AA%8D%E3%81%97%E3%81%9F%E3%81%84%E4%BA%BA" aria-hidden="true"></a> 必須知識をサラッと確認したい人</h3>
+<p data-line="25" class="code-line">『高校までの知識にある程度自信がある』という人は、まずは1通りサラッと読み通して漏れがある部分を確認しましょう。その後に漏れの部分だけ埋めて、確認問題を1通り解いたら終わりにしてください。早い人で1~2時間、長くても1日(6時間)程度で終わる筈です。もし1日掛かっても終わらないなら、それは知識が不足している証拠です。『数学が苦手なまま入学した学生』と同様に本腰を入れて学習してください。</p>
+<h3 id="%E6%95%B0%E5%AD%A6%E3%81%8C%E8%8B%A6%E6%89%8B%E3%81%AA%E3%81%BE%E3%81%BE%E5%85%A5%E5%AD%A6%E3%81%97%E3%81%9F%E5%AD%A6%E7%94%9F" data-line="27" class="code-line">
+<a class="header-anchor-link" href="#%E6%95%B0%E5%AD%A6%E3%81%8C%E8%8B%A6%E6%89%8B%E3%81%AA%E3%81%BE%E3%81%BE%E5%85%A5%E5%AD%A6%E3%81%97%E3%81%9F%E5%AD%A6%E7%94%9F" aria-hidden="true"></a> 数学が苦手なまま入学した学生</h3>
+<p data-line="28" class="code-line">『覚悟を決めて努力する必要がある』という人です。まずは1通りサラッと読み通してください。このレベルの人はそれだけで辛いでしょうが、読むだけなら出来るはずです(内容を理解しろとは言ってませんし、問題も解かなくていいです)。我慢して読んでください(数時間~1日程度)。読み終わったあと『ちゃんと読めば理解できる』のか『ちゃんと読んでも理解出来ない』かを判断してください。<br>
+『ちゃんと読めば理解できる』となった人は最初から１つずつ理解して確認問題を解いていきましょう。最後までやったあと、全ての確認問題を解き直してください。目安時間で全部解けるのが理想ですが、時間が掛かっても良いので全ての問題が解けるようになってから次に進んでください。<br>
+『ちゃんと読んでも理解出来ない』となった人、もしくは『そもそも読まなかった(読むことが出来なかった)』人は数学の前に国語が出来ていない可能性が高いです。国語の勉強をやり直すほどの時間は無いと思いますので、友人等を上手く利用して理解できる環境を作る努力をしてください。理解する努力の前に、理解できる環境を作る努力が必要です。</p>
+<h2 id="%E5%85%8D%E8%B2%AC%E4%BA%8B%E9%A0%85" data-line="35" class="code-line">
+<a class="header-anchor-link" href="#%E5%85%8D%E8%B2%AC%E4%BA%8B%E9%A0%85" aria-hidden="true"></a> 免責事項</h2>
+<p data-line="36" class="code-line">・全体を通して『初学者のために丁寧に……』という記述はしていません。<br>
+・『一度は習った筈なのでこの程度で十分だろう』という書き方をしています。<br>
+・ゲームプログラマー教育として使用すること前提なので、単純な復習となっていない部分も存在します(当たり判定のアルゴリズムとかも入ってます)。<br>
+・理解しやすさを重視しており、数学的に正確ではない記述をしている部分があります。<br>
+・正しい知識のみを書く努力をしていますが、確認不足により間違っている場合も存在します。<br>
+・記述内容の間違いにより何らかの損害が発生しても当方は一切の責任を負いません。</p>
+
+<script>
+document.querySelectorAll("embed-katex").forEach(function (el) {
+  var display = el.hasAttribute("display-mode");
+  try { katex.render(el.textContent, el, { displayMode: display, throwOnError: false }); } catch (e) {}
+});
+</script>
+</body></html>

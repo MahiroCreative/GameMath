@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>物理基礎</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<style>body{max-width:820px;margin:2em auto;padding:0 16px;font-family:sans-serif;line-height:1.8}
+img{max-width:100%}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:4px 8px}
+.header-anchor-link{display:none}</style>
+</head><body>
+<p><small>0.ゲーム数学入門（α版） / 10. 物理基礎（Zenn から 2026-10-30 に保存。本文の最終更新 2025-07-10T14:45:29.181+09:00）</small></p>
+<h1>物理基礎</h1>
+<h2 id="%E6%A6%82%E8%A6%81" data-line="0" class="code-line">
+<a class="header-anchor-link" href="#%E6%A6%82%E8%A6%81" aria-hidden="true"></a> 概要</h2>
+<p data-line="1" class="code-line">ゲームにおけるプログラミングは『何らかの仮想空間の再現』と言っても過言ではありません。これは3Dのアクションゲームなどに限らず、極端な事を言ってしまえばノベルゲーム(紙芝居みたいなゲーム)のようなものでも『そういう法則の世界』を作っていると言えます。<br>
+昨今のゲーム業界は3Dゲームが主流であり、またどんなジャンルのゲームであっても何らかのアクション要素があるのが一般的です。ですので、現実の物理現象に近いものをゲーム空間上でも再現することの重要性は、増すというよりは『知っていて当たり前』というレベルにまで達しています。とはいえ、物理学で学ぶ物理現象の全般を知る必要はありません。大抵の場合は力学のみで事足ります。<br>
+ここではゲームに必要な力学の基礎の基礎、かつクリティカルに一番必要な『速度と加速度』の部分を学んでいきます。もちろんこれだけでは十分ではありませんが、これだけでも押さえていれば何をすれば良いのか分からず五里霧中になるということを防げます。<br>
+ゲーム作りの足がかりの一つとして、しっかりと抑えていきましょう。</p>
+<h2 id="%E5%B7%A5%E4%BA%8B%E4%B8%AD" data-line="6" class="code-line">
+<a class="header-anchor-link" href="#%E5%B7%A5%E4%BA%8B%E4%B8%AD" aria-hidden="true"></a> 工事中</h2>
+<p data-line="7" class="code-line">どう書くのか悩んでますので、一旦過去に書いた下記pdfリンクを貼ってお茶濁します。<br>
+やりたい内容はpdfと同じです。<br style="display:none">
+<span class="embed-block zenn-embedded zenn-embedded-github"><iframe id="zenn-embedded__b5de8a1c309e7" src="https://embed.zenn.studio/github#zenn-embedded__b5de8a1c309e7" data-content="https%3A%2F%2Fgithub.com%2FMahiroCreative%2FGameMath%2Fblob%2Fmain%2F%25E3%2582%25B2%25E3%2583%25BC%25E3%2583%25A0%25E7%2589%25A9%25E7%2590%2586%25E5%25AD%25A6%25E5%2585%25A5%25E9%2596%2580.pdf" frameborder="0" scrolling="no" loading="lazy"></iframe></span><a href="https://github.com/MahiroCreative/GameMath/blob/main/%E3%82%B2%E3%83%BC%E3%83%A0%E7%89%A9%E7%90%86%E5%AD%A6%E5%85%A5%E9%96%80.pdf" style="display:none" target="_blank" rel="nofollow noopener noreferrer">https://github.com/MahiroCreative/GameMath/blob/main/ゲーム物理学入門.pdf</a></p>
+<h2 id="%E5%86%85%E5%AE%B9%E3%81%BE%E3%81%A8%E3%82%81" data-line="11" class="code-line">
+<a class="header-anchor-link" href="#%E5%86%85%E5%AE%B9%E3%81%BE%E3%81%A8%E3%82%81" aria-hidden="true"></a> 内容まとめ</h2>
+<h3 id="%E6%AC%A1%E5%85%83(%EF%BE%83%EF%BE%9E%EF%BD%A8%EF%BE%92%EF%BE%9D%EF%BD%BC%EF%BD%AE%EF%BE%9D)" data-line="12" class="code-line">
+<a class="header-anchor-link" href="#%E6%AC%A1%E5%85%83(%EF%BE%83%EF%BE%9E%EF%BD%A8%EF%BE%92%EF%BE%9D%EF%BD%BC%EF%BD%AE%EF%BE%9D)" aria-hidden="true"></a> 次元(ﾃﾞｨﾒﾝｼｮﾝ)</h3>
+<p data-line="14" class="code-line">・<strong>距離(x:メートル):x[m]</strong>　：　メールと単位での距離[m]。<br>
+・<strong>時間(秒)(time:seconds):t[s]</strong>　：　秒単位での時間[s]。<br>
+・<strong>質量(mass:キログラム):m[kg]</strong>　：　kg単位での質量[kg]。<br>
+・<strong>速度(velocity):v[m/s]</strong>　：　進んだ距離[m]をかかった時間[s]で割る。<br>
+・<strong>加速度:a[m/s/s]</strong>　：　上昇した速度[m/s]をかかった時間[s]で割る。<br>
+・<strong>重力加速度:g[m/s/s]</strong>　：　物体が落下するときの加速度。常に一定(およそ9.8[m/s])。<br>
+・<strong>力F[N]</strong>　:　国際単位系での力の単位がN(ニュートン)。力は質量のある物体に加速度がかか<br>
+ることで生まれる(もしくは力は質量のある物体に加速度を生む)。[N]=[kg*m/s]。</p>
+<h3 id="%E6%B0%B4%E5%B9%B3%E6%96%B9%E5%90%91%E3%81%AE%E9%81%8B%E5%8B%95(%E7%AD%89%E9%80%9F%E5%BA%A6%E9%81%8B%E5%8B%95)" data-line="23" class="code-line">
+<a class="header-anchor-link" href="#%E6%B0%B4%E5%B9%B3%E6%96%B9%E5%90%91%E3%81%AE%E9%81%8B%E5%8B%95(%E7%AD%89%E9%80%9F%E5%BA%A6%E9%81%8B%E5%8B%95)" aria-hidden="true"></a> 水平方向の運動(等速度運動)</h3>
+<p data-line="24" class="code-line">初期位置:<embed-katex><eq class="zenn-katex">x_0[m]</eq></embed-katex></p>
+<section class="zenn-katex code-line" data-line="26"><eqn><embed-katex display-mode="1">
+x = x_0 + v_0t
+</embed-katex></eqn></section>
+<h3 id="%E6%B0%B4%E5%B9%B3%E6%96%B9%E5%90%91%E3%81%AE%E9%81%8B%E5%8B%95(%E7%AD%89%E5%8A%A0%E9%80%9F%E5%BA%A6%E9%81%8B%E5%8B%95)" data-line="30" class="code-line">
+<a class="header-anchor-link" href="#%E6%B0%B4%E5%B9%B3%E6%96%B9%E5%90%91%E3%81%AE%E9%81%8B%E5%8B%95(%E7%AD%89%E5%8A%A0%E9%80%9F%E5%BA%A6%E9%81%8B%E5%8B%95)" aria-hidden="true"></a> 水平方向の運動(等加速度運動)</h3>
+<p data-line="31" class="code-line">初期位置:<embed-katex><eq class="zenn-katex">x_0[m]</eq></embed-katex>,初速度:<embed-katex><eq class="zenn-katex">v_0[m/s]</eq></embed-katex></p>
+<section class="zenn-katex code-line" data-line="33"><eqn><embed-katex display-mode="1">
+x = x_0 + \frac{1}{2}at^2 + v_0t
+</embed-katex></eqn></section>
+<h3 id="%E8%90%BD%E4%BD%93%E3%81%AE%E9%81%8B%E5%8B%95" data-line="37" class="code-line">
+<a class="header-anchor-link" href="#%E8%90%BD%E4%BD%93%E3%81%AE%E9%81%8B%E5%8B%95" aria-hidden="true"></a> 落体の運動</h3>
+<p data-line="38" class="code-line">初期位置(高さ):<embed-katex><eq class="zenn-katex">y_0[m]</eq></embed-katex>,垂直方向の初速度:<embed-katex><eq class="zenn-katex">v_0[m/s]</eq></embed-katex></p>
+<section class="zenn-katex code-line" data-line="40"><eqn><embed-katex display-mode="1">
+y = y_0 + \frac{1}{2}gt^2 + v_0t
+</embed-katex></eqn></section>
+<h3 id="%E6%94%BE%E7%89%A9%E7%B7%9A%E3%81%AE%E9%81%8B%E5%8B%95" data-line="44" class="code-line">
+<a class="header-anchor-link" href="#%E6%94%BE%E7%89%A9%E7%B7%9A%E3%81%AE%E9%81%8B%E5%8B%95" aria-hidden="true"></a> 放物線の運動</h3>
+<p data-line="45" class="code-line">x初期位置:<embed-katex><eq class="zenn-katex">x_0[m]</eq></embed-katex>,y初期位置:<embed-katex><eq class="zenn-katex">y_0[m]</eq></embed-katex><br>
+水平方向の初速度:<embed-katex><eq class="zenn-katex">v_{x0}[m/s]</eq></embed-katex>,垂直方向の初速度:<embed-katex><eq class="zenn-katex">v_{y0}[m/s]</eq></embed-katex></p>
+<section class="zenn-katex code-line" data-line="48"><eqn><embed-katex display-mode="1">
+x = x_0 + \frac{1}{2}at^2 + v_{x0}t\\
+y = y_0 + \frac{1}{2}gt^2 + v_{y0}t
+</embed-katex></eqn></section>
+<h3 id="%E5%8A%9B" data-line="53" class="code-line">
+<a class="header-anchor-link" href="#%E5%8A%9B" aria-hidden="true"></a> 力</h3>
+<p data-line="54" class="code-line">力は加速度から生まれ、加速度は力から生まれる。</p>
+<section class="zenn-katex code-line" data-line="56"><eqn><embed-katex display-mode="1">
+F[N] = m[kg] * a[m/s] = ma[kg*m/s]
+</embed-katex></eqn></section>
+<p data-line="59" class="code-line">上記の式の意味は、m[kg]であり加速度a[m/s]で動いている物体はF[N]の力を持つということである。<br>
+つまり、m[kg]の物体にF[N]の力を加え続けると<embed-katex><eq class="zenn-katex">\frac{F}{m}[m/s]</eq></embed-katex>で加速する。</p>
+<h3 id="%E9%80%9F%E5%BA%A6%E3%81%A8%E5%8A%A0%E9%80%9F%E5%BA%A6%E3%81%A8%E5%8A%9B%E3%81%AE%E5%88%86%E8%A7%A3" data-line="62" class="code-line">
+<a class="header-anchor-link" href="#%E9%80%9F%E5%BA%A6%E3%81%A8%E5%8A%A0%E9%80%9F%E5%BA%A6%E3%81%A8%E5%8A%9B%E3%81%AE%E5%88%86%E8%A7%A3" aria-hidden="true"></a> 速度と加速度と力の分解</h3>
+<p data-line="63" class="code-line">速度と加速度と力は方向を持つ量です。つまりベクトルです。<br>
+なので分解ができます。<br>
+<img src="../images/c1b8faf5a5d2-20240619.jpg" alt="" class="md-img" loading="lazy"></p>
+<section class="zenn-katex code-line" data-line="67"><eqn><embed-katex display-mode="1">
+F_1 = F*sinθ\\
+F_2 = F*cosθ
+</embed-katex></eqn></section>
+<p data-line="72" class="code-line">上記は力での例ですが、速度と加速度も同様に分解できます。</p>
+<h3 id="%E5%8A%9B%E3%82%92%E7%94%A8%E3%81%84%E3%81%A6%E8%80%83%E3%81%88%E3%82%8B%E6%94%BE%E7%89%A9%E7%B7%9A%E9%81%8B%E5%8B%95" data-line="74" class="code-line">
+<a class="header-anchor-link" href="#%E5%8A%9B%E3%82%92%E7%94%A8%E3%81%84%E3%81%A6%E8%80%83%E3%81%88%E3%82%8B%E6%94%BE%E7%89%A9%E7%B7%9A%E9%81%8B%E5%8B%95" aria-hidden="true"></a> 力を用いて考える放物線運動</h3>
+<p data-line="75" class="code-line">質量:m[kg],重力加速度g[m/s/s]<br>
+初期位置:P(<embed-katex><eq class="zenn-katex">x_0</eq></embed-katex>,<embed-katex><eq class="zenn-katex">y_0</eq></embed-katex>)[m],力:F[N],力の角度:θ[rad]<br>
+初速度:V[m/s],速度の角度:θ[rad]<br>
+初期加速度は無いとする。</p>
+<p data-line="80" class="code-line">分解すると、</p>
+<section class="zenn-katex code-line" data-line="82"><eqn><embed-katex display-mode="1">
+F_x = Fcosθ\\
+F_y = Fsinθ\\
+V_x = Vcosθ\\
+V_y = Vsinθ
+</embed-katex></eqn></section>
+<p data-line="88" class="code-line">よって、</p>
+<section class="zenn-katex code-line" data-line="90"><eqn><embed-katex display-mode="1">
+a_x=\frac{Fcosθ}{m}\\
+a_y=g +\frac{Fsinθ}{m}\\
+(※垂直方向には重力加速度も掛かっている)
+</embed-katex></eqn></section>
+<p data-line="96" class="code-line">以上により、</p>
+<section class="zenn-katex code-line" data-line="98"><eqn><embed-katex display-mode="1">
+x = x_0 + \frac{1}{2}(\frac{Fcosθ}{m})t^2 + Vcosθ *t\\
+y = y_0 + \frac{1}{2}(g +\frac{Fsinθ}{m})t^2 + Vsinθ *t
+</embed-katex></eqn></section>
+<h3 id="%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E5%BC%8F" data-line="105" class="code-line">
+<a class="header-anchor-link" href="#%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E5%BC%8F" aria-hidden="true"></a> ベクトルを用いた式</h3>
+<p data-line="106" class="code-line">上記のように分解により全てスカラー値に直すとややこしい式になってしまう。<br>
+そのため、通常は全てベクトルのまま計算する。そうすると以下のようなシンプルな式で計算できる。</p>
+<p data-line="109" class="code-line">求める座標:P<br>
+初期座標：<embed-katex><eq class="zenn-katex">P_0</eq></embed-katex><br>
+加速度:A<br>
+初速度:<embed-katex><eq class="zenn-katex">V_0</eq></embed-katex></p>
+<section class="zenn-katex code-line" data-line="114"><eqn><embed-katex display-mode="1">
+P = P_0 + \frac{1}{2}At^2 + V_0t \\
+(※Pはx,y座標)
+</embed-katex></eqn></section>
+<p data-line="119" class="code-line">加速度を用いずに質量m[kg],力F[N]を用いたとすると、</p>
+<section class="zenn-katex code-line" data-line="121"><eqn><embed-katex display-mode="1">
+A = \frac{F}{m}
+</embed-katex></eqn></section>
+<p data-line="124" class="code-line">であるので、</p>
+<section class="zenn-katex code-line" data-line="126"><eqn><embed-katex display-mode="1">
+P = P_0 + \frac{1}{2}\frac{F}{m}t^2 + V_0t \\
+(※Pはx,y座標)
+</embed-katex></eqn></section>
+<p data-line="131" class="code-line">ベクトルについて詳しくはベクトルの章で解説する。</p>
+
+<script>
+document.querySelectorAll("embed-katex").forEach(function (el) {
+  var display = el.hasAttribute("display-mode");
+  try { katex.render(el.textContent, el, { displayMode: display, throwOnError: false }); } catch (e) {}
+});
+</script>
+</body></html>

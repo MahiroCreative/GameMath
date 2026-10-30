@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>基礎計算</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<style>body{max-width:820px;margin:2em auto;padding:0 16px;font-family:sans-serif;line-height:1.8}
+img{max-width:100%}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:4px 8px}
+.header-anchor-link{display:none}</style>
+</head><body>
+<p><small>0.ゲーム数学入門（α版） / 2. 基礎計算（Zenn から 2026-10-30 に保存。本文の最終更新 2025-07-11T10:03:44.986+09:00）</small></p>
+<h1>基礎計算</h1>
+<h2 id="%E6%A6%82%E8%A6%81" data-line="0" class="code-line">
+<a class="header-anchor-link" href="#%E6%A6%82%E8%A6%81" aria-hidden="true"></a> 概要</h2>
+<p data-line="1" class="code-line">基本中の基本。英語で言えば基礎単語を解説します。<br>
+ゲーム以前にどのような分野でも必ず必要になる内容です。</p>
+<h2 id="%E4%BA%94%E5%89%87%E6%BC%94%E7%AE%97(five-arithmetic-operations)" data-line="4" class="code-line">
+<a class="header-anchor-link" href="#%E4%BA%94%E5%89%87%E6%BC%94%E7%AE%97(five-arithmetic-operations)" aria-hidden="true"></a> 五則演算(Five arithmetic operations)</h2>
+<p data-line="5" class="code-line">加算・減算・乗算・除算・剰余　合わせて五則演算と呼称する。</p>
+<h3 id="%E5%8A%A0%E7%AE%97(add)" data-line="6" class="code-line">
+<a class="header-anchor-link" href="#%E5%8A%A0%E7%AE%97(add)" aria-hidden="true"></a> 加算(Add)</h3>
+<p data-line="7" class="code-line">足し算。+で表す。</p>
+<section class="zenn-katex code-line" data-line="9"><eqn><embed-katex display-mode="1">
+1+2=3,　2+3=5
+</embed-katex></eqn></section>
+<h3 id="%E6%B8%9B%E7%AE%97(sub)" data-line="12" class="code-line">
+<a class="header-anchor-link" href="#%E6%B8%9B%E7%AE%97(sub)" aria-hidden="true"></a> 減算(Sub)</h3>
+<p data-line="13" class="code-line">引き算。-で表す。</p>
+<section class="zenn-katex code-line" data-line="15"><eqn><embed-katex display-mode="1">
+2-1=1,　5-3=2
+</embed-katex></eqn></section>
+<h3 id="%E4%B9%97%E7%AE%97(mul)" data-line="18" class="code-line">
+<a class="header-anchor-link" href="#%E4%B9%97%E7%AE%97(mul)" aria-hidden="true"></a> 乗算(Mul)</h3>
+<p data-line="19" class="code-line">掛け算。*で表す。</p>
+<section class="zenn-katex code-line" data-line="21"><eqn><embed-katex display-mode="1">
+2*1=2,　5*3=15
+</embed-katex></eqn></section>
+<h3 id="%E9%99%A4%E7%AE%97(div)" data-line="24" class="code-line">
+<a class="header-anchor-link" href="#%E9%99%A4%E7%AE%97(div)" aria-hidden="true"></a> 除算(Div)</h3>
+<p data-line="25" class="code-line">割り算。/で表す。</p>
+<section class="zenn-katex code-line" data-line="27"><eqn><embed-katex display-mode="1">
+5/2=2,　10/3=3
+</embed-katex></eqn></section>
+<h3 id="%E5%89%B0%E4%BD%99(mod)" data-line="30" class="code-line">
+<a class="header-anchor-link" href="#%E5%89%B0%E4%BD%99(mod)" aria-hidden="true"></a> 剰余(Mod)</h3>
+<p data-line="31" class="code-line">余りの計算。%で表す。</p>
+<section class="zenn-katex code-line" data-line="33"><eqn><embed-katex display-mode="1">
+5 \verb|%| 2=1,　10 \verb|%| 3=1
+</embed-katex></eqn></section>
+<h2 id="%E4%B8%8D%E7%AD%89%E5%BC%8F%E3%83%BB%E7%B5%B6%E5%AF%BE%E5%80%A4%E3%83%BB%E7%B4%AF%E4%B9%97%E3%83%BB%E5%B9%B3%E6%96%B9%E6%A0%B9" data-line="36" class="code-line">
+<a class="header-anchor-link" href="#%E4%B8%8D%E7%AD%89%E5%BC%8F%E3%83%BB%E7%B5%B6%E5%AF%BE%E5%80%A4%E3%83%BB%E7%B4%AF%E4%B9%97%E3%83%BB%E5%B9%B3%E6%96%B9%E6%A0%B9" aria-hidden="true"></a> 不等式・絶対値・累乗・平方根</h2>
+<h3 id="%E4%B8%8D%E7%AD%89%E5%BC%8F" data-line="37" class="code-line">
+<a class="header-anchor-link" href="#%E4%B8%8D%E7%AD%89%E5%BC%8F" aria-hidden="true"></a> 不等式</h3>
+<p data-line="38" class="code-line">不等号（ふとうごう）を用いて、数量の大小関係を表した式を言う。</p>
+<h4 id="%3E-%E5%B7%A6%E8%BE%BA%E3%81%8C%E5%8F%B3%E8%BE%BA%E3%82%88%E3%82%8A%E3%82%82%E5%A4%A7%E3%81%8D%E3%81%84%E3%80%82" data-line="39" class="code-line">
+<a class="header-anchor-link" href="#%3E-%E5%B7%A6%E8%BE%BA%E3%81%8C%E5%8F%B3%E8%BE%BA%E3%82%88%E3%82%8A%E3%82%82%E5%A4%A7%E3%81%8D%E3%81%84%E3%80%82" aria-hidden="true"></a> &gt; 　左辺が右辺よりも大きい。</h4>
+<section class="zenn-katex code-line" data-line="41"><eqn><embed-katex display-mode="1">
+5 &gt; 2,　10 &gt; 3
+</embed-katex></eqn></section>
+<h4 id="%3C-%E5%B7%A6%E8%BE%BA%E3%81%8C%E5%8F%B3%E8%BE%BA%E3%82%88%E3%82%8A%E3%82%82%E5%B0%8F%E3%81%95%E3%81%84%E3%80%82" data-line="44" class="code-line">
+<a class="header-anchor-link" href="#%3C-%E5%B7%A6%E8%BE%BA%E3%81%8C%E5%8F%B3%E8%BE%BA%E3%82%88%E3%82%8A%E3%82%82%E5%B0%8F%E3%81%95%E3%81%84%E3%80%82" aria-hidden="true"></a> &lt;　左辺が右辺よりも小さい。</h4>
+<section class="zenn-katex code-line" data-line="46"><eqn><embed-katex display-mode="1">
+2 &lt; 5,　3 &lt; 10
+</embed-katex></eqn></section>
+<h4 id="%E2%89%A7-%E5%B7%A6%E8%BE%BA%E3%81%8C%E5%8F%B3%E8%BE%BA%E4%BB%A5%E4%B8%8A%E3%80%82" data-line="49" class="code-line">
+<a class="header-anchor-link" href="#%E2%89%A7-%E5%B7%A6%E8%BE%BA%E3%81%8C%E5%8F%B3%E8%BE%BA%E4%BB%A5%E4%B8%8A%E3%80%82" aria-hidden="true"></a> ≧　左辺が右辺以上。</h4>
+<section class="zenn-katex code-line" data-line="51"><eqn><embed-katex display-mode="1">
+5 ≧ 2,　10 ≧ 3,　5≧5
+</embed-katex></eqn></section>
+<h4 id="%E2%89%A6-%E5%B7%A6%E8%BE%BA%E3%81%8C%E5%8F%B3%E8%BE%BA%E4%BB%A5%E4%B8%8B%E3%80%82" data-line="54" class="code-line">
+<a class="header-anchor-link" href="#%E2%89%A6-%E5%B7%A6%E8%BE%BA%E3%81%8C%E5%8F%B3%E8%BE%BA%E4%BB%A5%E4%B8%8B%E3%80%82" aria-hidden="true"></a> ≦　左辺が右辺以下。</h4>
+<section class="zenn-katex code-line" data-line="56"><eqn><embed-katex display-mode="1">
+2 ≦ 5,　3 ≦ 10,　5≦5
+</embed-katex></eqn></section>
+<h3 id="%E7%B5%B6%E5%AF%BE%E5%80%A4" data-line="59" class="code-line">
+<a class="header-anchor-link" href="#%E7%B5%B6%E5%AF%BE%E5%80%A4" aria-hidden="true"></a> 絶対値</h3>
+<p data-line="60" class="code-line">『0 からどれだけ離れているか』を表す値(『大きさ』という表現をされる事も多い)</p>
+<section class="zenn-katex code-line" data-line="62"><eqn><embed-katex display-mode="1">
+|6| = 6, |-6| = 6 
+</embed-katex></eqn></section>
+<h3 id="%E7%B4%AF%E4%B9%97" data-line="65" class="code-line">
+<a class="header-anchor-link" href="#%E7%B4%AF%E4%B9%97" aria-hidden="true"></a> 累乗</h3>
+<p data-line="66" class="code-line">同じ数をいくつかかけ合わせたもの。<br>
+(ただし、<embed-katex><eq class="zenn-katex">n^0=1</eq></embed-katex>)</p>
+<section class="zenn-katex code-line" data-line="69"><eqn><embed-katex display-mode="1">
+1^2 = 1,　2^2 = 4,　2^3 = 8,　3^4 = 81,　7^0=1
+</embed-katex></eqn></section>
+<h3 id="%E5%B9%B3%E6%96%B9%E6%A0%B9" data-line="72" class="code-line">
+<a class="header-anchor-link" href="#%E5%B9%B3%E6%96%B9%E6%A0%B9" aria-hidden="true"></a> 平方根</h3>
+<p data-line="73" class="code-line">2乗すると、ある数Xになる数字。</p>
+<section class="zenn-katex code-line" data-line="75"><eqn><embed-katex display-mode="1">
+(\sqrt{X})^2 = X\\ 
+\sqrt{1} = 1,　\sqrt{4} = 2,　\sqrt{8} = 2\sqrt{2},　\sqrt{81} = 9
+</embed-katex></eqn></section>
+<h2 id="%E7%B4%AF%E4%B9%97%E3%81%A8%E7%B4%AF%E4%B9%97%E6%A0%B9%E3%83%BB%E7%B4%AF%E4%B9%97%E3%81%A8%E7%B4%AF%E4%B9%97%E6%A0%B9%E3%81%AE%E8%A8%88%E7%AE%97" data-line="79" class="code-line">
+<a class="header-anchor-link" href="#%E7%B4%AF%E4%B9%97%E3%81%A8%E7%B4%AF%E4%B9%97%E6%A0%B9%E3%83%BB%E7%B4%AF%E4%B9%97%E3%81%A8%E7%B4%AF%E4%B9%97%E6%A0%B9%E3%81%AE%E8%A8%88%E7%AE%97" aria-hidden="true"></a> 累乗と累乗根・累乗と累乗根の計算</h2>
+<h3 id="%E7%B4%AF%E4%B9%97%E3%81%A8%E7%B4%AF%E4%B9%97%E6%A0%B9" data-line="80" class="code-line">
+<a class="header-anchor-link" href="#%E7%B4%AF%E4%B9%97%E3%81%A8%E7%B4%AF%E4%B9%97%E6%A0%B9" aria-hidden="true"></a> 累乗と累乗根</h3>
+<p data-line="81" class="code-line">累乗根とは、累乗と平方根を拡張したものであり、n乗してaになる数の総称である。<br>
+例えば、<embed-katex><eq class="zenn-katex">\sqrt[a]{X}</eq></embed-katex>はa乗するとXとなる数と定義されているので、</p>
+<section class="zenn-katex code-line" data-line="84"><eqn><embed-katex display-mode="1">
+(\sqrt[a]{X})^a = X
+</embed-katex></eqn></section>
+<p data-line="88" class="code-line">また、<embed-katex><eq class="zenn-katex">\sqrt[a]{X}</eq></embed-katex>は以下のようにも表記できる。</p>
+<section class="zenn-katex code-line" data-line="90"><eqn><embed-katex display-mode="1">
+X^\frac{1}{a}
+</embed-katex></eqn></section>
+<p data-line="94" class="code-line">よって、<embed-katex><eq class="zenn-katex">X^\frac{1}{a}=\sqrt[a]{X}</eq></embed-katex>であるので、以下が成り立つ。</p>
+<section class="zenn-katex code-line" data-line="96"><eqn><embed-katex display-mode="1">
+(X^\frac{1}{a})^a = X
+</embed-katex></eqn></section>
+<p data-line="100" class="code-line">さらに、累乗には<embed-katex><eq class="zenn-katex">\frac{1}{X^a}</eq></embed-katex>を表す記述方法があり、<br>
+以下のように記述する。</p>
+<section class="zenn-katex code-line" data-line="103"><eqn><embed-katex display-mode="1">
+X^{-a} = \frac{1}{X^a}
+</embed-katex></eqn></section>
+<h3 id="%E7%B4%AF%E4%B9%97%E6%A0%B9%E3%81%AE%E8%A8%88%E7%AE%97" data-line="107" class="code-line">
+<a class="header-anchor-link" href="#%E7%B4%AF%E4%B9%97%E6%A0%B9%E3%81%AE%E8%A8%88%E7%AE%97" aria-hidden="true"></a> 累乗根の計算</h3>
+<p data-line="108" class="code-line">累乗と累乗根の定義より、以下が成り立つ。</p>
+<section class="zenn-katex code-line" data-line="110"><eqn><embed-katex display-mode="1">
+X^\frac{1}{a} = \sqrt[a]{X}\\
+X^a * X^b = X^{a+b}\\
+(X^a)^b = X^{ab}
+</embed-katex></eqn></section>
+<p data-line="116" class="code-line">よって、以下のような計算が出来る。</p>
+<section class="zenn-katex code-line" data-line="118"><eqn><embed-katex display-mode="1">
+2^\frac{1}{2} * 2^3 = 2^\frac{7}{2} = 2^3 * \sqrt{2} = 8\sqrt{2}\\
+2^\frac{1}{2} * 2^{-3} = 2^{-\frac{5}{2}} = 2^{-2} * 2^{-\frac{1}{2}}
+= \frac{1}{2^2} * \frac{1}{\sqrt{2}} = \frac{1}{4\sqrt{2}}\\
+(2^\frac{1}{2})^2 = 2^{\frac{1}{2}*2} = 2^1 = 2\\ 
+(2^\frac{1}{2})^{-2} = 2^{-1} = \frac{1}{2}\\ 
+</embed-katex></eqn></section>
+<h1 id="%E5%AE%9A%E7%9D%80%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88" data-line="126" class="code-line">
+<a class="header-anchor-link" href="#%E5%AE%9A%E7%9D%80%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88" aria-hidden="true"></a> 定着プリント</h1>
+<h1 id="%E6%BC%94%E7%BF%92%E5%95%8F%E9%A1%8C" data-line="128" class="code-line">
+<a class="header-anchor-link" href="#%E6%BC%94%E7%BF%92%E5%95%8F%E9%A1%8C" aria-hidden="true"></a> 演習問題</h1>
+<p data-line="129" class="code-line">問題：<br style="display:none">
+<span class="embed-block zenn-embedded zenn-embedded-github"><iframe id="zenn-embedded__5b4ca7535b68a" src="https://embed.zenn.studio/github#zenn-embedded__5b4ca7535b68a" data-content="https%3A%2F%2Fgithub.com%2FMahiroCreative%2FGameMath%2Fblob%2Fmain%2F1.%25E5%259F%25BA%25E7%25A4%258E%25E8%25A8%2588%25E7%25AE%2597%2F%25E6%25BC%2594%25E7%25BF%2592%25E5%2595%258F%25E9%25A1%258C_1_%25E5%259F%25BA%25E7%25A4%258E%25E8%25A8%2588%25E7%25AE%2597.pdf" frameborder="0" scrolling="no" loading="lazy"></iframe></span><a href="https://github.com/MahiroCreative/GameMath/blob/main/1.%E5%9F%BA%E7%A4%8E%E8%A8%88%E7%AE%97/%E6%BC%94%E7%BF%92%E5%95%8F%E9%A1%8C_1_%E5%9F%BA%E7%A4%8E%E8%A8%88%E7%AE%97.pdf" style="display:none" target="_blank" rel="nofollow noopener noreferrer">https://github.com/MahiroCreative/GameMath/blob/main/1.基礎計算/演習問題_1_基礎計算.pdf</a><br style="display:none">
+解答：</p>
+
+<script>
+document.querySelectorAll("embed-katex").forEach(function (el) {
+  var display = el.hasAttribute("display-mode");
+  try { katex.render(el.textContent, el, { displayMode: display, throwOnError: false }); } catch (e) {}
+});
+</script>
+</body></html>

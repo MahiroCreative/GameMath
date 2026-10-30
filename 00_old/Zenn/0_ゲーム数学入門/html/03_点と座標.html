@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>点と座標</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<style>body{max-width:820px;margin:2em auto;padding:0 16px;font-family:sans-serif;line-height:1.8}
+img{max-width:100%}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:4px 8px}
+.header-anchor-link{display:none}</style>
+</head><body>
+<p><small>0.ゲーム数学入門（α版） / 3. 点と座標（Zenn から 2026-10-30 に保存。本文の最終更新 2025-07-11T12:03:34.741+09:00）</small></p>
+<h1>点と座標</h1>
+<h2 id="%E6%A6%82%E8%A6%81" data-line="0" class="code-line">
+<a class="header-anchor-link" href="#%E6%A6%82%E8%A6%81" aria-hidden="true"></a> 概要</h2>
+<p data-line="1" class="code-line">点と座標の関係や2点間の距離などについて学びます。物体の運動などを考える際には必ず必要になるので、ゲーム制作においては<embed-katex><eq class="zenn-katex">\textcolor{red}{プログラマどころかプランナーでも必須}</eq></embed-katex>です。『誰でも作れる』と謳っている汎用ゲームエンジンでもここが分かっていない人は想定していないので、絶対に理解してください。</p>
+<h2 id="%E7%82%B9%E3%81%AE%E5%BA%A7%E6%A8%99" data-line="3" class="code-line">
+<a class="header-anchor-link" href="#%E7%82%B9%E3%81%AE%E5%BA%A7%E6%A8%99" aria-hidden="true"></a> 点の座標</h2>
+<p data-line="4" class="code-line">点の位置を示す値である。具体的には(1,2)のような物を言い、ある点を基準にそこからどれだけ離れているかを示している。その際の基準となる点を<embed-katex><eq class="zenn-katex">\textcolor{red}{原点}</eq></embed-katex>などと呼ぶ。<br>
+<img src="../images/12c52cc47d6b-20231130.png" alt="" class="md-img" loading="lazy"><br>
+上記において、点の座標を(x座標,y座標)とすると、</p>
+<section class="zenn-katex code-line" data-line="8"><eqn><embed-katex display-mode="1">
+A(2,1),　B(1,-2),　C(-2,2)
+</embed-katex></eqn></section>
+<p data-line="11" class="code-line">と表せる。<br>
+座標を示す値の数字部分を成分と言い、<br>
+上記の場合で言えば(◯,)の部分をx成分、(,◯)の部分をy成分と呼ぶ。</p>
+<h2 id="%E4%B8%AD%E7%82%B9" data-line="14" class="code-line">
+<a class="header-anchor-link" href="#%E4%B8%AD%E7%82%B9" aria-hidden="true"></a> 中点</h2>
+<p data-line="15" class="code-line">複数の点が存在する際に、その中心を知ることは重要である。ゲームにおいて、物体を表現するにはその物体を形成する頂点同士を繋いで表現するが、その際にどこがその物体の中心かが分からなければ描くことが出来ない。一般的なゲームおいては、必ず計算するどころか1秒間に50回以上(最新のゲームだと100回以上)求めている事になる。<br>
+<img src="../images/0c6cd5e90450-20231201.jpg" alt="" class="md-img" loading="lazy"></p>
+<h3 id="2%E7%82%B9%E9%96%93%E3%81%AE%E4%B8%AD%E7%82%B9" data-line="18" class="code-line">
+<a class="header-anchor-link" href="#2%E7%82%B9%E9%96%93%E3%81%AE%E4%B8%AD%E7%82%B9" aria-hidden="true"></a> 2点間の中点</h3>
+<p data-line="19" class="code-line">2点間の中点ということは、ある点とある点の真ん中の点ということである。であるので、A点とB点の中点をCすると、A点とB点のそれぞれの成分を足して2で割ったものが中点である。</p>
+<section class="zenn-katex code-line" data-line="21"><eqn><embed-katex display-mode="1">
+A(2,1)とB(1,-2)の中点　=C(\frac{2+1}{2},\frac{1-2}{2})　=C(\frac{3}{2},-\frac{1}{2})
+</embed-katex></eqn></section>
+<p data-line="24" class="code-line"><img src="../images/77f65a07fdb1-20231201.jpg" alt="" class="md-img" loading="lazy"></p>
+<h3 id="3%E7%82%B9%E9%96%93%E3%81%AE%E4%B8%AD%E7%82%B9" data-line="25" class="code-line">
+<a class="header-anchor-link" href="#3%E7%82%B9%E9%96%93%E3%81%AE%E4%B8%AD%E7%82%B9" aria-hidden="true"></a> 3点間の中点</h3>
+<p data-line="26" class="code-line">3点間の中点も考え方は同じで、3点のそれぞれの成分を足して3で割ったものである。</p>
+<section class="zenn-katex code-line" data-line="28"><eqn><embed-katex display-mode="1">
+A(2,1)とB(1,-2)とC(-2,2)の中点　= D(\frac{2+1-2}{3},\frac{1-2+2}{3}) =　D(\frac{1}{3},\frac{1}{3})
+</embed-katex></eqn></section>
+<p data-line="31" class="code-line"><img src="../images/c4a9a0b0f1e1-20231201.jpg" alt="" class="md-img" loading="lazy"></p>
+<h3 id="n%E7%82%B9%E9%96%93%E3%81%AE%E4%B8%AD%E7%82%B9" data-line="33" class="code-line">
+<a class="header-anchor-link" href="#n%E7%82%B9%E9%96%93%E3%81%AE%E4%B8%AD%E7%82%B9" aria-hidden="true"></a> n点間の中点</h3>
+<p data-line="34" class="code-line">ゲームでは頂点は無数に存在するので、n点間(任意の数の点間)の中点を求める必要がある。<br>
+n点間であっても考え方は基本的に同じであり、全ての点の座標を足してnで割れば良い。<br>
+下記は例として、4点間の中点を出している。</p>
+<section class="zenn-katex code-line" data-line="38"><eqn><embed-katex display-mode="1">
+A(2,1)とB(1,-2)とC(-2,2)とD(-4,-2)の中点\\
+= E(\frac{2+1-2-4}{4},\frac{2+1-2-4}{4})
+= E(-\frac{3}{4},-\frac{1}{4})
+</embed-katex></eqn></section>
+<p data-line="43" class="code-line"><img src="../images/9132c96cf90a-20231201.jpg" alt="" class="md-img" loading="lazy"></p>
+<h2 id="%E7%82%B9%E3%81%A8%E7%82%B9%E3%81%AE%E8%B7%9D%E9%9B%A2" data-line="45" class="code-line">
+<a class="header-anchor-link" href="#%E7%82%B9%E3%81%A8%E7%82%B9%E3%81%AE%E8%B7%9D%E9%9B%A2" aria-hidden="true"></a> 点と点の距離</h2>
+<p data-line="46" class="code-line">物体の運動を考える際に２点間の距離はたびたび必要になるが、逆を言えば２点間の距離さえ分かればそこを基礎として非常に多くの物理運動を再現できるようになる。物体の運動を考える上では九九のような内容であり、常識として脊髄反射で分かるようになって欲しい。<br>
+<img src="../images/776ba36d802a-20231204.jpg" alt="" class="md-img" loading="lazy"></p>
+<h3 id="%E3%83%94%E3%82%BF%E3%82%B4%E3%83%A9%E3%82%B9%E3%81%AE%E5%AE%9A%E7%90%86(%E4%B8%89%E5%B9%B3%E6%96%B9%E3%81%AE%E5%AE%9A%E7%90%86)" data-line="49" class="code-line">
+<a class="header-anchor-link" href="#%E3%83%94%E3%82%BF%E3%82%B4%E3%83%A9%E3%82%B9%E3%81%AE%E5%AE%9A%E7%90%86(%E4%B8%89%E5%B9%B3%E6%96%B9%E3%81%AE%E5%AE%9A%E7%90%86)" aria-hidden="true"></a> ピタゴラスの定理(三平方の定理)</h3>
+<p data-line="50" class="code-line">おそらく『三平方の定理』という名前で習ったと思うが、一般的には『ピタゴラスの定理』と呼ばれる事が多いのでそのように記述する。<br>
+<img src="../images/b7a81d4bf89b-20231201.png" alt="" class="md-img" loading="lazy"><br>
+簡単に言ってしまうと上記であり、<br>
+これは、三角形の角度の一つが90度のとき</p>
+<section class="zenn-katex code-line" data-line="55"><eqn><embed-katex display-mode="1">
+(斜辺:角90度の向かいの辺の長さ)^2 = (残りの辺A)^2 + (残りの辺B)^2
+</embed-katex></eqn></section>
+<p data-line="58" class="code-line">が成り立つ。<br>
+つまり<embed-katex><eq class="zenn-katex">\textcolor{red}{『直角三角形の2辺が分かれば、残りの1辺を求められる』}</eq></embed-katex>という定理になる。</p>
+<h3 id="2%E7%82%B9%E9%96%93%E3%81%AE%E8%B7%9D%E9%9B%A2" data-line="61" class="code-line">
+<a class="header-anchor-link" href="#2%E7%82%B9%E9%96%93%E3%81%AE%E8%B7%9D%E9%9B%A2" aria-hidden="true"></a> 2点間の距離</h3>
+<p data-line="62" class="code-line">ピタゴラスの定理を用いることによって、2点間の距離を求める事が出来る。</p>
+<h4 id="2%E7%82%B9%E9%96%93%E3%81%AB%E3%81%AF%E7%9B%B4%E8%A7%92%E4%B8%89%E8%A7%92%E5%BD%A2%E3%81%8C%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B" data-line="63" class="code-line">
+<a class="header-anchor-link" href="#2%E7%82%B9%E9%96%93%E3%81%AB%E3%81%AF%E7%9B%B4%E8%A7%92%E4%B8%89%E8%A7%92%E5%BD%A2%E3%81%8C%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B" aria-hidden="true"></a> 2点間には直角三角形が存在する</h4>
+<p data-line="64" class="code-line">下図のように、2点間には必ず直角三角形が存在する。<br>
+<img src="../images/9e34353b9c28-20231201.jpg" alt="" class="md-img" loading="lazy"><br>
+ここで、<br>
+辺aの長さは2点の<embed-katex><eq class="zenn-katex">\textcolor{red}{x成分の引き算の絶対値}</eq></embed-katex><br>
+辺bの長さは2点の<embed-katex><eq class="zenn-katex">\textcolor{red}{y成分の引き算の絶対値}</eq></embed-katex><br>
+で求められるので、</p>
+<section class="zenn-katex code-line" data-line="71"><eqn><embed-katex display-mode="1">
+a = \textcolor{red}{|(点Aのx成分) - (点Bのx成分)|}\\
+= |1 - 8|=|-7|=7\\
+b = \textcolor{red}{|(点Aのy成分) - (点Bのy成分)|}\\
+= |3 - 6|=|-3|=3
+</embed-katex></eqn></section>
+<p data-line="77" class="code-line">ピタゴラスの定理により、</p>
+<section class="zenn-katex code-line" data-line="79"><eqn><embed-katex display-mode="1">
+c^2 = a^2 + b^2  \\
+c^2 = 7^2 + 3^2\\
+c^2 = 49 + 9 = 58\\
+c = \sqrt{58}
+</embed-katex></eqn></section>
+<p data-line="85" class="code-line">となり、2点間の距離が求まる。</p>
+<h4 id="2%E7%82%B9%E9%96%93%E3%81%AE%E8%B7%9D%E9%9B%A2%E3%81%AE%E5%85%AC%E5%BC%8F" data-line="87" class="code-line">
+<a class="header-anchor-link" href="#2%E7%82%B9%E9%96%93%E3%81%AE%E8%B7%9D%E9%9B%A2%E3%81%AE%E5%85%AC%E5%BC%8F" aria-hidden="true"></a> 2点間の距離の公式</h4>
+<p data-line="88" class="code-line">まとめると、2点間の距離は以下で求まる。<br>
+2点間の距離をL,　2点をA(Ax,Ay) B(Bx,By)とすると、</p>
+<section class="zenn-katex code-line" data-line="91"><eqn><embed-katex display-mode="1">
+L = \bf{\sqrt{(Ax-Bx)^2+(Ay-By)^2}}
+</embed-katex></eqn></section>
+<h2 id="2%E7%82%B9%E9%96%93%E3%81%AE%E7%A7%BB%E5%8B%95" data-line="95" class="code-line">
+<a class="header-anchor-link" href="#2%E7%82%B9%E9%96%93%E3%81%AE%E7%A7%BB%E5%8B%95" aria-hidden="true"></a> 2点間の移動</h2>
+<p data-line="96" class="code-line">決められた時間をかけて2点間の移動をする運動を考える。</p>
+<h3 id="%E7%9B%B8%E5%AF%BE%E4%BD%8D%E7%BD%AE" data-line="97" class="code-line">
+<a class="header-anchor-link" href="#%E7%9B%B8%E5%AF%BE%E4%BD%8D%E7%BD%AE" aria-hidden="true"></a> 相対位置</h3>
+<p data-line="98" class="code-line">2点間の移動を考える際には、相対位置という考え方が重要になる。<br>
+相対位置とは<embed-katex><eq class="zenn-katex">\textcolor{red}{『自分から見て相手がどの位置にいるか』}</eq></embed-katex>である。</p>
+<p data-line="101" class="code-line"><img src="../images/aeef2d5cab25-20231204.jpg" alt="" class="md-img" loading="lazy"></p>
+<p data-line="103" class="code-line">上記で言えば、</p>
+<section class="zenn-katex code-line" data-line="105"><eqn><embed-katex display-mode="1">
+・点Aから見て点Bは　x方向に6,　y方向に3　の位置\\
+・点Bから見て点Aは　x方向に-6,　y方向に-3　の位置
+</embed-katex></eqn></section>
+<p data-line="109" class="code-line">となる。x方向、y方向ごとに</p>
+<section class="zenn-katex code-line" data-line="111"><eqn><embed-katex display-mode="1">
+(目標の座標)　-　(基準点の座標)
+</embed-katex></eqn></section>
+<p data-line="115" class="code-line">で求まる。</p>
+<p data-line="117" class="code-line">相対位置はある点からある点への移動を考える際に必ず必要なるので、抑えておいて欲しい。</p>
+<h3 id="a%E7%82%B9%E3%81%8B%E3%82%89b%E7%82%B9%E3%81%B8%E3%81%AE%E7%A7%BB%E5%8B%95" data-line="119" class="code-line">
+<a class="header-anchor-link" href="#a%E7%82%B9%E3%81%8B%E3%82%89b%E7%82%B9%E3%81%B8%E3%81%AE%E7%A7%BB%E5%8B%95" aria-hidden="true"></a> A点からB点への移動</h3>
+<p data-line="120" class="code-line">A点からB点へ任意の時間で動く運動を考える。n秒での移動を考える際は以下の手順で行う。</p>
+<p data-line="122" class="code-line">・A点から見たB点のx方向の相対位置とy方向の相対位置を出す。<br>
+・それぞれをnで割ることで、1秒間あたりの移動方向を出す。</p>
+<p data-line="125" class="code-line">となる。<br>
+例として、A(1,4),B(-4,6)でありAB間を2秒で移動する運動を考えると、</p>
+<section class="zenn-katex code-line" data-line="128"><eqn><embed-katex display-mode="1">
+\\
+x方向の相対位置　= (-4-1) = -5\\
+y方向の相対位置　= (6-4) = 2\\
+</embed-katex></eqn></section>
+<p data-line="133" class="code-line">であるので、</p>
+<section class="zenn-katex code-line" data-line="135"><eqn><embed-katex display-mode="1">
+1秒毎に、\\
+x方向に-5/2 ,　y方向に1　移動する運動である。
+</embed-katex></eqn></section>
+<p data-line="140" class="code-line">という形で求める。</p>
+<h2 id="%E5%86%86%E3%81%AE%E5%BD%93%E3%81%9F%E3%82%8A%E5%88%A4%E5%AE%9A" data-line="142" class="code-line">
+<a class="header-anchor-link" href="#%E5%86%86%E3%81%AE%E5%BD%93%E3%81%9F%E3%82%8A%E5%88%A4%E5%AE%9A" aria-hidden="true"></a> 円の当たり判定</h2>
+<p data-line="143" class="code-line">ピタゴラスの定理(三平方の定理)を利用することで、当たり判定としては最も基礎となる<embed-katex><eq class="zenn-katex">\textcolor{red}{『円の当たり判定』}</eq></embed-katex>を作ることができる。</p>
+<h3 id="%E7%89%A9%E4%BD%93%E3%81%AE%E4%B8%AD%E5%BF%83%E3%81%8B%E3%82%89%E5%86%86%E3%82%92%E4%BD%9C%E6%88%90" data-line="145" class="code-line">
+<a class="header-anchor-link" href="#%E7%89%A9%E4%BD%93%E3%81%AE%E4%B8%AD%E5%BF%83%E3%81%8B%E3%82%89%E5%86%86%E3%82%92%E4%BD%9C%E6%88%90" aria-hidden="true"></a> 物体の中心から円を作成</h3>
+<p data-line="146" class="code-line">当たり判定を作りたい物体の中心点を決め、そこから円を作成。<br>
+<img src="../images/1db9f59fb391-20231206.jpg" alt="" class="md-img" loading="lazy"><br>
+作成した円と円が接触したとき、当たったと分かれば良い。<br>
+<img src="../images/866db2d28645-20231206.jpg" alt="" class="md-img" loading="lazy"><br>
+つまり、上記の状態の時が当たっているので</p>
+<section class="zenn-katex code-line" data-line="152"><eqn><embed-katex display-mode="1">
+\textcolor{red}{『中心から中心までの距離』 ≦ 2r}
+</embed-katex></eqn></section>
+<p data-line="155" class="code-line">となっていれば２つの物体は当たっていると言える。<br>
+一般化すれば、<br>
+<img src="../images/acaa7eb9aea4-20231206.jpg" alt="" class="md-img" loading="lazy"></p>
+<section class="zenn-katex code-line" data-line="159"><eqn><embed-katex display-mode="1">
+\textcolor{red}{『中心から中心までの距離』 ≦ r+R}
+</embed-katex></eqn></section>
+<h3 id="%E5%95%8F1%3A%E5%86%86%E3%81%AE%E5%BD%93%E3%81%9F%E3%82%8A%E5%88%A4%E5%AE%9A%E3%81%AE%E5%85%B7%E4%BD%93%E4%BE%8B1" data-line="162" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F1%3A%E5%86%86%E3%81%AE%E5%BD%93%E3%81%9F%E3%82%8A%E5%88%A4%E5%AE%9A%E3%81%AE%E5%85%B7%E4%BD%93%E4%BE%8B1" aria-hidden="true"></a> 問1:円の当たり判定の具体例1</h3>
+<p data-line="163" class="code-line">物体A：半径2 中心(1,2),　物体B：半径3 中心(4,3)とする。<br>
+問1.物体ABは当たってるか？<br>
+問2.もし当たっていたらどれだけ離れれば当たらなくなるか？</p>
+<h4 id="%E5%95%8F1" data-line="166" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F1" aria-hidden="true"></a> 問1</h4>
+<p data-line="167" class="code-line">ピタゴラスの定理より、</p>
+<section class="zenn-katex code-line" data-line="169"><eqn><embed-katex display-mode="1">
+(中心から中心までの距離)^2= (4-1)^2+(3-2)^2=9+1=10\\
+(中心から中心までの距離) = \sqrt{10}
+</embed-katex></eqn></section>
+<p data-line="173" class="code-line">これが、『半径＋半径以下』ならば当たっているので</p>
+<section class="zenn-katex code-line" data-line="175"><eqn><embed-katex display-mode="1">
+\sqrt{10}≦5  \Leftrightarrow \sqrt{10}≦\sqrt{25}
+</embed-katex></eqn></section>
+<p data-line="178" class="code-line">ABは当たっている。</p>
+<h4 id="%E5%95%8F2" data-line="179" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F2" aria-hidden="true"></a> 問2</h4>
+<p data-line="180" class="code-line">ABがどれだけ離れたかをdとすると</p>
+<section class="zenn-katex code-line" data-line="182"><eqn><embed-katex display-mode="1">
+『中心から中心までの距離』+ d &gt; 『半径の合計』
+</embed-katex></eqn></section>
+<p data-line="185" class="code-line">になれば良いので、</p>
+<section class="zenn-katex code-line" data-line="187"><eqn><embed-katex display-mode="1">
+\sqrt{10}+ d &gt; 5\\
+d &gt; 5-\sqrt{10}
+</embed-katex></eqn></section>
+<p data-line="191" class="code-line">よって、<embed-katex><eq class="zenn-katex">5-\sqrt{10}</eq></embed-katex>より離れれば良い。</p>
+<h3 id="%E5%95%8F2%3A%E5%86%86%E3%81%AE%E5%BD%93%E3%81%9F%E3%82%8A%E5%88%A4%E5%AE%9A%E3%81%AE%E4%B8%80%E8%88%AC%E5%8C%96" data-line="193" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F2%3A%E5%86%86%E3%81%AE%E5%BD%93%E3%81%9F%E3%82%8A%E5%88%A4%E5%AE%9A%E3%81%AE%E4%B8%80%E8%88%AC%E5%8C%96" aria-hidden="true"></a> 問2:円の当たり判定の一般化</h3>
+<p data-line="194" class="code-line">物体A：半径r 中心(a,b),　物体B：半径R 中心(c,d)とする。<br>
+ピタゴラスの定理より、</p>
+<section class="zenn-katex code-line" data-line="197"><eqn><embed-katex display-mode="1">
+『中心から中心までの距離』 ≦ r+R
+</embed-katex></eqn></section>
+<p data-line="200" class="code-line">が成り立ち、</p>
+<section class="zenn-katex code-line" data-line="202"><eqn><embed-katex display-mode="1">
+『中心から中心までの距離』 = \sqrt{(c-a)^2 + (d-a)^2}
+</embed-katex></eqn></section>
+<p data-line="205" class="code-line">となるので、以下が成り立つ。</p>
+<section class="zenn-katex code-line" data-line="207"><eqn><embed-katex display-mode="1">
+\textcolor{red}{(c-a)^2 + (d-a)^2 ≦ (r+R)^2}
+</embed-katex></eqn></section>
+<p data-line="210" class="code-line">これが衝突条件であり、<br>
+プログラム上ではもっぱらこの計算を毎フレーム行って衝突を確認する。</p>
+<h1 id="%E5%AE%9A%E7%9D%80%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88" data-line="213" class="code-line">
+<a class="header-anchor-link" href="#%E5%AE%9A%E7%9D%80%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88" aria-hidden="true"></a> 定着プリント</h1>
+<h1 id="%E6%BC%94%E7%BF%92%E5%95%8F%E9%A1%8C" data-line="215" class="code-line">
+<a class="header-anchor-link" href="#%E6%BC%94%E7%BF%92%E5%95%8F%E9%A1%8C" aria-hidden="true"></a> 演習問題</h1>
+<p data-line="216" class="code-line"><span class="embed-block zenn-embedded zenn-embedded-github"><iframe id="zenn-embedded__dead6fec11eb3" src="https://embed.zenn.studio/github#zenn-embedded__dead6fec11eb3" data-content="https%3A%2F%2Fgithub.com%2FMahiroCreative%2FGameMath%2Fblob%2Fmain%2F2.%25E7%2582%25B9%25E3%2581%25A8%25E5%25BA%25A7%25E6%25A8%2599%2F%25E6%25BC%2594%25E7%25BF%2592%25E5%2595%258F%25E9%25A1%258C_2_%25E7%2582%25B9%25E3%2581%25A8%25E5%25BA%25A7%25E6%25A8%2599.pdf" frameborder="0" scrolling="no" loading="lazy"></iframe></span><a href="https://github.com/MahiroCreative/GameMath/blob/main/2.%E7%82%B9%E3%81%A8%E5%BA%A7%E6%A8%99/%E6%BC%94%E7%BF%92%E5%95%8F%E9%A1%8C_2_%E7%82%B9%E3%81%A8%E5%BA%A7%E6%A8%99.pdf" style="display:none" target="_blank" rel="nofollow noopener noreferrer">https://github.com/MahiroCreative/GameMath/blob/main/2.点と座標/演習問題_2_点と座標.pdf</a></p>
+
+<script>
+document.querySelectorAll("embed-katex").forEach(function (el) {
+  var display = el.hasAttribute("display-mode");
+  try { katex.render(el.textContent, el, { displayMode: display, throwOnError: false }); } catch (e) {}
+});
+</script>
+</body></html>

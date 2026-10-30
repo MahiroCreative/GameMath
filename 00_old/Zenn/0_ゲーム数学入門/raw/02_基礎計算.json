@@ -1,0 +1,149 @@
+﻿{
+    "id":  56910,
+    "post_type":  "Chapter",
+    "is_free":  false,
+    "slug":  "8b00ba",
+    "body_letters_count":  1838,
+    "source_repo_updated_at":  null,
+    "body_updated_at":  "2025-07-11T10:03:44.986+09:00",
+    "filename":  null,
+    "position":  2,
+    "path":  "/mahiro3033/books/e0fd5a3313118a/viewer/8b00ba",
+    "title":  "基礎計算",
+    "body_html":  "\u003ch2 id=\"%E6%A6%82%E8%A6%81\" data-line=\"0\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%A6%82%E8%A6%81\" aria-hidden=\"true\"\u003e\u003c/a\u003e 概要\u003c/h2\u003e\n\u003cp data-line=\"1\" class=\"code-line\"\u003e基本中の基本。英語で言えば基礎単語を解説します。\u003cbr\u003e\nゲーム以前にどのような分野でも必ず必要になる内容です。\u003c/p\u003e\n\u003ch2 id=\"%E4%BA%94%E5%89%87%E6%BC%94%E7%AE%97(five-arithmetic-operations)\" data-line=\"4\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E4%BA%94%E5%89%87%E6%BC%94%E7%AE%97(five-arithmetic-operations)\" aria-hidden=\"true\"\u003e\u003c/a\u003e 五則演算(Five arithmetic operations)\u003c/h2\u003e\n\u003cp data-line=\"5\" class=\"code-line\"\u003e加算・減算・乗算・除算・剰余　合わせて五則演算と呼称する。\u003c/p\u003e\n\u003ch3 id=\"%E5%8A%A0%E7%AE%97(add)\" data-line=\"6\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%8A%A0%E7%AE%97(add)\" aria-hidden=\"true\"\u003e\u003c/a\u003e 加算(Add)\u003c/h3\u003e\n\u003cp data-line=\"7\" class=\"code-line\"\u003e足し算。+で表す。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"9\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n1+2=3,　2+3=5\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch3 id=\"%E6%B8%9B%E7%AE%97(sub)\" data-line=\"12\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%B8%9B%E7%AE%97(sub)\" aria-hidden=\"true\"\u003e\u003c/a\u003e 減算(Sub)\u003c/h3\u003e\n\u003cp data-line=\"13\" class=\"code-line\"\u003e引き算。-で表す。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"15\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n2-1=1,　5-3=2\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch3 id=\"%E4%B9%97%E7%AE%97(mul)\" data-line=\"18\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E4%B9%97%E7%AE%97(mul)\" aria-hidden=\"true\"\u003e\u003c/a\u003e 乗算(Mul)\u003c/h3\u003e\n\u003cp data-line=\"19\" class=\"code-line\"\u003e掛け算。*で表す。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"21\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n2*1=2,　5*3=15\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch3 id=\"%E9%99%A4%E7%AE%97(div)\" data-line=\"24\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E9%99%A4%E7%AE%97(div)\" aria-hidden=\"true\"\u003e\u003c/a\u003e 除算(Div)\u003c/h3\u003e\n\u003cp data-line=\"25\" class=\"code-line\"\u003e割り算。/で表す。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"27\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n5/2=2,　10/3=3\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch3 id=\"%E5%89%B0%E4%BD%99(mod)\" data-line=\"30\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%89%B0%E4%BD%99(mod)\" aria-hidden=\"true\"\u003e\u003c/a\u003e 剰余(Mod)\u003c/h3\u003e\n\u003cp data-line=\"31\" class=\"code-line\"\u003e余りの計算。%で表す。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"33\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n5 \\verb|%| 2=1,　10 \\verb|%| 3=1\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch2 id=\"%E4%B8%8D%E7%AD%89%E5%BC%8F%E3%83%BB%E7%B5%B6%E5%AF%BE%E5%80%A4%E3%83%BB%E7%B4%AF%E4%B9%97%E3%83%BB%E5%B9%B3%E6%96%B9%E6%A0%B9\" data-line=\"36\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E4%B8%8D%E7%AD%89%E5%BC%8F%E3%83%BB%E7%B5%B6%E5%AF%BE%E5%80%A4%E3%83%BB%E7%B4%AF%E4%B9%97%E3%83%BB%E5%B9%B3%E6%96%B9%E6%A0%B9\" aria-hidden=\"true\"\u003e\u003c/a\u003e 不等式・絶対値・累乗・平方根\u003c/h2\u003e\n\u003ch3 id=\"%E4%B8%8D%E7%AD%89%E5%BC%8F\" data-line=\"37\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E4%B8%8D%E7%AD%89%E5%BC%8F\" aria-hidden=\"true\"\u003e\u003c/a\u003e 不等式\u003c/h3\u003e\n\u003cp data-line=\"38\" class=\"code-line\"\u003e不等号（ふとうごう）を用いて、数量の大小関係を表した式を言う。\u003c/p\u003e\n\u003ch4 id=\"%3E-%E5%B7%A6%E8%BE%BA%E3%81%8C%E5%8F%B3%E8%BE%BA%E3%82%88%E3%82%8A%E3%82%82%E5%A4%A7%E3%81%8D%E3%81%84%E3%80%82\" data-line=\"39\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%3E-%E5%B7%A6%E8%BE%BA%E3%81%8C%E5%8F%B3%E8%BE%BA%E3%82%88%E3%82%8A%E3%82%82%E5%A4%A7%E3%81%8D%E3%81%84%E3%80%82\" aria-hidden=\"true\"\u003e\u003c/a\u003e \u0026gt; 　左辺が右辺よりも大きい。\u003c/h4\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"41\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n5 \u0026gt; 2,　10 \u0026gt; 3\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch4 id=\"%3C-%E5%B7%A6%E8%BE%BA%E3%81%8C%E5%8F%B3%E8%BE%BA%E3%82%88%E3%82%8A%E3%82%82%E5%B0%8F%E3%81%95%E3%81%84%E3%80%82\" data-line=\"44\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%3C-%E5%B7%A6%E8%BE%BA%E3%81%8C%E5%8F%B3%E8%BE%BA%E3%82%88%E3%82%8A%E3%82%82%E5%B0%8F%E3%81%95%E3%81%84%E3%80%82\" aria-hidden=\"true\"\u003e\u003c/a\u003e \u0026lt;　左辺が右辺よりも小さい。\u003c/h4\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"46\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n2 \u0026lt; 5,　3 \u0026lt; 10\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch4 id=\"%E2%89%A7-%E5%B7%A6%E8%BE%BA%E3%81%8C%E5%8F%B3%E8%BE%BA%E4%BB%A5%E4%B8%8A%E3%80%82\" data-line=\"49\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E2%89%A7-%E5%B7%A6%E8%BE%BA%E3%81%8C%E5%8F%B3%E8%BE%BA%E4%BB%A5%E4%B8%8A%E3%80%82\" aria-hidden=\"true\"\u003e\u003c/a\u003e ≧　左辺が右辺以上。\u003c/h4\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"51\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n5 ≧ 2,　10 ≧ 3,　5≧5\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch4 id=\"%E2%89%A6-%E5%B7%A6%E8%BE%BA%E3%81%8C%E5%8F%B3%E8%BE%BA%E4%BB%A5%E4%B8%8B%E3%80%82\" data-line=\"54\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E2%89%A6-%E5%B7%A6%E8%BE%BA%E3%81%8C%E5%8F%B3%E8%BE%BA%E4%BB%A5%E4%B8%8B%E3%80%82\" aria-hidden=\"true\"\u003e\u003c/a\u003e ≦　左辺が右辺以下。\u003c/h4\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"56\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n2 ≦ 5,　3 ≦ 10,　5≦5\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch3 id=\"%E7%B5%B6%E5%AF%BE%E5%80%A4\" data-line=\"59\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E7%B5%B6%E5%AF%BE%E5%80%A4\" aria-hidden=\"true\"\u003e\u003c/a\u003e 絶対値\u003c/h3\u003e\n\u003cp data-line=\"60\" class=\"code-line\"\u003e『0 からどれだけ離れているか』を表す値(『大きさ』という表現をされる事も多い)\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"62\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n|6| = 6, |-6| = 6 \n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch3 id=\"%E7%B4%AF%E4%B9%97\" data-line=\"65\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E7%B4%AF%E4%B9%97\" aria-hidden=\"true\"\u003e\u003c/a\u003e 累乗\u003c/h3\u003e\n\u003cp data-line=\"66\" class=\"code-line\"\u003e同じ数をいくつかかけ合わせたもの。\u003cbr\u003e\n(ただし、\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003en^0=1\u003c/eq\u003e\u003c/embed-katex\u003e)\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"69\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n1^2 = 1,　2^2 = 4,　2^3 = 8,　3^4 = 81,　7^0=1\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch3 id=\"%E5%B9%B3%E6%96%B9%E6%A0%B9\" data-line=\"72\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%B9%B3%E6%96%B9%E6%A0%B9\" aria-hidden=\"true\"\u003e\u003c/a\u003e 平方根\u003c/h3\u003e\n\u003cp data-line=\"73\" class=\"code-line\"\u003e2乗すると、ある数Xになる数字。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"75\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n(\\sqrt{X})^2 = X\\\\ \n\\sqrt{1} = 1,　\\sqrt{4} = 2,　\\sqrt{8} = 2\\sqrt{2},　\\sqrt{81} = 9\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch2 id=\"%E7%B4%AF%E4%B9%97%E3%81%A8%E7%B4%AF%E4%B9%97%E6%A0%B9%E3%83%BB%E7%B4%AF%E4%B9%97%E3%81%A8%E7%B4%AF%E4%B9%97%E6%A0%B9%E3%81%AE%E8%A8%88%E7%AE%97\" data-line=\"79\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E7%B4%AF%E4%B9%97%E3%81%A8%E7%B4%AF%E4%B9%97%E6%A0%B9%E3%83%BB%E7%B4%AF%E4%B9%97%E3%81%A8%E7%B4%AF%E4%B9%97%E6%A0%B9%E3%81%AE%E8%A8%88%E7%AE%97\" aria-hidden=\"true\"\u003e\u003c/a\u003e 累乗と累乗根・累乗と累乗根の計算\u003c/h2\u003e\n\u003ch3 id=\"%E7%B4%AF%E4%B9%97%E3%81%A8%E7%B4%AF%E4%B9%97%E6%A0%B9\" data-line=\"80\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E7%B4%AF%E4%B9%97%E3%81%A8%E7%B4%AF%E4%B9%97%E6%A0%B9\" aria-hidden=\"true\"\u003e\u003c/a\u003e 累乗と累乗根\u003c/h3\u003e\n\u003cp data-line=\"81\" class=\"code-line\"\u003e累乗根とは、累乗と平方根を拡張したものであり、n乗してaになる数の総称である。\u003cbr\u003e\n例えば、\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\sqrt[a]{X}\u003c/eq\u003e\u003c/embed-katex\u003eはa乗するとXとなる数と定義されているので、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"84\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n(\\sqrt[a]{X})^a = X\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"88\" class=\"code-line\"\u003eまた、\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\sqrt[a]{X}\u003c/eq\u003e\u003c/embed-katex\u003eは以下のようにも表記できる。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"90\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nX^\\frac{1}{a}\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"94\" class=\"code-line\"\u003eよって、\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003eX^\\frac{1}{a}=\\sqrt[a]{X}\u003c/eq\u003e\u003c/embed-katex\u003eであるので、以下が成り立つ。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"96\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n(X^\\frac{1}{a})^a = X\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"100\" class=\"code-line\"\u003eさらに、累乗には\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\frac{1}{X^a}\u003c/eq\u003e\u003c/embed-katex\u003eを表す記述方法があり、\u003cbr\u003e\n以下のように記述する。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"103\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nX^{-a} = \\frac{1}{X^a}\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch3 id=\"%E7%B4%AF%E4%B9%97%E6%A0%B9%E3%81%AE%E8%A8%88%E7%AE%97\" data-line=\"107\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E7%B4%AF%E4%B9%97%E6%A0%B9%E3%81%AE%E8%A8%88%E7%AE%97\" aria-hidden=\"true\"\u003e\u003c/a\u003e 累乗根の計算\u003c/h3\u003e\n\u003cp data-line=\"108\" class=\"code-line\"\u003e累乗と累乗根の定義より、以下が成り立つ。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"110\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nX^\\frac{1}{a} = \\sqrt[a]{X}\\\\\nX^a * X^b = X^{a+b}\\\\\n(X^a)^b = X^{ab}\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"116\" class=\"code-line\"\u003eよって、以下のような計算が出来る。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"118\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n2^\\frac{1}{2} * 2^3 = 2^\\frac{7}{2} = 2^3 * \\sqrt{2} = 8\\sqrt{2}\\\\\n2^\\frac{1}{2} * 2^{-3} = 2^{-\\frac{5}{2}} = 2^{-2} * 2^{-\\frac{1}{2}}\n= \\frac{1}{2^2} * \\frac{1}{\\sqrt{2}} = \\frac{1}{4\\sqrt{2}}\\\\\n(2^\\frac{1}{2})^2 = 2^{\\frac{1}{2}*2} = 2^1 = 2\\\\ \n(2^\\frac{1}{2})^{-2} = 2^{-1} = \\frac{1}{2}\\\\ \n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch1 id=\"%E5%AE%9A%E7%9D%80%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88\" data-line=\"126\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%AE%9A%E7%9D%80%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88\" aria-hidden=\"true\"\u003e\u003c/a\u003e 定着プリント\u003c/h1\u003e\n\u003ch1 id=\"%E6%BC%94%E7%BF%92%E5%95%8F%E9%A1%8C\" data-line=\"128\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%BC%94%E7%BF%92%E5%95%8F%E9%A1%8C\" aria-hidden=\"true\"\u003e\u003c/a\u003e 演習問題\u003c/h1\u003e\n\u003cp data-line=\"129\" class=\"code-line\"\u003e問題：\u003cbr style=\"display:none\"\u003e\n\u003cspan class=\"embed-block zenn-embedded zenn-embedded-github\"\u003e\u003ciframe id=\"zenn-embedded__5b4ca7535b68a\" src=\"https://embed.zenn.studio/github#zenn-embedded__5b4ca7535b68a\" data-content=\"https%3A%2F%2Fgithub.com%2FMahiroCreative%2FGameMath%2Fblob%2Fmain%2F1.%25E5%259F%25BA%25E7%25A4%258E%25E8%25A8%2588%25E7%25AE%2597%2F%25E6%25BC%2594%25E7%25BF%2592%25E5%2595%258F%25E9%25A1%258C_1_%25E5%259F%25BA%25E7%25A4%258E%25E8%25A8%2588%25E7%25AE%2597.pdf\" frameborder=\"0\" scrolling=\"no\" loading=\"lazy\"\u003e\u003c/iframe\u003e\u003c/span\u003e\u003ca href=\"https://github.com/MahiroCreative/GameMath/blob/main/1.%E5%9F%BA%E7%A4%8E%E8%A8%88%E7%AE%97/%E6%BC%94%E7%BF%92%E5%95%8F%E9%A1%8C_1_%E5%9F%BA%E7%A4%8E%E8%A8%88%E7%AE%97.pdf\" style=\"display:none\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"\u003ehttps://github.com/MahiroCreative/GameMath/blob/main/1.基礎計算/演習問題_1_基礎計算.pdf\u003c/a\u003e\u003cbr style=\"display:none\"\u003e\n解答：\u003c/p\u003e\n",
+    "toc":  [
+                {
+                    "id":  "%E6%A6%82%E8%A6%81",
+                    "text":  "概要",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E4%BA%94%E5%89%87%E6%BC%94%E7%AE%97(five-arithmetic-operations)",
+                    "text":  "五則演算(Five arithmetic operations)",
+                    "level":  2,
+                    "children":  [
+                                     {
+                                         "id":  "%E5%8A%A0%E7%AE%97(add)",
+                                         "text":  "加算(Add)",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E6%B8%9B%E7%AE%97(sub)",
+                                         "text":  "減算(Sub)",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E4%B9%97%E7%AE%97(mul)",
+                                         "text":  "乗算(Mul)",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E9%99%A4%E7%AE%97(div)",
+                                         "text":  "除算(Div)",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E5%89%B0%E4%BD%99(mod)",
+                                         "text":  "剰余(Mod)",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     }
+                                 ]
+                },
+                {
+                    "id":  "%E4%B8%8D%E7%AD%89%E5%BC%8F%E3%83%BB%E7%B5%B6%E5%AF%BE%E5%80%A4%E3%83%BB%E7%B4%AF%E4%B9%97%E3%83%BB%E5%B9%B3%E6%96%B9%E6%A0%B9",
+                    "text":  "不等式・絶対値・累乗・平方根",
+                    "level":  2,
+                    "children":  [
+                                     {
+                                         "id":  "%E4%B8%8D%E7%AD%89%E5%BC%8F",
+                                         "text":  "不等式",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E7%B5%B6%E5%AF%BE%E5%80%A4",
+                                         "text":  "絶対値",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E7%B4%AF%E4%B9%97",
+                                         "text":  "累乗",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E5%B9%B3%E6%96%B9%E6%A0%B9",
+                                         "text":  "平方根",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     }
+                                 ]
+                },
+                {
+                    "id":  "%E7%B4%AF%E4%B9%97%E3%81%A8%E7%B4%AF%E4%B9%97%E6%A0%B9%E3%83%BB%E7%B4%AF%E4%B9%97%E3%81%A8%E7%B4%AF%E4%B9%97%E6%A0%B9%E3%81%AE%E8%A8%88%E7%AE%97",
+                    "text":  "累乗と累乗根・累乗と累乗根の計算",
+                    "level":  2,
+                    "children":  [
+                                     {
+                                         "id":  "%E7%B4%AF%E4%B9%97%E3%81%A8%E7%B4%AF%E4%B9%97%E6%A0%B9",
+                                         "text":  "累乗と累乗根",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E7%B4%AF%E4%B9%97%E6%A0%B9%E3%81%AE%E8%A8%88%E7%AE%97",
+                                         "text":  "累乗根の計算",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     }
+                                 ]
+                },
+                {
+                    "id":  "%E5%AE%9A%E7%9D%80%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88",
+                    "text":  "定着プリント",
+                    "level":  1,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E6%BC%94%E7%BF%92%E5%95%8F%E9%A1%8C",
+                    "text":  "演習問題",
+                    "level":  1,
+                    "children":  [
+
+                                 ]
+                }
+            ]
+}

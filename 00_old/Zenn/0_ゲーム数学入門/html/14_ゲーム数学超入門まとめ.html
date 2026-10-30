@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ゲーム数学超入門まとめ</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<style>body{max-width:820px;margin:2em auto;padding:0 16px;font-family:sans-serif;line-height:1.8}
+img{max-width:100%}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:4px 8px}
+.header-anchor-link{display:none}</style>
+</head><body>
+<p><small>0.ゲーム数学入門（α版） / 14. ゲーム数学超入門まとめ（Zenn から 2026-10-30 に保存。本文の最終更新 2025-07-10T14:40:14.381+09:00）</small></p>
+<h1>ゲーム数学超入門まとめ</h1>
+<h1 id="%E5%85%A8%E4%BD%93%E3%81%BE%E3%81%A8%E3%82%81" data-line="0" class="code-line">
+<a class="header-anchor-link" href="#%E5%85%A8%E4%BD%93%E3%81%BE%E3%81%A8%E3%82%81" aria-hidden="true"></a> 全体まとめ</h1>
+<h2 id="%E5%9F%BA%E7%A4%8E%E8%A8%88%E7%AE%97" data-line="1" class="code-line">
+<a class="header-anchor-link" href="#%E5%9F%BA%E7%A4%8E%E8%A8%88%E7%AE%97" aria-hidden="true"></a> 基礎計算</h2>
+<h3 id="%E7%B4%AF%E4%B9%97%E6%A0%B9%E3%81%AE%E8%A8%88%E7%AE%97" data-line="2" class="code-line">
+<a class="header-anchor-link" href="#%E7%B4%AF%E4%B9%97%E6%A0%B9%E3%81%AE%E8%A8%88%E7%AE%97" aria-hidden="true"></a> 累乗根の計算</h3>
+<section class="zenn-katex code-line" data-line="3"><eqn><embed-katex display-mode="1">
+(\sqrt{X})^2 = X\\ 
+(\sqrt[a]{X})^a = X\\
+ \sqrt[a]{X} = X^\frac{1}{a}\\
+X^{-a} = \frac{1}{X^a}\\
+X^a * X^b = X^{a+b}\\
+(X^a)^b = X^{ab}
+</embed-katex></eqn></section>
+<h2 id="%E7%82%B9%E3%81%A8%E5%BA%A7%E6%A8%99" data-line="12" class="code-line">
+<a class="header-anchor-link" href="#%E7%82%B9%E3%81%A8%E5%BA%A7%E6%A8%99" aria-hidden="true"></a> 点と座標</h2>
+<h3 id="%E4%B8%AD%E7%82%B9%E3%81%AE%E5%BA%A7%E6%A8%99" data-line="13" class="code-line">
+<a class="header-anchor-link" href="#%E4%B8%AD%E7%82%B9%E3%81%AE%E5%BA%A7%E6%A8%99" aria-hidden="true"></a> 中点の座標</h3>
+<p data-line="14" class="code-line">A(2,1)とB(1,-2)の中点</p>
+<section class="zenn-katex code-line" data-line="16"><eqn><embed-katex display-mode="1">
+C(\frac{2+1}{2},\frac{1-2}{2})　=C(\frac{3}{2},-\frac{1}{2})
+</embed-katex></eqn></section>
+<p data-line="19" class="code-line"><img src="../images/77f65a07fdb1-20231201.jpg" alt="" class="md-img" loading="lazy"></p>
+<h3 id="n%E7%82%B9%E9%96%93%E3%81%AE%E4%B8%AD%E7%82%B9" data-line="21" class="code-line">
+<a class="header-anchor-link" href="#n%E7%82%B9%E9%96%93%E3%81%AE%E4%B8%AD%E7%82%B9" aria-hidden="true"></a> n点間の中点</h3>
+<p data-line="22" class="code-line">A(2,1)とB(1,-2)とC(-2,2)とD(-4,-2)の中点</p>
+<section class="zenn-katex code-line" data-line="24"><eqn><embed-katex display-mode="1">
+E(\frac{2+1-2-4}{4},\frac{2+1-2-4}{4})
+= E(-\frac{3}{4},-\frac{1}{4})
+</embed-katex></eqn></section>
+<p data-line="28" class="code-line"><img src="../images/9132c96cf90a-20231201.jpg" alt="" class="md-img" loading="lazy"></p>
+<h3 id="2%E7%82%B9%E9%96%93%E3%81%AE%E8%B7%9D%E9%9B%A2%E3%81%AE%E5%85%AC%E5%BC%8F" data-line="30" class="code-line">
+<a class="header-anchor-link" href="#2%E7%82%B9%E9%96%93%E3%81%AE%E8%B7%9D%E9%9B%A2%E3%81%AE%E5%85%AC%E5%BC%8F" aria-hidden="true"></a> 2点間の距離の公式</h3>
+<p data-line="31" class="code-line">2点間の距離をL,　2点をA(Ax,Ay) B(Bx,By)とすると、</p>
+<section class="zenn-katex code-line" data-line="33"><eqn><embed-katex display-mode="1">
+L = \bf{\sqrt{(Ax-Bx)^2+(Ay-By)^2}}
+</embed-katex></eqn></section>
+<p data-line="36" class="code-line"><img src="../images/9e34353b9c28-20231201.jpg" alt="" class="md-img" loading="lazy"></p>
+<h2 id="%E6%96%B9%E7%A8%8B%E5%BC%8F" data-line="38" class="code-line">
+<a class="header-anchor-link" href="#%E6%96%B9%E7%A8%8B%E5%BC%8F" aria-hidden="true"></a> 方程式</h2>
+<h3 id="%E7%9B%B4%E7%B7%9A%E3%81%AE%E6%96%B9%E7%A8%8B%E5%BC%8F" data-line="39" class="code-line">
+<a class="header-anchor-link" href="#%E7%9B%B4%E7%B7%9A%E3%81%AE%E6%96%B9%E7%A8%8B%E5%BC%8F" aria-hidden="true"></a> 直線の方程式</h3>
+<section class="zenn-katex code-line" data-line="41"><eqn><embed-katex display-mode="1">
+y=mx+b　(m:傾き,b：切片)
+</embed-katex></eqn></section>
+<p data-line="44" class="code-line"><img src="../images/4b67c9f150d4-20231204.jpg" alt="" class="md-img" loading="lazy"></p>
+<h3 id="%E6%94%BE%E7%89%A9%E7%B7%9A%E3%81%AE%E6%96%B9%E7%A8%8B%E5%BC%8F" data-line="46" class="code-line">
+<a class="header-anchor-link" href="#%E6%94%BE%E7%89%A9%E7%B7%9A%E3%81%AE%E6%96%B9%E7%A8%8B%E5%BC%8F" aria-hidden="true"></a> 放物線の方程式</h3>
+<section class="zenn-katex code-line" data-line="48"><eqn><embed-katex display-mode="1">
+y=\pm(x-a)^2+b　(a:xの初期値,　b:yの初期値)
+</embed-katex></eqn></section>
+<p data-line="51" class="code-line"><img src="../images/edbcff7c7167-20231205.jpg" alt="" class="md-img" loading="lazy"></p>
+<h3 id="%E5%86%86%E3%81%AE%E6%96%B9%E7%A8%8B%E5%BC%8F" data-line="53" class="code-line">
+<a class="header-anchor-link" href="#%E5%86%86%E3%81%AE%E6%96%B9%E7%A8%8B%E5%BC%8F" aria-hidden="true"></a> 円の方程式</h3>
+<section class="zenn-katex code-line" data-line="55"><eqn><embed-katex display-mode="1">
+中心(a,b), 半径r\\
+(x-a)^2+(y-b)^2 = r^2
+</embed-katex></eqn></section>
+<p data-line="59" class="code-line"><img src="../images/36414f213082-20231205.png" alt="" class="md-img" loading="lazy"></p>
+<h3 id="%E5%86%86%E3%81%AE%E5%BD%93%E3%81%9F%E3%82%8A%E5%88%A4%E5%AE%9A" data-line="61" class="code-line">
+<a class="header-anchor-link" href="#%E5%86%86%E3%81%AE%E5%BD%93%E3%81%9F%E3%82%8A%E5%88%A4%E5%AE%9A" aria-hidden="true"></a> 円の当たり判定</h3>
+<section class="zenn-katex code-line" data-line="63"><eqn><embed-katex display-mode="1">
+\textcolor{red}{『中心から中心までの距離』 ≦ r+R}
+</embed-katex></eqn></section>
+<p data-line="66" class="code-line"><img src="../images/acaa7eb9aea4-20231206.jpg" alt="" class="md-img" loading="lazy"></p>
+<h2 id="%E4%B8%89%E8%A7%92%E6%AF%94" data-line="68" class="code-line">
+<a class="header-anchor-link" href="#%E4%B8%89%E8%A7%92%E6%AF%94" aria-hidden="true"></a> 三角比</h2>
+<h3 id="%E3%83%A9%E3%82%B8%E3%82%A2%E3%83%B3(%E5%BC%A7%E5%BA%A6%E6%B3%95)" data-line="69" class="code-line">
+<a class="header-anchor-link" href="#%E3%83%A9%E3%82%B8%E3%82%A2%E3%83%B3(%E5%BC%A7%E5%BA%A6%E6%B3%95)" aria-hidden="true"></a> ラジアン(弧度法)</h3>
+<section class="zenn-katex code-line" data-line="71"><eqn><embed-katex display-mode="1">
+\bm{ラジアン[rad] = 円の孤の長さ(L) ÷ 円の半径(R)}
+</embed-katex></eqn></section>
+<p data-line="74" class="code-line"><img src="../images/449bd7014f22-20240327.png" alt="" class="md-img" loading="lazy"></p>
+<h3 id="%E5%86%86%E5%91%A8%E7%8E%87(%CF%80---%E3%83%91%E3%82%A4)" data-line="76" class="code-line">
+<a class="header-anchor-link" href="#%E5%86%86%E5%91%A8%E7%8E%87(%CF%80---%E3%83%91%E3%82%A4)" aria-hidden="true"></a> 円周率(π - パイ)</h3>
+<section class="zenn-katex code-line" data-line="78"><eqn><embed-katex display-mode="1">
+\bm{π[rad] = 180度 = 3.14159265359....}
+</embed-katex></eqn></section>
+<h3 id="%E4%B8%89%E8%A7%92%E6%AF%94-1" data-line="82" class="code-line">
+<a class="header-anchor-link" href="#%E4%B8%89%E8%A7%92%E6%AF%94-1" aria-hidden="true"></a> 三角比</h3>
+<p data-line="84" class="code-line"><img src="../images/de5c9dda6afd-20240327.png" alt="" class="md-img" loading="lazy"></p>
+<section class="zenn-katex code-line" data-line="86"><eqn><embed-katex display-mode="1">
+\bm{sinθ = 角度θの時『斜辺を掛けると高さが出る』値}\\
+\bm{cosθ = 角度θの時『斜辺を掛けると底辺が出る』値}\\
+\bm{tanθ = 角度θの時『底辺を掛けると高さが出る』値}
+</embed-katex></eqn></section>
+<h3 id="%E7%89%B9%E3%81%AB%E8%A6%9A%E3%81%88%E3%81%A6%E3%81%8A%E3%81%8F%E3%81%B9%E3%81%8D%E4%B8%89%E8%A7%92%E6%AF%94" data-line="92" class="code-line">
+<a class="header-anchor-link" href="#%E7%89%B9%E3%81%AB%E8%A6%9A%E3%81%88%E3%81%A6%E3%81%8A%E3%81%8F%E3%81%B9%E3%81%8D%E4%B8%89%E8%A7%92%E6%AF%94" aria-hidden="true"></a> 特に覚えておくべき三角比</h3>
+<p data-line="93" class="code-line"><img src="../images/853d21d7d261-20240327.png" alt="" class="md-img" loading="lazy"></p>
+<section class="zenn-katex code-line" data-line="95"><eqn><embed-katex display-mode="1">
+　sin\frac{π}{6} = \frac{1}{2},
+　cos\frac{π}{6} = \frac{\sqrt{3}}{2},
+　tan\frac{π}{6} = \frac{1}{\sqrt{3}}\\
+　sin\frac{π}{4} = \frac{1}{\sqrt{2}},
+　cos\frac{π}{4} = \frac{1}{\sqrt{2}},
+　tan\frac{π}{4} = 1\\
+　sin\frac{π}{3} = \frac{\sqrt{3}}{2},
+　cos\frac{π}{3} = \frac{1}{2},
+　tan\frac{π}{3} = \sqrt{3}\\
+</embed-katex></eqn></section>
+<h3 id="%E5%8D%98%E4%BD%8D%E5%86%86%E3%81%AE%E4%B8%89%E8%A7%92%E6%AF%94" data-line="107" class="code-line">
+<a class="header-anchor-link" href="#%E5%8D%98%E4%BD%8D%E5%86%86%E3%81%AE%E4%B8%89%E8%A7%92%E6%AF%94" aria-hidden="true"></a> 単位円の三角比</h3>
+<p data-line="109" class="code-line"><img src="../images/65e4c060099d-20240327.jpg" alt="" class="md-img" loading="lazy"></p>
+<section class="zenn-katex code-line" data-line="111"><eqn><embed-katex display-mode="1">
+\bm{cosθ = x座標}\\
+\bm{sinθ = y座標}
+</embed-katex></eqn></section>
+<h3 id="%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%AE%E6%80%A7%E8%B3%AA" data-line="116" class="code-line">
+<a class="header-anchor-link" href="#%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%AE%E6%80%A7%E8%B3%AA" aria-hidden="true"></a> 三角比の性質</h3>
+<section class="zenn-katex code-line" data-line="118"><eqn><embed-katex display-mode="1">
+\bm{tanθ = \frac{sinθ}{cosθ}}\\
+\bm{(sinθ)^2 + (cosθ)^2 = 1}
+</embed-katex></eqn></section>
+<h2 id="%E5%BC%8F%E3%81%AE%E4%BD%9C%E6%88%90" data-line="123" class="code-line">
+<a class="header-anchor-link" href="#%E5%BC%8F%E3%81%AE%E4%BD%9C%E6%88%90" aria-hidden="true"></a> 式の作成</h2>
+<p data-line="124" class="code-line">文章中に出てくる単語の関係を1つ1つ数式に落とす必要がある。</p>
+<h3 id="%E4%BE%8B" data-line="125" class="code-line">
+<a class="header-anchor-link" href="#%E4%BE%8B" aria-hidden="true"></a> 例</h3>
+<p data-line="126" class="code-line">太郎君はお小遣いを1000円持っており、駄菓子屋にお菓子を買いに行きました。100円のチョコレートを2個。50円のガムを3個買いました。太郎君のお小遣いはいくら残っているでしょうか。</p>
+<section class="zenn-katex code-line" data-line="128"><eqn><embed-katex display-mode="1">
+(太郎君の残りのお小遣い) = (太郎君の元々のお小遣い) \\
+- (チョコレートの金額)×(チョコレートの個数)\\
+- (ガムの金額)×(ガムの個数)
+</embed-katex></eqn></section>
+<h1 id="%E3%81%BE%E3%81%A8%E3%82%81" data-line="134" class="code-line">
+<a class="header-anchor-link" href="#%E3%81%BE%E3%81%A8%E3%82%81" aria-hidden="true"></a> まとめ</h1>
+<p data-line="135" class="code-line">ここまでの内容はゲーム数学を学びだすうえでの必須知識と言えます。<br>
+『勉強したので知ってる』ではなく、『当然の常識』となるまで何度でも繰り返して欲しいです。<br>
+さぁ、ゲーム数学はここからです！　楽しさを見いだせるのもここからです！！<br>
+頑張っていきましょう！！！</p>
+
+<script>
+document.querySelectorAll("embed-katex").forEach(function (el) {
+  var display = el.hasAttribute("display-mode");
+  try { katex.render(el.textContent, el, { displayMode: display, throwOnError: false }); } catch (e) {}
+});
+</script>
+</body></html>

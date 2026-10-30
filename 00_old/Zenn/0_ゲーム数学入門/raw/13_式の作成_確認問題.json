@@ -1,0 +1,32 @@
+﻿{
+    "id":  64775,
+    "post_type":  "Chapter",
+    "is_free":  false,
+    "slug":  "d32235",
+    "body_letters_count":  1329,
+    "source_repo_updated_at":  null,
+    "body_updated_at":  "2025-06-11T16:30:52.115+09:00",
+    "filename":  null,
+    "position":  13,
+    "path":  "/mahiro3033/books/e0fd5a3313118a/viewer/d32235",
+    "title":  "式の作成_確認問題",
+    "body_html":  "\u003ch2 id=\"%E7%A2%BA%E8%AA%8D%E5%95%8F%E9%A1%8C\" data-line=\"0\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E7%A2%BA%E8%AA%8D%E5%95%8F%E9%A1%8C\" aria-hidden=\"true\"\u003e\u003c/a\u003e 確認問題\u003c/h2\u003e\n\u003cp data-line=\"1\" class=\"code-line\"\u003e以下の文章題を数式に直し、問に答えよ。\u003cbr\u003e\n1.\u003cbr\u003e\nPクラスは全体の3/4が60歳以上。Qクラスは全体の3/5が60歳以上である。両クラスとも60未満が10人であるとき、全体の人数はPクラスがQクラスより何人多いか。(2024卒ゲームSPI)\u003cbr\u003e\n2.\u003cbr\u003e\n父と母の年齢差は7歳で、父、母の年齢はそれぞれ子の年齢の6倍、5倍である。このとき、子の年齢は何歳か。(2024卒ゲームSPI)\u003cbr\u003e\n3.\u003cbr\u003e\n現在Pは10歳であり、6年後にPの年齢はQの年齢の1/2になる。Pの年齢がQの年齢の1/3にあたるのはPが何歳のときか。(2024卒ゲームSPI)\u003cbr\u003e\n4.\u003cbr\u003e\nある観光地を訪れた人のうち、カメラを持っていた人は52人、ビデオを持っていた人は28人であり、カメラを持っていた人のうち1/4人はビデオも持っていた。ビデオを持っていたがカメラを持っていなかった人は何人か。(2024卒ゲームSPI)\u003c/p\u003e\n\u003cp data-line=\"11\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/d221540336b7-20240513.png\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003cbr\u003e\n5.Xを求めよ。(2024卒ゲームSPI)\u003cbr\u003e\n6.Yを求めよ。(2024卒ゲームSPI)\u003cbr\u003e\n7.電車が速度0[km/h]から等加速度Aで加速し、その後、等加速度Aで減速して速度0[km/h]になったという。移動時間は3時間、距離は30kmであった。この電車の最高速度は？(2024卒ゲームSPI)\u003c/p\u003e\n\u003ch2 id=\"%E8%A7%A3%E7%AD%94\" data-line=\"16\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E8%A7%A3%E7%AD%94\" aria-hidden=\"true\"\u003e\u003c/a\u003e 解答\u003c/h2\u003e\n\u003cp data-line=\"17\" class=\"code-line\"\u003e1\u003cbr\u003e\n\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e(P60歳以上)=\\frac{3}{4}P,　(Q60歳以上)=\\frac{3}{5}Q\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\n\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e10=\\frac{1}{4}P よって、 P=40, 10=\\frac{2}{5}Q よって、Q = 25\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\nよって、PがQより15人多い。\u003cbr\u003e\n2\u003cbr\u003e\n\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e父 - 母=7,　父=6子,　母=5子\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\nよって、子の年齢は7歳。\u003cbr\u003e\n3\u003cbr\u003e\n\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e16 = \\frac{1}{2}Q,　P=16,Q=32\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\nP=8歳のとき、Q=24歳なので、P=8歳のとき。\u003cbr\u003e\n4\u003cbr\u003e\n\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e(カメラ持ち)=52,　(ビデオ持ち)=28,　(カメラ・ビデオ持ち)=13\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\n上記が分かるので、\u003cbr\u003e\n\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e(カメラだけ持ち)=52-13=39,　(ビデオだけ持ち)=28-13=15\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\n5\u003cbr\u003e\n\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003eX=354665*\\frac{127}{1000} = 45042(切り捨て)\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\n6\u003cbr\u003e\n\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003eY=\\frac{29276}{354665}*100 = 8.2(切り捨て)\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\n7\u003cbr\u003e\nまず、等加速度で加速した後に同じ加速度で減速するので、\u003cbr\u003e\n減速し始める際の移動時間は1.5時間であり、距離は15kmである。\u003cbr\u003e\n等加速度運動の距離の公式より、\u003cbr\u003e\n\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e15 = 0 +\\frac{1}{2}at^2\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\nが成り立つので、\u003cbr\u003e\n\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e15 = 0 +\\frac{1}{2}a(\\frac{3}{2})^2\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\n\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e15 = 0 +\\frac{9}{4}*\\frac{1}{2}a\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\n\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e120=9a\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\n\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ea=\\frac{40}{3}\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\n等加速度運動の速度の公式より、\u003cbr\u003e\n\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003eV=V_0 + at\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\nより、\u003cbr\u003e\n\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003eV=\\frac{40}{3} * \\frac{3}{2}\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\n\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003eV=\\frac{120}{6}=20[km/h]\u003c/eq\u003e\u003c/embed-katex\u003e\u003c/p\u003e\n",
+    "toc":  [
+                {
+                    "id":  "%E7%A2%BA%E8%AA%8D%E5%95%8F%E9%A1%8C",
+                    "text":  "確認問題",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E8%A7%A3%E7%AD%94",
+                    "text":  "解答",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                }
+            ]
+}

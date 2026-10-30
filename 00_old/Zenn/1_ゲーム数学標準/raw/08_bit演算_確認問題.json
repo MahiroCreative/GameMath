@@ -1,0 +1,78 @@
+﻿{
+    "id":  69939,
+    "post_type":  "Chapter",
+    "is_free":  false,
+    "slug":  "9a62e2",
+    "body_letters_count":  892,
+    "source_repo_updated_at":  null,
+    "body_updated_at":  "2025-06-17T10:49:37.045+09:00",
+    "filename":  null,
+    "position":  8,
+    "path":  "/mahiro3033/books/887c58825dce67/viewer/9a62e2",
+    "title":  "bit演算_確認問題",
+    "body_html":  "\u003ch2 id=\"%E5%95%8F%E9%A1%8C\" data-line=\"0\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%95%8F%E9%A1%8C\" aria-hidden=\"true\"\u003e\u003c/a\u003e 問題\u003c/h2\u003e\n\u003ch3 id=\"%E5%95%8F1\" data-line=\"1\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%95%8F1\" aria-hidden=\"true\"\u003e\u003c/a\u003e 問1\u003c/h3\u003e\n\u003cp data-line=\"2\" class=\"code-line\"\u003e(2)0010 なら、2進数。(n)0010なら、n進数とする。\u003cbr\u003e\n以下の値を全て10進数にせよ。\u003c/p\u003e\n\u003cp data-line=\"5\" class=\"code-line\"\u003e・(2)0100\u003cbr\u003e\n・(2)1010\u003cbr\u003e\n・(8)1570\u003cbr\u003e\n・(8)0041\u003cbr\u003e\n・(16)00AB\u003cbr\u003e\n・(16)102F\u003c/p\u003e\n\u003ch3 id=\"%E5%95%8F2\" data-line=\"12\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%95%8F2\" aria-hidden=\"true\"\u003e\u003c/a\u003e 問2\u003c/h3\u003e\n\u003cp data-line=\"13\" class=\"code-line\"\u003e2の補数を用いて以下を負の値にせよ。\u003cbr\u003e\nなお、4bitでの計算とする。\u003c/p\u003e\n\u003cp data-line=\"16\" class=\"code-line\"\u003e・0001\u003cbr\u003e\n・1001\u003cbr\u003e\n・0101\u003cbr\u003e\n・0111\u003c/p\u003e\n\u003cp data-line=\"21\" class=\"code-line\"\u003e上記で求めた値に1100足した値を全て求めよ。\u003c/p\u003e\n\u003ch3 id=\"%E5%95%8F3\" data-line=\"23\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%95%8F3\" aria-hidden=\"true\"\u003e\u003c/a\u003e 問3\u003c/h3\u003e\n\u003cp data-line=\"24\" class=\"code-line\"\u003e以下の計算をして、2進数で表記せよ。\u003cbr\u003e\n尚、bit数は無限とする\u003c/p\u003e\n\u003cp data-line=\"27\" class=\"code-line\"\u003e・1001 の4倍\u003cbr\u003e\n・1000 の1/2倍\u003cbr\u003e\n・1111 の3倍\u003c/p\u003e\n\u003ch2 id=\"%E8%A7%A3%E7%AD%94\" data-line=\"31\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E8%A7%A3%E7%AD%94\" aria-hidden=\"true\"\u003e\u003c/a\u003e 解答\u003c/h2\u003e\n\u003ch3 id=\"%E5%95%8F1-1\" data-line=\"32\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%95%8F1-1\" aria-hidden=\"true\"\u003e\u003c/a\u003e 問1\u003c/h3\u003e\n\u003cp data-line=\"33\" class=\"code-line\"\u003e(2)0010 なら、2進数。(n)0010なら、n進数とする。\u003cbr\u003e\n以下の値を全て10進数にせよ。\u003c/p\u003e\n\u003cp data-line=\"36\" class=\"code-line\"\u003e・(2)0100 = 4\u003cbr\u003e\n・(2)1010 = 10\u003cbr\u003e\n・(8)1570 = 512 + 320 + 56 = 888\u003cbr\u003e\n・(8)0041 = 32 + 1 = 33\u003cbr\u003e\n・(16)00AB = 160 + 11 = 171\u003cbr\u003e\n・(16)102F = 4096 + 32 + 15 = 4143\u003c/p\u003e\n\u003ch3 id=\"%E5%95%8F2-1\" data-line=\"43\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%95%8F2-1\" aria-hidden=\"true\"\u003e\u003c/a\u003e 問2\u003c/h3\u003e\n\u003cp data-line=\"44\" class=\"code-line\"\u003e2の補数を用いて以下を負の値にせよ。\u003cbr\u003e\nなお、4bitでの計算とする。\u003c/p\u003e\n\u003cp data-line=\"47\" class=\"code-line\"\u003e・0001 = 1111(-1)\u003cbr\u003e\n・1001 = 0111(-9)\u003cbr\u003e\n・0101 = 1011(-5)\u003cbr\u003e\n・0111 = 1001(-7)\u003c/p\u003e\n\u003cp data-line=\"52\" class=\"code-line\"\u003e上記で求めた値に1100足した値を全て求めよ。\u003c/p\u003e\n\u003cp data-line=\"54\" class=\"code-line\"\u003e・1111(-1) + 1100(12) = 1011(11)\u003cbr\u003e\n・0111(-9) + 1100(12) = 0011(3)\u003cbr\u003e\n・1011(-5) + 1100(12) = 0111(7)\u003cbr\u003e\n・1001(-7) + 1100(12) = 0101(5)\u003c/p\u003e\n\u003ch3 id=\"%E5%95%8F3-1\" data-line=\"59\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%95%8F3-1\" aria-hidden=\"true\"\u003e\u003c/a\u003e 問3\u003c/h3\u003e\n\u003cp data-line=\"60\" class=\"code-line\"\u003e以下の計算をして、2進数で表記せよ。\u003cbr\u003e\n尚、bit数は無限とする\u003cbr\u003e\n・1001 の4倍 = 100100\u003cbr\u003e\n・1000 の1/2倍 = 0100\u003cbr\u003e\n・1111(15) の3倍 = 1111*(2^1 + 1) = 11110 + 1111 = 101101(45)\u003c/p\u003e\n",
+    "toc":  [
+                {
+                    "id":  "%E5%95%8F%E9%A1%8C",
+                    "text":  "問題",
+                    "level":  2,
+                    "children":  [
+                                     {
+                                         "id":  "%E5%95%8F1",
+                                         "text":  "問1",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E5%95%8F2",
+                                         "text":  "問2",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E5%95%8F3",
+                                         "text":  "問3",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     }
+                                 ]
+                },
+                {
+                    "id":  "%E8%A7%A3%E7%AD%94",
+                    "text":  "解答",
+                    "level":  2,
+                    "children":  [
+                                     {
+                                         "id":  "%E5%95%8F1-1",
+                                         "text":  "問1",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E5%95%8F2-1",
+                                         "text":  "問2",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E5%95%8F3-1",
+                                         "text":  "問3",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     }
+                                 ]
+                }
+            ]
+}

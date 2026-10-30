@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ベクトル基礎</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<style>body{max-width:820px;margin:2em auto;padding:0 16px;font-family:sans-serif;line-height:1.8}
+img{max-width:100%}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:4px 8px}
+.header-anchor-link{display:none}</style>
+</head><body>
+<p><small>0.ゲーム数学入門（α版） / 9. ベクトル基礎（Zenn から 2026-10-30 に保存。本文の最終更新 2025-07-10T14:44:22.717+09:00）</small></p>
+<h1>ベクトル基礎</h1>
+<h2 id="%E6%A6%82%E8%A6%81" data-line="0" class="code-line">
+<a class="header-anchor-link" href="#%E6%A6%82%E8%A6%81" aria-hidden="true"></a> 概要</h2>
+<p data-line="1" class="code-line">ベクトルとは物の運動を計算する際には必須の概念になります。当然、物の運動ばかりやるゲームでも必須の知識になります。<br>
+高校までの数学では何のために必要なのか分かりにくかったと思いますが、ベクトルを使ってゲームを作れば作るほど『あまりにも便利すぎて手放す事が出来ない』という感想を抱くはずです。<br>
+難しいことを考えるためにベクトルを使うのではなく、難しいことを簡単にするためにベクトルを使います。そこを忘れずに、学んでいきましょう。</p>
+<h2 id="%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%AE%E5%9F%BA%E7%A4%8E" data-line="5" class="code-line">
+<a class="header-anchor-link" href="#%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%AE%E5%9F%BA%E7%A4%8E" aria-hidden="true"></a> ベクトルの基礎</h2>
+<h3 id="%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%A8%E3%81%AF%EF%BC%9F" data-line="6" class="code-line">
+<a class="header-anchor-link" href="#%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%A8%E3%81%AF%EF%BC%9F" aria-hidden="true"></a> ベクトルとは？</h3>
+<p data-line="7" class="code-line">ベクトルは<strong>方向と量</strong>を持った数値の事です。<br>
+私達はこれまでも数値を扱ってきましたが、これまでの数値には<strong>量</strong>しか存在していませんでした。<br>
+(これまでの数値の例: ...,-2,-1,0,1,2,...)<br>
+ベクトルを用いることで、量だけでなく方向を持った数値(ベクトル)で計算を行えます。</p>
+<h3 id="%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%AE%E8%A1%A8%E3%81%97%E6%96%B9" data-line="12" class="code-line">
+<a class="header-anchor-link" href="#%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%AE%E8%A1%A8%E3%81%97%E6%96%B9" aria-hidden="true"></a> ベクトルの表し方</h3>
+<p data-line="13" class="code-line"><img src="../images/ca84028cf22e-20240628.jpg" alt="" class="md-img" loading="lazy"><br>
+上記のようなaベクトルがあった場合</p>
+<section class="zenn-katex code-line" data-line="16"><eqn><embed-katex display-mode="1">
+\vec{a} = (1,1)
+</embed-katex></eqn></section>
+<p data-line="19" class="code-line">というように書きます。<br>
+これは<strong>原点からなら点(1,1)に向かうベクトル</strong>という意味です。</p>
+<h3 id="%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%AE%E6%88%90%E5%88%86" data-line="22" class="code-line">
+<a class="header-anchor-link" href="#%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%AE%E6%88%90%E5%88%86" aria-hidden="true"></a> ベクトルの成分</h3>
+<section class="zenn-katex code-line" data-line="23"><eqn><embed-katex display-mode="1">
+\vec{a} = (1,1)
+</embed-katex></eqn></section>
+<p data-line="26" class="code-line">上記のベクトルの(1,1)を<strong>成分</strong>と言います。</p>
+<p data-line="28" class="code-line">この成分が何を表しているかというと、<br>
+<strong>始点が原点なら成分の座標にたどり着く</strong>という意味です。<br>
+つまり、そのベクトルがどんな点から始まっていても、成分には原点から始まった際の数値が入ります。</p>
+<p data-line="32" class="code-line">これで分かることは、ベクトルには向きと量のデータはあるが、<br>
+<strong>何処が始点なのかのデータは無い</strong><br>
+ということです。</p>
+<h3 id="%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%A7%E9%80%9F%E5%BA%A6%E3%82%92%E8%A1%A8%E3%81%9B%E3%82%8B" data-line="36" class="code-line">
+<a class="header-anchor-link" href="#%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%A7%E9%80%9F%E5%BA%A6%E3%82%92%E8%A1%A8%E3%81%9B%E3%82%8B" aria-hidden="true"></a> ベクトルで速度を表せる</h3>
+<p data-line="37" class="code-line">『向きと量がある』ということは、ベクトルは速度として扱うのに最適だと分かります。</p>
+<p data-line="39" class="code-line">高校物理ではカリキュラムの関係上、物理式を扱う際にベクトルを用いていませんが、ベクトルを用いることで物理式がより簡単になります。<br>
+(※というより、ベクトル無しで物理をするほうが無理があります……)</p>
+<p data-line="42" class="code-line">例えば『X方向に2,Y方向に3』の速度を考えるとき、<br>
+ベクトルならば、</p>
+<section class="zenn-katex code-line" data-line="45"><eqn><embed-katex display-mode="1">
+\vec{v}=(2,3)
+</embed-katex></eqn></section>
+<p data-line="48" class="code-line">と書けば済みます。</p>
+<h3 id="%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95" data-line="50" class="code-line">
+<a class="header-anchor-link" href="#%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95" aria-hidden="true"></a> ベクトルの大きさ</h3>
+<p data-line="51" class="code-line">ベクトルは向きと量を持ちますが、成分として表示されるように量はx,yで分かれています。</p>
+<p data-line="53" class="code-line">純粋に向かう方向への量を<br>
+<strong>『ベクトルの大きさ』</strong>　というふうに呼びます。</p>
+<p data-line="56" class="code-line">ベクトルの大きさとは矢印の長さです。<br>
+原点から成分まで伸ばしたものが矢印なので、ベクトルの大きさは成分の数値を元に<strong>三平方(ピタゴラスの定理)</strong>　で出せます。</p>
+<p data-line="59" class="code-line"><img src="../images/61a747504a32-20240628.jpg" alt="" class="md-img" loading="lazy"></p>
+<p data-line="61" class="code-line">よって、</p>
+<section class="zenn-katex code-line" data-line="63"><eqn><embed-katex display-mode="1">
+(ベクトルの大きさ)=\sqrt{x^2 + y^2}
+</embed-katex></eqn></section>
+<h3 id="%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%A8%E3%82%B9%E3%82%AB%E3%83%A9%E3%83%BC" data-line="67" class="code-line">
+<a class="header-anchor-link" href="#%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%A8%E3%82%B9%E3%82%AB%E3%83%A9%E3%83%BC" aria-hidden="true"></a> ベクトルとスカラー</h3>
+<p data-line="68" class="code-line">通常の数値を<strong>スカラー</strong>と呼びます。<br>
+これはベクトルの対義語に近い意味で、ベクトルとスカラーは明確に区別して扱われます。</p>
+<section class="zenn-katex code-line" data-line="71"><eqn><embed-katex display-mode="1">
+スカラー:...,-2,-1,0,1,2,...\\
+ベクトル：\vec{a}(1,2),\vec{b}(2,4)\\
+(※矢印でベクトルを表しています)
+</embed-katex></eqn></section>
+<p data-line="77" class="code-line">ベクトルの計算はスカラーとは別の概念です。<br>
+なので、スカラー計算とは違う計算をします。</p>
+<h3 id="%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%AE%E8%A8%88%E7%AE%97" data-line="80" class="code-line">
+<a class="header-anchor-link" href="#%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%AE%E8%A8%88%E7%AE%97" aria-hidden="true"></a> ベクトルの計算</h3>
+<p data-line="81" class="code-line">ベクトルの計算は以下のように定義される。<br>
+kはスカラーであり、点a(ax,ay),点b(bx,by)とすると、</p>
+<section class="zenn-katex code-line" data-line="84"><eqn><embed-katex display-mode="1">
+(点aから点b) = \vec{ab} = (bx - ax,by - ay)\\
+(点bから点a) = \vec{ba} = (ax - bx,ay - by)\\
+\vec{a} + \vec{b} = (ax + bx,ay + by)\\
+\vec{a} - \vec{b} = (ax - bx,ay - by)\\
+k\vec{a}=(k * ax,k *ay)\\
+\frac{\vec{a}}{k}=(\frac{ax}{k},\frac{ay}{k})\\
+</embed-katex></eqn></section>
+<p data-line="93" class="code-line">具体的に点a(2,1),点b(3,2),k=2で計算すると、</p>
+<section class="zenn-katex code-line" data-line="95"><eqn><embed-katex display-mode="1">
+(点aから点b) = \vec{ab} = (3 - 2,2 - 1) = (1,1)\\
+(点bから点a) = \vec{ba} = (2 - 3,1 - 2) = (-1,-1)\\
+\vec{a} + \vec{b} = (2 + 3,1 + 2) = (5,3)\\
+\vec{a} - \vec{b} = (2 - 3,1 - 2) = (-1,-1)\\
+k\vec{a}=(2 * 2,2 *1) = (4,2)\\
+\frac{\vec{a}}{k}=(\frac{2}{2},\frac{1}{2})=(1,\frac{1}{2})\\
+</embed-katex></eqn></section>
+<h3 id="%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E8%A8%88%E7%AE%97%E3%81%AE%E5%9B%B3%E7%A4%BA" data-line="104" class="code-line">
+<a class="header-anchor-link" href="#%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E8%A8%88%E7%AE%97%E3%81%AE%E5%9B%B3%E7%A4%BA" aria-hidden="true"></a> ベクトル計算の図示</h3>
+<p data-line="106" class="code-line"><embed-katex><eq class="zenn-katex">\vec{ab}</eq></embed-katex><br>
+<img src="../images/529a75156f0c-20240628.jpg" alt="" class="md-img" loading="lazy"><br>
+<embed-katex><eq class="zenn-katex">\vec{ba}</eq></embed-katex><br>
+<img src="../images/eb2dc3b488f2-20240628.jpg" alt="" class="md-img" loading="lazy"><br>
+<embed-katex><eq class="zenn-katex">\vec{a} + \vec{b}</eq></embed-katex><br>
+<img src="../images/c98f419b36a1-20240701.jpg" alt="" class="md-img" loading="lazy"><br>
+<embed-katex><eq class="zenn-katex">\vec{a} - \vec{b}</eq></embed-katex><br>
+<img src="../images/f970574a54ae-20240628.jpg" alt="" class="md-img" loading="lazy"><br>
+<embed-katex><eq class="zenn-katex">k\vec{a}</eq></embed-katex><br>
+<img src="../images/2d0fffb15f83-20240628.jpg" alt="" class="md-img" loading="lazy"><br>
+<embed-katex><eq class="zenn-katex">\frac{\vec{a}}{k}</eq></embed-katex><br>
+<img src="../images/9c89995aa481-20240628.jpg" alt="" class="md-img" loading="lazy"></p>
+<h2 id="%E5%86%85%E7%A9%8D" data-line="119" class="code-line">
+<a class="header-anchor-link" href="#%E5%86%85%E7%A9%8D" aria-hidden="true"></a> 内積</h2>
+<p data-line="120" class="code-line">ベクトルには<strong>内積</strong>と呼ばれる計算がある。<br>
+例えば、<embed-katex><eq class="zenn-katex">\vec{a}</eq></embed-katex>と<embed-katex><eq class="zenn-katex">\vec{b}</eq></embed-katex>の内積は</p>
+<section class="zenn-katex code-line" data-line="123"><eqn><embed-katex display-mode="1">
+\vec{a} \cdot \vec{b}
+</embed-katex></eqn></section>
+<p data-line="126" class="code-line">という風に書く(読み方は『aドットb』)。<br>
+内積はベクトル同士の掛け算と言えるような位置づけである。</p>
+<h3 id="%E5%86%85%E7%A9%8D%E3%81%AE%E5%AE%9A%E7%BE%A9" data-line="129" class="code-line">
+<a class="header-anchor-link" href="#%E5%86%85%E7%A9%8D%E3%81%AE%E5%AE%9A%E7%BE%A9" aria-hidden="true"></a> 内積の定義</h3>
+<p data-line="130" class="code-line">内積の定義は以下になる。<br>
+<embed-katex><eq class="zenn-katex">\vec{a}(ax,ay),\vec{b}(bx,by)</eq></embed-katex>であり、それらのなす角を<embed-katex><eq class="zenn-katex">\theta</eq></embed-katex>とすると、</p>
+<section class="zenn-katex code-line" data-line="133"><eqn><embed-katex display-mode="1">
+\vec{a} \cdot \vec{b} =
+|\vec{a}||\vec{b}|\cos{\theta}=
+ax*bx + ay*by
+</embed-katex></eqn></section>
+<p data-line="138" class="code-line">となる。</p>
+<h3 id="%E5%86%85%E7%A9%8D%E3%81%AE%E6%84%8F%E5%91%B3" data-line="140" class="code-line">
+<a class="header-anchor-link" href="#%E5%86%85%E7%A9%8D%E3%81%AE%E6%84%8F%E5%91%B3" aria-hidden="true"></a> 内積の意味</h3>
+<p data-line="141" class="code-line">内積とは結局どういう意味かというと、</p>
+<p data-line="143" class="code-line"><img src="../images/8b7a932da16f-20240701.jpg" alt="" class="md-img" loading="lazy"></p>
+<p data-line="145" class="code-line">上記のような関係のベクトルがある際に、『それぞれの成分を掛けて足した数』と『それぞれの大きさとcosθを掛けた数』が等しくなる。<br>
+という意味である。</p>
+<p data-line="148" class="code-line">もう少し、図形的な意味を考えると、<br>
+<img src="../images/a4cbc9b18820-20240701.jpg" alt="" class="md-img" loading="lazy"></p>
+<p data-line="151" class="code-line">片方のベクトルの大きさから、相手方のベクトルに沿った大きさを作成して、それを相手方のベクトルの大きさに掛けた物、となります。</p>
+<p data-line="153" class="code-line">これを言われてもイマイチ何をしているのかよく分からないと思いますが、<br>
+結局のところ、aとbの両方から影響を受ける物体があったとして、</p>
+<p data-line="156" class="code-line"><img src="../images/114740e68dc9-20240701.jpg" alt="" class="md-img" loading="lazy"></p>
+<p data-line="158" class="code-line">『aベクトルがbベクトル方向に与える影響』と『bベクトルが与える影響』を掛けている。</p>
+<p data-line="160" class="code-line">という風に理解するのが一番分かりやすいかと思います。</p>
+<h3 id="%E5%86%85%E7%A9%8D%E3%81%AE%E8%A8%88%E7%AE%97%E3%81%8B%E3%82%89%E3%81%AA%E3%81%99%E8%A7%92%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B" data-line="162" class="code-line">
+<a class="header-anchor-link" href="#%E5%86%85%E7%A9%8D%E3%81%AE%E8%A8%88%E7%AE%97%E3%81%8B%E3%82%89%E3%81%AA%E3%81%99%E8%A7%92%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B" aria-hidden="true"></a> 内積の計算からなす角を求める</h3>
+<p data-line="163" class="code-line">具体的に、内積の計算をどのような用途で行うかを示します。<br>
+例えば、<embed-katex><eq class="zenn-katex">\vec{a}(1,0),\vec{b}(1,1)</eq></embed-katex>の内積を計算し、そのなす角を求めるとする。</p>
+<p data-line="166" class="code-line">まずは、成分から内積を求める。</p>
+<section class="zenn-katex code-line" data-line="168"><eqn><embed-katex display-mode="1">
+1*1 + 0*1 = 1
+</embed-katex></eqn></section>
+<p data-line="171" class="code-line"><embed-katex><eq class="zenn-katex">\vec{a} \cdot \vec{b} =|\vec{a}||\vec{b}|\cos{\theta}</eq></embed-katex>であるので、</p>
+<section class="zenn-katex code-line" data-line="173"><eqn><embed-katex display-mode="1">
+\cos{\theta} = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}||\vec{b}|}
+</embed-katex></eqn></section>
+<p data-line="176" class="code-line">よって、</p>
+<section class="zenn-katex code-line" data-line="178"><eqn><embed-katex display-mode="1">
+\cos{\theta} = \frac{1}{\sqrt{2}}
+</embed-katex></eqn></section>
+<p data-line="182" class="code-line">よって、θ=45°,315<br>
+(※なす角は基本的に小さい方を選ぶので、45°を使う)</p>
+<h3 id="%E5%86%85%E7%A9%8D%E3%81%AB%E3%82%88%E3%82%8B%E5%9E%82%E7%9B%B4%E5%88%A4%E5%AE%9A" data-line="185" class="code-line">
+<a class="header-anchor-link" href="#%E5%86%85%E7%A9%8D%E3%81%AB%E3%82%88%E3%82%8B%E5%9E%82%E7%9B%B4%E5%88%A4%E5%AE%9A" aria-hidden="true"></a> 内積による垂直判定</h3>
+<p data-line="186" class="code-line">内積の計算により、なす角が求められます。<br>
+であるので、内積により計算したベクトル同士が垂直かどうかが確かめられます。</p>
+<p data-line="189" class="code-line"><embed-katex><eq class="zenn-katex">\cos{\theta}=0</eq></embed-katex>　なら、　<embed-katex><eq class="zenn-katex">\theta=90°,270°</eq></embed-katex>なので、</p>
+<p data-line="191" class="code-line">いずれにせよ垂直に交わっている事が分かる。<br>
+具体的な例を出すと、<embed-katex><eq class="zenn-katex">\vec{a}(1,0),\vec{b}(0,1)</eq></embed-katex>の内積は、</p>
+<section class="zenn-katex code-line" data-line="194"><eqn><embed-katex display-mode="1">
+\vec{a} \cdot \vec{b} = 1*0 + 0*1 =0\\
+</embed-katex></eqn></section>
+<p data-line="197" class="code-line">となり、垂直なベクトルの内積は0となる事が分かる。</p>
+<h2 id="%E6%AD%A3%E8%A6%8F%E5%8C%96" data-line="199" class="code-line">
+<a class="header-anchor-link" href="#%E6%AD%A3%E8%A6%8F%E5%8C%96" aria-hidden="true"></a> 正規化</h2>
+<p data-line="200" class="code-line">あるベクトルの大きさを1にすることを<strong>正規化する</strong>という。<br>
+また、あるベクトルの大きさを1にしたものをあるベクトルの<strong>単位ベクトル</strong>と呼ぶ。</p>
+<h3 id="%E5%8D%98%E4%BD%8D%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB" data-line="203" class="code-line">
+<a class="header-anchor-link" href="#%E5%8D%98%E4%BD%8D%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB" aria-hidden="true"></a> 単位ベクトル</h3>
+<p data-line="204" class="code-line">ある方向を向くベクトルで計算を行う際に、大きさは重要ではなく<strong>そちらを向いている</strong>という情報だけが重要な場合がある。<br>
+そういう計算を行う際に、大きさを１にしておくことで計算を非常に単純化することが出来ます。</p>
+<h3 id="%E5%8D%98%E4%BD%8D%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%AE%E8%A8%88%E7%AE%97" data-line="207" class="code-line">
+<a class="header-anchor-link" href="#%E5%8D%98%E4%BD%8D%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%AE%E8%A8%88%E7%AE%97" aria-hidden="true"></a> 単位ベクトルの計算</h3>
+<p data-line="208" class="code-line">あるベクトル<embed-katex><eq class="zenn-katex">\vec{a}(ax,ay)</eq></embed-katex>の単位ベクトルは以下の計算で求められる。<br>
+<embed-katex><eq class="zenn-katex">\vec{a}</eq></embed-katex>の単位ベクトルを<embed-katex><eq class="zenn-katex">\hat{a}</eq></embed-katex>(aハット)とすると、</p>
+<section class="zenn-katex code-line" data-line="211"><eqn><embed-katex display-mode="1">
+\hat{a} = \frac{\vec{a}}{|\vec{a}|}
+</embed-katex></eqn></section>
+<p data-line="214" class="code-line">となり、具体的に<embed-katex><eq class="zenn-katex">\vec{a}(2,1)</eq></embed-katex>の単位ベクトルを求めると<br>
+<img src="../images/cfd076b17eff-20240701.jpg" alt="" class="md-img" loading="lazy"></p>
+<section class="zenn-katex code-line" data-line="217"><eqn><embed-katex display-mode="1">
+\hat{a} = \frac{(2,1)}{\sqrt{5}}=(\frac{2}{\sqrt{5}},\frac{1}{\sqrt{5}})
+</embed-katex></eqn></section>
+<p data-line="220" class="code-line">となる。</p>
+<h2 id="%E5%A4%96%E7%A9%8D" data-line="222" class="code-line">
+<a class="header-anchor-link" href="#%E5%A4%96%E7%A9%8D" aria-hidden="true"></a> 外積</h2>
+<p data-line="223" class="code-line">ベクトルには内積の他に<strong>外積</strong>と呼ばれる計算があります。<br>
+これもベクトル世界においての掛け算のような位置づけのものですが、2次元空間だと役割を持たず3次元空間において役割を持ちます。<br>
+なので、本来3次元ベクトルを学ぶ際に学習するのが適当なのですが、ゲームにおいては2次元の当たり判定の際にも用いるので先取りで学んでおくことにします。</p>
+<h3 id="%E5%A4%96%E7%A9%8D%E3%81%AE%E5%AE%9A%E7%BE%A9" data-line="227" class="code-line">
+<a class="header-anchor-link" href="#%E5%A4%96%E7%A9%8D%E3%81%AE%E5%AE%9A%E7%BE%A9" aria-hidden="true"></a> 外積の定義</h3>
+<p data-line="228" class="code-line">ある3次元ベクトル<embed-katex><eq class="zenn-katex">\vec{a}(ax,ay,az),\vec{b}(bx,by,bz)</eq></embed-katex>の外積は</p>
+<section class="zenn-katex code-line" data-line="230"><eqn><embed-katex display-mode="1">
+\vec{a}　\times　\vec{b} = (ay*bz – az*by, az*bx – ax*bz, ax*by – ay*bx)\\
+</embed-katex></eqn></section>
+<p data-line="233" class="code-line">上記の計算で求まり、<br>
+<embed-katex><eq class="zenn-katex">\vec{a}</eq></embed-katex>と<embed-katex><eq class="zenn-katex">\vec{b}</eq></embed-katex>の両方に対して<strong>垂直なベクトル</strong>が求まります。<br>
+(※つまり、<embed-katex><eq class="zenn-katex">\vec{a}\times\vec{b} \perp \vec{a}</eq></embed-katex> かつ　<embed-katex><eq class="zenn-katex">\vec{a}\times\vec{b} \perp \vec{b}</eq></embed-katex>)<br>
+<img src="../images/cc04624386f7-20240701.jpg" alt="" class="md-img" loading="lazy"></p>
+<p data-line="238" class="code-line">また、外積の大きさは上図に書いてあるとおり、<br>
+<strong><embed-katex><eq class="zenn-katex">\vec{a},\vec{b}</eq></embed-katex>で描かれる平行四辺形の面積と等しい</strong>という性質が有り、</p>
+<section class="zenn-katex code-line" data-line="241"><eqn><embed-katex display-mode="1">
+|\vec{a}\times\vec{b}| = |\vec{a}||\vec{b}|\sin{\theta}
+</embed-katex></eqn></section>
+<p data-line="245" class="code-line">が成り立ちます。<br>
+また、<strong>外積そのもので求まった値はベクトルになっている</strong>という事に注意してください。</p>
+<h3 id="2%E6%AC%A1%E5%85%83%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%8B%E3%82%89%E6%B1%82%E3%82%81%E3%82%8B%E5%A4%96%E7%A9%8D" data-line="248" class="code-line">
+<a class="header-anchor-link" href="#2%E6%AC%A1%E5%85%83%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%8B%E3%82%89%E6%B1%82%E3%82%81%E3%82%8B%E5%A4%96%E7%A9%8D" aria-hidden="true"></a> 2次元ベクトルから求める外積</h3>
+<p data-line="249" class="code-line">2次元では本来外積計算を行うことは出来ませんが、1次元の追加(z軸を追加)を行うことで計算する事が出来ます。具体的には、<embed-katex><eq class="zenn-katex">\vec{a}(1,2),\vec{b}(2,3)</eq></embed-katex>で外積の計算をするなら、<embed-katex><eq class="zenn-katex">\vec{a}(1,2,0),\vec{b}(2,3,0)</eq></embed-katex>として外積の計算を行います。</p>
+<section class="zenn-katex code-line" data-line="251"><eqn><embed-katex display-mode="1">
+\vec{a}\times\vec{b} = (0,0,1*3 - 2*2) = (0,0,-1)\\
+</embed-katex></eqn></section>
+<p data-line="255" class="code-line">出来上がったベクトルはz方向にしか成分がありませんので、<br>
+2次元ベクトルであればどのようなベクトルでも垂直なベクトルが求まる事が分かります。</p>
+<h3 id="%E5%A4%96%E7%A9%8D%E3%81%AE%E6%80%A7%E8%B3%AA" data-line="258" class="code-line">
+<a class="header-anchor-link" href="#%E5%A4%96%E7%A9%8D%E3%81%AE%E6%80%A7%E8%B3%AA" aria-hidden="true"></a> 外積の性質</h3>
+<p data-line="259" class="code-line">では、外積を求めることで何が分かるのでしょうか。<br>
+色々ありますが、<strong>外積計算を行ったベクトルの方向の関係が分かる</strong>、というのがゲーム数学においては最大のメリットです。</p>
+<p data-line="262" class="code-line">具体的な例は複雑ですので、当たり判定の章で解説します。<br>
+ここでは<strong>ベクトルの方向の関係が分かる</strong>とだけ、覚えておいて下さい。</p>
+
+<script>
+document.querySelectorAll("embed-katex").forEach(function (el) {
+  var display = el.hasAttribute("display-mode");
+  try { katex.render(el.textContent, el, { displayMode: display, throwOnError: false }); } catch (e) {}
+});
+</script>
+</body></html>

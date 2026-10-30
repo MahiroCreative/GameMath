@@ -1,0 +1,183 @@
+﻿{
+    "id":  69178,
+    "post_type":  "Chapter",
+    "is_free":  false,
+    "slug":  "6edf00",
+    "body_letters_count":  7056,
+    "source_repo_updated_at":  null,
+    "body_updated_at":  "2025-10-28T11:35:59.830+09:00",
+    "filename":  null,
+    "position":  7,
+    "path":  "/mahiro3033/books/887c58825dce67/viewer/6edf00",
+    "title":  "bit演算",
+    "body_html":  "\u003ch2 id=\"%E6%A6%82%E8%A6%81\" data-line=\"0\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%A6%82%E8%A6%81\" aria-hidden=\"true\"\u003e\u003c/a\u003e 概要\u003c/h2\u003e\n\u003cp data-line=\"1\" class=\"code-line\"\u003e本格的にゲーム数学に入っていく前に、まずはコンピュータ上での計算の仕組みについて理解しましょう。人間の計算の考え方と、コンピュータの計算の考え方は大きく違います。効率の良い計算を行うためには、人間の計算の考え方をコンピュータの考え方に置き直して命令を考える必要があります。一般プログラマならあまり深く考えなくてもいいですが、ゲームプログラマは処理速度の限界に常にチャレンジしているような業種です。ある程度はコンピュータの計算の仕組みを知っておく必要があります。\u003c/p\u003e\n\u003ch2 id=\"%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%81%AE%E5%86%85%E9%83%A8%E6%A7%8B%E9%80%A0\" data-line=\"3\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%81%AE%E5%86%85%E9%83%A8%E6%A7%8B%E9%80%A0\" aria-hidden=\"true\"\u003e\u003c/a\u003e コンピュータの内部構造\u003c/h2\u003e\n\u003cp data-line=\"4\" class=\"code-line\"\u003e昨今、色々と違う仕組みも出てまいりましたが、基本的には以下のような構造になっています。\u003c/p\u003e\n\u003cp data-line=\"6\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/7e91546fe673-20240605.png\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"8\" class=\"code-line\"\u003e上記はものすごく単純化してますが、大体こんな構造だと思っておけばいいです。\u003cbr\u003e\n(※詳しく知りたい人は画像検索でもしてください)\u003c/p\u003e\n\u003cp data-line=\"11\" class=\"code-line\"\u003e『マザーボード』と呼ばれるそれぞれの装置を繋げる基盤の上に、『CPU』『GPU』『Memory』『Storage』が載っていてそれぞれの役割を果たすことでコンピュータを形成しています。\u003c/p\u003e\n\u003cp data-line=\"13\" class=\"code-line\"\u003eそれぞれの機能を詳しく見ていくと、\u003c/p\u003e\n\u003cp data-line=\"15\" class=\"code-line\"\u003e\u003cstrong\u003eCPU：通常計算をする(画像計算は遅い)\u003c/strong\u003e\u003cbr\u003e\n\u003cstrong\u003eGPU：画像計算をする(通常計算は遅い)\u003c/strong\u003e\u003cbr\u003e\n\u003cstrong\u003eMemory:計算をする際の一次保存場所(読み書きが早いが、電源切ると消える)\u003c/strong\u003e\u003cbr\u003e\n\u003cstrong\u003eStorage：データの長期保存場所(読み書きが遅いが、電源切っても消えない)\u003c/strong\u003e\u003c/p\u003e\n\u003cp data-line=\"20\" class=\"code-line\"\u003eというような構造になっています。\u003cbr\u003e\n『CPU・GPU』『Memory』『Storage』の速度差ですが、物や状況にもよりますが、非常に大雑把に表すと以下になります。\u003c/p\u003e\n\u003cp data-line=\"23\" class=\"code-line\"\u003e\u003cstrong\u003e【データアクセス時間】\u003c/strong\u003e\u003cbr\u003e\n\u003cstrong\u003eCPU：1\u003c/strong\u003e\u003cbr\u003e\n\u003cstrong\u003eMemory:80\u003c/strong\u003e\u003cbr\u003e\n\u003cstrong\u003eStorage:100,000\u003c/strong\u003e\u003c/p\u003e\n\u003cp data-line=\"28\" class=\"code-line\"\u003eとんでもない速度差があると分かります。長期保存できるかどうかでこれ程の差が出るのです。\u003cbr\u003e\n『PCが遅いな』と感じたら、まずはStorage(HDDとかSSDとか)を買い替えるのが無難です。\u003c/p\u003e\n\u003ch2 id=\"cpu%E3%81%AE%E8%A8%88%E7%AE%97%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF\" data-line=\"31\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#cpu%E3%81%AE%E8%A8%88%E7%AE%97%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF\" aria-hidden=\"true\"\u003e\u003c/a\u003e CPUの計算の仕組み\u003c/h2\u003e\n\u003cp data-line=\"32\" class=\"code-line\"\u003eコンピュータの中でも計算を行っている部分、人間でいうと脳を司る部分がCPUです。\u003cbr\u003e\nCPUの計算の仕組みをめちゃくちゃざっくり説明すると以下のような計算の仕組みになっています(※正確さより理解しやすさを優先しています)。\u003c/p\u003e\n\u003cp data-line=\"35\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/72274e6d6861-20240611.png\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"37\" class=\"code-line\"\u003eメモリから『データA』と『データB』を取り出して、演算装置で計算し、計算結果を\u003cbr\u003e\n再びメモリに返す。という動きだとざっくり考えて良いです。\u003c/p\u003e\n\u003ch2 id=\"%E3%83%A1%E3%83%A2%E3%83%AA%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E4%BF%9D%E5%AD%98%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF\" data-line=\"40\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E3%83%A1%E3%83%A2%E3%83%AA%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E4%BF%9D%E5%AD%98%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF\" aria-hidden=\"true\"\u003e\u003c/a\u003e メモリのデータ保存の仕組み\u003c/h2\u003e\n\u003cp data-line=\"41\" class=\"code-line\"\u003eプログラムを実行するためのデータを一時的に保管しておく場所がメモリです。\u003cbr\u003e\n流れとしてはストレージからプログラムに必要なデータをメモリに取り出し、メモリのデータを使ってCPUで計算させながらプログラムを実行するというイメージです(※実際はプログラムの実行中にストレージにアクセスすることもありますが、ここで話を簡単にするためにそういうことにしておきます)。\u003cbr\u003e\nメモリのデータ保存の仕組みをざっくりと表すと以下になります。\u003c/p\u003e\n\u003cp data-line=\"45\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/8c1e9de559a0-20240611.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003cbr\u003e\n上記のような形で、保存されています。\u003cbr\u003e\nつまり、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"49\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n\\bf命令部:データ部1:データ部2:保存先\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"52\" class=\"code-line\"\u003eのような形でメモリの1行が構成されており、それぞれ2進数で書かれています。\u003cbr\u003e\n簡単なデータの具体例を考えてみると、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"55\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n【ものすごい適当な例】\\\\\n(※命令部の0001はAddを表すとします)\\\\\n\\bf{0001:0001:0001:0001}\n\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"61\" class=\"code-line\"\u003e上記の様な命令は、『足し算せよ』『1』と『1』を結果はアドレス『0001』に保存。\u003cbr\u003e\nという意味になり、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"64\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n\\bf(保存先アドレス)=1+1\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"67\" class=\"code-line\"\u003eというプログラムと同じ意味になります。\u003cbr\u003e\nまた、メモリに保存されているデータと命令を並べて考えると、大体以下のような構造になります。\u003c/p\u003e\n\u003cp data-line=\"70\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/a782e4f222a0-20240611.png\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"72\" class=\"code-line\"\u003e上記のような形(実際は2進数で書かれている)でメモリ上に命令が並んでおり、上から実行していく形でプログラムの処理は行われます。\u003c/p\u003e\n\u003cp data-line=\"74\" class=\"code-line\"\u003eここまで見れば分かると思いますが、コンピュータの計算は内部的には2進数で行われています。我々が通常計算を行っているのは10進数なので、人間の脳みそとは大分違うやり方で計算を行っている事になります。\u003cbr\u003e\n昨今ではコンピュータも発達し、人間がわざわざ2進数を直接入力する事は減りました。しかし、内部は2進数で計算されいる事を知らないと最適化は図れませんし、思わぬバグを生みます。\u003cbr\u003e\nですので、2進数での計算、特にコンピュータに関わる計算であるbit演算を学ぶ必要があります。\u003c/p\u003e\n\u003ch2 id=\"2%E9%80%B2%E6%95%B0\" data-line=\"78\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#2%E9%80%B2%E6%95%B0\" aria-hidden=\"true\"\u003e\u003c/a\u003e 2進数\u003c/h2\u003e\n\u003cp data-line=\"79\" class=\"code-line\"\u003ebit演算を学んでいく前にまずは2進数を学びます。\u003cbr\u003e\n2進数とは数字をすべて0と1だけで表現する数の事です。ちなみに、我々が普段使っている数字は10進数と言いますが、0 1 2 3 4 5 6 7 8 9 の合計10個で表現するので10進数と呼びます。\u003cbr\u003e\n2進数は、0 1　の2つで表すので2進数です。\u003c/p\u003e\n\u003cp data-line=\"83\" class=\"code-line\"\u003eでは、具体的に2進数でどう数を表すのかをみていきます。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"85\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n10進数 : 2進数\\\\\n0 : 0\\\\\n1 : 1\\\\\n2 : 10\\\\\n3 : 11\\\\\n4 : 100\\\\\n5 : 101\\\\\n6 : 110\\\\\n7 : 111\\\\\n8 : 1000\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"97\" class=\"code-line\"\u003e上記で大体分かったかと思います。\u003cbr\u003e\nつまり、1つの桁では1までしか計算できず、2になったら桁が繰り上がるということです。\u003c/p\u003e\n\u003ch3 id=\"10%E9%80%B2%E6%95%B0%E3%81%8B%E3%82%892%E9%80%B2%E6%95%B0\" data-line=\"100\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#10%E9%80%B2%E6%95%B0%E3%81%8B%E3%82%892%E9%80%B2%E6%95%B0\" aria-hidden=\"true\"\u003e\u003c/a\u003e 10進数から2進数\u003c/h3\u003e\n\u003cp data-line=\"101\" class=\"code-line\"\u003e10進数から2進数への変換方法について解説します。\u003cbr\u003e\n単純に2で割れば良いのですが、試しにやってみましょう。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"104\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n・15を2進数に変換\\\\\n15 / 2 = 7 ...1\\\\\n7 / 2 = 3...1\\\\\n3 / 2 = 1...1\\\\\n1 / 2 = 0 ...1\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"111\" class=\"code-line\"\u003eとなった場合、1111が変換後と言えます。\u003c/p\u003e\n\u003cp data-line=\"113\" class=\"code-line\"\u003e最初の余りが1なので、1桁目は1。\u003cbr\u003e\n2番目の余りが1なので、2桁目は1。\u003cbr\u003e\n3番目の余りが1なので、3桁目は1。\u003cbr\u003e\n4番目の余りが1なので、4桁目は1。\u003c/p\u003e\n\u003cp data-line=\"118\" class=\"code-line\"\u003eという風に考えます。理由を考えていくと、\u003c/p\u003e\n\u003cp data-line=\"120\" class=\"code-line\"\u003e\u003cstrong\u003e・全体を2で割った時の余りは最初の桁の数字になる。\u003c/strong\u003e\u003c/p\u003e\n\u003cp data-line=\"122\" class=\"code-line\"\u003eというのは全ての進数で同じです。\u003cbr\u003e\n2まで数えたら繰り上げが起こるということは、例えば3を2進数にすると、\u003c/p\u003e\n\u003cp data-line=\"125\" class=\"code-line\"\u003e\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e3 = 1*2^1 + 1*2^0\u003c/eq\u003e\u003c/embed-katex\u003e\u003c/p\u003e\n\u003cp data-line=\"127\" class=\"code-line\"\u003eという風に考えられるので、3は11となり。\u003cbr\u003e\n2で割った際の余りが1桁目になるのは自明です。\u003c/p\u003e\n\u003cp data-line=\"130\" class=\"code-line\"\u003e\u003cstrong\u003e・全体を2で2回割った時の余りは2番目の桁の数字になる\u003c/strong\u003e\u003c/p\u003e\n\u003cp data-line=\"132\" class=\"code-line\"\u003eというのも全ての進数で同じです。\u003cbr\u003e\n例えば5を2進数にすると、\u003c/p\u003e\n\u003cp data-line=\"135\" class=\"code-line\"\u003e\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e5 = 1*2^2 + 0*2^1 + 1*2^0\u003c/eq\u003e\u003c/embed-katex\u003e\u003c/p\u003e\n\u003cp data-line=\"137\" class=\"code-line\"\u003eとなりますので、5は101となります。\u003cbr\u003e\nですので、2で2回割った際の余りが2桁目になります。\u003cbr\u003e\n今回は2で2回割っても余りがないので、0です。\u003c/p\u003e\n\u003cp data-line=\"141\" class=\"code-line\"\u003eというようにやっていき、最後に割った回数での答えがそれで割り切れる桁数になるので、\u003cbr\u003e\n最後の答えが一番左の桁数になります。\u003c/p\u003e\n\u003cp data-line=\"144\" class=\"code-line\"\u003eこれは言葉で説明しても大変分かりにくいので、様々な例をノートに書いて確認してください。\u003c/p\u003e\n\u003ch3 id=\"n%E9%80%B2%E6%95%B0\" data-line=\"147\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#n%E9%80%B2%E6%95%B0\" aria-hidden=\"true\"\u003e\u003c/a\u003e n進数\u003c/h3\u003e\n\u003cp data-line=\"148\" class=\"code-line\"\u003eここで進数を一般化しておきます。\u003cbr\u003e\n2進数は2で割っていくことで作れました。n進数はnで割ることで作れます。\u003c/p\u003e\n\u003cp data-line=\"151\" class=\"code-line\"\u003e【例:8進数】\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"153\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n・30を8進数に変換\\\\\n30 / 8 = 3 ...6\\\\\n3 / 8 = 0...3\\\\\nよって、36\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"160\" class=\"code-line\"\u003e【例:16進数(0~9~A~F)】\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"162\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n・30を16進数に変換\\\\\n30 / 16 = 1 ...14\\\\\n1 / 16 = 0...1\\\\\nよって、1E\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"169\" class=\"code-line\"\u003e特に8進数と16進数はコンピュータの計算でよく使いますので、\u003cbr\u003e\n上記の変換は出来るようになっておいてください。\u003c/p\u003e\n\u003ch2 id=\"bit%E6%BC%94%E7%AE%97\" data-line=\"172\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#bit%E6%BC%94%E7%AE%97\" aria-hidden=\"true\"\u003e\u003c/a\u003e bit演算\u003c/h2\u003e\n\u003cp data-line=\"173\" class=\"code-line\"\u003eコンピュータは2進数で計算を行っているというのは説明した通りです。\u003cbr\u003e\nですが、紙面の上での計算と違い、様々なハードウェア的な制約があります。\u003cbr\u003e\nそこでそのような制約も考慮した計算の方法が考案されました。それがbit演算です。\u003c/p\u003e\n\u003ch3 id=\"bit\" data-line=\"177\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#bit\" aria-hidden=\"true\"\u003e\u003c/a\u003e bit\u003c/h3\u003e\n\u003cp data-line=\"178\" class=\"code-line\"\u003eそもそもbitとは何でしょうか？\u003cbr\u003e\nコンピュータが2進数でデータを保持する際、データはコンデンサに電荷が溜まっているか溜まっていないかで0か1かを判定しています。図で示すと以下のような形になります。\u003c/p\u003e\n\u003cp data-line=\"181\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/36656700f1c7-20240614.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"183\" class=\"code-line\"\u003eこのコンデンサ1つで保存できるデータ量を1bitと呼びます。\u003cbr\u003e\n例えば、4bitならコンデンサ4つで保存できるデータ量を表現できるので、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"186\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n0: 0000　～　15 : 1111\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"189\" class=\"code-line\"\u003eということになります。\u003c/p\u003e\n\u003ch3 id=\"%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%8D%98%E4%BD%8D\" data-line=\"191\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%8D%98%E4%BD%8D\" aria-hidden=\"true\"\u003e\u003c/a\u003e データの単位\u003c/h3\u003e\n\u003cp data-line=\"192\" class=\"code-line\"\u003e上記のbitの考え方からデータの単位が生まれています。\u003cbr\u003e\nハードウェア設計の関係上、コンデンサは8つセットで設計されますので単位も8bitが基準にされます。なので、1bitを1Byteとして以下のような表記でデータ量は表されます。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"195\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n1Byte　:　8bit\\\\\n1MB　：　1000Byte\\\\\n1GB　:　1000MB\\\\\n1TB　:　1000GB\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"202\" class=\"code-line\"\u003eちなみに何故1Byteは8bitなのかというと、ちょうどアルファベット1文字を表すデータ量が\u003cbr\u003e\n8bitだからです。日本語は16bit.2Byteなので、日本語のような文字を2Byte文字というふうに呼びます。\u003c/p\u003e\n\u003ch3 id=\"%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%81%AE%E5%9B%9B%E5%89%87%E6%BC%94%E7%AE%97\" data-line=\"205\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%81%AE%E5%9B%9B%E5%89%87%E6%BC%94%E7%AE%97\" aria-hidden=\"true\"\u003e\u003c/a\u003e コンピュータの四則演算\u003c/h3\u003e\n\u003cp data-line=\"206\" class=\"code-line\"\u003eさて、ではコンピュータ上で四則演算をする際に、どのような仕組みで行っているかを考えていきます。\u003cbr\u003e\n実のところコンピュータは単純な計算しか出来ません。誤解を恐れずに言ってしまえば、足し算しか出来ないと言えます。\u003cbr\u003e\nしかし、我々はプログラミング上で引き算も出来れば割り算や掛け算もできます。しかし、ハードウェア的にはそのどの計算も足し算しか行っていません。\u003c/p\u003e\n\u003cp data-line=\"210\" class=\"code-line\"\u003eどのような仕組みで行っているのでしょうか？\u003cbr\u003e\n動作の基本的な考え方としては、以下になります。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"213\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n【引き算】\\\\\nA - B = A + (-B)\\\\\n【掛け算】\\\\\nA*B = A + A + A + ...\\\\\n【割り算】\\\\\nA/B = A + (-B)+(-B)+(-B)+ ...\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"221\" class=\"code-line\"\u003eつまり、\u003cbr\u003e\n引き算は『-Bを足す』。\u003cbr\u003e\n掛け算は『B回Aを足す』。\u003cbr\u003e\n割り算は『Aから-Bを何回足せるか数える』。\u003cbr\u003e\nという形で考えられています。\u003c/p\u003e\n\u003cp data-line=\"227\" class=\"code-line\"\u003e例えば、8に-2を足せば6ですし、8を2回足せば16ですし、8は-2を4回足せるので4となります。\u003c/p\u003e\n\u003ch3 id=\"2%E3%81%AE%E9%80%B2%E6%95%B0%E3%81%AE%E8%B6%B3%E3%81%97%E7%AE%97\" data-line=\"229\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#2%E3%81%AE%E9%80%B2%E6%95%B0%E3%81%AE%E8%B6%B3%E3%81%97%E7%AE%97\" aria-hidden=\"true\"\u003e\u003c/a\u003e 2の進数の足し算\u003c/h3\u003e\n\u003cp data-line=\"230\" class=\"code-line\"\u003eさて、2進数の足し算を考えるとき、人間の頭用にいちいち10進数に直してから計算するとかえって遅くなります。コンピュータにも応用が効きません。\u003cbr\u003e\nそこで、2進数のまま計算する方法を考えます。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"233\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n11 : 1011\\\\\n9 : 1001\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"237\" class=\"code-line\"\u003e上記を考える際に、20にしてから2進数に直すよりそれぞれの桁の値を見て足したらどうなるかを考えるほうが簡単に計算がきます。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"239\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n11 : 1011\\\\\n9 : 1001\\\\\n20 : 10100\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"245\" class=\"code-line\"\u003e互いに1が入る桁は繰り上がり、それ以外は素直に足すと考えるとやりやすいです。\u003cbr\u003e\n上からではなく、下の桁から繰り上がっていく形で考えましょう。\u003c/p\u003e\n\u003ch3 id=\"2%E3%81%AE%E8%A3%9C%E6%95%B0\" data-line=\"248\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#2%E3%81%AE%E8%A3%9C%E6%95%B0\" aria-hidden=\"true\"\u003e\u003c/a\u003e 2の補数\u003c/h3\u003e\n\u003cp data-line=\"249\" class=\"code-line\"\u003e2進数の足し算はできるようになりました。コンピュータは足し算しかできないので、これで全ての計算ができるはずです。が、足したら引かれる数、つまり負の数が無ければそれも出来ません。\u003cbr\u003e\nそこで作られたのが『2の補数』と呼ばれるものです。\u003c/p\u003e\n\u003cp data-line=\"252\" class=\"code-line\"\u003e【『2の補数』の作り方】\u003cbr\u003e\n・各bitの0と1を反転させる(bit反転)\u003cbr\u003e\n・上記に1を足す\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"256\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n【4bitの『2の補数』の例】\\\\\n3:0011\\\\\n-3:1101\\\\\n5:0101\\\\\n-5:1011\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"263\" class=\"code-line\"\u003e『2の補数』はこのような形で作れます。\u003cbr\u003e\nただし、コンピュータ上のbit演算でしか正常に機能しないことに注意してください。\u003cbr\u003e\n理由としてはその計算のさせかたにあります。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"267\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n【4bitの演算】\\\\\n8 : 1000\\\\\n7 : 0111\\\\\n-7 : 1001\\\\\n8 + (-7) : 1000 + 1001\\\\\n(※10001になるが、4bit計算なので最上位bitは格納できず消える)\\\\\n1: 0001\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"276\" class=\"code-line\"\u003eというような計算の流れになるので、『最上位bitは格納できず消える』というような構造を持つコンピュータ上のbit演算でないと機能しない事が分かります。\u003c/p\u003e\n\u003ch3 id=\"%E3%82%B7%E3%83%95%E3%83%88%E6%BC%94%E7%AE%97\" data-line=\"278\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E3%82%B7%E3%83%95%E3%83%88%E6%BC%94%E7%AE%97\" aria-hidden=\"true\"\u003e\u003c/a\u003e シフト演算\u003c/h3\u003e\n\u003cp data-line=\"279\" class=\"code-line\"\u003e『2の補数』を用いることによって、全ての計算を行えるようになりました。\u003cbr\u003e\nしかし、割り算や掛け算に関しては正攻法でやると随分と手間が掛かる事が分かります。\u003cbr\u003e\nそこで用いるのがシフト演算です。\u003c/p\u003e\n\u003cp data-line=\"283\" class=\"code-line\"\u003e例えば、4bitで表現される数値を2倍することを考えましょう。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"285\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n3 : 0011\\\\\n6 : 0110\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"289\" class=\"code-line\"\u003eこれをよく見ると、bitを左に一桁ずらしていることが分かります。\u003cbr\u003e\nこれを『\u003cstrong\u003e1bit左シフト\u003c/strong\u003e』と言います。\u003cbr\u003e\nでは、今度は4倍してみましょう。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"293\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n3 : 0011\\\\\n12 : 1100\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"297\" class=\"code-line\"\u003e今度は2bitシフトしています。\u003cbr\u003e\nつまり、求めたい値が元の値の\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e2^n\u003c/eq\u003e\u003c/embed-katex\u003e倍であれば、左シフトを行えば簡単に計算できることが分かります。\u003c/p\u003e\n\u003cp data-line=\"300\" class=\"code-line\"\u003e次に、4bitで表現される数値を2で割ることを考えましょう。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"302\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n8 : 1000\\\\\n4 : 0100\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"306\" class=\"code-line\"\u003e今度はbitを右に一桁ずらしていることが分かります。\u003cbr\u003e\nこれを『\u003cstrong\u003e1bit右シフト\u003c/strong\u003e』と言います。\u003cbr\u003e\nでは、今後は4で割ってみましょう。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"310\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n8 : 1000\\\\\n2 : 0010\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"314\" class=\"code-line\"\u003eつまり、求めたい値が元の値の\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e2^{-n}\u003c/eq\u003e\u003c/embed-katex\u003e倍であれば、右シフトを行えば簡単に計算できることが分かります。\u003c/p\u003e\n\u003ch1 id=\"%E7%A2%BA%E8%AA%8D%E3%81%A8%E6%BC%94%E7%BF%92\" data-line=\"316\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E7%A2%BA%E8%AA%8D%E3%81%A8%E6%BC%94%E7%BF%92\" aria-hidden=\"true\"\u003e\u003c/a\u003e 確認と演習\u003c/h1\u003e\n\u003ch2 id=\"%E5%95%8F%E9%A1%8C\" data-line=\"318\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%95%8F%E9%A1%8C\" aria-hidden=\"true\"\u003e\u003c/a\u003e 問題\u003c/h2\u003e\n\u003ch3 id=\"%E5%95%8F1\" data-line=\"319\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%95%8F1\" aria-hidden=\"true\"\u003e\u003c/a\u003e 問1\u003c/h3\u003e\n\u003cp data-line=\"320\" class=\"code-line\"\u003e(2)0010 なら、2進数。(n)0010なら、n進数とする。\u003cbr\u003e\n以下の値を全て10進数にせよ。\u003c/p\u003e\n\u003cp data-line=\"323\" class=\"code-line\"\u003e・(2)0100\u003cbr\u003e\n・(2)1010\u003cbr\u003e\n・(8)1570\u003cbr\u003e\n・(8)0041\u003cbr\u003e\n・(16)00AB\u003cbr\u003e\n・(16)102F\u003c/p\u003e\n\u003ch3 id=\"%E5%95%8F2\" data-line=\"330\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%95%8F2\" aria-hidden=\"true\"\u003e\u003c/a\u003e 問2\u003c/h3\u003e\n\u003cp data-line=\"331\" class=\"code-line\"\u003e2の補数を用いて以下を負の値にせよ。\u003cbr\u003e\nなお、4bitでの計算とする。\u003c/p\u003e\n\u003cp data-line=\"334\" class=\"code-line\"\u003e・0001\u003cbr\u003e\n・1001\u003cbr\u003e\n・0101\u003cbr\u003e\n・0111\u003c/p\u003e\n\u003cp data-line=\"339\" class=\"code-line\"\u003e上記で求めた値に1100足した値を全て求めよ。\u003c/p\u003e\n\u003ch3 id=\"%E5%95%8F3\" data-line=\"341\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%95%8F3\" aria-hidden=\"true\"\u003e\u003c/a\u003e 問3\u003c/h3\u003e\n\u003cp data-line=\"342\" class=\"code-line\"\u003e以下の計算をして、2進数で表記せよ。\u003cbr\u003e\n尚、bit数は無限とする\u003c/p\u003e\n\u003cp data-line=\"345\" class=\"code-line\"\u003e・1001 の4倍\u003cbr\u003e\n・1000 の1/2倍\u003cbr\u003e\n・1111 の3倍\u003c/p\u003e\n\u003ch2 id=\"%E8%A7%A3%E7%AD%94\" data-line=\"349\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E8%A7%A3%E7%AD%94\" aria-hidden=\"true\"\u003e\u003c/a\u003e 解答\u003c/h2\u003e\n\u003ch3 id=\"%E5%95%8F1-1\" data-line=\"350\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%95%8F1-1\" aria-hidden=\"true\"\u003e\u003c/a\u003e 問1\u003c/h3\u003e\n\u003cp data-line=\"351\" class=\"code-line\"\u003e(2)0010 なら、2進数。(n)0010なら、n進数とする。\u003cbr\u003e\n以下の値を全て10進数にせよ。\u003c/p\u003e\n\u003cp data-line=\"354\" class=\"code-line\"\u003e・(2)0100 = 4\u003cbr\u003e\n・(2)1010 = 10\u003cbr\u003e\n・(8)1570 = 512 + 320 + 56 = 888\u003cbr\u003e\n・(8)0041 = 32 + 1 = 33\u003cbr\u003e\n・(16)00AB = 160 + 11 = 171\u003cbr\u003e\n・(16)102F = 4096 + 32 + 15 = 4143\u003c/p\u003e\n\u003ch3 id=\"%E5%95%8F2-1\" data-line=\"361\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%95%8F2-1\" aria-hidden=\"true\"\u003e\u003c/a\u003e 問2\u003c/h3\u003e\n\u003cp data-line=\"362\" class=\"code-line\"\u003e2の補数を用いて以下を負の値にせよ。\u003cbr\u003e\nなお、4bitでの計算とする。\u003c/p\u003e\n\u003cp data-line=\"365\" class=\"code-line\"\u003e・0001 = 1111(-1)\u003cbr\u003e\n・1001 = 0111(-9)\u003cbr\u003e\n・0101 = 1011(-5)\u003cbr\u003e\n・0111 = 1001(-7)\u003c/p\u003e\n\u003cp data-line=\"370\" class=\"code-line\"\u003e上記で求めた値に1100足した値を全て求めよ。\u003c/p\u003e\n\u003cp data-line=\"372\" class=\"code-line\"\u003e・1111(-1) + 1100(12) = 1011(11)\u003cbr\u003e\n・0111(-9) + 1100(12) = 0011(3)\u003cbr\u003e\n・1011(-5) + 1100(12) = 0111(7)\u003cbr\u003e\n・1001(-7) + 1100(12) = 0101(5)\u003c/p\u003e\n\u003ch3 id=\"%E5%95%8F3-1\" data-line=\"377\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%95%8F3-1\" aria-hidden=\"true\"\u003e\u003c/a\u003e 問3\u003c/h3\u003e\n\u003cp data-line=\"378\" class=\"code-line\"\u003e以下の計算をして、2進数で表記せよ。\u003cbr\u003e\n尚、bit数は無限とする\u003cbr\u003e\n・1001(9) の4倍 = 100100(100000(32)+100(4))\u003cbr\u003e\n・1000(8) の1/2倍 = 0100(4)\u003cbr\u003e\n・1111(15) の8倍 = 1111000(1000000(64)+100000(32)+10000(16)+1000(8))\u003c/p\u003e\n",
+    "toc":  [
+                {
+                    "id":  "%E6%A6%82%E8%A6%81",
+                    "text":  "概要",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%81%AE%E5%86%85%E9%83%A8%E6%A7%8B%E9%80%A0",
+                    "text":  "コンピュータの内部構造",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "cpu%E3%81%AE%E8%A8%88%E7%AE%97%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF",
+                    "text":  "CPUの計算の仕組み",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E3%83%A1%E3%83%A2%E3%83%AA%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E4%BF%9D%E5%AD%98%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF",
+                    "text":  "メモリのデータ保存の仕組み",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "2%E9%80%B2%E6%95%B0",
+                    "text":  "2進数",
+                    "level":  2,
+                    "children":  [
+                                     {
+                                         "id":  "10%E9%80%B2%E6%95%B0%E3%81%8B%E3%82%892%E9%80%B2%E6%95%B0",
+                                         "text":  "10進数から2進数",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "n%E9%80%B2%E6%95%B0",
+                                         "text":  "n進数",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     }
+                                 ]
+                },
+                {
+                    "id":  "bit%E6%BC%94%E7%AE%97",
+                    "text":  "bit演算",
+                    "level":  2,
+                    "children":  [
+                                     {
+                                         "id":  "bit",
+                                         "text":  "bit",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%8D%98%E4%BD%8D",
+                                         "text":  "データの単位",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%81%AE%E5%9B%9B%E5%89%87%E6%BC%94%E7%AE%97",
+                                         "text":  "コンピュータの四則演算",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "2%E3%81%AE%E9%80%B2%E6%95%B0%E3%81%AE%E8%B6%B3%E3%81%97%E7%AE%97",
+                                         "text":  "2の進数の足し算",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "2%E3%81%AE%E8%A3%9C%E6%95%B0",
+                                         "text":  "2の補数",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E3%82%B7%E3%83%95%E3%83%88%E6%BC%94%E7%AE%97",
+                                         "text":  "シフト演算",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     }
+                                 ]
+                },
+                {
+                    "id":  "%E7%A2%BA%E8%AA%8D%E3%81%A8%E6%BC%94%E7%BF%92",
+                    "text":  "確認と演習",
+                    "level":  1,
+                    "children":  [
+                                     {
+                                         "id":  "%E5%95%8F%E9%A1%8C",
+                                         "text":  "問題",
+                                         "level":  2,
+                                         "children":  [
+                                                          {
+                                                              "id":  "%E5%95%8F1",
+                                                              "text":  "問1",
+                                                              "level":  3,
+                                                              "children":  ""
+                                                          },
+                                                          {
+                                                              "id":  "%E5%95%8F2",
+                                                              "text":  "問2",
+                                                              "level":  3,
+                                                              "children":  ""
+                                                          },
+                                                          {
+                                                              "id":  "%E5%95%8F3",
+                                                              "text":  "問3",
+                                                              "level":  3,
+                                                              "children":  ""
+                                                          }
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E8%A7%A3%E7%AD%94",
+                                         "text":  "解答",
+                                         "level":  2,
+                                         "children":  [
+                                                          {
+                                                              "id":  "%E5%95%8F1-1",
+                                                              "text":  "問1",
+                                                              "level":  3,
+                                                              "children":  ""
+                                                          },
+                                                          {
+                                                              "id":  "%E5%95%8F2-1",
+                                                              "text":  "問2",
+                                                              "level":  3,
+                                                              "children":  ""
+                                                          },
+                                                          {
+                                                              "id":  "%E5%95%8F3-1",
+                                                              "text":  "問3",
+                                                              "level":  3,
+                                                              "children":  ""
+                                                          }
+                                                      ]
+                                     }
+                                 ]
+                }
+            ]
+}

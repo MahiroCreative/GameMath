@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>bit演算_確認問題</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<style>body{max-width:820px;margin:2em auto;padding:0 16px;font-family:sans-serif;line-height:1.8}
+img{max-width:100%}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:4px 8px}
+.header-anchor-link{display:none}</style>
+</head><body>
+<p><small>1.ゲーム数学標準(開発中) / 8. bit演算_確認問題（Zenn から 2026-10-30 に保存。本文の最終更新 2025-06-17T10:49:37.045+09:00）</small></p>
+<h1>bit演算_確認問題</h1>
+<h2 id="%E5%95%8F%E9%A1%8C" data-line="0" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F%E9%A1%8C" aria-hidden="true"></a> 問題</h2>
+<h3 id="%E5%95%8F1" data-line="1" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F1" aria-hidden="true"></a> 問1</h3>
+<p data-line="2" class="code-line">(2)0010 なら、2進数。(n)0010なら、n進数とする。<br>
+以下の値を全て10進数にせよ。</p>
+<p data-line="5" class="code-line">・(2)0100<br>
+・(2)1010<br>
+・(8)1570<br>
+・(8)0041<br>
+・(16)00AB<br>
+・(16)102F</p>
+<h3 id="%E5%95%8F2" data-line="12" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F2" aria-hidden="true"></a> 問2</h3>
+<p data-line="13" class="code-line">2の補数を用いて以下を負の値にせよ。<br>
+なお、4bitでの計算とする。</p>
+<p data-line="16" class="code-line">・0001<br>
+・1001<br>
+・0101<br>
+・0111</p>
+<p data-line="21" class="code-line">上記で求めた値に1100足した値を全て求めよ。</p>
+<h3 id="%E5%95%8F3" data-line="23" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F3" aria-hidden="true"></a> 問3</h3>
+<p data-line="24" class="code-line">以下の計算をして、2進数で表記せよ。<br>
+尚、bit数は無限とする</p>
+<p data-line="27" class="code-line">・1001 の4倍<br>
+・1000 の1/2倍<br>
+・1111 の3倍</p>
+<h2 id="%E8%A7%A3%E7%AD%94" data-line="31" class="code-line">
+<a class="header-anchor-link" href="#%E8%A7%A3%E7%AD%94" aria-hidden="true"></a> 解答</h2>
+<h3 id="%E5%95%8F1-1" data-line="32" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F1-1" aria-hidden="true"></a> 問1</h3>
+<p data-line="33" class="code-line">(2)0010 なら、2進数。(n)0010なら、n進数とする。<br>
+以下の値を全て10進数にせよ。</p>
+<p data-line="36" class="code-line">・(2)0100 = 4<br>
+・(2)1010 = 10<br>
+・(8)1570 = 512 + 320 + 56 = 888<br>
+・(8)0041 = 32 + 1 = 33<br>
+・(16)00AB = 160 + 11 = 171<br>
+・(16)102F = 4096 + 32 + 15 = 4143</p>
+<h3 id="%E5%95%8F2-1" data-line="43" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F2-1" aria-hidden="true"></a> 問2</h3>
+<p data-line="44" class="code-line">2の補数を用いて以下を負の値にせよ。<br>
+なお、4bitでの計算とする。</p>
+<p data-line="47" class="code-line">・0001 = 1111(-1)<br>
+・1001 = 0111(-9)<br>
+・0101 = 1011(-5)<br>
+・0111 = 1001(-7)</p>
+<p data-line="52" class="code-line">上記で求めた値に1100足した値を全て求めよ。</p>
+<p data-line="54" class="code-line">・1111(-1) + 1100(12) = 1011(11)<br>
+・0111(-9) + 1100(12) = 0011(3)<br>
+・1011(-5) + 1100(12) = 0111(7)<br>
+・1001(-7) + 1100(12) = 0101(5)</p>
+<h3 id="%E5%95%8F3-1" data-line="59" class="code-line">
+<a class="header-anchor-link" href="#%E5%95%8F3-1" aria-hidden="true"></a> 問3</h3>
+<p data-line="60" class="code-line">以下の計算をして、2進数で表記せよ。<br>
+尚、bit数は無限とする<br>
+・1001 の4倍 = 100100<br>
+・1000 の1/2倍 = 0100<br>
+・1111(15) の3倍 = 1111*(2^1 + 1) = 11110 + 1111 = 101101(45)</p>
+
+<script>
+document.querySelectorAll("embed-katex").forEach(function (el) {
+  var display = el.hasAttribute("display-mode");
+  try { katex.render(el.textContent, el, { displayMode: display, throwOnError: false }); } catch (e) {}
+});
+</script>
+</body></html>

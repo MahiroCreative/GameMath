@@ -1,0 +1,32 @@
+﻿{
+    "id":  57448,
+    "post_type":  "Chapter",
+    "is_free":  false,
+    "slug":  "38394f",
+    "body_letters_count":  693,
+    "source_repo_updated_at":  null,
+    "body_updated_at":  "2024-05-09T16:49:52.682+09:00",
+    "filename":  null,
+    "position":  6,
+    "path":  "/mahiro3033/books/e0fd5a3313118a/viewer/38394f",
+    "title":  "関数と方程式_確認問題",
+    "body_html":  "\u003ch2 id=\"%E7%A2%BA%E8%AA%8D%E5%95%8F%E9%A1%8C\" data-line=\"0\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E7%A2%BA%E8%AA%8D%E5%95%8F%E9%A1%8C\" aria-hidden=\"true\"\u003e\u003c/a\u003e 確認問題\u003c/h2\u003e\n\u003cp data-line=\"1\" class=\"code-line\"\u003e1.　傾きが3、切片が6の直線の方程式を求めよ。\u003cbr\u003e\n2.　\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ey=-3x+8\u003c/eq\u003e\u003c/embed-katex\u003eのとき、y=-16となるxを求めよ。\u003cbr\u003e\n3.　\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ey=(x-4)^2+3\u003c/eq\u003e\u003c/embed-katex\u003eのとき、放物線の頂点の座標を求めよ。\u003cbr\u003e\n4.　\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ey=(x-4)^2+3\u003c/eq\u003e\u003c/embed-katex\u003eのとき、x=3の時のy、y=12の時のxを求めよ。\u003cbr\u003e\n5.　原点を中心に半径が\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\sqrt{4}\u003c/eq\u003e\u003c/embed-katex\u003eの円の方程式を求めよ。\u003cbr\u003e\n6.　中心(3,4)、半径9の円の方程式を求めよ。\u003cbr\u003e\n7.　物体A：半径1 中心(1,2),　物体B：半径2 中心(5,3)とする。ABは衝突しているか？\u003cbr\u003e\n8.　7において、衝突していればどれだけ離れれば衝突しないか。衝突していなければどれだけ近づけば衝突するかを求めよ。\u003cbr\u003e\n9.　円1の中心は(x,y)であり、半径は4。円2の中心は(z,w)であり、半径は8とする。円1と円2の衝突条件を求めよ。\u003c/p\u003e\n\u003ch2 id=\"%E8%A7%A3%E7%AD%94\" data-line=\"11\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E8%A7%A3%E7%AD%94\" aria-hidden=\"true\"\u003e\u003c/a\u003e 解答\u003c/h2\u003e\n\u003cp data-line=\"12\" class=\"code-line\"\u003e1.　\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ey=3x+6\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\n2.　\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e-16=-3x+8 \\Leftrightarrow x=8\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\n3.　(4,3)\u003cbr\u003e\n4.　x=3のときy=4,　y=12のときx=1,7\u003cbr\u003e\n5.　\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ex^2+y^2=4\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\n6.　\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e(x-3)^2+(y-4)^2=81\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\n7.　\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\sqrt{17}≦3\u003c/eq\u003e\u003c/embed-katex\u003eになるので、成り立たない。よって衝突していない。\u003cbr\u003e\n8.　衝突していないので、近づく距離をdとすると、\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\sqrt{17}-d≦3\u003c/eq\u003e\u003c/embed-katex\u003eが成り立てば良いので、\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ed≧-3+\\sqrt{17}\u003c/eq\u003e\u003c/embed-katex\u003eよって、\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\sqrt{17}-3\u003c/eq\u003e\u003c/embed-katex\u003e以上近づけば良い。\u003cbr\u003e\n9.　\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e(z-x)^2 + (w-y)^2 ≦ 12^2\u003c/eq\u003e\u003c/embed-katex\u003e,\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e(x-z)^2 + (y-w)^2 ≦ 12^2\u003c/eq\u003e\u003c/embed-katex\u003e\u003c/p\u003e\n",
+    "toc":  [
+                {
+                    "id":  "%E7%A2%BA%E8%AA%8D%E5%95%8F%E9%A1%8C",
+                    "text":  "確認問題",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E8%A7%A3%E7%AD%94",
+                    "text":  "解答",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                }
+            ]
+}

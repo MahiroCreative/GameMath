@@ -1,0 +1,156 @@
+﻿{
+    "id":  102541,
+    "post_type":  "Chapter",
+    "is_free":  false,
+    "slug":  "5a617f",
+    "body_letters_count":  4499,
+    "source_repo_updated_at":  null,
+    "body_updated_at":  "2025-07-10T14:46:10.327+09:00",
+    "filename":  null,
+    "position":  11,
+    "path":  "/mahiro3033/books/e0fd5a3313118a/viewer/5a617f",
+    "title":  "2次元ベクトルを用いた物体の運動",
+    "body_html":  "\u003ch2 id=\"%E6%A6%82%E8%A6%81\" data-line=\"0\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%A6%82%E8%A6%81\" aria-hidden=\"true\"\u003e\u003c/a\u003e 概要\u003c/h2\u003e\n\u003cp data-line=\"1\" class=\"code-line\"\u003eベクトルを学ぶ目的の大部分は物理計算のためと言っても過言ではありません。元々ベクトルは物理学を容易にするために発展してきたという歴史があります。つまり、今日我々が学んでいる物理はベクトルと共に発展しており、ベクトルを使うこと前提の学問となっているということです。\u003cbr\u003e\n高校までの過程の関係上、別々に学んだ物理とベクトルですがここで合流させておきましょう。\u003c/p\u003e\n\u003ch2 id=\"%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%AE%E7%89%A9%E7%90%86%E3%81%B8%E3%81%AE%E6%8B%A1%E5%BC%B5\" data-line=\"4\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%AE%E7%89%A9%E7%90%86%E3%81%B8%E3%81%AE%E6%8B%A1%E5%BC%B5\" aria-hidden=\"true\"\u003e\u003c/a\u003e ベクトルの物理への拡張\u003c/h2\u003e\n\u003cp data-line=\"5\" class=\"code-line\"\u003e物理において速度や加速度は向きと量がある数値でる。つまり、速度や加速度とはベクトルであると言える。また、それらとの計算を容易にするため、物体の現在地である座標もある種のベクトル(複数の成分を一つの値としてもつもの)として計算する。\u003c/p\u003e\n\u003ch3 id=\"%E9%80%9F%E5%BA%A6%E3%81%A8%E5%8A%A0%E9%80%9F%E5%BA%A6\" data-line=\"7\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E9%80%9F%E5%BA%A6%E3%81%A8%E5%8A%A0%E9%80%9F%E5%BA%A6\" aria-hidden=\"true\"\u003e\u003c/a\u003e 速度と加速度\u003c/h3\u003e\n\u003cp data-line=\"8\" class=\"code-line\"\u003e二次元空間において、1秒間にx方向にa, y方向にb進む物体があるとする。\u003cbr\u003e\nこれはベクトルを用いて表せる。その物体の速度\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\vec{v}\u003c/eq\u003e\u003c/embed-katex\u003eは、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"11\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n\\vec{v} = (a,b)[/s]\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"14\" class=\"code-line\"\u003eと表せる。\u003cbr\u003e\nまた、1秒間にx方向にc, y方向にd加速する物体があるとすれば、\u003cbr\u003e\nその物体の加速度は\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\vec{a}\u003c/eq\u003e\u003c/embed-katex\u003eは、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"18\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n\\vec{a} = (c,d)[/s]\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"22\" class=\"code-line\"\u003eこれらは、向きと量を持つベクトルである。\u003c/p\u003e\n\u003ch3 id=\"%E4%BD%8D%E7%BD%AE%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB\" data-line=\"24\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E4%BD%8D%E7%BD%AE%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB\" aria-hidden=\"true\"\u003e\u003c/a\u003e 位置ベクトル\u003c/h3\u003e\n\u003cp data-line=\"25\" class=\"code-line\"\u003e位置ベクトルとは、基準となる点からどれだけ離れているかを示すベクトルである。\u003cbr\u003e\n(※ここでは特に断りが無い場合は\u003cstrong\u003e位置ベクトルの基準点は原点\u003c/strong\u003eとする)\u003cbr\u003e\n位置ベクトルを用いることで、物体の運動をベクトルで計算できます。\u003cbr\u003e\n簡単な例は以下になります。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"30\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n\\vec{P}(x,y) = \\vec{v}(vx,vy) * t  \\\\\n(\\vec{P}:物体の位置ベクトル,\\vec{v}:速度,t:経過時間)\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"34\" class=\"code-line\"\u003e物理の公式から上記が求まるので、\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\vec{v}(2,3)[/s]\u003c/eq\u003e\u003c/embed-katex\u003eとし、経過時間は3[s]とすると、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"36\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n\\vec{P}(x,y) = (2,3)[/s] * 3[/s] = (6,9)\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"40\" class=\"code-line\"\u003eとなる。\u003cbr\u003e\n原点基準の位置ベクトルなので、物体の位置はそのまま(6,9)であると言える。\u003c/p\u003e\n\u003ch2 id=\"%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E9%81%8B%E5%8B%95%E3%81%AE%E5%BC%8F\" data-line=\"43\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E9%81%8B%E5%8B%95%E3%81%AE%E5%BC%8F\" aria-hidden=\"true\"\u003e\u003c/a\u003e ベクトルを用いた運動の式\u003c/h2\u003e\n\u003cp data-line=\"44\" class=\"code-line\"\u003eここではすでに習った物理の公式をベクトルに置き換えていく。\u003cbr\u003e\n(※位置ベクトルは簡単化のため\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\vec{P}\u003c/eq\u003e\u003c/embed-katex\u003eでなく、Pとして記述する)\u003c/p\u003e\n\u003ch3 id=\"%E7%AD%89%E9%80%9F%E9%81%8B%E5%8B%95\" data-line=\"47\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E7%AD%89%E9%80%9F%E9%81%8B%E5%8B%95\" aria-hidden=\"true\"\u003e\u003c/a\u003e 等速運動\u003c/h3\u003e\n\u003cp data-line=\"48\" class=\"code-line\"\u003e初期位置:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003eP_0\u003c/eq\u003e\u003c/embed-katex\u003e,速度:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\vec{v}\u003c/eq\u003e\u003c/embed-katex\u003e[/s]\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"50\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nP = P_0 + \\vec{v}t\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch3 id=\"%E7%AD%89%E5%8A%A0%E9%80%9F%E5%BA%A6%E9%81%8B%E5%8B%95\" data-line=\"54\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E7%AD%89%E5%8A%A0%E9%80%9F%E5%BA%A6%E9%81%8B%E5%8B%95\" aria-hidden=\"true\"\u003e\u003c/a\u003e 等加速度運動\u003c/h3\u003e\n\u003cp data-line=\"55\" class=\"code-line\"\u003e初期位置:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003eP_0\u003c/eq\u003e\u003c/embed-katex\u003e,初速度:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\vec{v_0}\u003c/eq\u003e\u003c/embed-katex\u003e[/s],加速度:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\vec{a}\u003c/eq\u003e\u003c/embed-katex\u003e[/s/s]\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"57\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nP = P_0 + \\vec{v_0}t + \\frac{1}{2}\\vec{a}t\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch3 id=\"%E6%94%BE%E7%89%A9%E7%B7%9A%E3%81%AE%E9%81%8B%E5%8B%95\" data-line=\"61\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%94%BE%E7%89%A9%E7%B7%9A%E3%81%AE%E9%81%8B%E5%8B%95\" aria-hidden=\"true\"\u003e\u003c/a\u003e 放物線の運動\u003c/h3\u003e\n\u003cp data-line=\"62\" class=\"code-line\"\u003e基本的に等加速度運動と同じだが、物体の持つ加速度に重力加速度が影響を与える。\u003cbr\u003e\n初期位置:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003eP_0\u003c/eq\u003e\u003c/embed-katex\u003e,初速度:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\vec{v_0}\u003c/eq\u003e\u003c/embed-katex\u003e[/s],加速度:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\vec{a}\u003c/eq\u003e\u003c/embed-katex\u003e[/s/s],重力加速度:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\vec{g}\u003c/eq\u003e\u003c/embed-katex\u003e[/s/s]\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"65\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nP = P_0 + \\vec{v_0}t + \\frac{1}{2}(\\vec{a}-\\vec{g})t\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch3 id=\"%E5%8A%9B\" data-line=\"69\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%8A%9B\" aria-hidden=\"true\"\u003e\u003c/a\u003e 力\u003c/h3\u003e\n\u003cp data-line=\"70\" class=\"code-line\"\u003e力も『どの方向にどれだけの力を加える』と考えるのでベクトルです。\u003cbr\u003e\n例えば、ある質量m[kg]の物体に\\vec{F}[N]の力を加えるとすると、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"73\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n\\vec{F} = m\\vec{a}\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"77\" class=\"code-line\"\u003eとなる。\u003cbr\u003e\nつまり、力の分解とは力のベクトル成分を出すために行っていたのである。\u003cbr\u003e\n\u003cimg src=\"https://static.zenn.studio/user-upload/47e68a5100db-20240702.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"81\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nx成分(F_2):F * cosΘ\\\\\ny成分(F_1):F * sinΘ\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch3 id=\"%E5%8A%9B%E3%82%92%E7%94%A8%E3%81%84%E3%81%A6%E8%80%83%E3%81%88%E3%82%8B%E6%94%BE%E7%89%A9%E7%B7%9A%E9%81%8B%E5%8B%95(%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E5%BC%8F)\" data-line=\"86\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%8A%9B%E3%82%92%E7%94%A8%E3%81%84%E3%81%A6%E8%80%83%E3%81%88%E3%82%8B%E6%94%BE%E7%89%A9%E7%B7%9A%E9%81%8B%E5%8B%95(%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E5%BC%8F)\" aria-hidden=\"true\"\u003e\u003c/a\u003e 力を用いて考える放物線運動(ベクトルを用いた式)\u003c/h3\u003e\n\u003cp data-line=\"87\" class=\"code-line\"\u003e初期位置：\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003eP_0\u003c/eq\u003e\u003c/embed-katex\u003e,加速度:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\vec{a}\u003c/eq\u003e\u003c/embed-katex\u003e,初速度:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\vec{v_0}\u003c/eq\u003e\u003c/embed-katex\u003e\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"89\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nP = P_0 + \\frac{1}{2}\\vec{a}t^2 + \\vec{v_0}t \\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"92\" class=\"code-line\"\u003e加速度を用いずに質量m[kg],力\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\vec{F}\u003c/eq\u003e\u003c/embed-katex\u003e[N]を用いたとすると、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"94\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n\\vec{a} = \\frac{\\vec{F}}{m}\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"97\" class=\"code-line\"\u003eであるので、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"99\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nP = P_0 + \\frac{1}{2}\\frac{\\vec{F}}{m}t^2 + \\vec{v_0}t \\\\\n(※Pはx,y座標)\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch2 id=\"%E6%91%A9%E6%93%A6\" data-line=\"104\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%91%A9%E6%93%A6\" aria-hidden=\"true\"\u003e\u003c/a\u003e 摩擦\u003c/h2\u003e\n\u003cp data-line=\"105\" class=\"code-line\"\u003eゲームの物理の運動を考える上では上記までである程度大丈夫ですが、さらに追加して摩擦というものも考えていきましょう。\u003cbr\u003e\n摩擦を考えることで、よりリアルな物体の動きをシュミレートできます。\u003c/p\u003e\n\u003ch3 id=\"%E6%91%A9%E6%93%A6%E3%81%A8%E3%81%AF%EF%BC%9F\" data-line=\"108\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%91%A9%E6%93%A6%E3%81%A8%E3%81%AF%EF%BC%9F\" aria-hidden=\"true\"\u003e\u003c/a\u003e 摩擦とは？\u003c/h3\u003e\n\u003cp data-line=\"109\" class=\"code-line\"\u003e物体が何かの上を進んでいるとき、物体の動きに影響を与えるのは重力や物体に加わっている力だけではありません。摩擦と呼ばれるものも存在します。\u003c/p\u003e\n\u003cp data-line=\"111\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/dd9f85e1dd49-20240703.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"113\" class=\"code-line\"\u003e上記のように、摩擦とは物体が動こうとする方向の反対に発生する力です。\u003cbr\u003e\nこれは物体が何か別の物体に接しているときに発生します。\u003c/p\u003e\n\u003cp data-line=\"116\" class=\"code-line\"\u003eこの摩擦は、物体の質量と摩擦を発生させる表面の性質に応じて変わります。\u003cbr\u003e\n摩擦係数(どれだけすべにくいか)をuとし、床に掛かっている重さをWとすると摩擦力F\u0027は以下のようになります。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"119\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nF\u0027=uW\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"123\" class=\"code-line\"\u003eここで、質量そのものではなく床に掛かっている重さWを用いているには理由があります。\u003cbr\u003e\n\u003cimg src=\"https://static.zenn.studio/user-upload/feed07a85dc3-20240704.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"126\" class=\"code-line\"\u003e上記のように『床に水平に乗っている物体』と『斜めに乗っている物体』では重力の加わり方が違います。つまり、床に加わっている力が変化するのです。\u003cbr\u003e\n床に加わっている力に応じて摩擦力が変化するので、\u003cbr\u003e\n上記の図で言えば、\u003cstrong\u003e右側より左側のほうが強い摩擦力が発生する\u003c/strong\u003eと言えます。\u003c/p\u003e\n\u003ch2 id=\"%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0\" data-line=\"131\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0\" aria-hidden=\"true\"\u003e\u003c/a\u003e 摩擦係数\u003c/h2\u003e\n\u003cp data-line=\"132\" class=\"code-line\"\u003eでは、実際に摩擦による影響を考える際に、どの程度の力が加わるのでしょうか。実のところ、動いている物体と動いていない物体で物体に掛かる摩擦力が変わります。それに影響を与えているのが摩擦係数です。\u003cbr\u003e\nそれぞれ動いている時に掛かる摩擦係数を\u003cstrong\u003e動摩擦係数\u003c/strong\u003e、動いていない時に掛かる摩擦係数を\u003cstrong\u003e静止摩擦係数\u003c/strong\u003eと呼びます。\u003c/p\u003e\n\u003ch3 id=\"%E5%8B%95%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0\" data-line=\"135\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%8B%95%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0\" aria-hidden=\"true\"\u003e\u003c/a\u003e 動摩擦係数\u003c/h3\u003e\n\u003cp data-line=\"136\" class=\"code-line\"\u003e動摩擦係数はその名の通り動いてる物体に掛かる摩擦係数です。\u003cbr\u003e\n動いている物体に摩擦として一定の力が加わり続けます。\u003c/p\u003e\n\u003cp data-line=\"139\" class=\"code-line\"\u003e摩擦係数:u,床に掛かっている重さをWとすると、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"141\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nF\u0027=uW\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"144\" class=\"code-line\"\u003e現在働いている力に加えて、上記の力が加わり続けるということです。\u003c/p\u003e\n\u003ch3 id=\"%E9%9D%99%E6%AD%A2%E6%93%A6%E4%BF%82%E6%95%B0\" data-line=\"146\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E9%9D%99%E6%AD%A2%E6%93%A6%E4%BF%82%E6%95%B0\" aria-hidden=\"true\"\u003e\u003c/a\u003e 静止擦係数\u003c/h3\u003e\n\u003cp data-line=\"147\" class=\"code-line\"\u003e静止擦係数はその名の通り静止している物体に掛かる摩擦係数です。\u003cbr\u003e\n動摩擦係数が動いている物体を止めようと働く力なら、静止摩擦係数は止まっている物体が動き出さないように抵抗する力の事です。\u003c/p\u003e\n\u003cp data-line=\"150\" class=\"code-line\"\u003e動かないようにする力なので、物体に掛かっている力に応じて増減します。\u003cbr\u003e\n(※でないと勝手に動き出すことになってしまいます)\u003cbr\u003e\nですので、\u003cbr\u003e\n最大静止摩擦係数:u\u0027,床に掛かっている重さ:Wとすると、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"155\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nF\u0027\\leqq u\u0027W\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"158\" class=\"code-line\"\u003eとなります。\u003cbr\u003e\n\u003cimg src=\"https://static.zenn.studio/user-upload/9439345a6160-20240704.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"161\" class=\"code-line\"\u003eつまり、物体を動かそうという力を相殺する分だけ摩擦力が発生しています。\u003cbr\u003e\n静止摩擦係数で発生する摩擦力を超えると、動摩擦係数に切り替わります。\u003c/p\u003e\n\u003ch3 id=\"%E5%8B%95%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0%E3%81%A8%E5%8B%95%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0%E3%81%AE%E9%96%A2%E4%BF%82\" data-line=\"164\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%8B%95%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0%E3%81%A8%E5%8B%95%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0%E3%81%AE%E9%96%A2%E4%BF%82\" aria-hidden=\"true\"\u003e\u003c/a\u003e 動摩擦係数と動摩擦係数の関係\u003c/h3\u003e\n\u003cp data-line=\"165\" class=\"code-line\"\u003e最大の静止摩擦係数と動摩擦係数には以下が成り立ちます。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"167\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nu \\leqq u\u0027\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"170\" class=\"code-line\"\u003eつまり、物体を押し留めようとする摩擦力が最大になった時に発生する力より、動いている時に発生している力の方が小さいということです。\u003cbr\u003e\n(※物を押しているときの方が押し始めより楽なのはこのためです)\u003c/p\u003e\n\u003ch3 id=\"%E4%BE%8B%E9%A1%8C1(%E5%8B%95%E6%91%A9%E6%93%A6%E5%8A%9B)\" data-line=\"173\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E4%BE%8B%E9%A1%8C1(%E5%8B%95%E6%91%A9%E6%93%A6%E5%8A%9B)\" aria-hidden=\"true\"\u003e\u003c/a\u003e 例題1(動摩擦力)\u003c/h3\u003e\n\u003cp data-line=\"174\" class=\"code-line\"\u003e物体Aは斜面を滑り落ちている。\u003cbr\u003e\n以下の図のような関係にあるとき、物体Aの加速度を求めよ。\u003cbr\u003e\n質量:M[kg],重力加速度g[/s/s],動摩擦係数:u\u003cbr\u003e\n\u003cimg src=\"https://static.zenn.studio/user-upload/a85bb3a5464c-20240705.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"179\" class=\"code-line\"\u003eまず、斜面の角度が\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\frac{1}{6}π\u003c/eq\u003e\u003c/embed-katex\u003eなので、\u003cbr\u003e\n\u003cimg src=\"https://static.zenn.studio/user-upload/bf83cf8887bc-20240705.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003cbr\u003e\n直角三角形の性質から、斜面に垂直に掛かる力の角度も\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\frac{1}{6}π\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\nよって、物体にかかる力の合計F\u0027は\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"184\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nF\u0027 = Mg\\cos{\\frac{2}{6}π} - uMgcos{\\frac{1}{6}π}=Mg(\\frac{1}{2} - \\frac{\\sqrt{3}}{2}u)\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"187\" class=\"code-line\"\u003eaを物体の加速度とすると力の式から、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"189\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nF\u0027=Ma　より、\\\\\nF\u0027=Mg(\\frac{1}{2} - \\frac{\\sqrt{3}}{2}u)\\\\\nよって、\\\\\na = g(\\frac{1}{2} - \\frac{\\sqrt{3}}{2}u)\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch3 id=\"%E4%BE%8B%E9%A1%8C2(%E9%9D%99%E6%AD%A2%E6%91%A9%E6%93%A6%E5%8A%9B)\" data-line=\"197\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E4%BE%8B%E9%A1%8C2(%E9%9D%99%E6%AD%A2%E6%91%A9%E6%93%A6%E5%8A%9B)\" aria-hidden=\"true\"\u003e\u003c/a\u003e 例題2(静止摩擦力)\u003c/h3\u003e\n\u003cp data-line=\"198\" class=\"code-line\"\u003e物体Aは斜面に留まっている。以下の図のような関係にあるとき、\u003cbr\u003e\n物体Aが動き出すには物体をどの程度の力で押せばよいか求めよ。\u003cbr\u003e\n質量:M[kg],重力加速度g[/s/s],最大静止擦係数:u\u0027\u003c/p\u003e\n\u003cp data-line=\"202\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/debfb7a5eec7-20240705.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"204\" class=\"code-line\"\u003e物体は留まっているので、物体に掛かる力の式は\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"206\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nMg\\sin{\\frac{1}{6}π}  \\leqq u\u0027Mg\\cos{\\frac{1}{6}π}\\\\\n(※\\cos{(90 - \\theta)}=\\sin{\\theta})\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"211\" class=\"code-line\"\u003eこれを、F\u0027の力で押したとき、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"213\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nu\u0027Mg\\cos{\\frac{1}{6}π} \\leqq Mg\\sin{\\frac{1}{6}π} + F\u0027\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"216\" class=\"code-line\"\u003e上記になるような\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003eF\u0027\u003c/eq\u003e\u003c/embed-katex\u003eを求めれば、物体は動き出すので。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"218\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nF\u0027 \\geqq u\u0027Mg\\cos{\\frac{1}{6}π} - Mg\\sin{\\frac{1}{6}π}\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"222\" class=\"code-line\"\u003e上記の力で押せば、物体は動き出す。\u003c/p\u003e\n",
+    "toc":  [
+                {
+                    "id":  "%E6%A6%82%E8%A6%81",
+                    "text":  "概要",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%AE%E7%89%A9%E7%90%86%E3%81%B8%E3%81%AE%E6%8B%A1%E5%BC%B5",
+                    "text":  "ベクトルの物理への拡張",
+                    "level":  2,
+                    "children":  [
+                                     {
+                                         "id":  "%E9%80%9F%E5%BA%A6%E3%81%A8%E5%8A%A0%E9%80%9F%E5%BA%A6",
+                                         "text":  "速度と加速度",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E4%BD%8D%E7%BD%AE%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB",
+                                         "text":  "位置ベクトル",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     }
+                                 ]
+                },
+                {
+                    "id":  "%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E9%81%8B%E5%8B%95%E3%81%AE%E5%BC%8F",
+                    "text":  "ベクトルを用いた運動の式",
+                    "level":  2,
+                    "children":  [
+                                     {
+                                         "id":  "%E7%AD%89%E9%80%9F%E9%81%8B%E5%8B%95",
+                                         "text":  "等速運動",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E7%AD%89%E5%8A%A0%E9%80%9F%E5%BA%A6%E9%81%8B%E5%8B%95",
+                                         "text":  "等加速度運動",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E6%94%BE%E7%89%A9%E7%B7%9A%E3%81%AE%E9%81%8B%E5%8B%95",
+                                         "text":  "放物線の運動",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E5%8A%9B",
+                                         "text":  "力",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E5%8A%9B%E3%82%92%E7%94%A8%E3%81%84%E3%81%A6%E8%80%83%E3%81%88%E3%82%8B%E6%94%BE%E7%89%A9%E7%B7%9A%E9%81%8B%E5%8B%95(%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E5%BC%8F)",
+                                         "text":  "力を用いて考える放物線運動(ベクトルを用いた式)",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     }
+                                 ]
+                },
+                {
+                    "id":  "%E6%91%A9%E6%93%A6",
+                    "text":  "摩擦",
+                    "level":  2,
+                    "children":  [
+                                     {
+                                         "id":  "%E6%91%A9%E6%93%A6%E3%81%A8%E3%81%AF%EF%BC%9F",
+                                         "text":  "摩擦とは？",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     }
+                                 ]
+                },
+                {
+                    "id":  "%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0",
+                    "text":  "摩擦係数",
+                    "level":  2,
+                    "children":  [
+                                     {
+                                         "id":  "%E5%8B%95%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0",
+                                         "text":  "動摩擦係数",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E9%9D%99%E6%AD%A2%E6%93%A6%E4%BF%82%E6%95%B0",
+                                         "text":  "静止擦係数",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E5%8B%95%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0%E3%81%A8%E5%8B%95%E6%91%A9%E6%93%A6%E4%BF%82%E6%95%B0%E3%81%AE%E9%96%A2%E4%BF%82",
+                                         "text":  "動摩擦係数と動摩擦係数の関係",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E4%BE%8B%E9%A1%8C1(%E5%8B%95%E6%91%A9%E6%93%A6%E5%8A%9B)",
+                                         "text":  "例題1(動摩擦力)",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E4%BE%8B%E9%A1%8C2(%E9%9D%99%E6%AD%A2%E6%91%A9%E6%93%A6%E5%8A%9B)",
+                                         "text":  "例題2(静止摩擦力)",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     }
+                                 ]
+                }
+            ]
+}

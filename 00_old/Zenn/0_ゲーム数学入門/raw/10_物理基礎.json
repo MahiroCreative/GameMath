@@ -1,0 +1,111 @@
+﻿{
+    "id":  102540,
+    "post_type":  "Chapter",
+    "is_free":  false,
+    "slug":  "e1d5af",
+    "body_letters_count":  2586,
+    "source_repo_updated_at":  null,
+    "body_updated_at":  "2025-07-10T14:45:29.181+09:00",
+    "filename":  null,
+    "position":  10,
+    "path":  "/mahiro3033/books/e0fd5a3313118a/viewer/e1d5af",
+    "title":  "物理基礎",
+    "body_html":  "\u003ch2 id=\"%E6%A6%82%E8%A6%81\" data-line=\"0\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%A6%82%E8%A6%81\" aria-hidden=\"true\"\u003e\u003c/a\u003e 概要\u003c/h2\u003e\n\u003cp data-line=\"1\" class=\"code-line\"\u003eゲームにおけるプログラミングは『何らかの仮想空間の再現』と言っても過言ではありません。これは3Dのアクションゲームなどに限らず、極端な事を言ってしまえばノベルゲーム(紙芝居みたいなゲーム)のようなものでも『そういう法則の世界』を作っていると言えます。\u003cbr\u003e\n昨今のゲーム業界は3Dゲームが主流であり、またどんなジャンルのゲームであっても何らかのアクション要素があるのが一般的です。ですので、現実の物理現象に近いものをゲーム空間上でも再現することの重要性は、増すというよりは『知っていて当たり前』というレベルにまで達しています。とはいえ、物理学で学ぶ物理現象の全般を知る必要はありません。大抵の場合は力学のみで事足ります。\u003cbr\u003e\nここではゲームに必要な力学の基礎の基礎、かつクリティカルに一番必要な『速度と加速度』の部分を学んでいきます。もちろんこれだけでは十分ではありませんが、これだけでも押さえていれば何をすれば良いのか分からず五里霧中になるということを防げます。\u003cbr\u003e\nゲーム作りの足がかりの一つとして、しっかりと抑えていきましょう。\u003c/p\u003e\n\u003ch2 id=\"%E5%B7%A5%E4%BA%8B%E4%B8%AD\" data-line=\"6\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%B7%A5%E4%BA%8B%E4%B8%AD\" aria-hidden=\"true\"\u003e\u003c/a\u003e 工事中\u003c/h2\u003e\n\u003cp data-line=\"7\" class=\"code-line\"\u003eどう書くのか悩んでますので、一旦過去に書いた下記pdfリンクを貼ってお茶濁します。\u003cbr\u003e\nやりたい内容はpdfと同じです。\u003cbr style=\"display:none\"\u003e\n\u003cspan class=\"embed-block zenn-embedded zenn-embedded-github\"\u003e\u003ciframe id=\"zenn-embedded__b5de8a1c309e7\" src=\"https://embed.zenn.studio/github#zenn-embedded__b5de8a1c309e7\" data-content=\"https%3A%2F%2Fgithub.com%2FMahiroCreative%2FGameMath%2Fblob%2Fmain%2F%25E3%2582%25B2%25E3%2583%25BC%25E3%2583%25A0%25E7%2589%25A9%25E7%2590%2586%25E5%25AD%25A6%25E5%2585%25A5%25E9%2596%2580.pdf\" frameborder=\"0\" scrolling=\"no\" loading=\"lazy\"\u003e\u003c/iframe\u003e\u003c/span\u003e\u003ca href=\"https://github.com/MahiroCreative/GameMath/blob/main/%E3%82%B2%E3%83%BC%E3%83%A0%E7%89%A9%E7%90%86%E5%AD%A6%E5%85%A5%E9%96%80.pdf\" style=\"display:none\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"\u003ehttps://github.com/MahiroCreative/GameMath/blob/main/ゲーム物理学入門.pdf\u003c/a\u003e\u003c/p\u003e\n\u003ch2 id=\"%E5%86%85%E5%AE%B9%E3%81%BE%E3%81%A8%E3%82%81\" data-line=\"11\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%86%85%E5%AE%B9%E3%81%BE%E3%81%A8%E3%82%81\" aria-hidden=\"true\"\u003e\u003c/a\u003e 内容まとめ\u003c/h2\u003e\n\u003ch3 id=\"%E6%AC%A1%E5%85%83(%EF%BE%83%EF%BE%9E%EF%BD%A8%EF%BE%92%EF%BE%9D%EF%BD%BC%EF%BD%AE%EF%BE%9D)\" data-line=\"12\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%AC%A1%E5%85%83(%EF%BE%83%EF%BE%9E%EF%BD%A8%EF%BE%92%EF%BE%9D%EF%BD%BC%EF%BD%AE%EF%BE%9D)\" aria-hidden=\"true\"\u003e\u003c/a\u003e 次元(ﾃﾞｨﾒﾝｼｮﾝ)\u003c/h3\u003e\n\u003cp data-line=\"14\" class=\"code-line\"\u003e・\u003cstrong\u003e距離(x:メートル):x[m]\u003c/strong\u003e　：　メールと単位での距離[m]。\u003cbr\u003e\n・\u003cstrong\u003e時間(秒)(time:seconds):t[s]\u003c/strong\u003e　：　秒単位での時間[s]。\u003cbr\u003e\n・\u003cstrong\u003e質量(mass:キログラム):m[kg]\u003c/strong\u003e　：　kg単位での質量[kg]。\u003cbr\u003e\n・\u003cstrong\u003e速度(velocity):v[m/s]\u003c/strong\u003e　：　進んだ距離[m]をかかった時間[s]で割る。\u003cbr\u003e\n・\u003cstrong\u003e加速度:a[m/s/s]\u003c/strong\u003e　：　上昇した速度[m/s]をかかった時間[s]で割る。\u003cbr\u003e\n・\u003cstrong\u003e重力加速度:g[m/s/s]\u003c/strong\u003e　：　物体が落下するときの加速度。常に一定(およそ9.8[m/s])。\u003cbr\u003e\n・\u003cstrong\u003e力F[N]\u003c/strong\u003e　:　国際単位系での力の単位がN(ニュートン)。力は質量のある物体に加速度がかか\u003cbr\u003e\nることで生まれる(もしくは力は質量のある物体に加速度を生む)。[N]=[kg*m/s]。\u003c/p\u003e\n\u003ch3 id=\"%E6%B0%B4%E5%B9%B3%E6%96%B9%E5%90%91%E3%81%AE%E9%81%8B%E5%8B%95(%E7%AD%89%E9%80%9F%E5%BA%A6%E9%81%8B%E5%8B%95)\" data-line=\"23\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%B0%B4%E5%B9%B3%E6%96%B9%E5%90%91%E3%81%AE%E9%81%8B%E5%8B%95(%E7%AD%89%E9%80%9F%E5%BA%A6%E9%81%8B%E5%8B%95)\" aria-hidden=\"true\"\u003e\u003c/a\u003e 水平方向の運動(等速度運動)\u003c/h3\u003e\n\u003cp data-line=\"24\" class=\"code-line\"\u003e初期位置:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ex_0[m]\u003c/eq\u003e\u003c/embed-katex\u003e\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"26\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nx = x_0 + v_0t\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch3 id=\"%E6%B0%B4%E5%B9%B3%E6%96%B9%E5%90%91%E3%81%AE%E9%81%8B%E5%8B%95(%E7%AD%89%E5%8A%A0%E9%80%9F%E5%BA%A6%E9%81%8B%E5%8B%95)\" data-line=\"30\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%B0%B4%E5%B9%B3%E6%96%B9%E5%90%91%E3%81%AE%E9%81%8B%E5%8B%95(%E7%AD%89%E5%8A%A0%E9%80%9F%E5%BA%A6%E9%81%8B%E5%8B%95)\" aria-hidden=\"true\"\u003e\u003c/a\u003e 水平方向の運動(等加速度運動)\u003c/h3\u003e\n\u003cp data-line=\"31\" class=\"code-line\"\u003e初期位置:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ex_0[m]\u003c/eq\u003e\u003c/embed-katex\u003e,初速度:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ev_0[m/s]\u003c/eq\u003e\u003c/embed-katex\u003e\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"33\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nx = x_0 + \\frac{1}{2}at^2 + v_0t\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch3 id=\"%E8%90%BD%E4%BD%93%E3%81%AE%E9%81%8B%E5%8B%95\" data-line=\"37\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E8%90%BD%E4%BD%93%E3%81%AE%E9%81%8B%E5%8B%95\" aria-hidden=\"true\"\u003e\u003c/a\u003e 落体の運動\u003c/h3\u003e\n\u003cp data-line=\"38\" class=\"code-line\"\u003e初期位置(高さ):\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ey_0[m]\u003c/eq\u003e\u003c/embed-katex\u003e,垂直方向の初速度:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ev_0[m/s]\u003c/eq\u003e\u003c/embed-katex\u003e\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"40\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\ny = y_0 + \\frac{1}{2}gt^2 + v_0t\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch3 id=\"%E6%94%BE%E7%89%A9%E7%B7%9A%E3%81%AE%E9%81%8B%E5%8B%95\" data-line=\"44\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%94%BE%E7%89%A9%E7%B7%9A%E3%81%AE%E9%81%8B%E5%8B%95\" aria-hidden=\"true\"\u003e\u003c/a\u003e 放物線の運動\u003c/h3\u003e\n\u003cp data-line=\"45\" class=\"code-line\"\u003ex初期位置:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ex_0[m]\u003c/eq\u003e\u003c/embed-katex\u003e,y初期位置:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ey_0[m]\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\n水平方向の初速度:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ev_{x0}[m/s]\u003c/eq\u003e\u003c/embed-katex\u003e,垂直方向の初速度:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ev_{y0}[m/s]\u003c/eq\u003e\u003c/embed-katex\u003e\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"48\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nx = x_0 + \\frac{1}{2}at^2 + v_{x0}t\\\\\ny = y_0 + \\frac{1}{2}gt^2 + v_{y0}t\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch3 id=\"%E5%8A%9B\" data-line=\"53\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%8A%9B\" aria-hidden=\"true\"\u003e\u003c/a\u003e 力\u003c/h3\u003e\n\u003cp data-line=\"54\" class=\"code-line\"\u003e力は加速度から生まれ、加速度は力から生まれる。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"56\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nF[N] = m[kg] * a[m/s] = ma[kg*m/s]\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"59\" class=\"code-line\"\u003e上記の式の意味は、m[kg]であり加速度a[m/s]で動いている物体はF[N]の力を持つということである。\u003cbr\u003e\nつまり、m[kg]の物体にF[N]の力を加え続けると\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003e\\frac{F}{m}[m/s]\u003c/eq\u003e\u003c/embed-katex\u003eで加速する。\u003c/p\u003e\n\u003ch3 id=\"%E9%80%9F%E5%BA%A6%E3%81%A8%E5%8A%A0%E9%80%9F%E5%BA%A6%E3%81%A8%E5%8A%9B%E3%81%AE%E5%88%86%E8%A7%A3\" data-line=\"62\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E9%80%9F%E5%BA%A6%E3%81%A8%E5%8A%A0%E9%80%9F%E5%BA%A6%E3%81%A8%E5%8A%9B%E3%81%AE%E5%88%86%E8%A7%A3\" aria-hidden=\"true\"\u003e\u003c/a\u003e 速度と加速度と力の分解\u003c/h3\u003e\n\u003cp data-line=\"63\" class=\"code-line\"\u003e速度と加速度と力は方向を持つ量です。つまりベクトルです。\u003cbr\u003e\nなので分解ができます。\u003cbr\u003e\n\u003cimg src=\"https://static.zenn.studio/user-upload/c1b8faf5a5d2-20240619.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"67\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nF_1 = F*sinθ\\\\\nF_2 = F*cosθ\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"72\" class=\"code-line\"\u003e上記は力での例ですが、速度と加速度も同様に分解できます。\u003c/p\u003e\n\u003ch3 id=\"%E5%8A%9B%E3%82%92%E7%94%A8%E3%81%84%E3%81%A6%E8%80%83%E3%81%88%E3%82%8B%E6%94%BE%E7%89%A9%E7%B7%9A%E9%81%8B%E5%8B%95\" data-line=\"74\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%8A%9B%E3%82%92%E7%94%A8%E3%81%84%E3%81%A6%E8%80%83%E3%81%88%E3%82%8B%E6%94%BE%E7%89%A9%E7%B7%9A%E9%81%8B%E5%8B%95\" aria-hidden=\"true\"\u003e\u003c/a\u003e 力を用いて考える放物線運動\u003c/h3\u003e\n\u003cp data-line=\"75\" class=\"code-line\"\u003e質量:m[kg],重力加速度g[m/s/s]\u003cbr\u003e\n初期位置:P(\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ex_0\u003c/eq\u003e\u003c/embed-katex\u003e,\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003ey_0\u003c/eq\u003e\u003c/embed-katex\u003e)[m],力:F[N],力の角度:θ[rad]\u003cbr\u003e\n初速度:V[m/s],速度の角度:θ[rad]\u003cbr\u003e\n初期加速度は無いとする。\u003c/p\u003e\n\u003cp data-line=\"80\" class=\"code-line\"\u003e分解すると、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"82\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nF_x = Fcosθ\\\\\nF_y = Fsinθ\\\\\nV_x = Vcosθ\\\\\nV_y = Vsinθ\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"88\" class=\"code-line\"\u003eよって、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"90\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\na_x=\\frac{Fcosθ}{m}\\\\\na_y=g +\\frac{Fsinθ}{m}\\\\\n(※垂直方向には重力加速度も掛かっている)\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"96\" class=\"code-line\"\u003e以上により、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"98\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nx = x_0 + \\frac{1}{2}(\\frac{Fcosθ}{m})t^2 + Vcosθ *t\\\\\ny = y_0 + \\frac{1}{2}(g +\\frac{Fsinθ}{m})t^2 + Vsinθ *t\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch3 id=\"%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E5%BC%8F\" data-line=\"105\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E5%BC%8F\" aria-hidden=\"true\"\u003e\u003c/a\u003e ベクトルを用いた式\u003c/h3\u003e\n\u003cp data-line=\"106\" class=\"code-line\"\u003e上記のように分解により全てスカラー値に直すとややこしい式になってしまう。\u003cbr\u003e\nそのため、通常は全てベクトルのまま計算する。そうすると以下のようなシンプルな式で計算できる。\u003c/p\u003e\n\u003cp data-line=\"109\" class=\"code-line\"\u003e求める座標:P\u003cbr\u003e\n初期座標：\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003eP_0\u003c/eq\u003e\u003c/embed-katex\u003e\u003cbr\u003e\n加速度:A\u003cbr\u003e\n初速度:\u003cembed-katex\u003e\u003ceq class=\"zenn-katex\"\u003eV_0\u003c/eq\u003e\u003c/embed-katex\u003e\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"114\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nP = P_0 + \\frac{1}{2}At^2 + V_0t \\\\\n(※Pはx,y座標)\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"119\" class=\"code-line\"\u003e加速度を用いずに質量m[kg],力F[N]を用いたとすると、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"121\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nA = \\frac{F}{m}\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"124\" class=\"code-line\"\u003eであるので、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"126\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\nP = P_0 + \\frac{1}{2}\\frac{F}{m}t^2 + V_0t \\\\\n(※Pはx,y座標)\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"131\" class=\"code-line\"\u003eベクトルについて詳しくはベクトルの章で解説する。\u003c/p\u003e\n",
+    "toc":  [
+                {
+                    "id":  "%E6%A6%82%E8%A6%81",
+                    "text":  "概要",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E5%B7%A5%E4%BA%8B%E4%B8%AD",
+                    "text":  "工事中",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E5%86%85%E5%AE%B9%E3%81%BE%E3%81%A8%E3%82%81",
+                    "text":  "内容まとめ",
+                    "level":  2,
+                    "children":  [
+                                     {
+                                         "id":  "%E6%AC%A1%E5%85%83(%EF%BE%83%EF%BE%9E%EF%BD%A8%EF%BE%92%EF%BE%9D%EF%BD%BC%EF%BD%AE%EF%BE%9D)",
+                                         "text":  "次元(ﾃﾞｨﾒﾝｼｮﾝ)",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E6%B0%B4%E5%B9%B3%E6%96%B9%E5%90%91%E3%81%AE%E9%81%8B%E5%8B%95(%E7%AD%89%E9%80%9F%E5%BA%A6%E9%81%8B%E5%8B%95)",
+                                         "text":  "水平方向の運動(等速度運動)",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E6%B0%B4%E5%B9%B3%E6%96%B9%E5%90%91%E3%81%AE%E9%81%8B%E5%8B%95(%E7%AD%89%E5%8A%A0%E9%80%9F%E5%BA%A6%E9%81%8B%E5%8B%95)",
+                                         "text":  "水平方向の運動(等加速度運動)",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E8%90%BD%E4%BD%93%E3%81%AE%E9%81%8B%E5%8B%95",
+                                         "text":  "落体の運動",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E6%94%BE%E7%89%A9%E7%B7%9A%E3%81%AE%E9%81%8B%E5%8B%95",
+                                         "text":  "放物線の運動",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E5%8A%9B",
+                                         "text":  "力",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E9%80%9F%E5%BA%A6%E3%81%A8%E5%8A%A0%E9%80%9F%E5%BA%A6%E3%81%A8%E5%8A%9B%E3%81%AE%E5%88%86%E8%A7%A3",
+                                         "text":  "速度と加速度と力の分解",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E5%8A%9B%E3%82%92%E7%94%A8%E3%81%84%E3%81%A6%E8%80%83%E3%81%88%E3%82%8B%E6%94%BE%E7%89%A9%E7%B7%9A%E9%81%8B%E5%8B%95",
+                                         "text":  "力を用いて考える放物線運動",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     },
+                                     {
+                                         "id":  "%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E5%BC%8F",
+                                         "text":  "ベクトルを用いた式",
+                                         "level":  3,
+                                         "children":  [
+
+                                                      ]
+                                     }
+                                 ]
+                }
+            ]
+}

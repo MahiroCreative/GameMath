@@ -1,0 +1,80 @@
+﻿{
+    "id":  64768,
+    "post_type":  "Chapter",
+    "is_free":  false,
+    "slug":  "0ec074",
+    "body_letters_count":  2955,
+    "source_repo_updated_at":  null,
+    "body_updated_at":  "2024-04-11T14:38:03.305+09:00",
+    "filename":  null,
+    "position":  7,
+    "path":  "/mahiro3033/books/e0fd5a3313118a/viewer/0ec074",
+    "title":  "三角比",
+    "body_html":  "\u003ch2 id=\"%E6%A6%82%E8%A6%81\" data-line=\"0\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E6%A6%82%E8%A6%81\" aria-hidden=\"true\"\u003e\u003c/a\u003e 概要\u003c/h2\u003e\n\u003cp data-line=\"1\" class=\"code-line\"\u003eここでは角度を考える上での基礎となる三角比に関して解説します。角度は傾きを表すものであり、それを拡張して回転なども考えることとなります。物体の運動を考える際に『どれほど傾いているか』または『どのように回転しているか』というのは絶対に必要です。このあたりから躓いてしまう学生が増えますが、大事な部分なので必ず理解しましょう。\u003c/p\u003e\n\u003ch2 id=\"%E3%83%A9%E3%82%B8%E3%82%A2%E3%83%B3(%E5%BC%A7%E5%BA%A6%E6%B3%95)\" data-line=\"3\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E3%83%A9%E3%82%B8%E3%82%A2%E3%83%B3(%E5%BC%A7%E5%BA%A6%E6%B3%95)\" aria-hidden=\"true\"\u003e\u003c/a\u003e ラジアン(弧度法)\u003c/h2\u003e\n\u003cp data-line=\"4\" class=\"code-line\"\u003e三角比に入る前に、まずラジアンという概念について話す。\u003cbr\u003e\nラジアン[rad]とは\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"7\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n\\bm{ラジアン[rad] = 円の孤の長さ(L) ÷ 円の半径(R)}\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"10\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/449bd7014f22-20240327.png\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003cbr\u003e\nの事である。『円の孤の長さ』は『円の半径』と比例して増減するので、同じ角度であればradは円の大きさに関わらず一致する。つまり、radとは角度と同じ物を表すものだと分かり、度数法とは別の角の大きさを表す物がラジアン(弧度法)である。\u003c/p\u003e\n\u003ch2 id=\"%E5%86%86%E5%91%A8%E7%8E%87(%CF%80---%E3%83%91%E3%82%A4)\" data-line=\"13\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%86%86%E5%91%A8%E7%8E%87(%CF%80---%E3%83%91%E3%82%A4)\" aria-hidden=\"true\"\u003e\u003c/a\u003e 円周率(π - パイ)\u003c/h2\u003e\n\u003cp data-line=\"14\" class=\"code-line\"\u003e円周率は弧度法で表した180度であり、π(パイ)と記述する。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"16\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n\\bm{π[rad] = 180度 = 3.14159265359....}\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"20\" class=\"code-line\"\u003e円周率を用いることで、円の円周や面積を出すことが出来る。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"22\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n\\bm{円周の長さ = 直径 * 3.14...}\\\\\n\\bm{円の面積　= 半径 * 半径 * 3.14...}\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"26\" class=\"code-line\"\u003eこれをπで表すと、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"28\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n\\bm{円周の長さ = 2πr}\\\\\n\\bm{円の面積　= πr^2}\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"32\" class=\"code-line\"\u003eとなる。\u003c/p\u003e\n\u003ch2 id=\"%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%A8%E3%81%AF\" data-line=\"34\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%A8%E3%81%AF\" aria-hidden=\"true\"\u003e\u003c/a\u003e 三角比とは\u003c/h2\u003e\n\u003cp data-line=\"35\" class=\"code-line\"\u003e『三角比』の名前から分かるように、\u003cstrong\u003e三角形に関する比率を表す\u003c/strong\u003eのが\u003cstrong\u003e三角比\u003c/strong\u003eであるが、三角比を直接考える前に\u003cstrong\u003e三角形の比率\u003c/strong\u003eに関して考えてみる。\u003c/p\u003e\n\u003cp data-line=\"37\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/5ae0c0ec4350-20240327.png\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"39\" class=\"code-line\"\u003e仮に1:2:3の比率の三角形があれば、何倍にしようと比率は同じままである。これは三角形に限らず全ての図形で成り立つことであり、比率が同じということは図形のそれぞれの角が同じということである。\u003cbr\u003e\nそれぞれの角が同じなら比率は同じなので、どこかの辺の長さがわかれば残りの辺の長さも求められる。\u003c/p\u003e\n\u003cp data-line=\"42\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/d15bd5263f68-20240327.png\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"44\" class=\"code-line\"\u003eこのことから、三角形の辺の比率は角度が分かれば分かり、特に\u003cstrong\u003e直角三角形\u003c/strong\u003eの場合は\u003cstrong\u003e90度以外の角が一つでも分かれば比率を求められる\u003c/strong\u003e事が分かる。つまり、角度が分かれば『各辺の比率』が分かり、さらに1辺でも求まれば『各辺の長さ』も分かることになる。\u003cbr\u003e\nこれらの計算に使う値こそが\u003cstrong\u003e三角比\u003c/strong\u003eである。\u003c/p\u003e\n\u003ch2 id=\"%E4%B8%89%E8%A7%92%E6%AF%94\" data-line=\"47\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E4%B8%89%E8%A7%92%E6%AF%94\" aria-hidden=\"true\"\u003e\u003c/a\u003e 三角比\u003c/h2\u003e\n\u003cp data-line=\"48\" class=\"code-line\"\u003e三角比とは三角形に関する比率を表すと解説したが、特に以下の値が\u003cstrong\u003e三角比\u003c/strong\u003eと呼ばれる。\u003c/p\u003e\n\u003cp data-line=\"50\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/de5c9dda6afd-20240327.png\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"52\" class=\"code-line\"\u003eそれぞれ、sin(サイン),cos(コサイン),tan(タンジェント)と言う。\u003cbr\u003e\n角度をθとすると、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"55\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n\\bm{sinθ = 角度θの時『斜辺を掛けると高さが出る』値}\\\\\n\\bm{cosθ = 角度θの時『斜辺を掛けると底辺が出る』値}\\\\\n\\bm{tanθ = 角度θの時『底辺を掛けると高さが出る』値}\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"61\" class=\"code-line\"\u003eという値である。\u003cbr\u003e\n計算の仕方としては、以下のように覚えると良い。\u003c/p\u003e\n\u003cp data-line=\"64\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/9456f706f7b1-20240327.png\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"66\" class=\"code-line\"\u003eつまり、三角比とは\u003cstrong\u003e任意の辺を掛けると求めたい辺が出る\u003c/strong\u003e値のことである。\u003c/p\u003e\n\u003ch2 id=\"%E7%89%B9%E3%81%AB%E8%A6%9A%E3%81%88%E3%81%A6%E3%81%8A%E3%81%8F%E3%81%B9%E3%81%8D%E4%B8%89%E8%A7%92%E6%AF%94\" data-line=\"68\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E7%89%B9%E3%81%AB%E8%A6%9A%E3%81%88%E3%81%A6%E3%81%8A%E3%81%8F%E3%81%B9%E3%81%8D%E4%B8%89%E8%A7%92%E6%AF%94\" aria-hidden=\"true\"\u003e\u003c/a\u003e 特に覚えておくべき三角比\u003c/h2\u003e\n\u003cp data-line=\"69\" class=\"code-line\"\u003e『以下の３つの直角三角形とその三角比は比率とともに覚えておいて欲しい(上下は同じもの)。\u003cbr\u003e\nこの3種の三角形の比率から求められる数値をベースに、大体の計算が行える。\u003c/p\u003e\n\u003cp data-line=\"72\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/853d21d7d261-20240327.png\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"74\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n　sin\\frac{π}{6} = \\frac{1}{2},\n　cos\\frac{π}{6} = \\frac{\\sqrt{3}}{2},\n　tan\\frac{π}{6} = \\frac{1}{\\sqrt{3}}\\\\\n　sin\\frac{π}{4} = \\frac{1}{\\sqrt{2}},\n　cos\\frac{π}{4} = \\frac{1}{\\sqrt{2}},\n　tan\\frac{π}{4} = 1\\\\\n　sin\\frac{π}{3} = \\frac{\\sqrt{3}}{2},\n　cos\\frac{π}{3} = \\frac{1}{2},\n　tan\\frac{π}{3} = \\sqrt{3}\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003ch2 id=\"%E5%8D%98%E4%BD%8D%E5%86%86%E3%81%AE%E4%B8%89%E8%A7%92%E6%AF%94\" data-line=\"86\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E5%8D%98%E4%BD%8D%E5%86%86%E3%81%AE%E4%B8%89%E8%A7%92%E6%AF%94\" aria-hidden=\"true\"\u003e\u003c/a\u003e 単位円の三角比\u003c/h2\u003e\n\u003cp data-line=\"87\" class=\"code-line\"\u003e三角比を用いて計算を行う際に、基準となる数値があると便利である。そのため、基準として\u003cstrong\u003e斜辺を1とした直角三角形\u003c/strong\u003eが使われるようになった。これが　\u003cstrong\u003e単位円の三角比\u003c/strong\u003e である。\u003c/p\u003e\n\u003cp data-line=\"89\" class=\"code-line\"\u003e\u003cimg src=\"https://static.zenn.studio/user-upload/65e4c060099d-20240327.jpg\" alt=\"\" class=\"md-img\" loading=\"lazy\"\u003e\u003c/p\u003e\n\u003cp data-line=\"91\" class=\"code-line\"\u003e単位円ベースで考えることで、常に斜辺は1として考えられる。三角比を考える際には基本的にこの \u003cstrong\u003e単位円の三角比\u003c/strong\u003e　として考えると良い。\u003cbr\u003e\n上図で考えるとわかりやすいが、結局のところ\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"94\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n\\bm{cosθ = x座標}\\\\\n\\bm{sinθ = y座標}\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"99\" class=\"code-line\"\u003eであることが分かるので、斜辺を1にすることで特に整理することなく直角三角形の比率を求めることができ、計算の簡便化が行える。\u003c/p\u003e\n\u003ch2 id=\"%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%AE%E6%80%A7%E8%B3%AA\" data-line=\"101\" class=\"code-line\"\u003e\n\u003ca class=\"header-anchor-link\" href=\"#%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%AE%E6%80%A7%E8%B3%AA\" aria-hidden=\"true\"\u003e\u003c/a\u003e 三角比の性質\u003c/h2\u003e\n\u003cp data-line=\"102\" class=\"code-line\"\u003e単位円で三角比を考えることにより、以下が分かる。\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"104\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\ntanθ = \\frac{y座標}{x座標} = \\frac{sinθ}{cosθ}\\\\\n(sinθ)^2 + (cosθ)^2 = (\\frac{y座標}{斜辺})^2 + (\\frac{x座標}{斜辺})^2\n= \\frac{(y座標)^2 + (x座標)^2}{(斜辺)^2}\\\\\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"110\" class=\"code-line\"\u003e単位円なので斜辺は１であり、三平方の定理より\u003c/p\u003e\u003csection class=\"zenn-katex\"\u003e\u003cembed-katex display-mode=\"1\"\u003e\u003ceqn\u003e(y座標)^2 + (x座標)^2=1\u003c/eqn\u003e\u003c/embed-katex\u003e\u003c/section\u003eなので、\u003cp\u003e\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"112\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n\\frac{(y座標)^2 + (x座標)^2}{(斜辺)^2} = 1\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"116\" class=\"code-line\"\u003eまとめると、\u003c/p\u003e\n\u003csection class=\"zenn-katex code-line\" data-line=\"118\"\u003e\u003ceqn\u003e\u003cembed-katex display-mode=\"1\"\u003e\n\\bm{tanθ = \\frac{sinθ}{cosθ}}\\\\\n\\bm{(sinθ)^2 + (cosθ)^2 = 1}\n\u003c/embed-katex\u003e\u003c/eqn\u003e\u003c/section\u003e\n\u003cp data-line=\"123\" class=\"code-line\"\u003eこの２つの性質だけは最低限覚えておいて欲しい。\u003c/p\u003e\n",
+    "toc":  [
+                {
+                    "id":  "%E6%A6%82%E8%A6%81",
+                    "text":  "概要",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E3%83%A9%E3%82%B8%E3%82%A2%E3%83%B3(%E5%BC%A7%E5%BA%A6%E6%B3%95)",
+                    "text":  "ラジアン(弧度法)",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E5%86%86%E5%91%A8%E7%8E%87(%CF%80---%E3%83%91%E3%82%A4)",
+                    "text":  "円周率(π - パイ)",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%A8%E3%81%AF",
+                    "text":  "三角比とは",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E4%B8%89%E8%A7%92%E6%AF%94",
+                    "text":  "三角比",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E7%89%B9%E3%81%AB%E8%A6%9A%E3%81%88%E3%81%A6%E3%81%8A%E3%81%8F%E3%81%B9%E3%81%8D%E4%B8%89%E8%A7%92%E6%AF%94",
+                    "text":  "特に覚えておくべき三角比",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E5%8D%98%E4%BD%8D%E5%86%86%E3%81%AE%E4%B8%89%E8%A7%92%E6%AF%94",
+                    "text":  "単位円の三角比",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                },
+                {
+                    "id":  "%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%AE%E6%80%A7%E8%B3%AA",
+                    "text":  "三角比の性質",
+                    "level":  2,
+                    "children":  [
+
+                                 ]
+                }
+            ]
+}
